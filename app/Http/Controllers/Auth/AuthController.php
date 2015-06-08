@@ -47,7 +47,21 @@ class AuthController extends Controller {
 
 	    if ($this->auth->attempt($credentials, $request->has('remember')))
 	    {
-	        return redirect()->intended($this->redirectPath());
+	        if($this->auth->User()->role == 'admin')
+            {
+                return redirect('admin/dashboard');
+            }
+            else if($this->auth->User()->role == 'owner')
+            {
+            	return redirect('owner/dashboard');
+            }
+            else
+            {
+                //have to log out since our data is cached and we're already logged in but we find the account is inactive !
+                $this->auth->logout();
+                //now we are logged out, we can redirect with message we want, if we did not log out the middleware recognize us as NON GUEST account !
+                return redirect('/auth/login')->withInput($request->only('username'))->withErrors(['email' => 'Your Account is not active',]); 
+            }
 	    }
 
 	    return redirect($this->loginPath())

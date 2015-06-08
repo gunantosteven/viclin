@@ -12,13 +12,15 @@ class UsersTableSeederTableSeeder extends Seeder {
 		\App\Models\User::create(array(
 		'username' => 'admin',
 		'password' => Hash::make('admin'),
-		'namauser' => 'superuser',
+		'namauser' => 'steven',
+		'role' => 'admin',
 		));
 
 		\App\Models\User::create(array(
 		'username' => 'owner',
 		'password' => Hash::make('owner'),
-		'namauser' => 'owner',
+		'namauser' => 'yonathan',
+		'role' => 'owner',
 		));
 	}
 }
