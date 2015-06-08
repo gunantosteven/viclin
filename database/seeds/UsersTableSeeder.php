@@ -9,13 +9,13 @@ class UsersTableSeederTableSeeder extends Seeder {
 		// kosongkan data tabel Users
 		DB::table('users')->delete();
 		// buat data users
-		\App\Models\Users::create(array(
+		\App\Models\User::create(array(
 		'username' => 'admin',
 		'password' => Hash::make('admin'),
 		'namauser' => 'superuser',
 		));
 
-		\App\Models\Users::create(array(
+		\App\Models\User::create(array(
 		'username' => 'owner',
 		'password' => Hash::make('owner'),
 		'namauser' => 'owner',

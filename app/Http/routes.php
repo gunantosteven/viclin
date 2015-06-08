@@ -26,6 +26,7 @@ Route::get('createdb',function(){
 		$table->string('username',32);
 		$table->string('password',60);
 		$table->string('namauser',30);
+		$table->string('remember_token',60);
 		$table->timestamps();
 	});
 	return "tables has been created";
