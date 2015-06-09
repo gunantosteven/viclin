@@ -33,15 +33,37 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
+					<li><a href="{{ url('admin/dashboard') }}">Home</a></li>
 					<li class="dropdown">
-			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data <span class="caret"></span></a>
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data<span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
-			            <li><a href="#">Input Customer</a></li>
-			            <li><a href="#">View Customer</a></li>
+			            <li><a href="{{url('admin/customers/create')}}">Input Customer</a></li>
+			            <li><a href="{{url('admin/customers')}}">View Customer</a></li>
 			            <li><a href="#">Stock</a></li>
 			          </ul>
 			        </li>
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Faktur Penjualan<span class="caret"></span></a>
+			          <ul class="dropdown-menu" role="menu">
+			            <li><a href="#">Input Faktur Penjualan</a></li>
+			            <li><a href="#">Cetak Faktur Penjualan</a></li>
+			            <li><a href="#">Revisi Faktur Penjualan</a></li>
+			            <li><a href="#">Revisi Per Faktur Penjualan</a></li>
+			            <li class="divider"></li>
+			            <li><a href="#">Input Biaya Penyusutan</a></li>
+			            <li><a href="#">Revisi Biaya Penyusutan</a></li>
+			            <li class="divider"></li>
+			            <li><a href="#">Cetak Surat Jalan</a></li>
+			          </ul>
+			        </li>
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Biaya Operasional<span class="caret"></span></a>
+			          <ul class="dropdown-menu" role="menu">
+			          	<li><a href="#">Bensin</a></li>
+			          	<li><a href="#">Gaji Karyawan</a></li>
+			          	<li><a href="#">Lain-Lain</a></li>
+			         </ul>
+			         </li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right">

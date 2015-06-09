@@ -33,7 +33,7 @@
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
+					<li><a href="{{ url('/owner/dashboard') }}">Home</a></li>
 					<li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data<span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
@@ -43,6 +43,25 @@
 			            <li><a href="#">Stock</a></li>
 			            <li><a href="#">Revisi</a></li>
 			            <li><a href="#">Retur</a></li>
+			          </ul>
+			        </li>
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Faktur Pembelian<span class="caret"></span></a>
+			          <ul class="dropdown-menu" role="menu">
+			            <li><a href="#">Input Faktur Pembelian</a></li>
+			            <li><a href="#">Revisi Faktur Pembelian</a></li>
+			            <li><a href="#">Retur Faktur Pembelian</a></li>
+			            <li class="divider"></li>
+			            <li><a href="#">Input Biaya Penyusutan</a></li>
+			            <li><a href="#">Revisi Biaya Penyusutan</a></li>
+			          </ul>
+			        </li>
+			        <li class="dropdown">
+			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Laporan<span class="caret"></span></a>
+			          <ul class="dropdown-menu" role="menu">
+			            <li><a href="#">Laporan Penjualan Per Periode</a></li>
+			            <li><a href="#">Laporan Pembelian Per Periode</a></li>
+			            <li><a href="#">Laporan Laba Rugi Per Periode</a></li>
 			          </ul>
 			        </li>
 				</ul>

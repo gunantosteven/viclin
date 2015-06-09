@@ -39,6 +39,7 @@ Route::group(['middleware' => 'admin'], function()
     });
 
     Route::get('/admin/dashboard', 'Admin\DashboardController@index');
+    Route::resource('/admin/customers','Admin\CustomerController');
 
 });
 
@@ -51,6 +52,17 @@ Route::get('createdb',function(){
 		$table->string('namauser',30);
 		$table->string('role', 30);
 		$table->string('remember_token',60);
+		$table->timestamps();
+	});
+	Schema::create('customers',function($table){
+		$table->bigIncrements('id');
+		$table->string('nikcust',30);
+		$table->string('namacust',30);
+		$table->string('alamatcust',30);
+		$table->string('telpcust',20);
+		$table->string('kotacust', 20);
+		$table->string('emailcust',30);
+		$table->float('limitcust');
 		$table->timestamps();
 	});
 	return "tables has been created";
