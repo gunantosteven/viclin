@@ -1,12 +1,12 @@
 <?php namespace App\Http\Controllers\Admin;
 
-use App\Models\Customer;
+use App\Models\Item;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Request;
 
-class CustomerController extends Controller {
+class ItemController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,8 +16,8 @@ class CustomerController extends Controller {
 	public function index()
 	{
 		//
-		$customers = Customer::all();
-		return view('admin.customers.index', compact('customers'));
+		$items = Item::all();
+		return view('admin.items.index', compact('items'));
 	}
 
 	/**
@@ -28,7 +28,6 @@ class CustomerController extends Controller {
 	public function create()
 	{
 		//
-		return view('admin.customers.create');
 	}
 
 	/**
@@ -39,9 +38,6 @@ class CustomerController extends Controller {
 	public function store()
 	{
 		//
-		$customer=Request::all();
-   		Customer::create($customer);
-   		return redirect('admin/customers');
 	}
 
 	/**
@@ -53,8 +49,8 @@ class CustomerController extends Controller {
 	public function show($id)
 	{
 		//
-		$customer=Customer::find($id);
-   		return view('admin.customers.show',compact('customer'));
+		$item=Item::find($id);
+   		return view('admin.items.show',compact('item'));
 	}
 
 	/**
@@ -66,8 +62,6 @@ class CustomerController extends Controller {
 	public function edit($id)
 	{
 		//
-		$customer=Customer::find($id);
-   		return view('admin.customers.edit',compact('customer'));
 	}
 
 	/**
@@ -79,10 +73,6 @@ class CustomerController extends Controller {
 	public function update($id)
 	{
 		//
-		$customerUpdate=Request::all();
-   		$customer=Customer::find($id);
-   		$customer->update($customerUpdate);
-   		return redirect('admin/customers');
 	}
 
 	/**
@@ -94,8 +84,6 @@ class CustomerController extends Controller {
 	public function destroy($id)
 	{
 		//
-		Customer::find($id)->delete();
-   		return redirect('admin/customers');
 	}
 
 }

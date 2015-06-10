@@ -39,7 +39,7 @@
 			          <ul class="dropdown-menu" role="menu">
 			            <li><a href="{{url('admin/customers/create')}}">Input Customer</a></li>
 			            <li><a href="{{url('admin/customers')}}">View Customer</a></li>
-			            <li><a href="#">Stock</a></li>
+			            <li><a href="{{url('admin/items')}}">Stock</a></li>
 			          </ul>
 			        </li>
 			        <li class="dropdown">

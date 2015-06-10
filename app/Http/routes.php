@@ -40,7 +40,7 @@ Route::group(['middleware' => 'admin'], function()
 
     Route::get('/admin/dashboard', 'Admin\DashboardController@index');
     Route::resource('/admin/customers','Admin\CustomerController');
-
+    Route::resource('/admin/items','Admin\ItemController');
 });
 
 
@@ -56,13 +56,30 @@ Route::get('createdb',function(){
 	});
 	Schema::create('customers',function($table){
 		$table->bigIncrements('id');
-		$table->string('nikcust',30);
+		$table->string('nikcust',30)->unique();
 		$table->string('namacust',30);
 		$table->string('alamatcust',30);
 		$table->string('telpcust',20);
 		$table->string('kotacust', 20);
 		$table->string('emailcust',30);
 		$table->float('limitcust');
+		$table->timestamps();
+	});
+	Schema::create('categories',function($table){
+		$table->increments('id');
+		$table->string('kodekategori',10)->unique();
+		$table->string('namakategori',60);
+		$table->timestamps();
+	});
+	Schema::create('items',function($table){
+		$table->bigIncrements('id');
+		$table->string('kodebrg',20)->unique();
+		$table->unsignedInteger('id_category');
+		$table->foreign('id_category')->references('id')->on('categories');
+		$table->string('namabrg',30);
+		$table->float('stokkg');
+		$table->string('status',20);
+		$table->float('stokbrg');
 		$table->timestamps();
 	});
 	return "tables has been created";
