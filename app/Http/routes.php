@@ -53,6 +53,8 @@ Route::group(['middleware' => 'admin'], function()
 
     Route::resource('/admin/penyusutan','Admin\PenyusutanController');
 
+     Route::resource('/admin/cetak/suratjalan','Admin\Cetak\SuratJalanController');
+
 });
 
 
