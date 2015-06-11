@@ -30,10 +30,19 @@
             </tr>
 
             @endforeach
+            </td>
          @endif
          </tbody>
 
+
      </table>
+     @if (Session::has('salesitems') && count(Session::get('salesitems')) > 0) 
+         {!! Form::open(['method' => 'DELETE', 'route'=>['admin.sales.detailinputfaktur.destroy', -1 ]]) !!}
+         {!! Form::submit('Delete All', ['class' => 'btn btn-danger pull-right']) !!}
+         {!! Form::close() !!}
+     @endif
+     <br>
+
      {!! Form::open(['url' => 'admin/sales/detailinputfaktur']) !!}
         <div class="form-group">
             {!! Form::label('kodebrg', 'Kode Barang:') !!}

@@ -5,7 +5,6 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use Session;
-use Log;
 
 class DetailInputFakturController extends Controller {
 
@@ -48,7 +47,6 @@ class DetailInputFakturController extends Controller {
           'status' => $request->input('status'),
           'id' => $id
       	]);
-      	Log::info($id);
 		return redirect('admin/sales/inputfaktur');
 	}
 
@@ -94,6 +92,13 @@ class DetailInputFakturController extends Controller {
 	public function destroy($id)
 	{
 		//
+		if($id == -1)
+		{
+			Session::forget('salesitems');
+
+			return redirect('admin/sales/inputfaktur');
+		}
+
 		$salesitems = Session::get('salesitems');
 		foreach ($salesitems as $index => $item) {
 			if ($item['id'] == $id) {
