@@ -29,6 +29,8 @@ Route::group(['middleware' => 'owner'], function()
 
     Route::get('/owner/dashboard', 'Owner\DashboardController@index');
 
+    Route::resource('/owner/items','Owner\ItemController');
+
 });
 
 Route::group(['middleware' => 'admin'], function()

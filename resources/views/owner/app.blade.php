@@ -37,7 +37,7 @@
 					<li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Data<span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
-			            <li><a href="#">Produk</a></li>
+			            <li><a href="{{ url('/owner/items') }}">Produk</a></li>
 			            <li><a href="#">Customer</a></li>
 			            <li><a href="#">Supplier</a></li>
 			            <li><a href="#">Stock</a></li>
