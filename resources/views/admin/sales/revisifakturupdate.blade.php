@@ -95,10 +95,6 @@
             {!! Form::text('biayasteroform',null,['class'=>'form-control']) !!}
         </div>
         <div class="form-group">
-            {!! Form::label('biayasusutjual', 'Biaya Susut Jual:') !!}
-            {!! Form::text('biayasusutjual',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
             {!! Form::label('kursterbaru', 'Kurs Rupiah Terbaru:') !!}
             {!! Form::text('kursterbaru',null,['class'=>'form-control']) !!}
         </div>

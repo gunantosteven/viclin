@@ -40,14 +40,18 @@ Route::group(['middleware' => 'admin'], function()
 
     Route::get('/admin/dashboard', 'Admin\DashboardController@index');
 
+    
+
+    Route::resource('/admin/customers','Admin\CustomerController');
+    Route::resource('/admin/items','Admin\ItemController');
+
     Route::resource('/admin/sales/inputfaktur', 'Admin\InputFakturController');
     Route::resource('/admin/sales/detailinputfaktur', 'Admin\DetailInputFakturController');
     Route::resource('/admin/sales/cetakfaktur', 'Admin\CetakFakturController');
     Route::resource('/admin/sales/revisifaktur', 'Admin\RevisiFakturController');
-     Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
+    Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
 
-    Route::resource('/admin/customers','Admin\CustomerController');
-    Route::resource('/admin/items','Admin\ItemController');
+    Route::resource('/admin/penyusutan','Admin\PenyusutanController');
 
 });
 

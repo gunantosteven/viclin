@@ -50,8 +50,8 @@
 			            <li><a href="{{url('admin/sales/revisifaktur')}}">Revisi Faktur Penjualan</a></li>
 			            <li><a href="{{url('admin/sales/returperfaktur')}}">Retur Per Faktur Penjualan</a></li>
 			            <li class="divider"></li>
-			            <li><a href="#">Input Biaya Penyusutan</a></li>
-			            <li><a href="#">Revisi Biaya Penyusutan</a></li>
+			            <li><a href="{{url('admin/penyusutan/create')}}">Input Biaya Penyusutan</a></li>
+			            <li><a href="{{url('admin/penyusutan/')}}">Revisi Biaya Penyusutan</a></li>
 			            <li class="divider"></li>
 			            <li><a href="#">Cetak Surat Jalan</a></li>
 			          </ul>
