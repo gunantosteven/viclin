@@ -46,9 +46,9 @@
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Faktur Penjualan<span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
 			            <li><a href="{{url('admin/sales/inputfaktur')}}">Input Faktur Penjualan</a></li>
-			            <li><a href="#">Cetak Faktur Penjualan</a></li>
-			            <li><a href="#">Revisi Faktur Penjualan</a></li>
-			            <li><a href="#">Revisi Per Faktur Penjualan</a></li>
+			            <li><a href="{{url('admin/sales/cetakfaktur')}}">Cetak Faktur Penjualan</a></li>
+			            <li><a href="{{url('admin/sales/revisifaktur')}}">Revisi Faktur Penjualan</a></li>
+			            <li><a href="#">Retur Per Faktur Penjualan</a></li>
 			            <li class="divider"></li>
 			            <li><a href="#">Input Biaya Penyusutan</a></li>
 			            <li><a href="#">Revisi Biaya Penyusutan</a></li>
