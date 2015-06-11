@@ -5,8 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 
-class CetakFakturController extends Controller {
-
+class ReturPerFakturController extends Controller {
 
 	/**
 	 * Display a listing of the resource.
@@ -16,7 +15,7 @@ class CetakFakturController extends Controller {
 	public function index()
 	{
 		//
-		return view('/admin/sales/cetakfaktur');
+		return view('/admin/sales/returperfaktur');
 	}
 
 	/**

@@ -44,6 +44,7 @@ Route::group(['middleware' => 'admin'], function()
     Route::resource('/admin/sales/detailinputfaktur', 'Admin\DetailInputFakturController');
     Route::resource('/admin/sales/cetakfaktur', 'Admin\CetakFakturController');
     Route::resource('/admin/sales/revisifaktur', 'Admin\RevisiFakturController');
+     Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
 
     Route::resource('/admin/customers','Admin\CustomerController');
     Route::resource('/admin/items','Admin\ItemController');
