@@ -41,8 +41,13 @@
 			            <li><a href="{{ url('/owner/customers') }}">Customer</a></li>
 			            <li><a href="{{ url('/owner/suppliers') }}">Supplier</a></li>
 			            <li><a href="{{ url('/owner/stock') }}">Stock</a></li>
-			            <li><a href="{{ url('/owner/revisi/history/sales') }}">History Sales Revision</a></li>
-			            <li><a href="{{ url('/owner/revisi/history/purchase') }}">History Purchase Revision</a></li>
+			            <li class="dropdown-submenu">
+		                <a tabindex="-1" href="#">History Revisi</a>
+		                <ul class="dropdown-menu">
+		                  <li><a href="{{ url('/owner/revisi/history/sales') }}">History Sales Revision</a></li>
+		                  <li><a href="{{ url('/owner/revisi/history/purchase') }}">History Purchase Revision</a></li>
+		                </ul>
+		                </li>
 			            <li><a href="#">Retur</a></li>
 			          </ul>
 			        </li>
@@ -89,5 +94,8 @@
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+	<!-- CSS -->
+	{!! Html::style('css/dropdown.css') !!}
 </body>
 </html>
