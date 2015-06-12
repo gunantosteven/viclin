@@ -34,6 +34,8 @@ Route::group(['middleware' => 'owner'], function()
     Route::resource('/owner/suppliers','Owner\SupplierController');
     Route::resource('/owner/stock','Owner\StockController');
 
+    Route::resource('/owner/revisi/history/sales','Owner\RevisiHistorySalesController');
+    Route::resource('/owner/revisi/history/purchase','Owner\RevisiHistoryPurchaseController');
 });
 
 Route::group(['middleware' => 'admin'], function()
