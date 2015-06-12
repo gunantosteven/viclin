@@ -40,7 +40,7 @@
 			            <li><a href="{{ url('/owner/items') }}">Produk</a></li>
 			            <li><a href="{{ url('/owner/customers') }}">Customer</a></li>
 			            <li><a href="{{ url('/owner/suppliers') }}">Supplier</a></li>
-			            <li><a href="#">Stock</a></li>
+			            <li><a href="{{ url('/owner/stock') }}">Stock</a></li>
 			            <li><a href="#">Revisi</a></li>
 			            <li><a href="#">Retur</a></li>
 			          </ul>

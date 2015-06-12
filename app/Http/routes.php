@@ -32,6 +32,7 @@ Route::group(['middleware' => 'owner'], function()
     Route::resource('/owner/items','Owner\ItemController');
     Route::resource('/owner/customers','Owner\CustomerController');
     Route::resource('/owner/suppliers','Owner\SupplierController');
+    Route::resource('/owner/stock','Owner\StockController');
 
 });
 
