@@ -31,6 +31,7 @@ Route::group(['middleware' => 'owner'], function()
 
     Route::resource('/owner/items','Owner\ItemController');
     Route::resource('/owner/customers','Owner\CustomerController');
+    Route::resource('/owner/suppliers','Owner\SupplierController');
 
 });
 
@@ -80,6 +81,16 @@ Route::get('createdb',function(){
 		$table->string('kotacust', 20);
 		$table->string('emailcust',30);
 		$table->float('limitcust');
+		$table->timestamps();
+	});
+	Schema::create('suppliers',function($table){
+		$table->bigIncrements('id');
+		$table->string('niksupp',30)->unique();
+		$table->string('namasupp',30);
+		$table->string('alamatsupp',30);
+		$table->string('telpsupp',20);
+		$table->string('kotasupp', 20);
+		$table->string('emailsupp',30);
 		$table->timestamps();
 	});
 	Schema::create('categories',function($table){
