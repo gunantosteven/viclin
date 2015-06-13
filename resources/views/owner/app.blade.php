@@ -64,8 +64,8 @@
 			            <li><a href="{{ url('/owner/purchase/revisifaktur') }}">Revisi Faktur Pembelian</a></li>
 			            <li><a href="{{ url('/owner/purchase/returperfaktur') }}">Retur Faktur Pembelian</a></li>
 			            <li class="divider"></li>
-			            <li><a href="#">Input Biaya Penyusutan</a></li>
-			            <li><a href="#">Revisi Biaya Penyusutan</a></li>
+			            <li><a href="{{ url('/owner/penyusutan/create') }}">Input Biaya Penyusutan</a></li>
+			            <li><a href="{{ url('/owner/penyusutan') }}">Revisi Biaya Penyusutan</a></li>
 			          </ul>
 			        </li>
 			        <li class="dropdown">
