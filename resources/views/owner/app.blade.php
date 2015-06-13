@@ -71,9 +71,9 @@
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Laporan<span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
-			            <li><a href="#">Laporan Penjualan Per Periode</a></li>
-			            <li><a href="#">Laporan Pembelian Per Periode</a></li>
-			            <li><a href="#">Laporan Laba Rugi Per Periode</a></li>
+			            <li><a href="{{ url('/owner/report/salesperiod') }}">Laporan Penjualan Per Periode</a></li>
+			            <li><a href="{{ url('/owner/report/purchaseperiod') }}">Laporan Pembelian Per Periode</a></li>
+			            <li><a href="{{ url('/owner/report/profitandlossperiod') }}">Laporan Laba Rugi Per Periode</a></li>
 			          </ul>
 			        </li>
 				</ul>

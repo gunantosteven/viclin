@@ -1,0 +1,45 @@
+@extends('/owner/app')
+
+@section('content')
+<div class="container">
+<h1>Laporan Pembelian Per Periode</h1>
+    {!! Form::open(['url' => 'owner/customers']) !!}
+    <div class="form-group">
+        {!! Form::label('TanggalAwal', 'Tanggal Awal:') !!}
+        {!! Form::input('date','tanggalawal',null,['class'=>'form-control']) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::label('TanggalAkhir', 'Tanggal Akhir:') !!}
+        {!! Form::input('date','tanggalakhir',null,['class'=>'form-control']) !!}
+    </div>
+    <div class="form-group">
+        {!! Form::submit('Report', ['class' => 'btn btn-primary']) !!}
+    </div>
+    {!! Form::close() !!}
+
+    <table class="table table-striped table-bordered table-hover">
+         <thead>
+         <tr class="bg-info">
+             <th>No Faktur</th>
+             <th>Customer</th>
+             <th>Tanggal Order</th>
+             <th>Tanggal Jatuh Tempo</th>
+         </tr>
+         </thead>
+         <tbody>
+
+            <tr>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+                 <td></td>
+            </tr>
+
+            </td>
+
+         </tbody>
+
+
+     </table>
+</div>
+@endsection

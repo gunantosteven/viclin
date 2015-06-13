@@ -46,6 +46,10 @@ Route::group(['middleware' => 'owner'], function()
     Route::resource('/owner/purchase/returperfaktur', 'Owner\ReturPerFakturController');
 
     Route::resource('/owner/penyusutan','Owner\PenyusutanController');
+
+    Route::resource('/owner/report/salesperiod','Owner\Report\SalesPeriodController');
+    Route::resource('/owner/report/purchaseperiod','Owner\Report\PurchasePeriodController');
+    Route::resource('/owner/report/profitandlossperiod','Owner\Report\ProfitAndLossPeriodController');
 });
 
 Route::group(['middleware' => 'admin'], function()
