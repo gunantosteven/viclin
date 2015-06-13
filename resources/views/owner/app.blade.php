@@ -60,9 +60,9 @@
 			        <li class="dropdown">
 			          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Faktur Pembelian<span class="caret"></span></a>
 			          <ul class="dropdown-menu" role="menu">
-			            <li><a href="#">Input Faktur Pembelian</a></li>
-			            <li><a href="#">Revisi Faktur Pembelian</a></li>
-			            <li><a href="#">Retur Faktur Pembelian</a></li>
+			            <li><a href="{{ url('/owner/purchase/inputfaktur') }}">Input Faktur Pembelian</a></li>
+			            <li><a href="{{ url('/owner/purchase/revisifaktur') }}">Revisi Faktur Pembelian</a></li>
+			            <li><a href="{{ url('/owner/purchase/returperfaktur') }}">Retur Faktur Pembelian</a></li>
 			            <li class="divider"></li>
 			            <li><a href="#">Input Biaya Penyusutan</a></li>
 			            <li><a href="#">Revisi Biaya Penyusutan</a></li>

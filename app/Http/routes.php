@@ -39,6 +39,11 @@ Route::group(['middleware' => 'owner'], function()
 
     Route::resource('/owner/retur/history/sales','Owner\ReturHistorySalesController');
     Route::resource('/owner/retur/history/purchase','Owner\ReturHistoryPurchaseController');
+
+    Route::resource('/owner/purchase/inputfaktur', 'Owner\InputFakturController');
+    Route::resource('/owner/purchase/detailinputfaktur', 'Owner\DetailInputFakturController');
+    Route::resource('/owner/purchase/revisifaktur', 'Owner\RevisiFakturController');
+    Route::resource('/owner/purchase/returperfaktur', 'Owner\ReturPerFakturController');
 });
 
 Route::group(['middleware' => 'admin'], function()
