@@ -36,6 +36,9 @@ Route::group(['middleware' => 'owner'], function()
 
     Route::resource('/owner/revisi/history/sales','Owner\RevisiHistorySalesController');
     Route::resource('/owner/revisi/history/purchase','Owner\RevisiHistoryPurchaseController');
+
+    Route::resource('/owner/retur/history/sales','Owner\ReturHistorySalesController');
+    Route::resource('/owner/retur/history/purchase','Owner\ReturHistoryPurchaseController');
 });
 
 Route::group(['middleware' => 'admin'], function()

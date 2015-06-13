@@ -48,7 +48,13 @@
 		                  <li><a href="{{ url('/owner/revisi/history/purchase') }}">History Purchase Revision</a></li>
 		                </ul>
 		                </li>
-			            <li><a href="#">Retur</a></li>
+		                <li class="dropdown-submenu">
+		                <a tabindex="-1" href="#">History Retur</a>
+		                <ul class="dropdown-menu">
+		                  <li><a href="{{ url('/owner/retur/history/sales') }}">History Sales Retur</a></li>
+		                  <li><a href="{{ url('/owner/retur/history/purchase') }}">History Purchase Retur</a></li>
+		                </ul>
+		                </li>
 			          </ul>
 			        </li>
 			        <li class="dropdown">
