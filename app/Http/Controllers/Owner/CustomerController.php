@@ -5,6 +5,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Request;
+use Input;
+use DB;
 
 class CustomerController extends Controller {
 
@@ -16,7 +18,19 @@ class CustomerController extends Controller {
 	public function index()
 	{
 		//
-		$customers = Customer::all();
+		if(Input::has('search'))
+		{
+			$search = Input::get('search'); 
+			$customers = DB::table('customers')
+	        ->where('nikcust', 'LIKE', "%$search%")
+	        ->orWhere('namacust', 'LIKE', "%$search%")
+	        ->paginate(30);
+		}
+		else
+		{
+			$customers = Customer::paginate(3);
+		}
+		
 		return view('owner.customers.index', compact('customers'));
 	}
 
