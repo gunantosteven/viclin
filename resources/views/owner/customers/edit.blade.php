@@ -5,10 +5,6 @@
 	<h1>Update Customer</h1>
     {!! Form::model($customer,['method' => 'PATCH','route'=>['owner.customers.update',$customer->id]]) !!}
     <div class="form-group">
-        {!! Form::label('NIK', 'NIK:') !!}
-        {!! Form::text('nikcust',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
         {!! Form::label('Nama', 'Nama:') !!}
         {!! Form::text('namacust',null,['class'=>'form-control']) !!}
     </div>

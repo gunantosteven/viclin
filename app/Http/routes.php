@@ -91,7 +91,6 @@ Route::get('createdb',function(){
 	});
 	Schema::create('customers',function($table){
 		$table->bigIncrements('id');
-		$table->string('nikcust',30)->unique();
 		$table->string('namacust',30);
 		$table->string('alamatcust',30);
 		$table->string('telpcust',20);

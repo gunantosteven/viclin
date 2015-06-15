@@ -5,10 +5,6 @@
 <h1>Create Customer</h1>
     {!! Form::open(['url' => 'admin/customers']) !!}
     <div class="form-group">
-        {!! Form::label('NIK', 'NIK:') !!}
-        {!! Form::text('nikcust',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
         {!! Form::label('Nama', 'Nama:') !!}
         {!! Form::text('namacust',null,['class'=>'form-control']) !!}
     </div>

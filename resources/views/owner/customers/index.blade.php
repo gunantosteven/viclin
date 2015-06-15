@@ -14,7 +14,6 @@
  <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
-         <th>NIK</th>
          <th>Nama</th>
          <th>Alamat</th>
          <th>Telepon</th>
@@ -27,7 +26,6 @@
      <tbody>
      @foreach ($customers as $customer)
          <tr>
-             <td>{{ $customer->nikcust }}</td>
              <td>{{ $customer->namacust }}</td>
              <td>{{ $customer->alamatcust }}</td>
              <td>{{ $customer->telpcust }}</td>
