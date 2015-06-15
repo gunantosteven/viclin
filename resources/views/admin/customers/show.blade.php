@@ -7,12 +7,6 @@
 
     <form class="form-horizontal">
         <div class="form-group">
-            <label for="nikcust" class="col-sm-2 control-label">NIK Customer</label>
-            <div class="col-sm-10">
-                <input type="text" class="form-control" id="nikcust" placeholder='{{$customer->nikcust}}' readonly>
-            </div>
-        </div>
-        <div class="form-group">
             <label for="namacust" class="col-sm-2 control-label">Nama Customer</label>
             <div class="col-sm-10">
                 <input type="text" class="form-control" id="namacust" placeholder='{{$customer->namacust}}' readonly>
