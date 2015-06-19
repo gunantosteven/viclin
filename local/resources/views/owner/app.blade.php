@@ -97,7 +97,11 @@
                     <span class="isw-grid"></span><span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="openable">
+            <li class="openable 
+                        @if(str_contains(Request::url(), 'owner/items') || 
+                            str_contains(Request::url(), 'owner/customers') ||
+                            str_contains(Request::url(), 'owner/suppliers') ||
+                            str_contains(Request::url(), 'owner/stock')) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">Data</span>
                 </a>
@@ -124,7 +128,8 @@
                     </li>               
                 </ul>                
             </li>     
-            <li class="openable">
+            <li class="openable
+                        @if(str_contains(Request::url(), 'owner/history')) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">History</span>
                 </a>
@@ -151,7 +156,8 @@
                     </li>               
                 </ul>                
             </li>
-            <li class="openable">
+            <li class="openable
+                        @if(str_contains(Request::url(), 'owner/purchase')) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">Faktur Pembelian</span>
                 </a>
@@ -183,7 +189,8 @@
                     </li>        
                 </ul>     
             </li>        
-            <li class="openable">
+            <li class="openable
+                        @if(str_contains(Request::url(), 'owner/report')) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">Laporan</span>
                 </a>

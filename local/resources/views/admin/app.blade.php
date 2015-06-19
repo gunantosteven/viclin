@@ -92,12 +92,14 @@
         </div>
         
         <ul class="navigation">            
-            <li class="active">
+            <li>
                 <a href="{{ url('admin/dashboard') }}">
                     <span class="isw-grid"></span><span class="text">Dashboard</span>
                 </a>
             </li>
-            <li class="openable">
+            <li class="openable 
+                        @if(str_contains(Request::url(), 'admin/customers') ||
+                            str_contains(Request::url(), 'admin/items')) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">Data</span>
                 </a>
@@ -119,7 +121,7 @@
                     </li>               
                 </ul>                
             </li>     
-            <li class="openable">
+            <li class="openable @if(str_contains(Request::url(), 'admin/sales')) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">Faktur Penjualan</span>
                 </a>
@@ -161,7 +163,7 @@
                     </li>  
                 </ul>     
             </li>        
-            <li class="openable">
+            <li class="openable @if(str_contains(Request::url(), 'admin/biaya')) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">Biaya Operasional</span>
                 </a>
