@@ -84,8 +84,6 @@
                 <img src="{{ asset('img/users/aqvatarius.jpg') }}" class="img-polaroid"/>                
             </div>
             <ul class="control">                
-                <li><span class="icon-comment"></span> <a href="messages.html">Messages</a> <a href="messages.html" class="caption red">12</a></li>
-                <li><span class="icon-cog"></span> <a href="forms.html">Settings</a></li>
                 <li><span class="icon-share-alt"></span> <a href="{{ url('/auth/logout') }}">Logout</a></li>
             </ul>
             <div class="info">
