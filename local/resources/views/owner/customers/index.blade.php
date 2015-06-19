@@ -6,7 +6,7 @@
 <hr>
 {!! Form::open(['method' => 'GET', 'route'=>['owner.customers.index']]) !!}
 {!! Form::text('search',null,['class'=>'pull-right']) !!}
-{!! Form::label('search', 'Search NIK or Name :&nbsp;',['class'=>'pull-right']) !!}
+{!! Form::label('search', 'Search NIK or Alamat :&nbsp;',['class'=>'pull-right']) !!}
 {!! Form::close() !!}
 </br>
 </br>

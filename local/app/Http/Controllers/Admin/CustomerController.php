@@ -23,8 +23,8 @@ class CustomerController extends Controller {
 		{
 			$search = Input::get('search'); 
 			$customers = DB::table('customers')
-	        ->where('nikcust', 'LIKE', "%$search%")
-	        ->orWhere('namacust', 'LIKE', "%$search%")
+	        ->where('namacust', 'LIKE', "%$search%")
+	        ->orWhere('alamatcust', 'LIKE', "%$search%")
 	        ->paginate(30);
 		}
 		else
