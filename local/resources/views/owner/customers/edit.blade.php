@@ -1,34 +1,46 @@
 @extends('/owner/app')
 
 @section('content')
-<h1>Update Customer</h1>
-{!! Form::model($customer,['method' => 'PATCH','route'=>['owner.customers.update',$customer->id]]) !!}
-<div class="form-group">
-    {!! Form::label('Nama', 'Nama:') !!}
-    {!! Form::text('namacust',null,['class'=>'form-control']) !!}
+<div class="row-fluid">
+                
+    <div class="span12">
+        <div class="head clearfix">
+            <div class="isw-documents"></div>
+            <h1>Update Customer</h1>
+        </div>
+        
+        {!! Form::model($customer,['method' => 'PATCH','route'=>['owner.customers.update',$customer->id]]) !!}
+        <div class="block-fluid"> 
+            <div class="row-form clearfix">
+                <div class="span3">Nama:</div>
+                <div class="span9">{!! Form::text('namacust',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Alamat:</div>
+                <div class="span9">{!! Form::textarea('alamatcust',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Telepon:</div>
+                <div class="span9">{!! Form::text('telpcust',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Kota:</div>
+                <div class="span9">{!! Form::text('kotacust',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Email:</div>
+                <div class="span9">{!! Form::email('emailcust',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Limit:</div>
+                <div class="span9">{!! Form::text('limitcust',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
+            </div>
+        </div>
+        {!! Form::close() !!}
+        
+    </div>
 </div>
-<div class="form-group">
-    {!! Form::label('Alamat', 'Alamat:') !!}
-    {!! Form::textarea('alamatcust',null,['class'=>'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('Telepon', 'Telepon:') !!}
-    {!! Form::text('telpcust',null,['class'=>'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('Kota', 'Kota:') !!}
-    {!! Form::text('kotacust',null,['class'=>'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('Email', 'Email:') !!}
-    {!! Form::email('emailcust',null,['class'=>'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::label('Limit', 'Limit:') !!}
-    {!! Form::text('limitcust',null,['class'=>'form-control']) !!}
-</div>
-<div class="form-group">
-    {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
-</div>
-{!! Form::close() !!}
 @endsection

@@ -106,12 +106,12 @@
                 <ul>
                     <li>
                         <a href="{{ url('/owner/items') }}">
-                            <span class="icon-th"></span><span class="text">Produk</span>
+                            <span class="icon-chevron-right"></span><span class="text">Produk</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{ url('/owner/customers') }}">
-                            <span class="icon-th-large"></span><span class="text">Customer</span>
+                            <span class="icon-chevron-right"></span><span class="text">Customer</span>
                         </a>                  
                     </li>                     
                     <li>
@@ -133,12 +133,12 @@
                 <ul>
                     <li>
                         <a href="{{ url('/owner/history/revisisales') }}">
-                            <span class="icon-th"></span><span class="text">History Sales Revision</span>
+                            <span class="icon-chevron-right"></span><span class="text">History Sales Revision</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{ url('/owner/history/revisipurchase') }}">
-                            <span class="icon-th-large"></span><span class="text">History Purchase Revision</span>
+                            <span class="icon-chevron-right"></span><span class="text">History Purchase Revision</span>
                         </a>                  
                     </li>                     
                     <li>
@@ -160,12 +160,12 @@
                 <ul>
                     <li>
                         <a href="{{ url('/owner/purchase/inputfaktur') }}">
-                            <span class="icon-th"></span><span class="text">Input Faktur Pembelian</span>
+                            <span class="icon-chevron-right"></span><span class="text">Input Faktur Pembelian</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{ url('/owner/purchase/revisifaktur') }}">
-                            <span class="icon-th-large"></span><span class="text">Revisi Faktur Pembelian</span>
+                            <span class="icon-chevron-right"></span><span class="text">Revisi Faktur Pembelian</span>
                         </a>                  
                     </li>                     
                     <li>
@@ -174,12 +174,12 @@
                         </a>                  
                     </li>   
                     <li>
-                        <a href="{{ url('/owner/penyusutan/create') }}">
+                        <a href="{{ url('/owner/purchase/inputpenyusutan') }}">
                             <span class="icon-chevron-right"></span><span class="text">Input Biaya Penyusutan</span>
                         </a>                  
                     </li>        
                     <li>
-                        <a href="{{ url('/owner/penyusutan') }}">
+                        <a href="{{ url('/owner/purchase/revisipenyusutan') }}">
                             <span class="icon-chevron-right"></span><span class="text">Revisi Biaya Penyusutan</span>
                         </a>                  
                     </li>        
@@ -192,12 +192,12 @@
                 <ul>
                     <li>
                         <a href="{{ url('/owner/report/salesperiod') }}">
-                            <span class="icon-th"></span><span class="text">Laporan Penjualan Per Periode</span>
+                            <span class="icon-chevron-right"></span><span class="text">Laporan Penjualan Per Periode</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{ url('/owner/report/purchaseperiod') }}">
-                            <span class="icon-th-large"></span><span class="text">Laporan Pembelian Per Periode</span>
+                            <span class="icon-chevron-right"></span><span class="text">Laporan Pembelian Per Periode</span>
                         </a>                  
                     </li>                     
                     <li>

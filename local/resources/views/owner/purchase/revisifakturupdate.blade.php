@@ -1,124 +1,151 @@
 @extends('/owner/app')
 
 @section('content')
-<div class="container">
 <h1>Revisi Faktur Pembelian</h1>
-   <table class="table table-striped table-bordered table-hover">
-         <thead>
-         <tr class="bg-info">
-             <th>Kode Barang</th>
-             <th>Harga Beli</th>
-             <th>Jumlah Kg</th>
-             <th>Status</th>
-             <th colspan="1">Actions</th>
-         </tr>
-         </thead>
-         <tbody>
-         @if (Session::has('purchaseitems')) 
-            @foreach (Session::get('purchaseitems') as $key => $item)
+<div class="container">
+<table class="table table-striped table-bordered table-hover">
+     <thead>
+     <tr class="bg-info">
+         <th>Kode Barang</th>
+         <th>Harga Beli</th>
+         <th>Jumlah Kg</th>
+         <th>Status</th>
+         <th colspan="1">Actions</th>
+     </tr>
+     </thead>
+     <tbody>
+     @if (Session::has('purchaseitems')) 
+        @foreach (Session::get('purchaseitems') as $key => $item)
 
-            <tr>
-                 <td>{{ $item['kodebrg'] }}</td>
-                 <td>{{ $item['hargabeli'] }}</td>
-                 <td>{{ $item['jumlahkg'] }}</td>
-                 <td>{{ $item['status'] }}</td>
-                 <td>
-                    {!! Form::open(['method' => 'DELETE', 'route'=>['owner.purchase.detailinputfaktur.destroy', $item['id'] ]]) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}
-                 </td>
-            </tr>
+        <tr>
+             <td>{{ $item['kodebrg'] }}</td>
+             <td>{{ $item['hargabeli'] }}</td>
+             <td>{{ $item['jumlahkg'] }}</td>
+             <td>{{ $item['status'] }}</td>
+             <td>
+                {!! Form::open(['method' => 'DELETE', 'route'=>['owner.purchase.detailinputfaktur.destroy', $item['id'] ]]) !!}
+                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                {!! Form::close() !!}
+             </td>
+        </tr>
 
-            @endforeach
-            </td>
-         @endif
-         </tbody>
-
-
-     </table>
-     @if (Session::has('purchaseitems') && count(Session::get('purchaseitems')) > 0) 
-         {!! Form::open(['method' => 'DELETE', 'route'=>['owner.purchase.detailinputfaktur.destroy', -1 ]]) !!}
-         {!! Form::submit('Delete All', ['class' => 'btn btn-danger pull-right']) !!}
-         {!! Form::close() !!}
+        @endforeach
+        </td>
      @endif
-     <br>
+     </tbody>
 
-     {!! Form::open(['url' => 'owner/purchase/detailinputfaktur']) !!}
-        <div class="form-group">
-            {!! Form::label('kodebrg', 'Kode Barang:') !!}
-            {!! Form::text('kodebrg',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('hargabeli', 'Harga Beli:') !!}
-            {!! Form::text('hargabeli',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('jumlahkg', 'Jumlah Kg:') !!}
-            {!! Form::text('jumlahkg',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('status', 'Status:') !!}
-            {!! Form::select('status', [
-               'Live Food' => 'Live Food',
-               'Frozen Food' => 'Frozen Food'],null,['class'=>'form-control']
-            ) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::submit('Add Item', ['class' => 'btn btn-success']) !!}
-        </div>
-    {!! Form::close() !!}
-     <hr>
 
-    {!! Form::open(['url' => 'owner/sales/inputfaktur']) !!}
-        <div class="form-group">
-            {!! Form::label('nobeli', 'No Faktur:') !!}
-            {!! Form::text('nobeli',null,['class'=>'form-control']) !!}
+ </table>
+ @if (Session::has('purchaseitems') && count(Session::get('purchaseitems')) > 0) 
+     {!! Form::open(['method' => 'DELETE', 'route'=>['owner.purchase.detailinputfaktur.destroy', -1 ]]) !!}
+     {!! Form::submit('Delete All', ['class' => 'btn btn-danger pull-right']) !!}
+     {!! Form::close() !!}
+ @endif
+ <br>
+
+ <div class="row-fluid">
+                
+    <div class="span12">
+        <div class="head clearfix">
+            <div class="isw-documents"></div>
+            <h1>Insert Item</h1>
         </div>
-        <div class="form-group">
-            {!! Form::label('supplier', 'Supplier:') !!}
-            {!! Form::text('supplier',null,['class'=>'form-control']) !!}
+        
+        {!! Form::open(['url' => 'owner/purchase/detailinputfaktur']) !!}
+        <div class="block-fluid"> 
+            <div class="row-form clearfix">
+                <div class="span3">Kode Barang:</div>
+                <div class="span9">{!! Form::text('kodebrg',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Harga Beli:</div>
+                <div class="span9">{!! Form::textarea('hargajual',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Jumlah Kg:</div>
+                <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Status:</div>
+                <div class="span9">
+                    {!! Form::select('status', [
+                       'Live Food' => 'Live Food',
+                       'Frozen Food' => 'Frozen Food'],null,['class'=>'']
+                    ) !!}
+                </div>
+            </div>
+            <div class="row-form clearfix">
+                    {!! Form::submit('Add Item', ['class' => 'btn btn-success']) !!}
+            </div>
         </div>
-        <div class="form-group">
-            {!! Form::label('tanggalorder', 'Tanggal Order:') !!}
-            {!! Form::input('date','tanggalorder',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('tanggaljatuhtempo', 'Tanggal Jatuh Tempo:') !!}
-            {!! Form::input('date','tanggaljatuhtempo',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('biayaekspedisi', 'Biaya Ekspedisi:') !!}
-            {!! Form::text('biayaekspedisi',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('biayasusut', 'Biaya Susut:') !!}
-            {!! Form::text('biayasusut',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('biayakarantina', 'Biaya Karantina:') !!}
-            {!! Form::text('biayakarantina',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('biayaclearance', 'Biaya Clearance:') !!}
-            {!! Form::text('biayaclearance',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('biayaimpor', 'Biaya Impor:') !!}
-            {!! Form::text('biayaimpor',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('biayalab', 'Biaya Lab:') !!}
-            {!! Form::text('biayalab',null,['class'=>'form-control']) !!}
-        </div>
-        <div class="form-group">
-            {!! Form::label('biayafreight', 'Biaya Freight:') !!}
-            {!! Form::text('biayafreight',null,['class'=>'form-control']) !!}
+        {!! Form::close() !!}
+        
+    </div>
+</div>
+
+ 
+ <hr>
+
+ <div class="row-fluid">
+                
+    <div class="span12">
+        <div class="head clearfix">
+            <div class="isw-documents"></div>
+            <h1>Insert Faktur</h1>
         </div>
 
-        <div class="form-group">
-            {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+        {!! Form::open(['url' => 'owner/purchase/inputfaktur']) !!}
+        <div class="block-fluid"> 
+            
+            <div class="row-form clearfix">
+                <div class="span3">No Faktur:</div>
+                <div class="span9">{!! Form::text('nobeli',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Supplier:</div>
+                <div class="span9">{!! Form::text('supplier',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Tanggal Order:</div>
+                <div class="span9">{!! Form::input('date','tanggalorder',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Tanggal Jatuh Tempo:</div>
+                <div class="span9">{!! Form::input('date','tanggaljatuhtempo',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Biaya Ekspedisi:</div>
+                <div class="span9">{!! Form::text('biayaekspedisi',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Biaya Karantina:</div>
+                <div class="span9">{!! Form::text('biayasteroform',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Biaya Clearance:</div>
+                <div class="span9">{!! Form::text('biayaclearance',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Biaya Clearance:</div>
+                <div class="span9">{!! Form::text('biayaclearance',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Biaya Impor:</div>
+                <div class="span9">{!! Form::text('biayaimpor',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Biaya Lab:</div>
+                <div class="span9">{!! Form::text('biayalab',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Biaya Freight:</div>
+                <div class="span9">{!! Form::text('biayafreight',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+            </div>
         </div>
-    
-    {!! Form::close() !!}
+        {!! Form::close() !!}
+    </div>
 </div>
 @endsection

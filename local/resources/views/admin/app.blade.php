@@ -150,12 +150,12 @@
                         </a>                  
                     </li>        
                     <li>
-                        <a href="{{url('admin/sales/revisipenyusutan/')}}">
+                        <a href="{{url('admin/sales/revisipenyusutan')}}">
                             <span class="icon-chevron-right"></span><span class="text">Revisi Biaya Penyusutan</span>
                         </a>                  
                     </li>  
                     <li>
-                        <a href="{{url('admin/cetak/suratjalan')}}">
+                        <a href="{{url('admin/sales/cetaksuratjalan')}}">
                             <span class="icon-chevron-right"></span><span class="text">Cetak Surat Jalan</span>
                         </a>                  
                     </li>  

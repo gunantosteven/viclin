@@ -15,29 +15,4 @@
     {!! Form::submit('Report', ['class' => 'btn btn-primary']) !!}
 </div>
 {!! Form::close() !!}
-
-<table class="table table-striped table-bordered table-hover">
-     <thead>
-     <tr class="bg-info">
-         <th>No Faktur</th>
-         <th>Customer</th>
-         <th>Tanggal Order</th>
-         <th>Tanggal Jatuh Tempo</th>
-     </tr>
-     </thead>
-     <tbody>
-
-        <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-        </tr>
-
-        </td>
-
-     </tbody>
-
-
- </table>
 @endsection

@@ -42,49 +42,75 @@
  @endif
  <br>
 
- {!! Form::open(['url' => 'owner/purchase/detailinputfaktur']) !!}
-    <div class="form-group">
-        {!! Form::label('kodebrg', 'Kode Barang:') !!}
-        {!! Form::text('kodebrg',null,['class'=>'form-control']) !!}
+<div class="row-fluid">
+                
+    <div class="span12">
+        <div class="head clearfix">
+            <div class="isw-documents"></div>
+            <h1>Insert Item</h1>
+        </div>
+        
+        {!! Form::open(['url' => 'owner/purchase/detailinputfaktur']) !!}
+        <div class="block-fluid"> 
+            <div class="row-form clearfix">
+                <div class="span3">Kode Barang:</div>
+                <div class="span9">{!! Form::text('kodebrg',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Harga Beli:</div>
+                <div class="span9">{!! Form::textarea('hargajual',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Jumlah Kg:</div>
+                <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Status:</div>
+                <div class="span9">
+                    {!! Form::select('status', [
+                       'Live Food' => 'Live Food',
+                       'Frozen Food' => 'Frozen Food'],null,['class'=>'']
+                    ) !!}
+                </div>
+            </div>
+            <div class="row-form clearfix">
+                    {!! Form::submit('Add Item', ['class' => 'btn btn-success']) !!}
+            </div>
+        </div>
+        {!! Form::close() !!}
+        
     </div>
-    <div class="form-group">
-        {!! Form::label('hargabeli', 'Harga Beli:') !!}
-        {!! Form::text('hargabeli',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('jumlahkg', 'Jumlah Kg:') !!}
-        {!! Form::text('jumlahkg',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('status', 'Status:') !!}
-        {!! Form::select('status', [
-           'Live Food' => 'Live Food',
-           'Frozen Food' => 'Frozen Food'],null,['class'=>'form-control']
-        ) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::submit('Add Item', ['class' => 'btn btn-success']) !!}
-    </div>
-{!! Form::close() !!}
+</div>
  <hr>
 
-{!! Form::open(['url' => 'owner/purchase/inputfaktur']) !!}
-    <div class="form-group">
-        {!! Form::label('noreturbeli', 'No Retur Beli:') !!}
-        {!! Form::text('noreturbeli',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('nobeli', 'No Faktur:') !!}
-        {!! Form::text('nobeli',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('tglreturbeli', 'Tanggal Retur Beli:') !!}
-        {!! Form::input('date','tglreturbeli',null,['class'=>'form-control']) !!}
-    </div>
-    
-    <div class="form-group">
-        {!! Form::submit('Retur', ['class' => 'btn btn-primary']) !!}
-    </div>
+  <div class="row-fluid">
+                
+    <div class="span12">
+        <div class="head clearfix">
+            <div class="isw-documents"></div>
+            <h1>Insert Faktur</h1>
+        </div>
 
-{!! Form::close() !!}
+        {!! Form::open(['url' => 'owner/purchase/inputfaktur']) !!}
+        <div class="block-fluid"> 
+            
+            <div class="row-form clearfix">
+                <div class="span3">No Retur:</div>
+                <div class="span9">{!! Form::text('noreturbeli',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">No Faktur Beli:</div>
+                <div class="span9">{!! Form::text('nobeli',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Tanggal Retur Beli:</div>
+                <div class="span9">{!! Form::input('date','tglreturbeli',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                    {!! Form::submit('Retur', ['class' => 'btn btn-primary']) !!}
+            </div>
+        </div>
+        {!! Form::close() !!}
+    </div>
+</div>
 @endsection

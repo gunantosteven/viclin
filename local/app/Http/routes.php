@@ -43,7 +43,8 @@ Route::group(['middleware' => 'owner'], function()
     Route::resource('/owner/purchase/revisifaktur', 'Owner\RevisiFakturController');
     Route::resource('/owner/purchase/returperfaktur', 'Owner\ReturPerFakturController');
 
-    Route::resource('/owner/penyusutan','Owner\PenyusutanController');
+    Route::resource('/owner/purchase/inputpenyusutan','Owner\InputPenyusutanController');
+    Route::resource('/owner/purchase/revisipenyusutan','Owner\RevisiPenyusutanController');
 
     Route::resource('/owner/report/salesperiod','Owner\Report\SalesPeriodController');
     Route::resource('/owner/report/purchaseperiod','Owner\Report\PurchasePeriodController');
@@ -73,7 +74,7 @@ Route::group(['middleware' => 'admin'], function()
     Route::resource('/admin/sales/inputpenyusutan','Admin\InputPenyusutanController');
     Route::resource('/admin/sales/revisipenyusutan','Admin\RevisiPenyusutanController');
 
-    Route::resource('/admin/cetak/suratjalan','Admin\Cetak\SuratJalanController');
+    Route::resource('/admin/sales/cetaksuratjalan','Admin\CetakSuratJalanController');
 
 });
 
