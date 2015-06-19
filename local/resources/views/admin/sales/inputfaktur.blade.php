@@ -42,65 +42,92 @@
  @endif
  <br>
 
- {!! Form::open(['url' => 'admin/sales/detailinputfaktur']) !!}
-    <div class="form-group">
-        {!! Form::label('kodebrg', 'Kode Barang:') !!}
-        {!! Form::text('kodebrg',null,['class'=>'form-control']) !!}
+<div class="row-fluid">
+                
+    <div class="span12">
+        <div class="head clearfix">
+            <div class="isw-documents"></div>
+            <h1>Insert Item</h1>
+        </div>
+        
+        {!! Form::open(['url' => 'admin/sales/detailinputfaktur']) !!}
+        <div class="block-fluid"> 
+            <div class="row-form clearfix">
+                <div class="span3">Kode Barang:</div>
+                <div class="span9">{!! Form::text('kodebrg',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Harga Jual:</div>
+                <div class="span9">{!! Form::textarea('hargajual',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Jumlah Kg:</div>
+                <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Status:</div>
+                <div class="span9">
+                    {!! Form::select('status', [
+                       'Live Food' => 'Live Food',
+                       'Frozen Food' => 'Frozen Food'],null,['class'=>'']
+                    ) !!}
+                </div>
+            </div>
+            <div class="row-form clearfix">
+                    {!! Form::submit('Add Item', ['class' => 'btn btn-success']) !!}
+            </div>
+        </div>
+        {!! Form::close() !!}
+        
     </div>
-    <div class="form-group">
-        {!! Form::label('hargajual', 'Harga Jual:') !!}
-        {!! Form::text('hargajual',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('jumlahkg', 'Jumlah Kg:') !!}
-        {!! Form::text('jumlahkg',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('status', 'Status:') !!}
-        {!! Form::select('status', [
-           'Live Food' => 'Live Food',
-           'Frozen Food' => 'Frozen Food'],null,['class'=>'form-control']
-        ) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::submit('Add Item', ['class' => 'btn btn-success']) !!}
-    </div>
-{!! Form::close() !!}
+</div>
+
+ 
  <hr>
+<div class="row-fluid">
+                
+    <div class="span12">
+        <div class="head clearfix">
+            <div class="isw-documents"></div>
+            <h1>Insert Faktur</h1>
+        </div>
 
-{!! Form::open(['url' => 'admin/sales/inputfaktur']) !!}
-    <div class="form-group">
-        {!! Form::label('nojual', 'No Faktur:') !!}
-        {!! Form::text('nojual',null,['class'=>'form-control']) !!}
+        {!! Form::open(['url' => 'admin/sales/inputfaktur']) !!}
+        <div class="block-fluid"> 
+            
+            <div class="row-form clearfix">
+                <div class="span3">No Faktur:</div>
+                <div class="span9">{!! Form::text('nojual',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Customer:</div>
+                <div class="span9">{!! Form::text('customer',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Tanggal Order:</div>
+                <div class="span9">{!! Form::input('date','tanggalorder',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Tanggal Jatuh Tempo:</div>
+                <div class="span9">{!! Form::input('date','tanggaljatuhtempo',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Biaya Ekspedisi:</div>
+                <div class="span9">{!! Form::text('biayaekspedisi',null,['class'=>'']) !!}</div>
+            </div>
+           <div class="row-form clearfix">
+                <div class="span3">Biaya Steroform:</div>
+                <div class="span9">{!! Form::text('biayasteroform',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Kurs Rupiah Terbaru:</div>
+                <div class="span9">{!! Form::text('kursterbaru',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
+                    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
+            </div>
+        </div>
+        {!! Form::close() !!}
     </div>
-    <div class="form-group">
-        {!! Form::label('customer', 'Customer:') !!}
-        {!! Form::text('customer',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('tanggalorder', 'Tanggal Order:') !!}
-        {!! Form::input('date','tanggalorder',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('tanggaljatuhtempo', 'Tanggal Jatuh Tempo:') !!}
-        {!! Form::input('date','tanggaljatuhtempo',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('biayaekspedisi', 'Biaya Ekspedisi:') !!}
-        {!! Form::text('biayaekspedisi',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('biayasteroform', 'Biaya Steroform:') !!}
-        {!! Form::text('biayasteroform',null,['class'=>'form-control']) !!}
-    </div>
-    <div class="form-group">
-        {!! Form::label('kursterbaru', 'Kurs Rupiah Terbaru:') !!}
-        {!! Form::text('kursterbaru',null,['class'=>'form-control']) !!}
-    </div>
-
-    <div class="form-group">
-        {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    </div>
-
-{!! Form::close() !!}
+</div>
 @endsection

@@ -12,7 +12,22 @@ class CategoriesTableSeederTableSeeder extends Seeder {
 		// buat data category
 		\App\Models\Category::create(array(
 		'kodekategori' => '1',
-		'namakategori' => 'Sea Food'
+		'namakategori' => 'Kepeting'
+		));
+
+		\App\Models\Category::create(array(
+		'kodekategori' => '1',
+		'namakategori' => 'Cumi'
+		));
+
+		\App\Models\Category::create(array(
+		'kodekategori' => '1',
+		'namakategori' => 'Udang'
+		));
+
+		\App\Models\Category::create(array(
+		'kodekategori' => '1',
+		'namakategori' => 'Gurami'
 		));
 	}
 }

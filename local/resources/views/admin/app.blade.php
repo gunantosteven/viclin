@@ -84,8 +84,6 @@
                 <img src="{{ asset('img/users/aqvatarius.jpg') }}" class="img-polaroid"/>                
             </div>
             <ul class="control">                
-                <li><span class="icon-comment"></span> <a href="messages.html">Messages</a> <a href="messages.html" class="caption red">12</a></li>
-                <li><span class="icon-cog"></span> <a href="forms.html">Settings</a></li>
                 <li><span class="icon-share-alt"></span> <a href="{{ url('/auth/logout') }}">Logout</a></li>
             </ul>
             <div class="info">
@@ -106,12 +104,12 @@
                 <ul>
                     <li>
                         <a href="{{url('admin/customers/create')}}">
-                            <span class="icon-th"></span><span class="text">Input Customer</span>
+                            <span class="icon-chevron-right"></span><span class="text">Input Customer</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{url('admin/customers')}}">
-                            <span class="icon-th-large"></span><span class="text">View Customer</span>
+                            <span class="icon-chevron-right"></span><span class="text">View Customer</span>
                         </a>                  
                     </li>                     
                     <li>
@@ -128,12 +126,12 @@
                 <ul>
                     <li>
                         <a href="{{url('admin/sales/inputfaktur')}}">
-                            <span class="icon-th"></span><span class="text">Input Faktur Penjualan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Input Faktur Penjualan</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{url('admin/sales/cetakfaktur')}}">
-                            <span class="icon-th-large"></span><span class="text">Cetak Faktur Penjualan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Cetak Faktur Penjualan</span>
                         </a>                  
                     </li>                     
                     <li>
@@ -147,12 +145,12 @@
                         </a>                  
                     </li>        
                     <li>
-                        <a href="{{url('admin/sales/penyusutan/create')}}">
+                        <a href="{{url('admin/sales/inputpenyusutan')}}">
                             <span class="icon-chevron-right"></span><span class="text">Input Biaya Penyusutan</span>
                         </a>                  
                     </li>        
                     <li>
-                        <a href="{{url('admin/sales/penyusutan/')}}">
+                        <a href="{{url('admin/sales/revisipenyusutan/')}}">
                             <span class="icon-chevron-right"></span><span class="text">Revisi Biaya Penyusutan</span>
                         </a>                  
                     </li>  
@@ -170,12 +168,12 @@
                 <ul>
                     <li>
                         <a href="#">
-                            <span class="icon-th"></span><span class="text">Bensin</span>
+                            <span class="icon-chevron-right"></span><span class="text">Bensin</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="#">
-                            <span class="icon-th-large"></span><span class="text">Gaji Karyawan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Gaji Karyawan</span>
                         </a>                  
                     </li>                     
                     <li>

@@ -70,7 +70,8 @@ Route::group(['middleware' => 'admin'], function()
     Route::resource('/admin/sales/revisifaktur', 'Admin\RevisiFakturController');
     Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
 
-    Route::resource('/admin/sales/penyusutan','Admin\PenyusutanController');
+    Route::resource('/admin/sales/inputpenyusutan','Admin\InputPenyusutanController');
+    Route::resource('/admin/sales/revisipenyusutan','Admin\RevisiPenyusutanController');
 
     Route::resource('/admin/cetak/suratjalan','Admin\Cetak\SuratJalanController');
 
