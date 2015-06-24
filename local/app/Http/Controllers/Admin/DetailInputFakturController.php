@@ -42,9 +42,10 @@ class DetailInputFakturController extends Controller {
 		$id = count(Session::get('salesitems'));
 		Session::push('salesitems', [
           'kodebrg' => $request->input('kodebrg'),
-          'hargajual' => $request->input('hargajual'),
+          'hargasatuankg' => $request->input('hargasatuankg'),
           'jumlahkg' => $request->input('jumlahkg'),
-          'status' => $request->input('status'),
+          'jumlahekor' => $request->input('jumlahekor'),
+          'keterangan' => $request->input('keterangan'),
           'id' => $id
       	]);
 		return redirect('admin/sales/inputfaktur');

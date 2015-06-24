@@ -53,6 +53,8 @@ $(document).ready(function(){
     });
 
     // SELECT2       
+        $("#s2_1item").select2();
+        $("#s2_1customer").select2();
         $("#s2_1").select2();
         $("#s2_2").select2();
         

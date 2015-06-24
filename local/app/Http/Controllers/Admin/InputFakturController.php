@@ -1,10 +1,16 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Models\Jual;
+use App\Models\DetilJual;
+use App\Models\Customer;
+use App\Models\Item;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Request;
+use Illuminate\Http\Request;
 use Session;
+use Auth;
+use DB;
 
 class InputFakturController extends Controller {
 
@@ -16,7 +22,9 @@ class InputFakturController extends Controller {
 	public function index()
 	{
 		//
-		return view('/admin/sales/inputfaktur');
+		$customers = Customer::all();
+		$items = Item::all();
+		return view('/admin/sales/inputfaktur', compact('customers', 'items'));
 	}
 
 	/**
@@ -34,9 +42,38 @@ class InputFakturController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 		//
+		date_default_timezone_set('Asia/Bangkok');
+		$nojual = 'J' . date('YmdHis');
+   		Jual::create(array(
+		    'nojual' => $nojual,
+		    'nikcust' => $request->input('idcust'),
+		    'user' => Auth::user()->id,
+		    'tglorderjual' => $request->input('tglorderjual'),
+		    'tgltempojual' => $request->input('tgltempojual'),
+		    'biayaekspjual' => $request->input('biayaekspjual'),
+		    'biayastereo' => $request->input('biayastereo'),
+		    'kursbaru' => $request->input('kursbaru')
+        ));
+
+   		$salesitems = Session::get('salesitems');
+	        foreach ($salesitems as $index => $item) {
+					DetilJual::create(array(
+				    'nojual' => $nojual,
+				    'kodebrg' => $item['kodebrg'],
+				    'hargasatuankg' => $item['hargasatuankg'],
+				    'jumlahkg' => $item['jumlahkg'],
+				    'jumlahekor' => $item['jumlahekor'],
+				    'keterangan' => $item['keterangan']
+		        ));
+			}
+
+		// destroy session
+		Session::forget('salesitems');
+
+   		return redirect('/admin/sales/inputfaktur');
 	}
 
 	/**

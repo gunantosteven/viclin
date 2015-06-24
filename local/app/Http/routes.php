@@ -126,6 +126,33 @@ Route::get('createdb',function(){
 		$table->float('stokbrg');
 		$table->timestamps();
 	});
+	Schema::create('jual',function($table){
+		$table->bigIncrements('id');
+		$table->string('nojual',20)->unique();
+		$table->bigInteger('nikcust')->unsigned();
+		$table->foreign('nikcust')->references('id')->on('customers');
+		$table->unsignedInteger('user');
+		$table->foreign('user')->references('id')->on('users');
+		$table->date('tglorderjual');
+		$table->date('tgltempojual');
+		$table->float('biayaekspjual');
+		$table->float('biayasusutjual');
+		$table->float('biayastereo');
+		$table->float('kursbaru');
+		$table->timestamps();
+	});
+	Schema::create('detiljual',function($table){
+		$table->bigIncrements('id');
+		$table->string('nojual');
+		$table->foreign('nojual')->references('nojual')->on('jual');
+		$table->string('kodebrg');
+		$table->foreign('kodebrg')->references('kodebrg')->on('items');
+		$table->float('hargasatuankg');
+		$table->float('jumlahkg');
+		$table->bigInteger('jumlahekor');
+		$table->string('keterangan');
+		$table->timestamps();
+	});
 	return "tables has been created";
 });
 
