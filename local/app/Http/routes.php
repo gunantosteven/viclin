@@ -67,7 +67,20 @@ Route::group(['middleware' => 'admin'], function()
 
     Route::resource('/admin/sales/inputfaktur', 'Admin\InputFakturController');
     Route::resource('/admin/sales/detailinputfaktur', 'Admin\DetailInputFakturController');
-    Route::resource('/admin/sales/cetakfaktur', 'Admin\CetakFakturController');
+
+    Route::get('/admin/sales/cetakfaktur', [
+	    'as' => 'admin.sales.cetakfaktur.index',
+	    'uses' => 'Admin\CetakFakturController@index'
+	]);
+    Route::post('/admin/sales/cetakfaktur', [
+	    'as' => 'admin.sales.cetakfaktur.showfaktur',
+	    'uses' => 'Admin\CetakFakturController@showfaktur'
+	]);
+	Route::get('/admin/sales/cetakfaktur/{nojual}', [
+	    'as' => 'admin.sales.cetakfaktur.cetak',
+	    'uses' => 'Admin\CetakFakturController@cetak'
+	]);
+
     Route::resource('/admin/sales/revisifaktur', 'Admin\RevisiFakturController');
     Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
 
@@ -139,6 +152,7 @@ Route::get('createdb',function(){
 		$table->float('biayasusutjual');
 		$table->float('biayastereo');
 		$table->float('kursbaru');
+		$table->date('tglfaktur');
 		$table->timestamps();
 	});
 	Schema::create('detiljual',function($table){

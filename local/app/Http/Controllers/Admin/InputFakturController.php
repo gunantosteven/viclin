@@ -47,6 +47,7 @@ class InputFakturController extends Controller {
 		//
 		date_default_timezone_set('Asia/Bangkok');
 		$nojual = 'J' . date('YmdHis');
+		$datetoday = date('Y-m-d');
    		Jual::create(array(
 		    'nojual' => $nojual,
 		    'nikcust' => $request->input('idcust'),
@@ -55,7 +56,8 @@ class InputFakturController extends Controller {
 		    'tgltempojual' => $request->input('tgltempojual'),
 		    'biayaekspjual' => $request->input('biayaekspjual'),
 		    'biayastereo' => $request->input('biayastereo'),
-		    'kursbaru' => $request->input('kursbaru')
+		    'kursbaru' => $request->input('kursbaru'),
+		    'tglfaktur' => $datetoday,
         ));
 
    		$salesitems = Session::get('salesitems');

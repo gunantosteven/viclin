@@ -60,7 +60,6 @@
     <script type='text/javascript' src={{ asset('js/actions.js') }}></script>
     <script type='text/javascript' src={{ asset('js/charts.js') }}></script>
     <script type='text/javascript' src={{ asset('js/plugins.js') }}></script>
-
 </head>
 <body>
 	<div class="header">

@@ -20,7 +20,7 @@ class Jual extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['nojual', 'nikcust', 'user', 'tglorderjual', 'tgltempojual', 'biayaekspjual', 'biayasusutjual', 'biayastereo', 'kursbaru'];
+	protected $fillable = ['nojual', 'nikcust', 'user', 'tglorderjual', 'tgltempojual', 'biayaekspjual', 'biayasusutjual', 'biayastereo', 'kursbaru', 'tglfaktur'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

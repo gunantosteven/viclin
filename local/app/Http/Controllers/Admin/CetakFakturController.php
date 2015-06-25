@@ -1,9 +1,16 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Models\Jual;
+use App\Models\DetilJual;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+
 use Illuminate\Http\Request;
+
+use PDF;
+use App;
+use View;
 
 class CetakFakturController extends Controller {
 
@@ -16,8 +23,42 @@ class CetakFakturController extends Controller {
 	public function index()
 	{
 		//
-		return view('/admin/sales/cetakfaktur');
+		$tanggalawal = date('Y-m-d');
+    	$tanggalakhir = date('Y-m-d');
+		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		return view('/admin/sales/cetakfaktur', compact('juals', 'tanggalawal', 'tanggalakhir'));
 	}
+
+	/**
+	 * 
+	 *
+	 * @return Response
+	 */
+	public function showfaktur(Request $request)
+	{
+		//
+		$juals = Jual::where('tglfaktur', '>=', $request->input('tanggalawal'))
+    				->where('tglfaktur', '<=', $request->input('tanggalakhir'))->get();
+    	$tanggalawal = $request->input('tanggalawal');
+    	$tanggalakhir = $request->input('tanggalakhir');
+    	return view('/admin/sales/cetakfaktur', compact('juals', 'tanggalawal', 'tanggalakhir'));
+	}
+
+	/**
+	 * 
+	 *
+	 * @return Response
+	 */
+	public function cetak($nojual)
+	{
+		//
+		$jual = Jual::where('nojual', '=', $nojual)->first();
+    	$detiljuals = DetilJual::where('nojual', '=', $nojual)->get();
+		$pdf = PDF::loadView('admin.sales.report.reportfaktur', compact('jual', 'detiljuals'));
+		return $pdf->setPaper('a4')->stream('suratjalan' . $nojual .'.pdf');
+	}
+
 
 	/**
 	 * Show the form for creating a new resource.
@@ -34,7 +75,7 @@ class CetakFakturController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store()
+	public function store(Request $request)
 	{
 		//
 	}
@@ -42,12 +83,13 @@ class CetakFakturController extends Controller {
 	/**
 	 * Display the specified resource.
 	 *
-	 * @param  int  $id
+	 * 
 	 * @return Response
 	 */
-	public function show($id)
+	public function show(Request $request)
 	{
 		//
+		
 	}
 
 	/**

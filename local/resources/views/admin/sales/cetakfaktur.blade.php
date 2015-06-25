@@ -9,15 +9,15 @@
             <div class="isw-documents"></div>
             <h1>Search Faktur</h1>
         </div>
-            {!! Form::open(['url' => 'owner/customers']) !!}
+            {!! Form::open(['method' => 'POST', 'route'=>['admin.sales.cetakfaktur.showfaktur']]) !!}
             <div class="block-fluid"> 
                 <div class="row-form clearfix">
-                    <div class="span3">Tanggal Awal:</div>
-                    <div class="span9">{!! Form::input('date','tanggalawal',null,['class'=>'form-control']) !!}</div>
+                    <div class="span3">Tanggal Awal Faktur :</div>
+                    <div class="span9">{!! Form::input('date','tanggalawal',$tanggalawal,['class'=>'form-control']) !!}</div>
                 </div>
                 <div class="row-form clearfix">
-                    <div class="span3">Tanggal Akhir:</div>
-                    <div class="span9">{!! Form::input('date','tanggalakhir',null,['class'=>'form-control']) !!}</div>
+                    <div class="span3">Tanggal Akhir Faktur:</div>
+                    <div class="span9">{!! Form::input('date','tanggalakhir',$tanggalakhir,['class'=>'form-control']) !!}</div>
                 </div>
                 <div class="row-form clearfix">
                     {!! Form::submit('Search', ['class' => 'btn btn-primary']) !!}
@@ -37,19 +37,17 @@
      </tr>
      </thead>
      <tbody>
-
-        <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td>
-                {!! Form::open(['method' => 'GET', 'route'=>['admin.sales.cetakfaktur.index']]) !!}
-                {!! Form::submit('Cetak', ['class' => 'btn']) !!}
-                {!! Form::close() !!}
-             </td>
-        </tr>
-
+        @if($juals != null)
+            @foreach ($juals as $key => $jual)
+                <tr>
+                     <td>{{ $jual['nojual'] }}</td>
+                     <td>{{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</td>
+                     <td>{{ $jual['tglorderjual'] }}</td>
+                     <td>{{ $jual['tgltempojual'] }}</td>
+                     <td><a href="{{url('admin/sales/cetakfaktur',$jual->nojual)}}" class="btn" target="_blank">Cetak</a></td>
+                </tr>
+            @endforeach
+        @endif
         </td>
 
      </tbody>
