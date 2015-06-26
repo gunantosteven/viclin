@@ -100,6 +100,7 @@ Route::group(['middleware' => 'admin'], function()
 	Route::resource('/admin/sales/detailrevisifaktur', 'Admin\DetailRevisiFakturController');
 
     Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
+    Route::resource('/admin/sales/detailreturfaktur', 'Admin\DetailReturFakturController');
 
     Route::resource('/admin/sales/inputpenyusutan','Admin\InputPenyusutanController');
     Route::resource('/admin/sales/revisipenyusutan','Admin\RevisiPenyusutanController');
@@ -182,6 +183,28 @@ Route::get('createdb',function(){
 		$table->float('jumlahkg');
 		$table->bigInteger('jumlahekor');
 		$table->string('keterangan');
+		$table->timestamps();
+	});
+	Schema::create('returjual',function($table){
+		$table->bigIncrements('id');
+		$table->string('noreturjual',20)->unique();
+		$table->unsignedInteger('user');
+		$table->foreign('user')->references('id')->on('users');
+		$table->date('tglreturjual');
+		$table->timestamps();
+	});
+	Schema::create('asalreturjual',function($table){
+		$table->bigIncrements('id');
+		$table->string('noreturjual');
+		$table->foreign('noreturjual')->references('noreturjual')->on('returjual');
+		$table->string('nojual');
+		$table->foreign('nojual')->references('nojual')->on('jual');
+		$table->string('kodebrg');
+		$table->foreign('kodebrg')->references('kodebrg')->on('items');
+		$table->float('hargasatuankgretjual');
+		$table->float('jumlahkgretjual');
+		$table->bigInteger('jumlahekorretjual');
+		$table->string('newsretjual');
 		$table->timestamps();
 	});
 	return "tables has been created";

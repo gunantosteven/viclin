@@ -1,12 +1,15 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Models\Retur;
+use App\Models\DetilRetur;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
 use Session;
+use Log;
 
-class DetailInputFakturController extends Controller {
+class DetailReturFakturController extends Controller {
 
 
 
@@ -36,20 +39,20 @@ class DetailInputFakturController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function store(Request $request)
+	public function store()
 	{
 		//
 		date_default_timezone_set('Asia/Bangkok');
-		$id = 'DJ-' . date('Ymd-H.i.s');
-		Session::push('salesitems', [
-          'kodebrg' => $request->input('kodebrg'),
-          'hargasatuankg' => $request->input('hargasatuankg'),
-          'jumlahkg' => $request->input('jumlahkg'),
-          'jumlahekor' => $request->input('jumlahekor'),
-          'keterangan' => $request->input('keterangan'),
+		$id = 'DRJ-' . date('Ymd-H.i.s');
+		Session::push('retursalesitems', [
+          'kodebrg' => Request::input('kodebrg'),
+          'hargasatuankgretjual' => Request::input('hargasatuankgretjual'),
+          'jumlahkgretjual' => Request::input('jumlahkgretjual'),
+          'jumlahekorretjual' => Request::input('jumlahekorretjual'),
+          'newsretjual' => Request::input('newsretjual'),
           'id' => $id
       	]);
-		return redirect('admin/sales/inputfaktur');
+		return redirect('admin/sales/returperfaktur');
 	}
 
 	/**
@@ -96,21 +99,21 @@ class DetailInputFakturController extends Controller {
 		//
 		if($id == -1)
 		{
-			Session::forget('salesitems');
+			Session::forget('retursalesitems');
 
-			return redirect('admin/sales/inputfaktur');
+			return redirect('admin/sales/returperfaktur');
 		}
 
-		$salesitems = Session::get('salesitems');
-		foreach ($salesitems as $index => $item) {
+		$retursalesitems = Session::get('retursalesitems');
+		foreach ($retursalesitems as $index => $item) {
 			if ($item['id'] == $id) {
-		    	unset($salesitems[$index]);
+		    	unset($retursalesitems[$index]);
 		    }
 		}
 		
-		session(['salesitems' => $salesitems]);
+		session(['retursalesitems' => $retursalesitems]);
 
-		return redirect('admin/sales/inputfaktur');
+		return redirect('admin/sales/returperfaktur');
 	}
 
 }

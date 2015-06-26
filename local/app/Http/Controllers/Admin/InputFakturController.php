@@ -46,7 +46,8 @@ class InputFakturController extends Controller {
 	{
 		//
 		date_default_timezone_set('Asia/Bangkok');
-		$nojual = 'J' . date('YmdHis');
+		$nojual = 'J-' . date('Ymd-H.i.s');
+
 		$datetoday = date('Y-m-d');
    		Jual::create(array(
 		    'nojual' => $nojual,
