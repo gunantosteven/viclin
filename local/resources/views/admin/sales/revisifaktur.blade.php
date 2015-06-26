@@ -10,15 +10,15 @@
             <div class="isw-documents"></div>
             <h1>Search Faktur</h1>
         </div>
-            {!! Form::open(['url' => 'owner/customers']) !!}
+            {!! Form::open(['method' => 'POST', 'route'=>['admin.sales.revisifaktur.showfaktur']]) !!}
             <div class="block-fluid"> 
                 <div class="row-form clearfix">
-                    <div class="span3">Tanggal Awal:</div>
-                    <div class="span9">{!! Form::input('date','tanggalawal',null,['class'=>'form-control']) !!}</div>
+                    <div class="span3">Tanggal Awal Faktur :</div>
+                    <div class="span9">{!! Form::input('date','tanggalawal',$tanggalawal,['class'=>'form-control']) !!}</div>
                 </div>
                 <div class="row-form clearfix">
-                    <div class="span3">Tanggal Akhir:</div>
-                    <div class="span9">{!! Form::input('date','tanggalakhir',null,['class'=>'form-control']) !!}</div>
+                    <div class="span3">Tanggal Akhir Faktur:</div>
+                    <div class="span9">{!! Form::input('date','tanggalakhir',$tanggalakhir,['class'=>'form-control']) !!}</div>
                 </div>
                 <div class="row-form clearfix">
                     {!! Form::submit('Search', ['class' => 'btn btn-primary']) !!}
@@ -38,17 +38,17 @@
      </tr>
      </thead>
      <tbody>
-
-        <tr>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td>
-                <a href="{{route('admin.sales.revisifaktur.edit',1)}}" class="btn btn-warning">Revisi</a>
-             </td>
-        </tr>
-
+        @if($juals != null)
+            @foreach ($juals as $key => $jual)
+                <tr>
+                     <td>{{ $jual['nojual'] }}</td>
+                     <td>{{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</td>
+                     <td>{{ $jual['tglorderjual'] }}</td>
+                     <td>{{ $jual['tgltempojual'] }}</td>
+                     <td><a href="{{url('admin/sales/revisifaktur',$jual->nojual)}}" class="btn">Revisi</a></td>
+                </tr>
+            @endforeach
+        @endif
         </td>
 
      </tbody>

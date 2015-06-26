@@ -1,9 +1,13 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Models\Jual;
+use App\Models\DetilJual;
+use App\Models\Item;
+use App\Models\Customer;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
 
 class RevisiFakturController extends Controller {
 
@@ -15,39 +19,28 @@ class RevisiFakturController extends Controller {
 	public function index()
 	{
 		//
-		return view('/admin/sales/revisifaktur');
+		$tanggalawal = date('Y-m-d');
+    	$tanggalakhir = date('Y-m-d');
+		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		return view('/admin/sales/revisifaktur', compact('juals', 'tanggalawal', 'tanggalakhir'));
 	}
 
 	/**
-	 * Show the form for creating a new resource.
+	 * 
 	 *
 	 * @return Response
 	 */
-	public function create()
+	public function showfaktur()
 	{
 		//
+		$juals = Jual::where('tglfaktur', '>=', Request::input('tanggalawal'))
+    				->where('tglfaktur', '<=', Request::input('tanggalakhir'))->get();
+    	$tanggalawal = Request::input('tanggalawal');
+    	$tanggalakhir = Request::input('tanggalakhir');
+    	return view('/admin/sales/revisifaktur', compact('juals', 'tanggalawal', 'tanggalakhir'));
 	}
 
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
-	public function store()
-	{
-		//
-	}
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function show($id)
-	{
-		//
-	}
 
 	/**
 	 * Show the form for editing the specified resource.
@@ -55,10 +48,14 @@ class RevisiFakturController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function edit($id)
+	public function edit($nojual)
 	{
 		//
-		return view('admin.sales.revisifakturupdate');
+		$jual = Jual::where('nojual', '=', $nojual)->get()->first();
+		$detiljuals = DetilJual::where('nojual', '=', $nojual)->get();
+		$items = Item::all();
+		$customers = Customer::all();
+		return view('admin.sales.revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers'));
 	}
 
 	/**
@@ -67,20 +64,12 @@ class RevisiFakturController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update($nojual)
 	{
 		//
+		$jualUpdate=Request::all();
+   		$jual=Jual::where('nojual', '=', $nojual)->get()->first();
+   		$jual->update($jualUpdate);
+   		return redirect('admin/sales/revisifaktur/' . $nojual);
 	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
-	public function destroy($id)
-	{
-		//
-	}
-
 }

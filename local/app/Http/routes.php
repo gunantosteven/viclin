@@ -81,7 +81,24 @@ Route::group(['middleware' => 'admin'], function()
 	    'uses' => 'Admin\CetakFakturController@cetak'
 	]);
 
-    Route::resource('/admin/sales/revisifaktur', 'Admin\RevisiFakturController');
+	Route::get('/admin/sales/revisifaktur', [
+	    'as' => 'admin.sales.revisifaktur.index',
+	    'uses' => 'Admin\RevisiFakturController@index'
+	]);
+    Route::post('/admin/sales/revisifaktur', [
+	    'as' => 'admin.sales.revisifaktur.showfaktur',
+	    'uses' => 'Admin\RevisiFakturController@showfaktur'
+	]);
+	Route::get('/admin/sales/revisifaktur/{nojual}', [
+	    'as' => 'admin.sales.revisifaktur.edit',
+	    'uses' => 'Admin\RevisiFakturController@edit'
+	]);
+	Route::patch('/admin/sales/revisifaktur/{nojual}', [
+	    'as' => 'admin.sales.revisifaktur.update',
+	    'uses' => 'Admin\RevisiFakturController@update'
+	]);
+	Route::resource('/admin/sales/detailrevisifaktur', 'Admin\DetailRevisiFakturController');
+
     Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
 
     Route::resource('/admin/sales/inputpenyusutan','Admin\InputPenyusutanController');
