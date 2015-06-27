@@ -1,9 +1,13 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Models\Jual;
+use App\Models\DetilJual;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
+
+use DB;
 
 class InputPenyusutanController extends Controller {
 
@@ -15,7 +19,26 @@ class InputPenyusutanController extends Controller {
 	public function index()
 	{
 		//
-		return view('admin.sales.inputpenyusutan');
+		$tanggalawal = date('Y-m-d');
+    	$tanggalakhir = date('Y-m-d');
+		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		return view('admin.sales.inputpenyusutan', compact('juals', 'tanggalawal', 'tanggalakhir'));
+	}
+
+	/**
+	 * 
+	 *
+	 * @return Response
+	 */
+	public function showfaktur()
+	{
+		//
+		$juals = Jual::where('tglfaktur', '>=', Request::input('tanggalawal'))
+    				->where('tglfaktur', '<=', Request::input('tanggalakhir'))->get();
+    	$tanggalawal = Request::input('tanggalawal');
+    	$tanggalakhir = Request::input('tanggalakhir');
+    	return view('/admin/sales/inputpenyusutan', compact('juals', 'tanggalawal', 'tanggalakhir'));
 	}
 
 	/**
@@ -63,12 +86,22 @@ class InputPenyusutanController extends Controller {
 	/**
 	 * Update the specified resource in storage.
 	 *
-	 * @param  int  $id
+	 * 
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
 		//
+
+        DB::table('jual')
+            ->where('nojual', Request::input('nojual'))
+            ->update(['biayasusutjual' => Request::input('biayasusutjual')]);
+
+        $tanggalawal = date('Y-m-d');
+    	$tanggalakhir = date('Y-m-d');
+		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		return view('admin.sales.inputpenyusutan', compact('juals', 'tanggalawal', 'tanggalakhir'));
 	}
 
 	/**

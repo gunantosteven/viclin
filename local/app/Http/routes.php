@@ -102,8 +102,31 @@ Route::group(['middleware' => 'admin'], function()
     Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
     Route::resource('/admin/sales/detailreturfaktur', 'Admin\DetailReturFakturController');
 
-    Route::resource('/admin/sales/inputpenyusutan','Admin\InputPenyusutanController');
-    Route::resource('/admin/sales/revisipenyusutan','Admin\RevisiPenyusutanController');
+    Route::get('/admin/sales/inputpenyusutan', [
+	    'as' => 'admin.sales.inputpenyusutan.index',
+	    'uses' => 'Admin\InputPenyusutanController@index'
+	]);
+    Route::post('/admin/sales/inputpenyusutan', [
+	    'as' => 'admin.sales.inputpenyusutan.showfaktur',
+	    'uses' => 'Admin\InputPenyusutanController@showfaktur'
+	]);
+	Route::patch('/admin/sales/inputpenyusutan', [
+	    'as' => 'admin.sales.inputpenyusutan.update',
+	    'uses' => 'Admin\InputPenyusutanController@update'
+	]);
+
+	Route::get('/admin/sales/revisipenyusutan', [
+	    'as' => 'admin.sales.revisipenyusutan.index',
+	    'uses' => 'Admin\RevisiPenyusutanController@index'
+	]);
+    Route::post('/admin/sales/revisipenyusutan', [
+	    'as' => 'admin.sales.revisipenyusutan.showfaktur',
+	    'uses' => 'Admin\RevisiPenyusutanController@showfaktur'
+	]);
+	Route::patch('/admin/sales/revisipenyusutan', [
+	    'as' => 'admin.sales.revisipenyusutan.update',
+	    'uses' => 'Admin\RevisiPenyusutanController@update'
+	]);
 
     Route::resource('/admin/sales/cetaksuratjalan','Admin\CetakSuratJalanController');
 
