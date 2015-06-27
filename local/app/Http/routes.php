@@ -128,7 +128,18 @@ Route::group(['middleware' => 'admin'], function()
 	    'uses' => 'Admin\RevisiPenyusutanController@update'
 	]);
 
-    Route::resource('/admin/sales/cetaksuratjalan','Admin\CetakSuratJalanController');
+	Route::get('/admin/sales/cetaksuratjalan', [
+	    'as' => 'admin.sales.cetaksuratjalan.index',
+	    'uses' => 'Admin\CetakSuratJalanController@index'
+	]);
+    Route::post('/admin/sales/cetaksuratjalan', [
+	    'as' => 'admin.sales.cetaksuratjalan.showfaktur',
+	    'uses' => 'Admin\CetakSuratJalanController@showfaktur'
+	]);
+	Route::get('/admin/sales/cetaksuratjalan/{nojual}', [
+	    'as' => 'admin.sales.cetaksuratjalan.cetak',
+	    'uses' => 'Admin\CetakSuratJalanController@cetak'
+	]);
 
 });
 
