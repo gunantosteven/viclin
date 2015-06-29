@@ -18,8 +18,8 @@
     <![endif]-->            
     <link rel='stylesheet' type='text/css' href={{ asset('css/fullcalendar.print.css') }} media='print' />
     
-    <script type='text/javascript' src={{ asset('http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js') }}></script>
-    <script type='text/javascript' src={{ asset('http://ajax.googleapis.com/ajax/libs/jqueryui/1.8/jquery-ui.min.js') }}></script>
+    <script type='text/javascript' src={{ asset('js/jquery.min.js') }}></script>
+    <script type='text/javascript' src={{ asset('js/jquery-ui.min.js') }}></script>
     <script type='text/javascript' src={{ asset('js/plugins/jquery/jquery.mousewheel.min.js') }}></script>
     
     <script type='text/javascript' src={{ asset('js/plugins/cookie/jquery.cookies.2.2.0.min.js') }}></script>
