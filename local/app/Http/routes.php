@@ -141,6 +141,7 @@ Route::group(['middleware' => 'admin'], function()
 	    'uses' => 'Admin\CetakSuratJalanController@cetak'
 	]);
 
+	Route::resource('/admin/biayas', 'Admin\BiayaController');
 });
 
 
@@ -239,6 +240,14 @@ Route::get('createdb',function(){
 		$table->float('jumlahkgretjual');
 		$table->bigInteger('jumlahekorretjual');
 		$table->string('newsretjual');
+		$table->timestamps();
+	});
+	Schema::create('biayas',function($table){
+		$table->bigIncrements('id');
+		$table->string('biaya');
+		$table->date('tgl');
+		$table->string('keterangan');
+		$table->float('nominal');
 		$table->timestamps();
 	});
 	return "tables has been created";

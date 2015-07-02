@@ -165,20 +165,15 @@
                 </a>
                 <ul>
                     <li>
-                        <a href="#">
-                            <span class="icon-chevron-right"></span><span class="text">Bensin</span>
+                        <a href="{{url('admin/biayas/create')}}">
+                            <span class="icon-chevron-right"></span><span class="text">Input Biaya</span>
                         </a>                  
                     </li>          
                     <li>
-                        <a href="#">
-                            <span class="icon-chevron-right"></span><span class="text">Gaji Karyawan</span>
+                        <a href="{{url('admin/biayas')}}">
+                            <span class="icon-chevron-right"></span><span class="text">Lihat Biaya</span>
                         </a>                  
                     </li>                     
-                    <li>
-                        <a href="#">
-                            <span class="icon-chevron-right"></span><span class="text">Lain-Lain</span>
-                        </a>                  
-                    </li>               
                 </ul>                
             </li>    
               
