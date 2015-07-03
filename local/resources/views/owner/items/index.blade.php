@@ -26,7 +26,7 @@
          <td>{{ $item->status }}</td>
          <td>{{ $item->stokbrg }}</td>
          <td><a href="{{url('owner/items',$item->id)}}" class="btn btn-primary">Read</a></td>
-         <td><a href="#" class="btn btn-warning">Update</a></td>
+         <td><a href="{{route('owner.items.edit',$item->id)}}" class="btn btn-warning">Update</a></td>
          <td>
          {!! Form::open(['method' => 'DELETE', 'route'=>['owner.items.destroy', $item->id]]) !!}
          {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}

@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Owner;
 
+use App\Models\Category;
 use App\Models\Item;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -28,6 +29,8 @@ class ItemController extends Controller {
 	public function create()
 	{
 		//
+		$categories = Category::all();
+		return view('owner.items.create', compact('categories'));
 	}
 
 	/**
@@ -38,6 +41,9 @@ class ItemController extends Controller {
 	public function store()
 	{
 		//
+		$item=Request::all();
+   		Item::create($item);
+   		return redirect('owner/items');
 	}
 
 	/**
@@ -62,6 +68,9 @@ class ItemController extends Controller {
 	public function edit($id)
 	{
 		//
+		$item=Item::find($id);
+		$categories = Category::all();
+   		return view('owner.items.edit',compact('item', 'categories'));
 	}
 
 	/**
@@ -73,6 +82,10 @@ class ItemController extends Controller {
 	public function update($id)
 	{
 		//
+		$itemUpdate = Request::all();
+   		$item=Item::find($id);
+   		$item->update($itemUpdate);
+   		return redirect('owner/items');
 	}
 
 	/**
