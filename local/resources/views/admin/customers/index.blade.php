@@ -19,7 +19,7 @@
          <th>City</th>
          <th>Email</th>
          <th>Limit</th>
-         <th colspan="3">Actions</th>
+         <th colspan="2">Actions</th>
      </tr>
      </thead>
      <tbody>
@@ -31,7 +31,6 @@
              <td>{{ $customer->kotacust }}</td>
              <td>{{ $customer->emailcust }}</td>
              <td>{{ $customer->limitcust }}</td>
-             <td><a href="{{url('admin/customers',$customer->id)}}" class="btn btn-primary">Read</a></td>
              <td><a href="{{route('admin.customers.edit',$customer->id)}}" class="btn btn-warning">Update</a></td>
              <td>
              {!! Form::open(['method' => 'DELETE', 'route'=>['admin.customers.destroy', $customer->id]]) !!}

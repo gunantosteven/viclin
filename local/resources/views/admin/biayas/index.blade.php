@@ -13,7 +13,7 @@
          <th>Date</th>
          <th>Information</th>
          <th>Nominal</th>
-         <th colspan="3">Actions</th>
+         <th colspan="2">Actions</th>
      </tr>
      </thead>
      <tbody>
@@ -23,7 +23,6 @@
              <td>{{ $biaya->tgl }}</td>
              <td>{{ $biaya->keterangan }}</td>
              <td>{{ $biaya->nominal }}</td>
-             <td><a href="{{url('admin/biayas',$biaya->id)}}" class="btn btn-primary">Read</a></td>
              <td><a href="{{route('admin.biayas.edit',$biaya->id)}}" class="btn btn-warning">Update</a></td>
              <td>
              {!! Form::open(['method' => 'DELETE', 'route'=>['admin.biayas.destroy', $biaya->id]]) !!}

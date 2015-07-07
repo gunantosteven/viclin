@@ -13,7 +13,7 @@
      <th>Phone</th>
      <th>City</th>
      <th>Email</th>
-     <th colspan="3">Actions</th>
+     <th colspan="2">Actions</th>
  </tr>
  </thead>
  <tbody>
@@ -25,7 +25,6 @@
          <td>{{ $supplier->telpsupp }}</td>
          <td>{{ $supplier->kotasupp }}</td>
          <td>{{ $supplier->emailsupp }}</td>
-         <td><a href="{{url('owner/suppliers',$supplier->id)}}" class="btn btn-primary">Read</a></td>
          <td><a href="{{route('owner.suppliers.edit',$supplier->id)}}" class="btn btn-warning">Update</a></td>
          <td>
          {!! Form::open(['method' => 'DELETE', 'route'=>['owner.suppliers.destroy', $supplier->id]]) !!}

@@ -13,7 +13,7 @@
      <th>StockKG</th>
      <th>Status</th>
      <th>StockTail</th>
-     <th colspan="3">Actions</th>
+     <th colspan="2">Actions</th>
  </tr>
  </thead>
  <tbody>
@@ -25,7 +25,6 @@
          <td>{{ $item->stokkg }}</td>
          <td>{{ $item->status }}</td>
          <td>{{ $item->stokbrg }}</td>
-         <td><a href="{{url('owner/items',$item->id)}}" class="btn btn-primary">Read</a></td>
          <td><a href="{{route('owner.items.edit',$item->id)}}" class="btn btn-warning">Update</a></td>
          <td>
          {!! Form::open(['method' => 'DELETE', 'route'=>['owner.items.destroy', $item->id]]) !!}

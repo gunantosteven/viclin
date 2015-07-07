@@ -12,7 +12,6 @@
          <th>StockKg</th>
          <th>Status</th>
          <th>StockTail</th>
-         <th colspan="1">Actions</th>
      </tr>
      </thead>
      <tbody>
@@ -24,7 +23,6 @@
              <td>{{ $item->stokkg }}</td>
              <td>{{ $item->status }}</td>
              <td>{{ $item->stokbrg }}</td>
-             <td><a href="{{url('admin/items',$item->id)}}" class="btn btn-primary">Read</a></td>
          </tr>
      @endforeach
 
