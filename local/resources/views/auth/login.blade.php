@@ -29,9 +29,10 @@
                 <label for="inputPassword">Password</label>                
                 <input type="password" id="inputPassword" name="password"/>                
             </div>
-            <div class="control-group" style="margin-bottom: 5px;">                
+            <!-- Not use remember me -->
+            <!-- <div class="control-group" style="margin-bottom: 5px;">                
                 <label class="checkbox"><input type="checkbox" name="remember"> Remember me</label>                                                
-            </div>
+            </div> --> 
             <div class="form-actions">
                 <button type="submit" class="btn btn-block">Sign in</button>
             </div>
