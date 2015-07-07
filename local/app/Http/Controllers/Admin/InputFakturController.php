@@ -39,6 +39,11 @@ class InputFakturController extends Controller {
 			$checkitem = true;
 	   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'checkitem'));
 		}
+		else if($request->input('checkdetail') != "")
+		{
+			$checkdetail = true;
+	   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'checkdetail'));
+		}
 		return view('/admin/sales/inputfaktur', compact('customers', 'items'));
 	}
 
@@ -65,6 +70,10 @@ class InputFakturController extends Controller {
 		{
 			return redirect('admin/sales/inputfaktur?validasi=true');
 		}
+		else if(Session::get('salesitems') == null)
+		{
+			return redirect('admin/sales/inputfaktur?checkdetail=true');
+		}
 
 		//
 		date_default_timezone_set('Asia/Bangkok');
@@ -85,6 +94,8 @@ class InputFakturController extends Controller {
 
    		$salesitems = Session::get('salesitems');
         foreach ($salesitems as $index => $item) {
+        		DB::table('items')->where('kodebrg', '=', $item['kodebrg'])->decrement('stokkg', $item['jumlahkg']);
+        		DB::table('items')->where('kodebrg', '=', $item['kodebrg'])->decrement('stokbrg', $item['jumlahekor']);
 				DetilJual::create(array(
 			    'nojual' => $nojual,
 			    'kodebrg' => $item['kodebrg'],

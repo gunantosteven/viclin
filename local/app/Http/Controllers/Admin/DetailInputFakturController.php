@@ -59,11 +59,16 @@ class DetailInputFakturController extends Controller {
 		}
 		//validasi the same item
 		$salesitems = Session::get('salesitems');
-		foreach ($salesitems as $index => $item) {
-			if ($item['kodebrg'] == $request->input('kodebrg')) {
-		    	return redirect('admin/sales/inputfaktur?checkitem=true');
-		    }
+		if($salesitems != null)
+		{
+			$salesitems = Session::get('salesitems');
+			foreach ($salesitems as $index => $item) {
+				if ($item['kodebrg'] == $request->input('kodebrg')) {
+			    	return redirect('admin/sales/inputfaktur?checkitem=true');
+			    }
+			}
 		}
+		
 
 		//
 		date_default_timezone_set('Asia/Bangkok');

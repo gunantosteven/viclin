@@ -172,4 +172,9 @@
   window.alert('There is the same item in detail');
 </script>
 @endif
+@if (isset($checkdetail) && $checkdetail === true)
+<script>
+  window.alert('There is no item inserted');
+</script>
+@endif
 @endsection
