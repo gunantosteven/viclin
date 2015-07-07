@@ -2,40 +2,6 @@
 
 @section('content')
 <h1>Revisi Faktur Penjualan {{ $jual->nojual }}</h1>
-<table class="table table-striped table-bordered table-hover">
-     <thead>
-     <tr class="bg-info">
-         <th>Item Name</th>
-         <th>Unit Price Kg</th>
-         <th>Total Kg</th>
-         <th>Total Tail</th>
-         <th>Information</th>
-         <th colspan="1">Actions</th>
-     </tr>
-     </thead>
-     <tbody>
-        @foreach ($detiljuals as $key => $item)
-            <tr>
-                 <td>{{  DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
-                 <td>{{ $item['hargasatuankg'] }}</td>
-                 <td>{{ $item['jumlahkg'] }}</td>
-                 <td>{{ $item['jumlahekor'] }}</td>
-                 <td>{{ $item['keterangan'] }}</td>
-                 <td>
-                    {!! Form::open(['method' => 'DELETE', 'route'=>['admin.sales.detailrevisifaktur.destroy', $item['id'] ]]) !!}
-                    {!! Form::hidden('nojual', $jual->nojual) !!}
-                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                    {!! Form::close() !!}
-                 </td>
-            </tr>
-        @endforeach
-        </td>
-     </tbody>
-
-
- </table>
- <br>
-
 <div class="row-fluid">
                 
     <div class="span12">
@@ -91,9 +57,44 @@
             <div class="isw-documents"></div>
             <h1>Revisi Faktur</h1>
         </div>
-
-        {!! Form::model($jual,['method' => 'PATCH','route'=>['admin.sales.revisifaktur.update',$jual->nojual]]) !!}
         <div class="block-fluid"> 
+            <div class="row-form clearfix">
+                <div class="span12">
+                    <table class="table table-striped table-bordered table-hover">
+                         <thead>
+                         <tr class="bg-info">
+                             <th>Item Name</th>
+                             <th>Unit Price Kg</th>
+                             <th>Total Kg</th>
+                             <th>Total Tail</th>
+                             <th>Information</th>
+                             <th colspan="1">Actions</th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                            @foreach ($detiljuals as $key => $item)
+                                <tr>
+                                     <td>{{  DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
+                                     <td>{{ $item['hargasatuankg'] }}</td>
+                                     <td>{{ $item['jumlahkg'] }}</td>
+                                     <td>{{ $item['jumlahekor'] }}</td>
+                                     <td>{{ $item['keterangan'] }}</td>
+                                     <td>
+                                        {!! Form::open(['method' => 'DELETE', 'route'=>['admin.sales.detailrevisifaktur.destroy', $item['id'] ]]) !!}
+                                        {!! Form::hidden('nojual', $jual->nojual) !!}
+                                        {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                        {!! Form::close() !!}
+                                     </td>
+                                </tr>
+                            @endforeach
+                            </td>
+                         </tbody>
+
+
+                    </table>
+                </div>
+            </div>
+            {!! Form::model($jual,['method' => 'PATCH','route'=>['admin.sales.revisifaktur.update',$jual->nojual]]) !!}
             <div class="row-form clearfix">
                 <div class="span3">No Invoice:</div>
                 <div class="span9"><input type="text" id="nojual" placeholder='{{$jual->nojual}}' readonly></div>

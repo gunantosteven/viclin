@@ -2,47 +2,6 @@
 
 @section('content')
 <h1>Input Sales Invoice</h1>
-<table class="table table-striped table-bordered table-hover">
-     <thead>
-     <tr class="bg-info">
-         <th>Item Name</th>
-         <th>Unit Price Kg</th>
-         <th>Total Kg</th>
-         <th>Total Tail</th>
-         <th>Information</th>
-         <th colspan="1">Actions</th>
-     </tr>
-     </thead>
-     <tbody>
-     @if (Session::has('salesitems')) 
-        @foreach (Session::get('salesitems') as $key => $item)
-
-        <tr>
-             <td>{{  DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
-             <td>{{ $item['hargasatuankg'] }}</td>
-             <td>{{ $item['jumlahkg'] }}</td>
-             <td>{{ $item['jumlahekor'] }}</td>
-             <td>{{ $item['keterangan'] }}</td>
-             <td>
-                {!! Form::open(['method' => 'DELETE', 'route'=>['admin.sales.detailinputfaktur.destroy', $item['id'] ]]) !!}
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
-                {!! Form::close() !!}
-             </td>
-        </tr>
-
-        @endforeach
-        </td>
-     @endif
-     </tbody>
-
-
- </table>
- @if (Session::has('salesitems') && count(Session::get('salesitems')) > 0) 
-     {!! Form::open(['method' => 'DELETE', 'route'=>['admin.sales.detailinputfaktur.destroy', -1 ]]) !!}
-     {!! Form::submit('Delete All', ['class' => 'btn btn-danger pull-right']) !!}
-     {!! Form::close() !!}
- @endif
- <br>
 
 <div class="row-fluid">
                 
@@ -99,8 +58,56 @@
             <h1>Insert Invoice</h1>
         </div>
 
-        {!! Form::open(['url' => 'admin/sales/inputfaktur']) !!}
+        
         <div class="block-fluid"> 
+            <div class="row-form clearfix">
+                <div class="span12">
+                    <table class="table table-striped table-bordered table-hover">
+                         <thead>
+                         <tr class="bg-info">
+                             <th>Item Name</th>
+                             <th>Unit Price Kg</th>
+                             <th>Total Kg</th>
+                             <th>Total Tail</th>
+                             <th>Information</th>
+                             <th colspan="1">Actions</th>
+                         </tr>
+                         </thead>
+                         <tbody>
+                         @if (Session::has('salesitems')) 
+                            @foreach (Session::get('salesitems') as $key => $item)
+
+                            <tr>
+                                 <td>{{  DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
+                                 <td>{{ $item['hargasatuankg'] }}</td>
+                                 <td>{{ $item['jumlahkg'] }}</td>
+                                 <td>{{ $item['jumlahekor'] }}</td>
+                                 <td>{{ $item['keterangan'] }}</td>
+                                 <td>
+                                    {!! Form::open(['method' => 'DELETE', 'route'=>['admin.sales.detailinputfaktur.destroy', $item['id'] ]]) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
+                                    {!! Form::close() !!}
+                                 </td>
+                            </tr>
+
+                            @endforeach
+                            </td>
+                         @endif
+                         </tbody>
+
+
+                     </table>
+                     <br>
+                     @if (Session::has('salesitems') && count(Session::get('salesitems')) > 0) 
+                         {!! Form::open(['method' => 'DELETE', 'route'=>['admin.sales.detailinputfaktur.destroy', -1 ]]) !!}
+                         {!! Form::submit('Delete All', ['class' => 'btn btn-danger pull-right']) !!}
+                         {!! Form::close() !!}
+                     @endif
+                </div>
+            </div>
+
+            {!! Form::open(['url' => 'admin/sales/inputfaktur']) !!}
+        
             <div class="row-form clearfix">
                 <div class="span3">Customer:</div>
                 <div class="span9">
@@ -134,8 +141,9 @@
             <div class="row-form clearfix">
                     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
             </div>
+            {!! Form::close() !!}
+            
         </div>
-        {!! Form::close() !!}
     </div>
 </div>
 
