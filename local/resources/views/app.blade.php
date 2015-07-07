@@ -6,7 +6,7 @@
     <!--[if gt IE 8]>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <![endif]-->
-	<title>Laravel</title>
+	<title>Viclin Login</title>
 
 	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
 
