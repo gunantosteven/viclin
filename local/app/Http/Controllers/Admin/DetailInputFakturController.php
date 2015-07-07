@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Models\Customer;
+use App\Models\Item;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -38,6 +40,14 @@ class DetailInputFakturController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+
+		//validasi
+		if($request->input('kodebrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
+			|| $request->input('jumlahekor') == "" || $request->input('keterangan') == "")
+		{
+			return redirect('admin/sales/inputfaktur?validasi=true');
+		}
+
 		//
 		date_default_timezone_set('Asia/Bangkok');
 		$id = 'DJ-' . date('Ymd-H.i.s');

@@ -19,11 +19,16 @@ class InputFakturController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function index()
+	public function index(Request $request)
 	{
 		//
 		$customers = Customer::all();
 		$items = Item::all();
+		if($request->input('validasi') != "")
+		{
+			$validasi = true;
+	   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'validasi'));
+		}
 		return view('/admin/sales/inputfaktur', compact('customers', 'items'));
 	}
 
@@ -44,6 +49,13 @@ class InputFakturController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		// Validasi
+		if($request->input('idcust') == "" || $request->input('tglorderjual') == "" || $request->input('tgltempojual') == "" 
+			|| $request->input('biayaekspjual') == "" ||  $request->input('biayastereo') == "" || $request->input('kursbaru') == "")
+		{
+			return redirect('admin/sales/inputfaktur?validasi=true');
+		}
+
 		//
 		date_default_timezone_set('Asia/Bangkok');
 		$nojual = 'J-' . date('Ymd-H.i.s');
@@ -62,16 +74,16 @@ class InputFakturController extends Controller {
         ));
 
    		$salesitems = Session::get('salesitems');
-	        foreach ($salesitems as $index => $item) {
-					DetilJual::create(array(
-				    'nojual' => $nojual,
-				    'kodebrg' => $item['kodebrg'],
-				    'hargasatuankg' => $item['hargasatuankg'],
-				    'jumlahkg' => $item['jumlahkg'],
-				    'jumlahekor' => $item['jumlahekor'],
-				    'keterangan' => $item['keterangan']
-		        ));
-			}
+        foreach ($salesitems as $index => $item) {
+				DetilJual::create(array(
+			    'nojual' => $nojual,
+			    'kodebrg' => $item['kodebrg'],
+			    'hargasatuankg' => $item['hargasatuankg'],
+			    'jumlahkg' => $item['jumlahkg'],
+			    'jumlahekor' => $item['jumlahekor'],
+			    'keterangan' => $item['keterangan']
+	        ));
+		}
 
 		// destroy session
 		Session::forget('salesitems');

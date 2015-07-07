@@ -157,4 +157,9 @@
       w.focus();
     </script>
 @endif
+@if (isset($validasi) && $validasi === true)
+    <script>
+      window.alert('Ada data yang belum diisi');
+    </script>
+@endif
 @endsection
