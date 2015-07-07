@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
 
+use DB;
+
 class DetailRevisiFakturController extends Controller {
 
 
@@ -39,7 +41,30 @@ class DetailRevisiFakturController extends Controller {
 	 */
 	public function store(Request $request)
 	{
+		//validasi
+		if($request->input('kodebrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
+			|| $request->input('jumlahekor') == "" || $request->input('keterangan') == "")
+		{
+			return redirect('admin/sales/revisifaktur/' . $request->input('nojual') . '?validasi=true');
+		}
+		//validasi stock
+		$itemNow = DB::table('items')->where('kodebrg', $request->input('kodebrg'))->first();
+		$jumlahKg = $request->input('jumlahkg');
+		$jumlahEkor = $request->input('jumlahekor');
+		if($itemNow->stokkg - $jumlahKg < 0 || $itemNow->stokbrg - $jumlahEkor < 0)
+		{
+			return redirect('admin/sales/revisifaktur/' . $request->input('nojual') . '?checkstock=true');
+		}
+		//validasi the same item
+		$detiljual = DB::table('detiljual')->where('nojual', '=', $request->input('nojual'))->where('kodebrg', '=', $request->input('kodebrg'))->first();
+		if($detiljual != null && $detiljual->kodebrg == $request->input('kodebrg'))
+		{
+			return redirect('admin/sales/revisifaktur/' . $request->input('nojual') . '?checkitem=true');
+		}
+
 		//
+		DB::table('items')->where('kodebrg', '=', $request->input('kodebrg'))->decrement('stokkg', $request->input('jumlahkg'));
+        DB::table('items')->where('kodebrg', '=', $request->input('kodebrg'))->decrement('stokbrg', $request->input('jumlahekor'));
 		DetilJual::create(array(
 				    'nojual' => $request->input('nojual'),
 				    'kodebrg' => $request->input('kodebrg'),
@@ -93,6 +118,9 @@ class DetailRevisiFakturController extends Controller {
 	public function destroy(Request $request, $id)
 	{
 		//
+		$detiljualNow = DB::table('detiljual')->where('id', '=', $id)->first();
+		DB::table('items')->where('kodebrg', '=', $detiljualNow->kodebrg)->increment('stokkg', $detiljualNow->jumlahkg);
+        DB::table('items')->where('kodebrg', '=', $detiljualNow->kodebrg)->increment('stokbrg', $detiljualNow->jumlahekor);
 		DetilJual::find($id)->delete();
    		return redirect('admin/sales/revisifaktur/' . $request->input('nojual'));
 	}

@@ -55,6 +55,22 @@ class RevisiFakturController extends Controller {
 		$detiljuals = DetilJual::where('nojual', '=', $nojual)->get();
 		$items = Item::all();
 		$customers = Customer::all();
+		if(Request::input('validasi') != "")
+		{
+			$validasi = true;
+	   		return view('/admin/sales/revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers', 'validasi'));
+		}
+		else if(Request::input('checkstock') != "")
+		{
+			$checkstock = true;
+	   		return view('/admin/sales/revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers', 'checkstock'));
+		}
+		else if(Request::input('checkitem') != "")
+		{
+			$checkitem = true;
+	   		return view('/admin/sales/revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers', 'checkitem'));
+		}
+
 		return view('admin.sales.revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers'));
 	}
 
@@ -66,6 +82,13 @@ class RevisiFakturController extends Controller {
 	 */
 	public function update($nojual)
 	{
+		// Validasi
+		if(Request::input('nikcust') == "" || Request::input('tglorderjual') == "" || Request::input('tgltempojual') == "" 
+			|| Request::input('biayaekspjual') == "" ||  Request::input('biayastereo') == "" || Request::input('kursbaru') == "")
+		{
+			return redirect('admin/sales/revisifaktur/' . $nojual . '?validasi=true');
+		}
+
 		//
 		$jualUpdate=Request::all();
    		$jual=Jual::where('nojual', '=', $nojual)->get()->first();
