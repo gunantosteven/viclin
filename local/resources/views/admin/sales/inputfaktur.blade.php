@@ -152,14 +152,24 @@
 </script>
 
 @if (isset($nojual) && $nojual != "")
-    <script>
-      var w = window.open('{{url('admin/sales/cetakfaktur',$nojual)}}', '_blank');
-      w.focus();
-    </script>
+<script>
+  var w = window.open('{{url('admin/sales/cetakfaktur',$nojual)}}', '_blank');
+  w.focus();
+</script>
 @endif
 @if (isset($validasi) && $validasi === true)
-    <script>
-      window.alert('Ada data yang belum diisi');
-    </script>
+<script>
+  window.alert('Data\'s been not filled yet');
+</script>
+@endif
+@if (isset($checkstock) && $checkstock === true)
+<script>
+  window.alert('Stock Kg or Stock Tail cannot be minus');
+</script>
+@endif
+@if (isset($checkitem) && $checkitem === true)
+<script>
+  window.alert('There is the same item in detail');
+</script>
 @endif
 @endsection

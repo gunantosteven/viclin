@@ -8,6 +8,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Session;
 
+use DB;
+
 class DetailInputFakturController extends Controller {
 
 
@@ -46,6 +48,21 @@ class DetailInputFakturController extends Controller {
 			|| $request->input('jumlahekor') == "" || $request->input('keterangan') == "")
 		{
 			return redirect('admin/sales/inputfaktur?validasi=true');
+		}
+		//validasi stock
+		$itemNow = DB::table('items')->where('kodebrg', $request->input('kodebrg'))->first();
+		$jumlahKg = $request->input('jumlahkg');
+		$jumlahEkor = $request->input('jumlahekor');
+		if($itemNow->stokkg - $jumlahKg < 0 || $itemNow->stokbrg - $jumlahEkor < 0)
+		{
+			return redirect('admin/sales/inputfaktur?checkstock=true');
+		}
+		//validasi the same item
+		$salesitems = Session::get('salesitems');
+		foreach ($salesitems as $index => $item) {
+			if ($item['kodebrg'] == $request->input('kodebrg')) {
+		    	return redirect('admin/sales/inputfaktur?checkitem=true');
+		    }
 		}
 
 		//

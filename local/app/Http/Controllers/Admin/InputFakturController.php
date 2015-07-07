@@ -29,6 +29,16 @@ class InputFakturController extends Controller {
 			$validasi = true;
 	   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'validasi'));
 		}
+		else if($request->input('checkstock') != "")
+		{
+			$checkstock = true;
+	   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'checkstock'));
+		}
+		else if($request->input('checkitem') != "")
+		{
+			$checkitem = true;
+	   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'checkitem'));
+		}
 		return view('/admin/sales/inputfaktur', compact('customers', 'items'));
 	}
 
