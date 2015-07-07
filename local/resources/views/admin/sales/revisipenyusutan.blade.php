@@ -1,7 +1,7 @@
 @extends('/admin/app')
 
 @section('content')
-<h1>Revisi Biaya Penyusutan</h1>
+<h1>Revision Depreciation Cost</h1>
 <div class="row-fluid">
                 
     <div class="span12">
@@ -12,11 +12,11 @@
             {!! Form::open(['method' => 'POST', 'route'=>['admin.sales.revisipenyusutan.showfaktur']]) !!}
             <div class="block-fluid"> 
                 <div class="row-form clearfix">
-                    <div class="span3">Tanggal Awal Faktur :</div>
+                    <div class="span3">Start Date Invoice:</div>
                     <div class="span9">{!! Form::input('date','tanggalawal',$tanggalawal,['class'=>'form-control']) !!}</div>
                 </div>
                 <div class="row-form clearfix">
-                    <div class="span3">Tanggal Akhir Faktur:</div>
+                    <div class="span3">End Date Invoice:</div>
                     <div class="span9">{!! Form::input('date','tanggalakhir',$tanggalakhir,['class'=>'form-control']) !!}</div>
                 </div>
                 <div class="row-form clearfix">
@@ -29,11 +29,11 @@
 <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
-         <th>No Faktur</th>
+         <th>No Invoice</th>
          <th>Customer</th>
-         <th>Tanggal Order</th>
-         <th>Tanggal Jatuh Tempo</th>
-         <th>Biaya Penyusutan</th>
+         <th>Order Date</th>
+         <th>Due Date</th>
+         <th>Depreciation Cost</th>
          <th colspan="1">Actions</th>
      </tr>
      </thead>
@@ -46,7 +46,7 @@
                      <td>{{ $jual['tglorderjual'] }}</td>
                      <td>{{ $jual['tgltempojual'] }}</td>
                      <td>{{ $jual['biayasusutjual'] }}</td>
-                     <td><button class="btn" onclick="getVal(this.value)" value={{ $jual['nojual'] }}  >Pilih</button></td>
+                     <td><button class="btn" onclick="getVal(this.value)" value={{ $jual['nojual'] }}  >Select</button></td>
                 </tr>
             @endforeach
         @endif
@@ -61,21 +61,21 @@
     <div class="span12">
         <div class="head clearfix">
             <div class="isw-documents"></div>
-            <h1>Insert Biaya Penyusutan</h1>
+            <h1>Update Depreciation Cost</h1>
         </div>
         
         {!! Form::open(['method' => 'PATCH', 'route'=>['admin.sales.revisipenyusutan.update']]) !!}
         <div class="block-fluid"> 
             <div class="row-form clearfix">
-                <div class="span3">No Faktur:</div>
+                <div class="span3">No Invoice:</div>
                 <div class="span9"><input type="text" id="nojual" name="nojual" readonly></div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Biaya Susut Jual:</div>
+                <div class="span3">Depreciation Cost Sales:</div>
                 <div class="span9"><input type="text" id="biayasusutjual" name="biayasusutjual"></div>
             </div>
             <div class="row-form clearfix">
-                    {!! Form::submit('Revisi', ['class' => 'btn btn-success']) !!}
+                    {!! Form::submit('Revise', ['class' => 'btn btn-success']) !!}
             </div>
         </div>
         {!! Form::close() !!}

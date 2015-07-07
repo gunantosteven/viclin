@@ -2,17 +2,17 @@
 
 @section('content')
 <h1>Viclin Products Stock</h1>
- <a href="{{url('owner/items/create')}}" class="btn btn-success">Create Product</a>
+ <a href="{{url('owner/items/create')}}" class="btn btn-success">Create Item</a>
  <hr>
  <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
-         <th>Kode</th>
+         <th>Code</th>
          <th>Category</th>
-         <th>Nama</th>
-         <th>StockKG</th>
+         <th>Name</th>
+         <th>StockKg</th>
          <th>Status</th>
-         <th>StockBrg</th>
+         <th>StockTail</th>
          <th colspan="1">Actions</th>
      </tr>
      </thead>

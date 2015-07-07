@@ -119,22 +119,22 @@
             </li>     
             <li class="openable @if(str_contains(Request::url(), 'admin/sales')) {{ 'active' }}  @endif">
                 <a href="#">
-                    <span class="isw-list"></span><span class="text">Faktur Penjualan</span>
+                    <span class="isw-list"></span><span class="text">Sales</span>
                 </a>
                 <ul>
                     <li>
                         <a href="{{url('admin/sales/inputfaktur')}}">
-                            <span class="icon-chevron-right"></span><span class="text">Input Faktur Penjualan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Input Invoice</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{url('admin/sales/cetakfaktur')}}">
-                            <span class="icon-chevron-right"></span><span class="text">Cetak Faktur Penjualan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Print Invoice</span>
                         </a>                  
                     </li>                     
                     <li>
                         <a href="{{url('admin/sales/revisifaktur')}}">
-                            <span class="icon-chevron-right"></span><span class="text">Revisi Faktur Penjualan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Revision Invoice</span>
                         </a>                  
                     </li>   
                     <li>
@@ -144,34 +144,34 @@
                     </li>        
                     <li>
                         <a href="{{url('admin/sales/inputpenyusutan')}}">
-                            <span class="icon-chevron-right"></span><span class="text">Input Biaya Penyusutan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Input Depreciation Cost</span>
                         </a>                  
                     </li>        
                     <li>
                         <a href="{{url('admin/sales/revisipenyusutan')}}">
-                            <span class="icon-chevron-right"></span><span class="text">Revisi Biaya Penyusutan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Revision Depreciation Cost</span>
                         </a>                  
                     </li>  
                     <li>
                         <a href="{{url('admin/sales/cetaksuratjalan')}}">
-                            <span class="icon-chevron-right"></span><span class="text">Cetak Surat Jalan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Print Travel Document</span>
                         </a>                  
                     </li>  
                 </ul>     
             </li>        
             <li class="openable @if(str_contains(Request::url(), 'admin/biaya')) {{ 'active' }}  @endif">
                 <a href="#">
-                    <span class="isw-list"></span><span class="text">Biaya Operasional</span>
+                    <span class="isw-list"></span><span class="text">Operating Costs</span>
                 </a>
                 <ul>
                     <li>
                         <a href="{{url('admin/biayas/create')}}">
-                            <span class="icon-chevron-right"></span><span class="text">Input Biaya</span>
+                            <span class="icon-chevron-right"></span><span class="text">Input Cost</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{url('admin/biayas')}}">
-                            <span class="icon-chevron-right"></span><span class="text">Lihat Biaya</span>
+                            <span class="icon-chevron-right"></span><span class="text">View Cost</span>
                         </a>                  
                     </li>                     
                 </ul>                

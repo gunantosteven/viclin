@@ -105,7 +105,7 @@
                 <ul>
                     <li>
                         <a href="{{ url('/owner/items') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Produk</span>
+                            <span class="icon-chevron-right"></span><span class="text">Item</span>
                         </a>                  
                     </li>          
                     <li>
@@ -133,22 +133,22 @@
                 <ul>
                     <li>
                         <a href="{{ url('/owner/history/revisisales') }}">
-                            <span class="icon-chevron-right"></span><span class="text">History Sales Revision</span>
+                            <span class="icon-chevron-right"></span><span class="text">Sales Revision</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{ url('/owner/history/revisipurchase') }}">
-                            <span class="icon-chevron-right"></span><span class="text">History Purchase Revision</span>
+                            <span class="icon-chevron-right"></span><span class="text">Purchase Revision</span>
                         </a>                  
                     </li>                     
                     <li>
                         <a href="{{ url('/owner/history/revisisales') }}">
-                            <span class="icon-chevron-right"></span><span class="text">History Sales Retur</span>
+                            <span class="icon-chevron-right"></span><span class="text">Sales Retur</span>
                         </a>                  
                     </li>   
                     <li>
                         <a href="{{ url('/owner/history/revisipurchase') }}">
-                            <span class="icon-chevron-right"></span><span class="text">History Purchase Retur</span>
+                            <span class="icon-chevron-right"></span><span class="text">Purchase Retur</span>
                         </a>                  
                     </li>               
                 </ul>                
@@ -156,17 +156,17 @@
             <li class="openable
                         @if(str_contains(Request::url(), 'owner/purchase')) {{ 'active' }}  @endif">
                 <a href="#">
-                    <span class="isw-list"></span><span class="text">Faktur Pembelian</span>
+                    <span class="isw-list"></span><span class="text">Purchase</span>
                 </a>
                 <ul>
                     <li>
                         <a href="{{ url('/owner/purchase/inputfaktur') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Input Faktur Pembelian</span>
+                            <span class="icon-chevron-right"></span><span class="text">Input Invoice</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{ url('/owner/purchase/revisifaktur') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Revisi Faktur Pembelian</span>
+                            <span class="icon-chevron-right"></span><span class="text">Revision Invoice</span>
                         </a>                  
                     </li>                     
                     <li>
@@ -176,12 +176,12 @@
                     </li>   
                     <li>
                         <a href="{{ url('/owner/purchase/inputpenyusutan') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Input Biaya Penyusutan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Input Depreciation Cost</span>
                         </a>                  
                     </li>        
                     <li>
                         <a href="{{ url('/owner/purchase/revisipenyusutan') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Revisi Biaya Penyusutan</span>
+                            <span class="icon-chevron-right"></span><span class="text">Revision Depreciation Cost</span>
                         </a>                  
                     </li>        
                 </ul>     
@@ -189,22 +189,22 @@
             <li class="openable
                         @if(str_contains(Request::url(), 'owner/report')) {{ 'active' }}  @endif">
                 <a href="#">
-                    <span class="isw-list"></span><span class="text">Laporan</span>
+                    <span class="isw-list"></span><span class="text">Report</span>
                 </a>
                 <ul>
                     <li>
                         <a href="{{ url('/owner/report/salesperiod') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Laporan Penjualan Per Periode</span>
+                            <span class="icon-chevron-right"></span><span class="text">Sales Report Per Period</span>
                         </a>                  
                     </li>          
                     <li>
                         <a href="{{ url('/owner/report/purchaseperiod') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Laporan Pembelian Per Periode</span>
+                            <span class="icon-chevron-right"></span><span class="text">Purchase Report Per Period</span>
                         </a>                  
                     </li>                     
                     <li>
                         <a href="{{ url('/owner/report/profitandlossperiod') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Laporan Laba Rugi Per Periode</span>
+                            <span class="icon-chevron-right"></span><span class="text">Profit And Loss Report Per Periode</span>
                         </a>                  
                     </li>               
                 </ul>                

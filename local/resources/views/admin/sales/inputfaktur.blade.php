@@ -1,15 +1,15 @@
 @extends('/admin/app')
 
 @section('content')
-<h1>Input Faktur Penjualan</h1>
+<h1>Input Sales Invoice</h1>
 <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
-         <th>Nama Barang</th>
-         <th>Harga Satuan Kg</th>
-         <th>Jumlah Kg</th>
-         <th>Jumlah Ekor</th>
-         <th>Keterangan</th>
+         <th>Item Name</th>
+         <th>Unit Price Kg</th>
+         <th>Total Kg</th>
+         <th>Total Tail</th>
+         <th>Information</th>
          <th colspan="1">Actions</th>
      </tr>
      </thead>
@@ -55,7 +55,7 @@
         {!! Form::open(['url' => 'admin/sales/detailinputfaktur']) !!}
         <div class="block-fluid"> 
             <div class="row-form clearfix">
-                <div class="span3">Nama Barang:</div>
+                <div class="span3">Item Name:</div>
                 <div class="span9">
                     <select name="kodebrg" id="s2_1item" style="width: 100%;">
                         @foreach ($items as $key => $item)
@@ -65,19 +65,19 @@
                 </div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Harga Satuan Kg:</div>
+                <div class="span3">Unit Price Kg:</div>
                 <div class="span9">{!! Form::text('hargasatuankg',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Jumlah Kg:</div>
+                <div class="span3">Total Kg:</div>
                 <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Jumlah Ekor:</div>
+                <div class="span3">Total Tail:</div>
                 <div class="span9">{!! Form::text('jumlahekor',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Keterangan:</div>
+                <div class="span3">Information:</div>
                 <div class="span9">{!! Form::text('keterangan',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
@@ -96,7 +96,7 @@
     <div class="span12">
         <div class="head clearfix">
             <div class="isw-documents"></div>
-            <h1>Insert Faktur</h1>
+            <h1>Insert Invoice</h1>
         </div>
 
         {!! Form::open(['url' => 'admin/sales/inputfaktur']) !!}
@@ -112,23 +112,23 @@
                 </div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Tanggal Order:</div>
+                <div class="span3">Order Date:</div>
                 <div class="span9">{!! Form::input('date','tglorderjual',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Tanggal Jatuh Tempo:</div>
+                <div class="span3">Due Date:</div>
                 <div class="span9">{!! Form::input('date','tgltempojual',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Biaya Ekspedisi:</div>
+                <div class="span3">Expedition Cost:</div>
                 <div class="span9">{!! Form::text('biayaekspjual',null,['class'=>'']) !!}</div>
             </div>
            <div class="row-form clearfix">
-                <div class="span3">Biaya Steroform:</div>
+                <div class="span3">Styrofoam Cost:</div>
                 <div class="span9">{!! Form::text('biayastereo',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Kurs Rupiah Terbaru:</div>
+                <div class="span3">Rupiah Newest:</div>
                 <div class="span9">{!! Form::text('kursbaru',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">

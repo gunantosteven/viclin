@@ -1,18 +1,18 @@
 @extends('/owner/app')
 
 @section('content')
-<h1>Viclin Products</h1>
-<a href="{{url('owner/items/create')}}" class="btn btn-success">Create Product</a>
+<h1>Viclin Items</h1>
+<a href="{{url('owner/items/create')}}" class="btn btn-success">Create Item</a>
 <hr>
 <table class="table table-striped table-bordered table-hover">
  <thead>
  <tr class="bg-info">
-     <th>Kode</th>
+     <th>Code</th>
      <th>Category</th>
-     <th>Nama</th>
+     <th>Name</th>
      <th>StockKG</th>
      <th>Status</th>
-     <th>StockBrg</th>
+     <th>StockTail</th>
      <th colspan="3">Actions</th>
  </tr>
  </thead>

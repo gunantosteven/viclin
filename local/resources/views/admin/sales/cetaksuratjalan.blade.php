@@ -1,7 +1,7 @@
 @extends('/admin/app')
 
 @section('content')
-<h1>Cetak Surat Jalan</h1>
+<h1>Print Travel Document</h1>
 <hr>
 <div class="row-fluid">
                 
@@ -13,11 +13,11 @@
             {!! Form::open(['method' => 'POST', 'route'=>['admin.sales.cetaksuratjalan.showfaktur']]) !!}
             <div class="block-fluid"> 
                 <div class="row-form clearfix">
-                    <div class="span3">Tanggal Awal Faktur :</div>
+                    <div class="span3">Start Date Invoice:</div>
                     <div class="span9">{!! Form::input('date','tanggalawal',$tanggalawal,['class'=>'form-control']) !!}</div>
                 </div>
                 <div class="row-form clearfix">
-                    <div class="span3">Tanggal Akhir Faktur:</div>
+                    <div class="span3">End Date Invoice:</div>
                     <div class="span9">{!! Form::input('date','tanggalakhir',$tanggalakhir,['class'=>'form-control']) !!}</div>
                 </div>
                 <div class="row-form clearfix">
@@ -30,10 +30,10 @@
 <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
-         <th>No Faktur</th>
+         <th>No Invoice</th>
          <th>Customer</th>
-         <th>Tanggal Order</th>
-         <th>Tanggal Jatuh Tempo</th>
+         <th>Order Date</th>
+         <th>Due Date</th>
          <th colspan="1">Actions</th>
      </tr>
      </thead>
@@ -45,7 +45,7 @@
                      <td>{{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</td>
                      <td>{{ $jual['tglorderjual'] }}</td>
                      <td>{{ $jual['tgltempojual'] }}</td>
-                     <td><a href="{{url('admin/sales/cetaksuratjalan',$jual->nojual)}}" class="btn" target="_blank">Cetak</a></td>
+                     <td><a href="{{url('admin/sales/cetaksuratjalan',$jual->nojual)}}" class="btn" target="_blank">Print</a></td>
                 </tr>
             @endforeach
         @endif

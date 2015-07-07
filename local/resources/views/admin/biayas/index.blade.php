@@ -1,17 +1,17 @@
 @extends('/admin/app')
 
 @section('content')
-<h1>Viclin Biayas</h1>
- <a href="{{url('admin/biayas/create')}}" class="btn btn-success">Create Biayas</a>
+<h1>Viclin Cost</h1>
+ <a href="{{url('admin/biayas/create')}}" class="btn btn-success">Create Cost</a>
  <hr>
  </br>
  </br>
  <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
-         <th>Biaya</th>
-         <th>Tanggal</th>
-         <th>Keterangan</th>
+         <th>Cost</th>
+         <th>Date</th>
+         <th>Information</th>
          <th>Nominal</th>
          <th colspan="3">Actions</th>
      </tr>

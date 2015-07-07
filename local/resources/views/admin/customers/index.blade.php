@@ -13,10 +13,10 @@
  <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
-         <th>Nama</th>
-         <th>Alamat</th>
-         <th>Telepon</th>
-         <th>Kota</th>
+         <th>Name</th>
+         <th>Address</th>
+         <th>Phone</th>
+         <th>City</th>
          <th>Email</th>
          <th>Limit</th>
          <th colspan="3">Actions</th>

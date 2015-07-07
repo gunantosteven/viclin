@@ -12,7 +12,7 @@
         {!! Form::model($item,['method' => 'PATCH','route'=>['owner.items.update',$item->id]]) !!}
         <div class="block-fluid"> 
             <div class="row-form clearfix">
-                <div class="span3">Kode Barang:</div>
+                <div class="span3">Item Code:</div>
                 <div class="span9">{!! Form::text('kodebrg',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
@@ -30,7 +30,7 @@
                 </div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Nama Barang:</div>
+                <div class="span3">Item Name:</div>
                 <div class="span9">{!! Form::text('namabrg',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
@@ -47,7 +47,7 @@
                 </div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Stock Barang:</div>
+                <div class="span3">Stock Tail:</div>
                 <div class="span9">{!! Form::text('stokbrg',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
