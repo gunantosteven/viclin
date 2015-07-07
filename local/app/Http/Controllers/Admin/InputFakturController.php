@@ -76,7 +76,9 @@ class InputFakturController extends Controller {
 		// destroy session
 		Session::forget('salesitems');
 
-   		return redirect('/admin/sales/inputfaktur');
+		$customers = Customer::all();
+		$items = Item::all();
+   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'nojual'));
 	}
 
 	/**

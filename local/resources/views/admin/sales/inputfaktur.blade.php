@@ -150,4 +150,11 @@
 <script type="text/javascript">
     $('.selectpicker').selectpicker();
 </script>
+
+@if (isset($nojual) && $nojual != "")
+    <script>
+      var w = window.open('{{url('admin/sales/cetakfaktur',$nojual)}}', '_blank');
+      w.focus();
+    </script>
+@endif
 @endsection
