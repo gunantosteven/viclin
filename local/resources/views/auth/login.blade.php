@@ -5,7 +5,7 @@
     
     <div class="loginBox">        
         <div class="loginHead">
-            <img src="{{ asset('img/logo.png') }}" alt="Aquarius -  responsive admin panel" title="Aquarius -  responsive admin panel"/>
+            <!-- <img src="{{ asset('img/logo.png') }}" alt="Aquarius -  responsive admin panel" title="Aquarius -  responsive admin panel"/> -->
         </div>
         @if (count($errors) > 0)
                         <div class="alert alert-danger">
