@@ -64,6 +64,7 @@ Route::group(['middleware' => 'admin'], function()
 
     Route::resource('/admin/customers','Admin\CustomerController');
     Route::resource('/admin/items','Admin\ItemController');
+    Route::resource('/admin/employees','Admin\EmployeeController');
 
     Route::resource('/admin/sales/inputfaktur', 'Admin\InputFakturController');
     Route::resource('/admin/sales/detailinputfaktur', 'Admin\DetailInputFakturController');
@@ -173,6 +174,16 @@ Route::get('createdb',function(){
 		$table->string('telpsupp',20);
 		$table->string('kotasupp', 20);
 		$table->string('emailsupp',30);
+		$table->timestamps();
+	});
+	Schema::create('employees',function($table){
+		$table->bigIncrements('id');
+		$table->string('namaemp',30);
+		$table->string('alamatemp',255);
+		$table->string('telpemp',20);
+		$table->string('kotaemp', 20);
+		$table->date('tglmasuk');
+		$table->string('status', 20);
 		$table->timestamps();
 	});
 	Schema::create('categories',function($table){

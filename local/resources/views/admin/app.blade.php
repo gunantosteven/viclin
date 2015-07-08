@@ -114,6 +114,11 @@
                         <a href="{{url('admin/items')}}">
                             <span class="icon-chevron-right"></span><span class="text">Stock</span>
                         </a>                  
+                    </li>  
+                    <li>
+                        <a href="{{url('admin/employees')}}">
+                            <span class="icon-chevron-right"></span><span class="text">Employees</span>
+                        </a>                  
                     </li>               
                 </ul>                
             </li>     
