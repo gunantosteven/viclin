@@ -136,12 +136,12 @@
                         <a href="{{url('admin/sales/revisifaktur')}}">
                             <span class="icon-chevron-right"></span><span class="text">Revision Invoice</span>
                         </a>                  
-                    </li>   
+                    </li>   <!-- 
                     <li>
                         <a href="{{url('admin/sales/returperfaktur')}}">
                             <span class="icon-chevron-right"></span><span class="text">Retur Per Faktur Penjualan</span>
                         </a>                  
-                    </li>        
+                    </li>      -->   
                     <li>
                         <a href="{{url('admin/sales/inputpenyusutan')}}">
                             <span class="icon-chevron-right"></span><span class="text">Input Depreciation Cost</span>

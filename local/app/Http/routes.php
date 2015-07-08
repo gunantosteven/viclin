@@ -99,8 +99,8 @@ Route::group(['middleware' => 'admin'], function()
 	]);
 	Route::resource('/admin/sales/detailrevisifaktur', 'Admin\DetailRevisiFakturController');
 
-    Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
-    Route::resource('/admin/sales/detailreturfaktur', 'Admin\DetailReturFakturController');
+    /*Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
+    Route::resource('/admin/sales/detailreturfaktur', 'Admin\DetailReturFakturController');*/
 
     Route::get('/admin/sales/inputpenyusutan', [
 	    'as' => 'admin.sales.inputpenyusutan.index',
@@ -220,7 +220,7 @@ Route::get('createdb',function(){
 		$table->string('keterangan');
 		$table->timestamps();
 	});
-	Schema::create('returjual',function($table){
+	/*Schema::create('returjual',function($table){
 		$table->bigIncrements('id');
 		$table->string('noreturjual',20)->unique();
 		$table->unsignedInteger('user');
@@ -241,7 +241,7 @@ Route::get('createdb',function(){
 		$table->bigInteger('jumlahekorretjual');
 		$table->string('newsretjual');
 		$table->timestamps();
-	});
+	});*/
 	Schema::create('biayas',function($table){
 		$table->bigIncrements('id');
 		$table->string('biaya');
