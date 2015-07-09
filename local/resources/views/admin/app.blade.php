@@ -164,18 +164,18 @@
                     </li>  
                 </ul>     
             </li>        
-            <li class="openable @if(str_contains(Request::url(), 'admin/biaya')) {{ 'active' }}  @endif">
+            <li class="openable @if(str_contains(Request::url(), 'admin/cost')) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">Operating Costs</span>
                 </a>
                 <ul>
                     <li>
-                        <a href="{{url('admin/biayas/create')}}">
+                        <a href="{{url('admin/costs/create')}}">
                             <span class="icon-chevron-right"></span><span class="text">Input Cost</span>
                         </a>                  
                     </li>          
                     <li>
-                        <a href="{{url('admin/biayas')}}">
+                        <a href="{{url('admin/costs')}}">
                             <span class="icon-chevron-right"></span><span class="text">View Cost</span>
                         </a>                  
                     </li>                     

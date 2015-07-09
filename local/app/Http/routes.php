@@ -142,7 +142,7 @@ Route::group(['middleware' => 'admin'], function()
 	    'uses' => 'Admin\CetakSuratJalanController@cetak'
 	]);
 
-	Route::resource('/admin/biayas', 'Admin\BiayaController');
+	Route::resource('/admin/costs', 'Admin\CostController');
 });
 
 
