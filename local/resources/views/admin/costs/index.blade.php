@@ -20,7 +20,7 @@
      @foreach ($costs as $cost)
          <tr>
              <td>{{ $cost->biaya }}</td>
-             <td>{{ $cost->tgl }}</td>
+             <td>{{ date("d F Y",strtotime($cost->tgl)) }}</td>
              <td>{{ $cost->keterangan }}</td>
              <td>{{ $cost->nominal }}</td>
              <td><a href="{{route('admin.costs.edit',$cost->id)}}" class="btn btn-warning">Update</a></td>

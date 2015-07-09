@@ -42,8 +42,8 @@
                 <tr>
                      <td>{{ $jual['nojual'] }}</td>
                      <td>{{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</td>
-                     <td>{{ $jual['tglorderjual'] }}</td>
-                     <td>{{ $jual['tgltempojual'] }}</td>
+                     <td>{{ date("d F Y",strtotime($jual['tglorderjual'])) }}</td>
+                     <td>{{ date("d F Y",strtotime($jual['tgltempojual'])) }}</td>
                      <td><a href="{{url('admin/sales/cetakfaktur',$jual->nojual)}}" class="btn" target="_blank">Print</a></td>
                 </tr>
             @endforeach
