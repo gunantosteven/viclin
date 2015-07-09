@@ -140,17 +140,7 @@
                         <a href="{{ url('/owner/history/revisipurchase') }}">
                             <span class="icon-chevron-right"></span><span class="text">Purchase Revision</span>
                         </a>                  
-                    </li>                     
-                    <li>
-                        <a href="{{ url('/owner/history/revisisales') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Sales Retur</span>
-                        </a>                  
-                    </li>   
-                    <li>
-                        <a href="{{ url('/owner/history/revisipurchase') }}">
-                            <span class="icon-chevron-right"></span><span class="text">Purchase Retur</span>
-                        </a>                  
-                    </li>               
+                    </li>                  
                 </ul>                
             </li>
             <li class="openable
@@ -169,11 +159,11 @@
                             <span class="icon-chevron-right"></span><span class="text">Revision Invoice</span>
                         </a>                  
                     </li>                     
-                    <li>
+                    <!-- <li>
                         <a href="{{ url('/owner/purchase/returperfaktur') }}">
                             <span class="icon-chevron-right"></span><span class="text">Retur Faktur Pembelian</span>
                         </a>                  
-                    </li>   
+                    </li>   --> 
                     <li>
                         <a href="{{ url('/owner/purchase/inputpenyusutan') }}">
                             <span class="icon-chevron-right"></span><span class="text">Input Depreciation Cost</span>
