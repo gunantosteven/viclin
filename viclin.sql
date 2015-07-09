@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 06, 2015 at 03:55 
+-- Generation Time: Jul 09, 2015 at 08:26 
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -23,25 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `asalreturjual`
---
-
-CREATE TABLE IF NOT EXISTS `asalreturjual` (
-  `id` bigint(20) unsigned NOT NULL,
-  `noreturjual` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nojual` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `kodebrg` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `hargasatuankgretjual` double(8,2) NOT NULL,
-  `jumlahkgretjual` double(8,2) NOT NULL,
-  `jumlahekorretjual` bigint(20) NOT NULL,
-  `newsretjual` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `biayas`
 --
 
@@ -53,17 +34,14 @@ CREATE TABLE IF NOT EXISTS `biayas` (
   `nominal` double(8,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `biayas`
 --
 
 INSERT INTO `biayas` (`id`, `biaya`, `tgl`, `keterangan`, `nominal`, `created_at`, `updated_at`) VALUES
-(2, 'BENSIN', '2015-07-02', 'asfasfasf', 100001.00, '2015-07-01 22:35:55', '2015-07-01 22:37:35'),
-(3, 'BENSIN', '0000-00-00', '', 22222.00, '2015-07-01 22:40:31', '2015-07-01 22:40:31'),
-(4, 'LAINLAIN', '2015-07-01', '111', 111.00, '2015-07-01 22:40:43', '2015-07-01 22:40:43'),
-(5, 'GAJIKARYAWAN', '2015-07-14', '333', 111.00, '2015-07-01 22:40:53', '2015-07-01 22:40:53');
+(1, 'BIAYAEKSPEDISI', '2015-07-09', 'asfasfasf', 10000.00, '2015-07-08 22:46:15', '2015-07-08 22:46:50');
 
 -- --------------------------------------------------------
 
@@ -77,17 +55,17 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `namakategori` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
 INSERT INTO `categories` (`id`, `kodekategori`, `namakategori`, `created_at`, `updated_at`) VALUES
-(5, '1', 'Kepiting', '2015-07-01 23:00:44', '2015-07-01 23:00:44'),
-(6, '2', 'Cumi', '2015-07-01 23:00:44', '2015-07-01 23:00:44'),
-(7, '3', 'Udang', '2015-07-01 23:00:44', '2015-07-01 23:00:44'),
-(8, '4', 'Gurami', '2015-07-01 23:00:44', '2015-07-01 23:00:44');
+(1, '1', 'Kepiting', '2015-07-08 05:23:52', '2015-07-08 05:23:52'),
+(2, '2', 'Cumi', '2015-07-08 05:23:52', '2015-07-08 05:23:52'),
+(3, '3', 'Udang', '2015-07-08 05:23:52', '2015-07-08 05:23:52'),
+(4, '4', 'Gurami', '2015-07-08 05:23:52', '2015-07-08 05:23:52');
 
 -- --------------------------------------------------------
 
@@ -105,17 +83,17 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `limitcust` double(8,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `customers`
 --
 
 INSERT INTO `customers` (`id`, `namacust`, `alamatcust`, `telpcust`, `kotacust`, `emailcust`, `limitcust`, `created_at`, `updated_at`) VALUES
-(5, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-01 23:00:44', '2015-07-01 23:00:44'),
-(6, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 0.00, '2015-07-01 23:00:44', '2015-07-01 23:00:44'),
-(7, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 0.00, '2015-07-01 23:00:44', '2015-07-01 23:00:44'),
-(8, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-01 23:00:44', '2015-07-01 23:00:44');
+(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-08 05:23:52', '2015-07-08 05:23:52'),
+(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 0.00, '2015-07-08 05:23:52', '2015-07-08 05:23:52'),
+(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 0.00, '2015-07-08 05:23:52', '2015-07-08 05:23:52'),
+(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-08 05:23:52', '2015-07-08 05:23:52');
 
 -- --------------------------------------------------------
 
@@ -133,14 +111,33 @@ CREATE TABLE IF NOT EXISTS `detiljual` (
   `keterangan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
 
 --
--- Dumping data for table `detiljual`
+-- Table structure for table `employees`
 --
 
-INSERT INTO `detiljual` (`id`, `nojual`, `kodebrg`, `hargasatuankg`, `jumlahkg`, `jumlahekor`, `keterangan`, `created_at`, `updated_at`) VALUES
-(1, 'J-20150702-14.09.14', '1', 10.00, 1.00, 1, '111', '2015-07-02 07:09:14', '2015-07-02 07:09:14');
+CREATE TABLE IF NOT EXISTS `employees` (
+  `id` bigint(20) unsigned NOT NULL,
+  `namaemp` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `alamatemp` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `telpemp` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `kotaemp` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `tglmasuk` date NOT NULL,
+  `status` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Dumping data for table `employees`
+--
+
+INSERT INTO `employees` (`id`, `namaemp`, `alamatemp`, `telpemp`, `kotaemp`, `tglmasuk`, `status`, `created_at`, `updated_at`) VALUES
+(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'WORKING', '2015-07-08 05:23:53', '2015-07-08 05:23:53'),
+(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabayas', '2015-06-13', 'RESIGN', '2015-07-08 05:23:53', '2015-07-08 05:52:24');
 
 -- --------------------------------------------------------
 
@@ -158,15 +155,15 @@ CREATE TABLE IF NOT EXISTS `items` (
   `stokbrg` double(8,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `items`
 --
 
 INSERT INTO `items` (`id`, `kodebrg`, `id_category`, `namabrg`, `stokkg`, `status`, `stokbrg`, `created_at`, `updated_at`) VALUES
-(3, '1', 5, 'Kepiting A Live Food', 2.00, 'Live Food', 10.00, '2015-07-01 23:00:44', '2015-07-01 23:00:44'),
-(4, '2', 5, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5.00, '2015-07-01 23:00:44', '2015-07-01 23:00:44');
+(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10.00, '2015-07-08 05:23:53', '2015-07-08 05:23:53'),
+(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5.00, '2015-07-08 05:23:53', '2015-07-08 05:23:53');
 
 -- --------------------------------------------------------
 
@@ -188,28 +185,6 @@ CREATE TABLE IF NOT EXISTS `jual` (
   `tglfaktur` date NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Dumping data for table `jual`
---
-
-INSERT INTO `jual` (`id`, `nojual`, `nikcust`, `user`, `tglorderjual`, `tgltempojual`, `biayaekspjual`, `biayasusutjual`, `biayastereo`, `kursbaru`, `tglfaktur`, `created_at`, `updated_at`) VALUES
-(1, 'J-20150702-14.09.14', 5, 3, '2015-07-01', '2015-07-31', 1.00, 0.00, 1.00, 1.00, '2015-07-02', '2015-07-02 07:09:14', '2015-07-02 07:09:14');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `returjual`
---
-
-CREATE TABLE IF NOT EXISTS `returjual` (
-  `id` bigint(20) unsigned NOT NULL,
-  `noreturjual` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
-  `user` int(10) unsigned NOT NULL,
-  `tglreturjual` date NOT NULL,
-  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
-  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- --------------------------------------------------------
@@ -228,14 +203,14 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
   `emailsupp` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `suppliers`
 --
 
 INSERT INTO `suppliers` (`id`, `niksupp`, `namasupp`, `alamatsupp`, `telpsupp`, `kotasupp`, `emailsupp`, `created_at`, `updated_at`) VALUES
-(2, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-07-01 23:00:44', '2015-07-01 23:00:44');
+(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-07-08 05:23:53', '2015-07-08 05:23:53');
 
 -- --------------------------------------------------------
 
@@ -252,28 +227,19 @@ CREATE TABLE IF NOT EXISTS `users` (
   `remember_token` varchar(60) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `namauser`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(3, 'admin', '$2y$10$UDNQePSBtir39BNCh1wN7ukC1eUBdsPD/yUWIojJZ5dZSPefqsDxm', 'steven', 'admin', 'PfcNI3zmhxXRKjVEQJvW9JAtwML2BRqG4a7d1hG4tW1dazCdXvluxxgcXf90', '2015-07-01 23:00:43', '2015-07-01 23:02:16'),
-(4, 'owner', '$2y$10$GRszWJzJL1RQs8AFvq4cSeIsZuOH6jW1Zqcv.kJEwnp0uoOPdg5oK', 'yonathan', 'owner', 'ur0VuFkdsTf9twBRUxwDJ9U8lfjSZrm3cpasQp7PrFAI70bWlBSvIJGATmHm', '2015-07-01 23:00:43', '2015-07-02 00:08:34');
+(1, 'admin', '$2y$10$/MuVgaxeOW5STpXl1HHwruAqL0PChM2glIaYRUZQABwc/DsT5jJC6', 'steven', 'admin', 'SONNC3uI7MsERcfbR4svU7SEeaWSLGk5870QpQgRrpdhPIjrxz03fzXOSrGE', '2015-07-08 05:23:52', '2015-07-08 23:22:14'),
+(2, 'owner', '$2y$10$bEi1grACxp2WynYQuUlb6.wtrJmzFGndkTZtFIBZhPmm0RBWJcqkK', 'yonathan', 'owner', 'A68q1kQoZsiaYy0Q6S97iTuCmJfd2W6qPBf8T1mYuErkfkGfJvgRidG9tFr2', '2015-07-08 05:23:52', '2015-07-08 23:22:31');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `asalreturjual`
---
-ALTER TABLE `asalreturjual`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `asalreturjual_noreturjual_foreign` (`noreturjual`),
-  ADD KEY `asalreturjual_nojual_foreign` (`nojual`),
-  ADD KEY `asalreturjual_kodebrg_foreign` (`kodebrg`);
 
 --
 -- Indexes for table `biayas`
@@ -303,6 +269,12 @@ ALTER TABLE `detiljual`
   ADD KEY `detiljual_kodebrg_foreign` (`kodebrg`);
 
 --
+-- Indexes for table `employees`
+--
+ALTER TABLE `employees`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `items`
 --
 ALTER TABLE `items`
@@ -318,14 +290,6 @@ ALTER TABLE `jual`
   ADD UNIQUE KEY `jual_nojual_unique` (`nojual`),
   ADD KEY `jual_nikcust_foreign` (`nikcust`),
   ADD KEY `jual_user_foreign` (`user`);
-
---
--- Indexes for table `returjual`
---
-ALTER TABLE `returjual`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `returjual_noreturjual_unique` (`noreturjual`),
-  ADD KEY `returjual_user_foreign` (`user`);
 
 --
 -- Indexes for table `suppliers`
@@ -345,66 +309,53 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `asalreturjual`
---
-ALTER TABLE `asalreturjual`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
---
 -- AUTO_INCREMENT for table `biayas`
 --
 ALTER TABLE `biayas`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `detiljual`
 --
 ALTER TABLE `detiljual`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT for table `employees`
+--
+ALTER TABLE `employees`
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `jual`
 --
 ALTER TABLE `jual`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT for table `returjual`
---
-ALTER TABLE `returjual`
   MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- Constraints for dumped tables
 --
-
---
--- Constraints for table `asalreturjual`
---
-ALTER TABLE `asalreturjual`
-  ADD CONSTRAINT `asalreturjual_kodebrg_foreign` FOREIGN KEY (`kodebrg`) REFERENCES `items` (`kodebrg`),
-  ADD CONSTRAINT `asalreturjual_nojual_foreign` FOREIGN KEY (`nojual`) REFERENCES `jual` (`nojual`),
-  ADD CONSTRAINT `asalreturjual_noreturjual_foreign` FOREIGN KEY (`noreturjual`) REFERENCES `returjual` (`noreturjual`);
 
 --
 -- Constraints for table `detiljual`
@@ -425,12 +376,6 @@ ALTER TABLE `items`
 ALTER TABLE `jual`
   ADD CONSTRAINT `jual_nikcust_foreign` FOREIGN KEY (`nikcust`) REFERENCES `customers` (`id`),
   ADD CONSTRAINT `jual_user_foreign` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
-
---
--- Constraints for table `returjual`
---
-ALTER TABLE `returjual`
-  ADD CONSTRAINT `returjual_user_foreign` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
