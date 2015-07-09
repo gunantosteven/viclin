@@ -45,7 +45,7 @@
                      <td>{{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</td>
                      <td>{{ date("d F Y",strtotime($jual['tglorderjual'])) }}</td>
                      <td>{{ date("d F Y",strtotime($jual['tgltempojual'])) }}</td>
-                     <td>{{ $jual['biayasusutjual'] }}</td>
+                     <td>{{ number_format($jual['biayasusutjual'], 2) }}</td>
                      <td><button class="btn" onclick="getVal(this.value)" value={{ $jual['nojual'] }}  >Select</button></td>
                 </tr>
             @endforeach

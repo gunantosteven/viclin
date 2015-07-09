@@ -78,8 +78,8 @@
                             @foreach (Session::get('salesitems') as $key => $item)
 
                             <tr>
-                                 <td>{{  DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
-                                 <td>{{ $item['hargasatuankg'] }}</td>
+                                 <td>{{ DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
+                                 <td>{{ number_format($item['hargasatuankg'], 2) }}</td>
                                  <td>{{ $item['jumlahkg'] }}</td>
                                  <td>{{ $item['jumlahekor'] }}</td>
                                  <td>{{ $item['keterangan'] }}</td>

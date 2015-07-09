@@ -48,7 +48,7 @@ th, td {
   @foreach ($detiljuals as $key => $item)
             <tr>
                  <td>{{  DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
-                 <td>{{ $item['hargasatuankg'] }}</td>
+                 <td>{{ number_format($item['hargasatuankg'], 2) }}</td>
                  <td>{{ $item['jumlahkg'] }}</td>
                  <td>{{ $item['jumlahekor'] }}</td>
                  <td>{{ $item['keterangan'] }}</td>

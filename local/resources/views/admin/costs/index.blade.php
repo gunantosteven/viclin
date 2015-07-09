@@ -22,7 +22,7 @@
              <td>{{ $cost->biaya }}</td>
              <td>{{ date("d F Y",strtotime($cost->tgl)) }}</td>
              <td>{{ $cost->keterangan }}</td>
-             <td>{{ $cost->nominal }}</td>
+             <td>{{ number_format($cost->nominal, 2) }}</td>
              <td><a href="{{route('admin.costs.edit',$cost->id)}}" class="btn btn-warning">Update</a></td>
              <td>
              {!! Form::open(['method' => 'DELETE', 'route'=>['admin.costs.destroy', $cost->id]]) !!}
