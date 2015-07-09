@@ -15,7 +15,7 @@ class EmployeesTableSeederTableSeeder extends Seeder {
 		'telpemp' => '031335447788',
 		'kotaemp' => 'Surabaya',
 		'tglmasuk' => '2015-07-07',
-		'status' => 'WORKING'
+		'status' => 'ACTIVE'
 		));
 
 		\App\Models\Employee::create(array(
@@ -24,7 +24,7 @@ class EmployeesTableSeederTableSeeder extends Seeder {
 		'telpemp' => '031335447788',
 		'kotaemp' => 'Surabaya',
 		'tglmasuk' => '2015-06-13',
-		'status' => 'RESIGN'
+		'status' => 'QUIT'
 		));
 	}
 }

@@ -17,7 +17,7 @@
          <th>Address</th>
          <th>Phone</th>
          <th>City</th>
-         <th>Date of entry</th>
+         <th>Since</th>
          <th>Status</th>
          <th colspan="2">Actions</th>
      </tr>

@@ -28,15 +28,15 @@
                 <div class="span9">{!! Form::text('kotaemp',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Date of Entry:</div>
+                <div class="span3">Since:</div>
                 <div class="span9">{!! Form::input('date','tglmasuk',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Status:</div>
                 <div class="span9">
                     <select name="status" id="s2_1" style="width: 100%;">
-                        <option value="WORKING">WORKING</option>
-                        <option value="RESIGN">RESIGN</option>
+                        <option value="ACTIVE">ACTIVE</option>
+                        <option value="QUIT">QUIT</option>
                     </select>
                 </div>
             </div>
