@@ -32,8 +32,22 @@ Route::group(['middleware' => 'owner'], function()
     Route::resource('/owner/suppliers','Owner\SupplierController');
     Route::resource('/owner/stock','Owner\StockController');
 
-    Route::resource('/owner/history/revisisales','Owner\RevisiHistorySalesController');
-    Route::resource('/owner/history/revisipurchase','Owner\RevisiHistoryPurchaseController');
+    Route::get('/owner/history/revisisales', [
+	    'as' => 'owner.history.revisisales.index',
+	    'uses' => 'Owner\HistoryRevisiSalesController@index'
+	]);
+    Route::post('/owner/history/revisisales', [
+	    'as' => 'owner.history.revisisales.showfaktur',
+	    'uses' => 'Owner\HistoryRevisiSalesController@showfaktur'
+	]);
+    Route::get('/owner/history/revisipurchase', [
+	    'as' => 'owner.history.revisipurchase.index',
+	    'uses' => 'Owner\HistoryRevisiPurchaseController@index'
+	]);
+    Route::post('/owner/history/revisipurchase', [
+	    'as' => 'owner.history.revisipurchase.showfaktur',
+	    'uses' => 'Owner\HistoryRevisiPurchaseController@showfaktur'
+	]);
 
     Route::resource('/owner/purchase/inputfaktur', 'Owner\InputFakturController');
     Route::resource('/owner/purchase/detailinputfaktur', 'Owner\DetailInputFakturController');
@@ -256,6 +270,17 @@ Route::get('createdb',function(){
 		$table->date('tgl');
 		$table->string('keterangan');
 		$table->float('nominal');
+		$table->timestamps();
+	});
+	Schema::create('revisi',function($table){
+		$table->bigIncrements('id');
+		$table->unsignedInteger('user');
+		$table->foreign('user')->references('id')->on('users');
+		$table->date('tglrevisi');
+		$table->string('jualbeli');
+		$table->string('dataawal');
+		$table->string('dataakhir');
+		$table->string('keterangan');
 		$table->timestamps();
 	});
 	return "tables has been created";

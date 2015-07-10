@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Models\Revisi;
 use App\Models\DetilJual;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -8,6 +9,7 @@ use Illuminate\Http\Request;
 use Session;
 
 use DB;
+use Auth;
 
 class DetailRevisiFakturController extends Controller {
 
@@ -61,6 +63,51 @@ class DetailRevisiFakturController extends Controller {
 		{
 			return redirect('admin/sales/revisifaktur/' . $request->input('nojual') . '?checkitem=true');
 		}
+
+
+		//insert to table revisi
+		$datetoday = date('Y-m-d');
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $request->input('nojual'),
+				    'dataawal' => '',
+				    'dataakhir' => $request->input('kodebrg'),
+				    'keterangan' => 'Unit Price Kg'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $request->input('nojual'),
+				    'dataawal' => '',
+				    'dataakhir' => $request->input('hargasatuankg'),
+				    'keterangan' => 'Item Code'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $request->input('nojual'),
+				    'dataawal' => '',
+				    'dataakhir' => $request->input('jumlahkg'),
+				    'keterangan' => 'Total Kg'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $request->input('nojual'),
+				    'dataawal' => '',
+				    'dataakhir' => $request->input('jumlahekor'),
+				    'keterangan' => 'Total Tail'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $request->input('nojual'),
+				    'dataawal' => '',
+				    'dataakhir' => $request->input('keterangan'),
+				    'keterangan' => 'Information'
+		));
+		// end insert to revisi
 
 		//
 		DB::table('items')->where('kodebrg', '=', $request->input('kodebrg'))->decrement('stokkg', $request->input('jumlahkg'));
@@ -119,6 +166,52 @@ class DetailRevisiFakturController extends Controller {
 	{
 		//
 		$detiljualNow = DB::table('detiljual')->where('id', '=', $id)->first();
+
+		
+		//insert to table revisi
+		$datetoday = date('Y-m-d');
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $detiljualNow->nojual,
+				    'dataawal' => $detiljualNow->hargasatuankg,
+				    'dataakhir' => '',
+				    'keterangan' => 'Unit Price Kg'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $detiljualNow->nojual,
+				    'dataawal' => $detiljualNow->kodebrg,
+				    'dataakhir' => '',
+				    'keterangan' => 'Item Code'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $detiljualNow->nojual,
+				    'dataawal' => $detiljualNow->jumlahkg,
+				    'dataakhir' => '',
+				    'keterangan' => 'Total Kg'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $detiljualNow->nojual,
+				    'dataawal' => $detiljualNow->jumlahekor,
+				    'dataakhir' => '',
+				    'keterangan' => 'Total Tail'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $detiljualNow->nojual,
+				    'dataawal' => $detiljualNow->keterangan,
+				    'dataakhir' => '',
+				    'keterangan' => 'Information'
+		));
+		// end insert to revisi
+
 		DB::table('items')->where('kodebrg', '=', $detiljualNow->kodebrg)->increment('stokkg', $detiljualNow->jumlahkg);
         DB::table('items')->where('kodebrg', '=', $detiljualNow->kodebrg)->increment('stokbrg', $detiljualNow->jumlahekor);
 		DetilJual::find($id)->delete();

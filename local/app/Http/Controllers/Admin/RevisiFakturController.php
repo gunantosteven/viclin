@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers\Admin;
 
+use App\Models\Revisi;
 use App\Models\Jual;
 use App\Models\DetilJual;
 use App\Models\Item;
@@ -8,6 +9,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Request;
+use Auth;
+use DB;
 
 class RevisiFakturController extends Controller {
 
@@ -88,6 +91,79 @@ class RevisiFakturController extends Controller {
 		{
 			return redirect('admin/sales/revisifaktur/' . $nojual . '?validasi=true');
 		}
+
+
+		//insert to table revisi
+		$jualNow = DB::table('jual')->where('nojual', '=', $nojual)->first();
+		$datetoday = date('Y-m-d');
+		if(Request::input('nikcust') != $jualNow->nikcust)
+		{
+			Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $nojual,
+				    'dataawal' => DB::table('customers')->where('id', '=', $jualNow->nikcust)->first()->namacust,
+				    'dataakhir' => DB::table('customers')->where('id', '=', Request::input('nikcust'))->first()->namacust,
+				    'keterangan' => 'Customer'
+			));
+		}
+		if(Request::input('tglorderjual') != $jualNow->tglorderjual)
+		{
+			Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $nojual,
+				    'dataawal' => $jualNow->tglorderjual,
+				    'dataakhir' => Request::input('tglorderjual'),
+				    'keterangan' => 'Date Sales Order'
+			));
+		}
+		if(Request::input('tgltempojual') != $jualNow->tgltempojual)
+		{
+			Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $nojual,
+				    'dataawal' => $jualNow->tgltempojual,
+				    'dataakhir' => Request::input('tgltempojual'),
+				    'keterangan' => 'Due Date'
+			));
+		}
+		if(Request::input('biayaekspjual') != $jualNow->biayaekspjual)
+		{
+			Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $nojual,
+				    'dataawal' => $jualNow->biayaekspjual,
+				    'dataakhir' => Request::input('biayaekspjual'),
+				    'keterangan' => 'Expedition Cost'
+			));
+		}
+		if(Request::input('biayastereo') != $jualNow->biayastereo)
+		{
+			Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $nojual,
+				    'dataawal' => $jualNow->biayastereo,
+				    'dataakhir' => Request::input('biayastereo'),
+				    'keterangan' => 'Styrofoam Cost'
+			));
+		}
+		if(Request::input('kursbaru') != $jualNow->kursbaru)
+		{
+			Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $nojual,
+				    'dataawal' => $jualNow->kursbaru,
+				    'dataakhir' => Request::input('kursbaru'),
+				    'keterangan' => 'Rupiah Newest'
+			));
+		}
+		// end to revisi
+		
 
 		//
 		$jualUpdate=Request::all();
