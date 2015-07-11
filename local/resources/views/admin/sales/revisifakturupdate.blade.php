@@ -1,7 +1,7 @@
 @extends('/admin/app')
 
 @section('content')
-<h1>Revisi Faktur Penjualan {{ $jual->nojual }}</h1>
+<h1>Revision Sales Invoice {{ $jual->nojual }}</h1>
 <div class="row-fluid">
                 
     <div class="span12">
