@@ -214,9 +214,40 @@ Route::get('createdb',function(){
 		$table->float('stokbrg');
 		$table->timestamps();
 	});
+	Schema::create('beli',function($table){
+		$table->bigIncrements('id');
+		$table->string('nobeli',30)->unique();
+		$table->bigInteger('idsupp')->unsigned();
+		$table->foreign('idsupp')->references('id')->on('suppliers');
+		$table->unsignedInteger('user');
+		$table->foreign('user')->references('id')->on('users');
+		$table->date('tglorderbeli');
+		$table->date('tgltempobeli');
+		$table->float('biayaexspbeli');
+		$table->float('biayasusutbeli');
+		$table->float('biayakarantina');
+		$table->float('biayaclearance');
+		$table->float('biayaimpor');
+		$table->float('biayalab');
+		$table->float('biayafreight');
+		$table->date('tglfaktur');
+		$table->timestamps();
+	});
+	Schema::create('detilbeli',function($table){
+		$table->bigIncrements('id');
+		$table->string('nobeli');
+		$table->foreign('nobeli')->references('nobeli')->on('beli');
+		$table->string('kodebrg');
+		$table->foreign('kodebrg')->references('kodebrg')->on('items');
+		$table->float('hargasatuankg');
+		$table->float('jumlahkg');
+		$table->bigInteger('jumlahekor');
+		$table->string('keterangan');
+		$table->timestamps();
+	});
 	Schema::create('jual',function($table){
 		$table->bigIncrements('id');
-		$table->string('nojual',20)->unique();
+		$table->string('nojual',30)->unique();
 		$table->bigInteger('nikcust')->unsigned();
 		$table->foreign('nikcust')->references('id')->on('customers');
 		$table->unsignedInteger('user');
