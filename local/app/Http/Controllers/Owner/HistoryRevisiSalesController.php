@@ -1,10 +1,6 @@
 <?php namespace App\Http\Controllers\Owner;
 
 use App\Models\Revisi;
-use App\Models\Jual;
-use App\Models\DetilJual;
-use App\Models\Item;
-use App\Models\Customer;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -25,7 +21,8 @@ class HistoryRevisiSalesController extends Controller {
 		$tanggalawal = date('Y-m-d');
     	$tanggalakhir = date('Y-m-d');
 		$revisis = Revisi::where('tglrevisi', '>=', $tanggalawal)
-    				->where('tglrevisi', '<=', $tanggalakhir)->get();
+    				->where('tglrevisi', '<=', $tanggalakhir)
+    				->where('jualbeli', 'like',  'J-%')->get();
 		return view('/owner/history/revisisales', compact('revisis', 'tanggalawal', 'tanggalakhir'));
 	}
 
@@ -38,7 +35,8 @@ class HistoryRevisiSalesController extends Controller {
 	{
 		//
 		$revisis = Revisi::where('tglrevisi', '>=', Request::input('tanggalawal'))
-    				->where('tglrevisi', '<=', Request::input('tanggalakhir'))->get();
+    				->where('tglrevisi', '<=', Request::input('tanggalakhir'))
+    				->where('jualbeli', 'like',  'J-%')->get();
     	$tanggalawal = Request::input('tanggalawal');
     	$tanggalakhir = Request::input('tanggalakhir');
     	return view('/owner/history/revisisales', compact('revisis', 'tanggalawal', 'tanggalakhir'));

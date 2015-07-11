@@ -1,9 +1,12 @@
 <?php namespace App\Http\Controllers\Owner;
 
+use App\Models\Revisi;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
+use Auth;
+use DB;
 
 class HistoryRevisiPurchaseController extends Controller {
 
@@ -15,7 +18,28 @@ class HistoryRevisiPurchaseController extends Controller {
 	public function index()
 	{
 		//
-		return view('/owner/history/revisipurchase');
+		$tanggalawal = date('Y-m-d');
+    	$tanggalakhir = date('Y-m-d');
+		$revisis = Revisi::where('tglrevisi', '>=', $tanggalawal)
+    				->where('tglrevisi', '<=', $tanggalakhir)
+    				->where('jualbeli', 'like',  'B-%')->get();
+		return view('/owner/history/revisipurchase', compact('revisis', 'tanggalawal', 'tanggalakhir'));
+	}
+
+	/**
+	 * 
+	 *
+	 * @return Response
+	 */
+	public function showfaktur()
+	{
+		//
+		$revisis = Revisi::where('tglrevisi', '>=', Request::input('tanggalawal'))
+    				->where('tglrevisi', '<=', Request::input('tanggalakhir'))
+    				->where('jualbeli', 'like',  'B-%')->get();
+    	$tanggalawal = Request::input('tanggalawal');
+    	$tanggalakhir = Request::input('tanggalakhir');
+    	return view('/owner/history/revisipurchase', compact('revisis', 'tanggalawal', 'tanggalakhir'));
 	}
 
 	/**
