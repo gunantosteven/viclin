@@ -51,7 +51,25 @@ Route::group(['middleware' => 'owner'], function()
 
     Route::resource('/owner/purchase/inputfaktur', 'Owner\InputFakturController');
     Route::resource('/owner/purchase/detailinputfaktur', 'Owner\DetailInputFakturController');
-    Route::resource('/owner/purchase/revisifaktur', 'Owner\RevisiFakturController');
+
+    Route::get('/owner/purchase/revisifaktur', [
+	    'as' => 'owner.purchase.revisifaktur.index',
+	    'uses' => 'Owner\RevisiFakturController@index'
+	]);
+    Route::post('/owner/purchase/revisifaktur', [
+	    'as' => 'owner.purchase.revisifaktur.showfaktur',
+	    'uses' => 'Owner\RevisiFakturController@showfaktur'
+	]);
+	Route::get('/owner/purchase/revisifaktur/{nojual}', [
+	    'as' => 'owner.purchase.revisifaktur.edit',
+	    'uses' => 'Owner\RevisiFakturController@edit'
+	]);
+	Route::patch('/owner/purchase/revisifaktur/{nojual}', [
+	    'as' => 'owner.purchase.revisifaktur.update',
+	    'uses' => 'Owner\RevisiFakturController@update'
+	]);
+	Route::resource('/owner/purchase/detailrevisifaktur', 'Owner\DetailRevisiFakturController');
+
     /*Route::resource('/owner/purchase/returperfaktur', 'Owner\ReturPerFakturController');*/
 
     Route::resource('/owner/purchase/inputpenyusutan','Owner\InputPenyusutanController');
