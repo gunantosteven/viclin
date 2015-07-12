@@ -43,7 +43,7 @@ th, td {
     <div class="tablefortext">
         <div class="tr">
             <div class="d1"><b>Supplier : {{ DB::table('suppliers')->where('id', $beli['idsupp'])->first()->namasupp }}</b></div>
-            <div class="d3"><b>Order Date : {{ $beli->tglorderbeli }}</b></div>
+            <div class="d3"><b>Order Date : {{ date("d F Y",strtotime($beli->tglorderbeli)) }}</b></div>
         </div>
         <div class="tr">
             <div class="d1"><b>Expansion Cost : {{ $beli->biayaexspbeli }}</b></div>
@@ -63,6 +63,9 @@ th, td {
         </div>
         <div class="tr">
             <div class="d1"><b>Freight Cost : {{ $beli->biayafreight }}</b></div>
+        </div>
+        <div class="tr">
+            <div class="d1"><b>Depreciation Cost Purchase : {{ $beli->biayasusutbeli }}</b></div>
         </div>
     </div>
 
