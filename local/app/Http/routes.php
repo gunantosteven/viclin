@@ -72,8 +72,31 @@ Route::group(['middleware' => 'owner'], function()
 
     /*Route::resource('/owner/purchase/returperfaktur', 'Owner\ReturPerFakturController');*/
 
-    Route::resource('/owner/purchase/inputpenyusutan','Owner\InputPenyusutanController');
-    Route::resource('/owner/purchase/revisipenyusutan','Owner\RevisiPenyusutanController');
+    Route::get('/owner/purchase/inputpenyusutan', [
+	    'as' => 'owner.purchase.inputpenyusutan.index',
+	    'uses' => 'Owner\InputPenyusutanController@index'
+	]);
+    Route::post('/owner/purchase/inputpenyusutan', [
+	    'as' => 'owner.purchase.inputpenyusutan.showfaktur',
+	    'uses' => 'Owner\InputPenyusutanController@showfaktur'
+	]);
+	Route::patch('/owner/purchase/inputpenyusutan', [
+	    'as' => 'owner.purchase.inputpenyusutan.update',
+	    'uses' => 'Owner\InputPenyusutanController@update'
+	]);
+
+	Route::get('/owner/purchase/revisipenyusutan', [
+	    'as' => 'owner.purchase.revisipenyusutan.index',
+	    'uses' => 'Owner\RevisiPenyusutanController@index'
+	]);
+    Route::post('/owner/purchase/revisipenyusutan', [
+	    'as' => 'owner.purchase.revisipenyusutan.showfaktur',
+	    'uses' => 'Owner\RevisiPenyusutanController@showfaktur'
+	]);
+	Route::patch('/owner/purchase/revisipenyusutan', [
+	    'as' => 'owner.purchase.revisipenyusutan.update',
+	    'uses' => 'Owner\RevisiPenyusutanController@update'
+	]);
 
     Route::resource('/owner/report/salesperiod','Owner\Report\SalesPeriodController');
     Route::resource('/owner/report/purchaseperiod','Owner\Report\PurchasePeriodController');

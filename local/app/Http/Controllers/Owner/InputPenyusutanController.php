@@ -1,9 +1,11 @@
 <?php namespace App\Http\Controllers\Owner;
 
+use App\Models\Beli;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-use Illuminate\Http\Request;
+use Request;
+use DB;
 
 class InputPenyusutanController extends Controller {
 
@@ -15,7 +17,26 @@ class InputPenyusutanController extends Controller {
 	public function index()
 	{
 		//
-		return view('owner.purchase.inputpenyusutan');
+		$tanggalawal = date('Y-m-d');
+    	$tanggalakhir = date('Y-m-d');
+		$belis = Beli::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		return view('owner.purchase.inputpenyusutan', compact('belis', 'tanggalawal', 'tanggalakhir'));
+	}
+
+	/**
+	 * 
+	 *
+	 * @return Response
+	 */
+	public function showfaktur()
+	{
+		//
+		$belis = Beli::where('tglfaktur', '>=', Request::input('tanggalawal'))
+    				->where('tglfaktur', '<=', Request::input('tanggalakhir'))->get();
+    	$tanggalawal = Request::input('tanggalawal');
+    	$tanggalakhir = Request::input('tanggalakhir');
+    	return view('/owner/purchase/inputpenyusutan', compact('belis', 'tanggalawal', 'tanggalakhir'));
 	}
 
 	/**
@@ -66,9 +87,18 @@ class InputPenyusutanController extends Controller {
 	 * @param  int  $id
 	 * @return Response
 	 */
-	public function update($id)
+	public function update()
 	{
 		//
+		DB::table('beli')
+            ->where('nobeli', Request::input('nobeli'))
+            ->update(['biayasusutbeli' => Request::input('biayasusutbeli')]);
+
+        $tanggalawal = date('Y-m-d');
+    	$tanggalakhir = date('Y-m-d');
+		$belis = Beli::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		return view('owner.purchase.inputpenyusutan', compact('belis', 'tanggalawal', 'tanggalakhir'));
 	}
 
 	/**
