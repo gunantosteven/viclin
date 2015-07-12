@@ -1,10 +1,16 @@
 <?php namespace App\Http\Controllers\Owner\Report;
 
+use App\Models\Jual;
+use App\Models\Customer;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Request;
 use Session;
+
+use PDF;
+use App;
+use View;
 
 class SalesPeriodController extends Controller {
 
@@ -16,7 +22,12 @@ class SalesPeriodController extends Controller {
 	public function index()
 	{
 		//
-		return view('/owner/report/salesperiod');
+		$tanggalawal = date('Y-m-d');
+    	$tanggalakhir = date('Y-m-d');
+		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+    	$customers = Customer::all();
+		return view('/owner/report/salesperiod', compact('juals', 'customers', 'tanggalawal', 'tanggalakhir'));
 	}
 
 	/**
@@ -37,6 +48,14 @@ class SalesPeriodController extends Controller {
 	public function store()
 	{
 		//
+		$tanggalawal = Request::input('tanggalawal');
+		$tanggalakhir = Request::input('tanggalakhir');
+		$nikcust = Request::input('nikcust');
+		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)
+    				->where('nikcust', 'like', $nikcust)->get();
+		$pdf = PDF::loadView('owner.report.pdf.reportsalesperiod', compact('juals', 'tanggalawal', 'tanggalakhir', 'nikcust'));
+		return $pdf->setPaper('a4')->stream('reportsalesperiod' . '.pdf');
 	}
 
 	/**
