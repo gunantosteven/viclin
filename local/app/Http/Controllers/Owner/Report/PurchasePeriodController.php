@@ -1,10 +1,16 @@
 <?php namespace App\Http\Controllers\Owner\Report;
 
+use App\Models\Beli;
+use App\Models\Supplier;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Request;
 use Session;
+
+use PDF;
+use App;
+use View;
 
 class PurchasePeriodController extends Controller {
 
@@ -16,7 +22,12 @@ class PurchasePeriodController extends Controller {
 	public function index()
 	{
 		//
-		return view('/owner/report/purchaseperiod');
+		$tanggalawal = date('Y-m-d');
+    	$tanggalakhir = date('Y-m-d');
+		$belis = Beli::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+    	$suppliers = Supplier::all();
+		return view('/owner/report/purchaseperiod', compact('belis', 'suppliers', 'tanggalawal', 'tanggalakhir'));
 	}
 
 	/**
@@ -37,6 +48,14 @@ class PurchasePeriodController extends Controller {
 	public function store()
 	{
 		//
+		$tanggalawal = Request::input('tanggalawal');
+		$tanggalakhir = Request::input('tanggalakhir');
+		$idsupp = Request::input('idsupp');
+		$belis = Beli::where('tglfaktur', '>=', $tanggalawal)
+    				->where('tglfaktur', '<=', $tanggalakhir)
+    				->where('idsupp', 'like', $idsupp)->get();
+		$pdf = PDF::loadView('owner.report.pdf.reportpurchaseperiod', compact('belis', 'tanggalawal', 'tanggalakhir', 'idsupp'));
+		return $pdf->setPaper('a4')->stream('reportpurchaseperiod' . '.pdf');
 	}
 
 	/**

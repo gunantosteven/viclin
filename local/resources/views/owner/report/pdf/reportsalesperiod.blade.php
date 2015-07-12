@@ -33,6 +33,7 @@ th, td {
 </style>
 </head>
 <body>
+<h1>Report Sales Period</h1>
 <h1>Start Date {{ date("d F Y",strtotime($tanggalawal)) }} to {{ date("d F Y",strtotime($tanggalakhir)) }}</h1>
 <h2>Customer : @if($nikcust == "%") {{ "All Customers" }} @else {{ DB::table('customers')->where('id', $nikcust)->first()->namacust }} @endif </h2>
 <hr>
