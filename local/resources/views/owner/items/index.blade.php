@@ -27,7 +27,7 @@
          <td>{{ $item->stokbrg }}</td>
          <td><a href="{{route('owner.items.edit',$item->id)}}" class="btn btn-warning">Update</a></td>
          <td>
-         {!! Form::open(['method' => 'DELETE', 'route'=>['owner.items.destroy', $item->id]]) !!}
+         {!! Form::open(['method' => 'DELETE', 'route'=>['owner.items.destroy', $item->id], 'onsubmit'=>'return confirm(\'Do you want to delete it\')']) !!}
          {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
          {!! Form::close() !!}
          </td>

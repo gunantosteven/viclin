@@ -84,7 +84,7 @@
                                  <td>{{ $item['jumlahekor'] }}</td>
                                  <td>{{ $item['keterangan'] }}</td>
                                  <td>
-                                    {!! Form::open(['method' => 'DELETE', 'route'=>['owner.purchase.detailinputfaktur.destroy', $item['id'] ]]) !!}
+                                    {!! Form::open(['method' => 'DELETE', 'route'=>['owner.purchase.detailinputfaktur.destroy', $item['id'] ], 'onsubmit'=>'return confirm(\'Do you want to delete it\')']) !!}
                                     {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
                                     {!! Form::close() !!}
                                  </td>
@@ -99,7 +99,7 @@
                      </table>
                      <br>
                      @if (Session::has('purchaseitems') && count(Session::get('purchaseitems')) > 0) 
-                         {!! Form::open(['method' => 'DELETE', 'route'=>['owner.purchase.detailinputfaktur.destroy', -1 ]]) !!}
+                         {!! Form::open(['method' => 'DELETE', 'route'=>['owner.purchase.detailinputfaktur.destroy', -1 ], 'onsubmit'=>'return confirm(\'Do you want to delete all\')']) !!}
                          {!! Form::submit('Delete All', ['class' => 'btn btn-danger pull-right']) !!}
                          {!! Form::close() !!}
                      @endif

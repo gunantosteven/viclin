@@ -33,7 +33,7 @@
              <td>{{ $employee->status }}</td>
              <td><a href="{{route('admin.employees.edit',$employee->id)}}" class="btn btn-warning">Update</a></td>
              <td>
-             {!! Form::open(['method' => 'DELETE', 'route'=>['admin.employees.destroy', $employee->id]]) !!}
+             {!! Form::open(['method' => 'DELETE', 'route'=>['admin.employees.destroy', $employee->id], 'onsubmit'=>'return confirm(\'Do you want to delete it\')']) !!}
              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
              {!! Form::close() !!}
              </td>

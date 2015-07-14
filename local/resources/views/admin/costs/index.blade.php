@@ -25,7 +25,7 @@
              <td>{{ number_format($cost->nominal, 2) }}</td>
              <td><a href="{{route('admin.costs.edit',$cost->id)}}" class="btn btn-warning">Update</a></td>
              <td>
-             {!! Form::open(['method' => 'DELETE', 'route'=>['admin.costs.destroy', $cost->id]]) !!}
+             {!! Form::open(['method' => 'DELETE', 'route'=>['admin.costs.destroy', $cost->id], 'onsubmit'=>'return confirm(\'Do you want to delete it\')']) !!}
              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
              {!! Form::close() !!}
              </td>

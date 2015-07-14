@@ -33,7 +33,7 @@
              <td>{{ number_format($customer->limitcust, 2) }}</td>
              <td><a href="{{route('admin.customers.edit',$customer->id)}}" class="btn btn-warning">Update</a></td>
              <td>
-             {!! Form::open(['method' => 'DELETE', 'route'=>['admin.customers.destroy', $customer->id]]) !!}
+             {!! Form::open(['method' => 'DELETE', 'route'=>['admin.customers.destroy', $customer->id], 'onsubmit'=>'return confirm(\'Do you want to delete it\')']) !!}
              {!! Form::submit('Delete', ['class' => 'btn btn-danger']) !!}
              {!! Form::close() !!}
              </td>
