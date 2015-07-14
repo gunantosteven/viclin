@@ -33,36 +33,36 @@ th, td {
 </style>
 </head>
 <body>
-<h1>Faktur Penjualan {{ $jual->nojual }}</h1>
+<h1>Invoice Sales {{ $jual->nojual }}</h1>
 
 <div class="tablefortext">
     <div class="tr">
         <div class="d1"><b>Customer : {{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</b></div>
-        <div class="d3"><b>Tanggal Order : {{ $jual->tglorderjual }}</b></div>
+        <div class="d3"><b>Order Date : {{ date("d F Y",strtotime($jual->tglorderjual)) }}</b></div>
     </div>
     <div class="tr">
-        <div class="d1"><b>Biaya Ekspedisi : {{ $jual->biayaekspjual }}</b></div>
-        <div class="d3"><b>Tanggal Jatuh Tempo : {{ $jual->tgltempojual }}</b></div>
+        <div class="d1"><b>Expedition Cost : {{ $jual->biayaekspjual }}</b></div>
+        <div class="d3"><b>Due Date : {{ date("d F Y",strtotime($jual->tgltempojual)) }}</b></div>
     </div>
     <div class="tr">
-        <div class="d1"><b>Biaya Steroform : {{ $jual->biayastereo }}</b></div>
+        <div class="d1"><b>Styrofoam Cost : {{ $jual->biayastereo }}</b></div>
     </div>
     <div class="tr">
-        <div class="d1"><b>Biaya Susut : {{ $jual->biayasusutjual }}</b></div>
+        <div class="d1"><b>Depreciation Cost : {{ $jual->biayasusutjual }}</b></div>
     </div>
     <div class="tr">
-        <div class="d1"><b>Kurs Rupiah Terbaru: : {{ $jual->kursbaru }}</b></div>
+        <div class="d1"><b>Rupiah Newest : {{ $jual->kursbaru }}</b></div>
     </div>
 </div>
 
 <br>
 <table style="width:100%">
   <tr>
-    <th>Nama Barang</th>
-     <th>Harga Satuan Kg</th>
-     <th>Jumlah Kg</th>
-     <th>Jumlah Ekor</th>
-     <th>Keterangan</th>
+    <th>Item Name</th>
+     <th>Unit Price Kg</th>
+     <th>Total Kg</th>
+     <th>Total Tail</th>
+     <th>Information</th>
   </tr>
   @foreach ($detiljuals as $key => $item)
             <tr>
