@@ -178,7 +178,17 @@
                         <a href="{{url('admin/costs')}}">
                             <span class="icon-chevron-right"></span><span class="text">View Cost</span>
                         </a>                  
-                    </li>                     
+                    </li>  
+                    <li>
+                        <a href="{{url('admin/salaries/create')}}">
+                            <span class="icon-chevron-right"></span><span class="text">Input Salary</span>
+                        </a>                  
+                    </li>  
+                    <li>
+                        <a href="{{url('admin/salaries')}}">
+                            <span class="icon-chevron-right"></span><span class="text">View Salary</span>
+                        </a>                  
+                    </li>                   
                 </ul>                
             </li>    
               

@@ -195,6 +195,7 @@ Route::group(['middleware' => 'admin'], function()
 	]);
 
 	Route::resource('/admin/costs', 'Admin\CostController');
+	Route::resource('/admin/salaries', 'Admin\SalaryController');
 });
 
 
@@ -340,6 +341,17 @@ Route::get('createdb',function(){
 		$table->bigIncrements('id');
 		$table->string('biaya');
 		$table->date('tgl');
+		$table->string('keterangan');
+		$table->float('nominal');
+		$table->timestamps();
+	});
+	Schema::create('salaries',function($table){
+		$table->bigIncrements('id');
+		$table->bigInteger('idemp')->unsigned();
+		$table->foreign('idemp')->references('id')->on('employees');
+		$table->date('tgltransaksi');
+		$table->string('bulan');
+		$table->string('tahun');
 		$table->string('keterangan');
 		$table->float('nominal');
 		$table->timestamps();
