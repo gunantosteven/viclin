@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 11, 2015 at 04:25 
+-- Generation Time: Jul 14, 2015 at 07:58 
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -80,10 +80,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`id`, `kodekategori`, `namakategori`, `created_at`, `updated_at`) VALUES
-(1, '1', 'Kepiting', '2015-07-10 19:25:34', '2015-07-10 19:25:34'),
-(2, '2', 'Cumi', '2015-07-10 19:25:34', '2015-07-10 19:25:34'),
-(3, '3', 'Udang', '2015-07-10 19:25:34', '2015-07-10 19:25:34'),
-(4, '4', 'Gurami', '2015-07-10 19:25:35', '2015-07-10 19:25:35');
+(1, '1', 'Kepiting', '2015-07-13 22:48:14', '2015-07-13 22:48:14'),
+(2, '2', 'Cumi', '2015-07-13 22:48:14', '2015-07-13 22:48:14'),
+(3, '3', 'Udang', '2015-07-13 22:48:14', '2015-07-13 22:48:14'),
+(4, '4', 'Gurami', '2015-07-13 22:48:14', '2015-07-13 22:48:14');
 
 -- --------------------------------------------------------
 
@@ -108,10 +108,10 @@ CREATE TABLE IF NOT EXISTS `customers` (
 --
 
 INSERT INTO `customers` (`id`, `namacust`, `alamatcust`, `telpcust`, `kotacust`, `emailcust`, `limitcust`, `created_at`, `updated_at`) VALUES
-(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-10 19:25:34', '2015-07-10 19:25:34'),
-(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 0.00, '2015-07-10 19:25:34', '2015-07-10 19:25:34'),
-(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 0.00, '2015-07-10 19:25:34', '2015-07-10 19:25:34'),
-(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-10 19:25:34', '2015-07-10 19:25:34');
+(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-13 22:48:14', '2015-07-13 22:48:14'),
+(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 0.00, '2015-07-13 22:48:14', '2015-07-13 22:48:14'),
+(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 0.00, '2015-07-13 22:48:14', '2015-07-13 22:48:14'),
+(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-13 22:48:14', '2015-07-13 22:48:14');
 
 -- --------------------------------------------------------
 
@@ -172,8 +172,8 @@ CREATE TABLE IF NOT EXISTS `employees` (
 --
 
 INSERT INTO `employees` (`id`, `namaemp`, `alamatemp`, `telpemp`, `kotaemp`, `tglmasuk`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-07-10 19:25:35', '2015-07-10 19:25:35'),
-(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-07-10 19:25:35', '2015-07-10 19:25:35');
+(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-07-13 22:48:14', '2015-07-13 22:48:14'),
+(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-07-13 22:48:14', '2015-07-13 22:48:14');
 
 -- --------------------------------------------------------
 
@@ -198,8 +198,8 @@ CREATE TABLE IF NOT EXISTS `items` (
 --
 
 INSERT INTO `items` (`id`, `kodebrg`, `id_category`, `namabrg`, `stokkg`, `status`, `stokbrg`, `created_at`, `updated_at`) VALUES
-(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10.00, '2015-07-10 19:25:35', '2015-07-10 19:25:35'),
-(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5.00, '2015-07-10 19:25:35', '2015-07-10 19:25:35');
+(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10.00, '2015-07-13 22:48:14', '2015-07-13 22:48:14'),
+(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5.00, '2015-07-13 22:48:14', '2015-07-13 22:48:14');
 
 -- --------------------------------------------------------
 
@@ -244,6 +244,24 @@ CREATE TABLE IF NOT EXISTS `revisi` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `salaries`
+--
+
+CREATE TABLE IF NOT EXISTS `salaries` (
+  `id` bigint(20) unsigned NOT NULL,
+  `idemp` bigint(20) unsigned NOT NULL,
+  `tgltransaksi` date NOT NULL,
+  `bulan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `tahun` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `keterangan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `nominal` double(8,2) NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `suppliers`
 --
 
@@ -264,7 +282,7 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `niksupp`, `namasupp`, `alamatsupp`, `telpsupp`, `kotasupp`, `emailsupp`, `created_at`, `updated_at`) VALUES
-(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-07-10 19:25:35', '2015-07-10 19:25:35');
+(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-07-13 22:48:14', '2015-07-13 22:48:14');
 
 -- --------------------------------------------------------
 
@@ -288,8 +306,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `namauser`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$JXxVU6dR/xfljeN3aJJ62eRDslvzo/y.CUaWyZ4m7i1iCBG6fRvWa', 'steven', 'admin', '', '2015-07-10 19:25:34', '2015-07-10 19:25:34'),
-(2, 'owner', '$2y$10$.vQib1UrdLsoyiCQJScUBOuYWK99DZbzgIy.uk7IEO42XZW/OQpSG', 'yonathan', 'owner', '', '2015-07-10 19:25:34', '2015-07-10 19:25:34');
+(1, 'admin', '$2y$10$e8bPC5eM/UlHoYpfsInDQeBvzYL5JHh6D01iKss1ogtXlWPFOF7AK', 'steven', 'admin', 'DWhDWYe0No0Lh1GeoBpUuFljhPUJnOqB1sZPCXmJ7OrScdNk5z9oYxFouX1f', '2015-07-13 22:48:13', '2015-07-13 22:56:44'),
+(2, 'owner', '$2y$10$NjK3jZJ.JgGVT0erZrakxuMieScmeJgvZLh4Vn3pgK.WVu1tTSyey', 'yonathan', 'owner', '6d6BkyUZhO6y2hEV6yNulkZZWmCPNp8Nn5RkiVcAhyMCTYuGmhdpzkTBd3jX', '2015-07-13 22:48:14', '2015-07-13 22:56:09');
 
 --
 -- Indexes for dumped tables
@@ -370,6 +388,13 @@ ALTER TABLE `revisi`
   ADD KEY `revisi_user_foreign` (`user`);
 
 --
+-- Indexes for table `salaries`
+--
+ALTER TABLE `salaries`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `salaries_idemp_foreign` (`idemp`);
+
+--
 -- Indexes for table `suppliers`
 --
 ALTER TABLE `suppliers`
@@ -437,6 +462,11 @@ ALTER TABLE `jual`
 ALTER TABLE `revisi`
   MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT;
 --
+-- AUTO_INCREMENT for table `salaries`
+--
+ALTER TABLE `salaries`
+  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+--
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
@@ -489,6 +519,12 @@ ALTER TABLE `jual`
 --
 ALTER TABLE `revisi`
   ADD CONSTRAINT `revisi_user_foreign` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
+
+--
+-- Constraints for table `salaries`
+--
+ALTER TABLE `salaries`
+  ADD CONSTRAINT `salaries_idemp_foreign` FOREIGN KEY (`idemp`) REFERENCES `employees` (`id`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
