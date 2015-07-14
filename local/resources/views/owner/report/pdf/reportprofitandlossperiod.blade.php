@@ -124,6 +124,10 @@ Cost : <br>
             <div class="d2"><b>{{ number_format($lainlain, 2) }}</b></div>
         </div>
         <div class="tr">
+            <div class="d1">Total Salary</div>
+            <div class="d2"><b>{{ number_format($salary, 2) }}</b></div>
+        </div>
+        <div class="tr">
             <div class="d1"><b>Total All</b></div>
             <div class="d2"><b>{{ number_format($totalAllBiaya, 2) }}</b></div>
         </div>

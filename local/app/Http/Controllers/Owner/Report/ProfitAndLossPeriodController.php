@@ -5,6 +5,7 @@ use App\Models\DetilBeli;
 use App\Models\Jual;
 use App\Models\DetilJual;
 use App\Models\Cost;
+use App\Models\Salary;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -99,14 +100,16 @@ class ProfitAndLossPeriodController extends Controller {
     	$lainlain = Cost::where('tgl', '>=', $tanggalawal)
     				->where('tgl', '<=', $tanggalakhir)
     				->where('biaya', '=', 'LAINLAIN')->sum('nominal');
-    	$totalAllBiaya = $biayabensin + $biayaekspedisi + $tolparkir + $lainlain;
+    	$salary = Salary::where('tgltransaksi', '>=', $tanggalawal)
+    				->where('tgltransaksi', '<=', $tanggalakhir)->sum('nominal');
+    	$totalAllBiaya = $biayabensin + $biayaekspedisi + $tolparkir + $lainlain + $salary;
 
     	$profitandloss = $totalAllSales - $totalAllPurchase - $totalAllBiaya;
 
     	$pdf = PDF::loadView('owner.report.pdf.reportprofitandlossperiod', 
     		compact('totalpurchase', 'biayaexspbeli', 'biayasusutbeli', 'biayakarantina', 'biayaclearance', 'biayaimpor', 'biayalab', 'biayafreight', 'totalAllPurchase',    
     			'totalsales', 'biayaekspjual', 'biayasusutjual', 'biayastereo', 'totalAllSales',  
-    			'biayabensin', 'biayaekspedisi', 'tolparkir', 'lainlain', 'totalAllBiaya',
+    			'biayabensin', 'biayaekspedisi', 'tolparkir', 'lainlain', 'salary', 'totalAllBiaya',
     			'profitandloss', 
     			'tanggalawal', 'tanggalakhir'));
 		return $pdf->setPaper('a4')->stream('reportprofitandlossperiod' . '.pdf');
