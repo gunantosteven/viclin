@@ -34,16 +34,16 @@ th, td {
 </head>
 <body>
 <center><h1>PT. Viclin Surabaya</h1></center>
-<h2>Surat Jalan Faktur Penjualan {{ $jual->nojual }}</h2>
+<h2>Travel Document Sales Invoice {{ $jual->nojual }}</h2>
 
 <br>
 <table style="width:100%">
   <tr>
-    <th>Nama Barang</th>
-     <th>Harga Satuan Kg</th>
-     <th>Jumlah Kg</th>
-     <th>Jumlah Ekor</th>
-     <th>Keterangan</th>
+    <th>Item Name</th>
+     <th>Unit Price Kg</th>
+     <th>Total Kg</th>
+     <th>Total Tail</th>
+     <th>Information</th>
   </tr>
   @foreach ($detiljuals as $key => $item)
             <tr>
