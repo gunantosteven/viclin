@@ -20,7 +20,7 @@ class Beli extends Model implements AuthenticatableContract, CanResetPasswordCon
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['nobeli', 'idsupp', 'user', 'tglorderbeli', 'tgltempobeli', 'biayaexspbeli', 'biayasusutbeli', 'biayakarantina', 'biayaclearance', 'biayaimpor', 'biayalab', 'biayafreight', 'tglfaktur'];
+	protected $fillable = ['nobeli', 'idsupp', 'user', 'tglorderbeli', 'tgltempobeli', 'biayaexspbeli', 'biayasusutbeli', 'biayakarantina', 'biayaclearance', 'biayaimpor', 'biayalab', 'biayafreight', 'cif', 'bm', 'pph', 'storage', 'trmc', 'spc', 'time', 'dokumen', 'ppn' ,'stamp' ,'handling', 'over', 'adm' ,'edi' ,'rush', 'tglfaktur'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

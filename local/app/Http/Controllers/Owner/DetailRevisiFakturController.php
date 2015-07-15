@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers\Owner;
 
 use App\Models\Revisi;
+use App\Models\Beli;
 use App\Models\DetilBeli;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
@@ -112,6 +113,41 @@ class DetailRevisiFakturController extends Controller {
 				    'jumlahekor' => $request->input('jumlahekor'),
 				    'keterangan' => $request->input('keterangan')
 		));
+
+		// calculate grossweight
+		$grossweight = 0;
+		$detilbelis = DB::table('detilbeli')->where('nobeli', '=', $request->input('nobeli'))->get();
+		foreach ($detilbelis as $index => $detilbeli) {
+				$grossweight += $detilbeli->jumlahkg;
+		}
+
+		// calculate micellanous cost 
+		$cif = DB::table('beli')->where('nobeli', '=', $request->input('nobeli'))->first()->cif;
+		$bm = $cif * 0.05;
+		$pph = ($bm+$cif) * 0.025;
+		$storage = 1 * $grossweight * 600;
+		$trmc = $grossweight * 500;
+		$spc = $trmc;
+		$time = $trmc;
+		$dokumen = 20000;
+		$ppn = ( $storage + $trmc + $spc + $time + $dokumen ) * 0.1;
+		$stamp = 3000;
+
+		// calculate micellanous cost 
+		$handling = 400000;
+		if($grossweight >  50)
+			$over = ($grossweight-50) * 2000;
+		else
+			$over = 0;
+		$adm = 100000;
+		$edi = 100000;
+		$rush = 2000000;
+		//end
+
+		$beli=Beli::where('nobeli', '=', $request->input('nobeli'))
+				->update(['storage' => $storage, 'trmc' => $trmc, 'spc' => $spc, 'time' => $time, 'ppn' => $ppn, 'over' => $over]);
+
+
 		return redirect('owner/purchase/revisifaktur/' . $request->input('nobeli'));
 	}
 
@@ -216,6 +252,40 @@ class DetailRevisiFakturController extends Controller {
 		DB::table('items')->where('kodebrg', '=', $detilbeliNow->kodebrg)->decrement('stokkg', $detilbeliNow->jumlahkg);
         DB::table('items')->where('kodebrg', '=', $detilbeliNow->kodebrg)->decrement('stokbrg', $detilbeliNow->jumlahekor);
 		DetilBeli::find($id)->delete();
+
+		// calculate grossweight
+		$grossweight = 0;
+		$detilbelis = DB::table('detilbeli')->where('nobeli', '=', $request->input('nobeli'))->get();
+		foreach ($detilbelis as $index => $detilbeli) {
+				$grossweight += $detilbeli->jumlahkg;
+		}
+		
+		// calculate micellanous cost 
+		$cif = DB::table('beli')->where('nobeli', '=', $request->input('nobeli'))->first()->cif;
+		$bm = $cif * 0.05;
+		$pph = ($bm+$cif) * 0.025;
+		$storage = 1 * $grossweight * 600;
+		$trmc = $grossweight * 500;
+		$spc = $trmc;
+		$time = $trmc;
+		$dokumen = 20000;
+		$ppn = ( $storage + $trmc + $spc + $time + $dokumen ) * 0.1;
+		$stamp = 3000;
+
+		// calculate micellanous cost 
+		$handling = 400000;
+		if($grossweight >  50)
+			$over = ($grossweight-50) * 2000;
+		else
+			$over = 0;
+		$adm = 100000;
+		$edi = 100000;
+		$rush = 2000000;
+		//end
+
+		$beli=Beli::where('nobeli', '=', $request->input('nobeli'))
+				->update(['storage' => $storage, 'trmc' => $trmc, 'spc' => $spc, 'time' => $time, 'ppn' => $ppn, 'over' => $over]);
+
    		return redirect('owner/purchase/revisifaktur/' . $request->input('nobeli'));
 	}
 

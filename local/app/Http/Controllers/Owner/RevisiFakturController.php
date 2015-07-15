@@ -234,6 +234,20 @@ class RevisiFakturController extends Controller {
 		$beliUpdate=Request::all();
    		$beli=Beli::where('nobeli', '=', $nobeli)->get()->first();
    		$beli->update($beliUpdate);
+		
+		// calculate bm and pph if cif changed
+		if(Request::input('cif') != $beliNow->cif)
+		{
+			$cif = Request::input('cif');
+			$bm = $cif * 0.05;
+			$pph = ($bm+$cif) * 0.025;
+
+			$beli=Beli::where('nobeli', '=', $nobeli)
+					->update(['bm' => $bm, 'pph' => $pph]);
+		}
+		
+
+
    		return redirect('owner/purchase/revisifaktur/' . $nobeli);
 	}
 

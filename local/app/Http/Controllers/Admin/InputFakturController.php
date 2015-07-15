@@ -105,7 +105,7 @@ class InputFakturController extends Controller {
 			    'keterangan' => $item['keterangan']
 	        ));
 		}
-
+		
 		// destroy session
 		Session::forget('salesitems');
 

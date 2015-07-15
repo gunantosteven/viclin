@@ -146,6 +146,10 @@
                 <div class="span9">{!! Form::text('biayafreight',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
+                <div class="span3">CIF:</div>
+                <div class="span9">{!! Form::text('cif',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
                     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
             </div>
         </div>

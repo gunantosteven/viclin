@@ -64,7 +64,6 @@ class InputFakturController extends Controller {
 	 */
 	public function store(Request $request)
 	{
-		//
 		// Validasi
 		if($request->input('idsupp') == "" || $request->input('tglorderbeli') == "" || $request->input('tgltempobeli') == "" 
 			|| $request->input('biayaexspbeli') == ""  || $request->input('biayakarantina') == "" || $request->input('biayaclearance') == "" 
@@ -76,6 +75,37 @@ class InputFakturController extends Controller {
 		{
 			return redirect('owner/purchase/inputfaktur?checkdetail=true');
 		}
+
+		$purchaseitems = Session::get('purchaseitems');
+
+		// calculate grossweight
+		$grossweight = 0;
+		foreach ($purchaseitems as $index => $item) {
+				$grossweight += $item['jumlahkg'];
+		}
+
+		// calculate micellanous cost 
+		$cif = $request->input('cif');
+		$bm = $cif * 0.05;
+		$pph = ($bm+$cif) * 0.025;
+		$storage = 1 * $grossweight * 600;
+		$trmc = $grossweight * 500;
+		$spc = $trmc;
+		$time = $trmc;
+		$dokumen = 20000;
+		$ppn = ( $storage + $trmc + $spc + $time + $dokumen ) * 0.1;
+		$stamp = 3000;
+
+		// calculate micellanous cost 
+		$handling = 400000;
+		if($grossweight >  50)
+			$over = ($grossweight-50) * 2000;
+		else
+			$over = 0;
+		$adm = 100000;
+		$edi = 100000;
+		$rush = 2000000;
+
 
 		//
 		date_default_timezone_set('Asia/Bangkok');
@@ -94,10 +124,25 @@ class InputFakturController extends Controller {
 		    'biayaimpor' => $request->input('biayaimpor'),
 		    'biayalab' => $request->input('biayalab'),
 		    'biayafreight' => $request->input('biayafreight'),
+		    'cif' => $cif,
+		    'bm' => $bm,
+		    'pph' => $pph,
+		    'storage' => $storage,
+		    'trmc' => $trmc,
+		    'spc' => $spc,
+		    'time' => $time,
+		    'dokumen' => $dokumen,
+		    'ppn' => $ppn,
+		    'stamp' => $stamp,
+		    'handling' => $handling,
+		    'over' => $over,
+		    'adm' => $adm,
+		    'edi' => $edi,
+		    'rush' => $rush,
 		    'tglfaktur' => $datetoday,
         ));
 
-   		$purchaseitems = Session::get('purchaseitems');
+   		
         foreach ($purchaseitems as $index => $item) {
         		DB::table('items')->where('kodebrg', '=', $item['kodebrg'])->increment('stokkg', $item['jumlahkg']);
         		DB::table('items')->where('kodebrg', '=', $item['kodebrg'])->increment('stokbrg', $item['jumlahekor']);
