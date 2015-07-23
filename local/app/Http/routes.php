@@ -212,7 +212,7 @@ Route::get('createdb',function(){
 	Schema::create('customers',function($table){
 		$table->bigIncrements('id');
 		$table->string('namacust',30);
-		$table->string('alamatcust',30);
+		$table->string('alamatcust',100);
 		$table->string('telpcust',20);
 		$table->string('kotacust', 20);
 		$table->string('emailcust',30);
@@ -223,7 +223,7 @@ Route::get('createdb',function(){
 		$table->bigIncrements('id');
 		$table->string('niksupp',30)->unique();
 		$table->string('namasupp',30);
-		$table->string('alamatsupp',30);
+		$table->string('alamatsupp',100);
 		$table->string('telpsupp',20);
 		$table->string('kotasupp', 20);
 		$table->string('emailsupp',30);
@@ -232,7 +232,7 @@ Route::get('createdb',function(){
 	Schema::create('employees',function($table){
 		$table->bigIncrements('id');
 		$table->string('namaemp',30);
-		$table->string('alamatemp',255);
+		$table->string('alamatemp',100);
 		$table->string('telpemp',20);
 		$table->string('kotaemp', 20);
 		$table->date('tglmasuk');
@@ -251,9 +251,9 @@ Route::get('createdb',function(){
 		$table->unsignedInteger('id_category');
 		$table->foreign('id_category')->references('id')->on('categories');
 		$table->string('namabrg',30);
-		$table->float('stokkg');
+		$table->float('stokkg', 13);
 		$table->string('status',20);
-		$table->float('stokbrg');
+		$table->float('stokbrg', 13);
 		$table->timestamps();
 	});
 	Schema::create('beli',function($table){
@@ -265,28 +265,28 @@ Route::get('createdb',function(){
 		$table->foreign('user')->references('id')->on('users');
 		$table->date('tglorderbeli');
 		$table->date('tgltempobeli');
-		$table->float('biayaexspbeli');
-		$table->float('biayasusutbeli');
-		$table->float('biayakarantina');
-		$table->float('biayaclearance');
-		$table->float('biayaimpor');
-		$table->float('biayalab');
-		$table->float('biayafreight');
-		$table->float('cif');
-		$table->float('bm');
-		$table->float('pph');
-		$table->float('storage');
-		$table->float('trmc');
-		$table->float('spc');
-		$table->float('time');
-		$table->float('dokumen');
-		$table->float('ppn');
-		$table->float('stamp');
-		$table->float('handling');
-		$table->float('over');
-		$table->float('adm');
-		$table->float('edi');
-		$table->float('rush', 12);
+		$table->float('biayaexspbeli', 13);
+		$table->float('biayasusutbeli', 13);
+		$table->float('biayakarantina', 13);
+		$table->float('biayaclearance', 13);
+		$table->float('biayaimpor', 13);
+		$table->float('biayalab', 13);
+		$table->float('biayafreight', 13);
+		$table->float('cif', 13);
+		$table->float('bm', 13);
+		$table->float('pph', 13);
+		$table->float('storage', 13);
+		$table->float('trmc', 13);
+		$table->float('spc', 13);
+		$table->float('time', 13);
+		$table->float('dokumen', 13);
+		$table->float('ppn', 13);
+		$table->float('stamp', 13);
+		$table->float('handling', 13);
+		$table->float('over', 13);
+		$table->float('adm', 13);
+		$table->float('edi', 13);
+		$table->float('rush', 13);
 		$table->date('tglfaktur');
 		$table->timestamps();
 	});
@@ -296,8 +296,8 @@ Route::get('createdb',function(){
 		$table->foreign('nobeli')->references('nobeli')->on('beli');
 		$table->string('kodebrg');
 		$table->foreign('kodebrg')->references('kodebrg')->on('items');
-		$table->float('hargasatuankg');
-		$table->float('jumlahkg');
+		$table->float('hargasatuankg', 13);
+		$table->float('jumlahkg', 13);
 		$table->bigInteger('jumlahekor');
 		$table->string('keterangan');
 		$table->timestamps();
@@ -311,10 +311,10 @@ Route::get('createdb',function(){
 		$table->foreign('user')->references('id')->on('users');
 		$table->date('tglorderjual');
 		$table->date('tgltempojual');
-		$table->float('biayaekspjual');
-		$table->float('biayasusutjual');
-		$table->float('biayastereo');
-		$table->float('kursbaru');
+		$table->float('biayaekspjual', 13);
+		$table->float('biayasusutjual', 13);
+		$table->float('biayastereo', 13);
+		$table->float('kursbaru', 13);
 		$table->date('tglfaktur');
 		$table->timestamps();
 	});
@@ -324,8 +324,8 @@ Route::get('createdb',function(){
 		$table->foreign('nojual')->references('nojual')->on('jual');
 		$table->string('kodebrg');
 		$table->foreign('kodebrg')->references('kodebrg')->on('items');
-		$table->float('hargasatuankg');
-		$table->float('jumlahkg');
+		$table->float('hargasatuankg', 13);
+		$table->float('jumlahkg', 13);
 		$table->bigInteger('jumlahekor');
 		$table->string('keterangan');
 		$table->timestamps();
@@ -357,7 +357,7 @@ Route::get('createdb',function(){
 		$table->string('biaya');
 		$table->date('tgl');
 		$table->string('keterangan');
-		$table->float('nominal');
+		$table->float('nominal', 13);
 		$table->timestamps();
 	});
 	Schema::create('salaries',function($table){
@@ -368,7 +368,7 @@ Route::get('createdb',function(){
 		$table->string('bulan');
 		$table->string('tahun');
 		$table->string('keterangan');
-		$table->float('nominal');
+		$table->float('nominal', 13);
 		$table->timestamps();
 	});
 	Schema::create('revisi',function($table){

@@ -55,8 +55,13 @@ class CetakFakturController extends Controller {
 		//
 		$jual = Jual::where('nojual', '=', $nojual)->first();
     	$detiljuals = DetilJual::where('nojual', '=', $nojual)->get();
-		$pdf = PDF::loadView('admin.sales.pdf.reportfaktur', compact('jual', 'detiljuals'));
-		return $pdf->setPaper('a4')->stream('suratjalan' . $nojual .'.pdf');
+    	$totalprice = 0;
+    	foreach($detiljuals as $detiljual)
+    	{
+    		$totalprice += $detiljual->hargasatuankg * $detiljual->jumlahekor;
+    	}
+		$pdf = PDF::loadView('admin.sales.pdf.reportfaktur', compact('jual', 'detiljuals', 'totalprice'));
+		return $pdf->setPaper('a5')->setOrientation('landscape')->stream('suratjalan' . $nojual .'.pdf');
 	}
 
 
