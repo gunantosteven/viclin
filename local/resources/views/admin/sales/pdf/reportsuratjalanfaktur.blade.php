@@ -19,43 +19,76 @@ th, td {
 .d1 {
     display:table-cell;
     width:25%;
+    font-family: "Times New Roman";
+    font-size: 14px;
 }
 .d2 {
     display:table-cell;
     text-align:center;
+    font-family: "Times New Roman";
+    font-size: 14px;
     width:50%;
 }
 .d3 {
     display:table-cell;
-    text-align:right;
-    width:25%;
+    text-align:left;
+    font-family: "Times New Roman";
+    font-size: 14px;
+    width:5%;
+}
+.d4 {
+    display:table-cell;
+    text-align:left;
+    font-family: "Times New Roman";
+    font-size: 14px;
+    width:15%;
+}
+table {
+    font-size:12px;
 }
 </style>
 </head>
 <body>
-<center><h1>PT. Viclin Surabaya</h1></center>
-<h2>Travel Document Sales Invoice {{ $jual->nojual }}</h2>
+<div class="tablefortext">
+    <div class="tr">
+        <div class="d1"><font size="20px"><b>SURAT JALAN No. {{ $jual->nojual }}</b></font></div>
+        <div class="d3"><u>TUAN</u><br>TOKO<br></div>
+        <div class="d4">.............................................................<br>
+                        .............................................................<br>
+                        .............................................................<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <u>..........................................</u><br>
+                        </div>
+    </div>
+</div>
 
 <br>
+<font size="12px">Kami kirimkan barang-barang tersebut dibawah ini dengan kendaraan................................................... No. ...............................................................</font>
 <table style="width:100%">
   <tr>
-    <th>Item Name</th>
-     <th>Unit Price Kg</th>
-     <th>Total Kg</th>
-     <th>Total Tail</th>
-     <th>Information</th>
+     <th>BANYAKNYA</th>
+     <th>NAMA BARANG</th>
   </tr>
   @foreach ($detiljuals as $key => $item)
             <tr>
-                 <td>{{  DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
-                 <td>{{ number_format($item['hargasatuankg'], 2) }}</td>
-                 <td>{{ $item['jumlahkg'] }}</td>
                  <td>{{ $item['jumlahekor'] }}</td>
-                 <td>{{ $item['keterangan'] }}</td>
+                 <td>{{ DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
             </tr>
    @endforeach
 </table>
 <br>
-Total Items : {{ $detiljuals->count() }}
+@if($detiljuals->count() <= 1)
+<div style="page-break-after: always;">  
+</div>
+@endif
+<div class="tablefortext">
+    <div class="tr">
+        <div class="d1"></div>
+        <div class="d1">Tanda terima</div>
+        <div class="d2">Hormat kami,</div>
+        <div class="d4"></div>
+    </div>
+</div>
+
 </body>
 </html>

@@ -55,7 +55,7 @@ class CetakSuratJalanController extends Controller {
 		$jual = Jual::where('nojual', '=', $nojual)->first();
     	$detiljuals = DetilJual::where('nojual', '=', $nojual)->get();
 		$pdf = PDF::loadView('admin.sales.pdf.reportsuratjalanfaktur', compact('jual', 'detiljuals'));
-		return $pdf->setPaper('a4')->stream('suratjalan' . $nojual .'.pdf');
+		return $pdf->setPaper('a5')->setOrientation('landscape')->stream('suratjalan' . $nojual .'.pdf');
 	}
 
 	/**
