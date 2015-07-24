@@ -102,6 +102,7 @@ class InputFakturController extends Controller {
 			    'hargasatuankg' => $item['hargasatuankg'],
 			    'jumlahkg' => $item['jumlahkg'],
 			    'jumlahekor' => $item['jumlahekor'],
+			    'noofbox' => $item['noofbox'],
 			    'keterangan' => $item['keterangan']
 	        ));
 		}

@@ -36,6 +36,10 @@
                 <div class="span9">{!! Form::text('jumlahekor',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
+                <div class="span3">No Of Box:</div>
+                <div class="span9">{!! Form::text('noofbox',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
                 <div class="span3">Information:</div>
                 <div class="span9">{!! Form::text('keterangan',null,['class'=>'']) !!}</div>
             </div>
@@ -69,6 +73,7 @@
                              <th>Unit Price Kg</th>
                              <th>Total Kg</th>
                              <th>Total Tail</th>
+                             <th>No Of Box</th>
                              <th>Information</th>
                              <th colspan="1">Actions</th>
                          </tr>
@@ -82,6 +87,7 @@
                                  <td>{{ number_format($item['hargasatuankg'], 2) }}</td>
                                  <td>{{ $item['jumlahkg'] }}</td>
                                  <td>{{ $item['jumlahekor'] }}</td>
+                                 <td>{{ $item['noofbox'] }}</td>
                                  <td>{{ $item['keterangan'] }}</td>
                                  <td>
                                     {!! Form::open(['method' => 'DELETE', 'route'=>['admin.sales.detailinputfaktur.destroy', $item['id']], 'onsubmit'=>'return confirm(\'Do you want to delete it\')']) !!}

@@ -327,6 +327,7 @@ Route::get('createdb',function(){
 		$table->float('hargasatuankg', 13);
 		$table->float('jumlahkg', 13);
 		$table->bigInteger('jumlahekor');
+		$table->string('noofbox');
 		$table->string('keterangan');
 		$table->timestamps();
 	});

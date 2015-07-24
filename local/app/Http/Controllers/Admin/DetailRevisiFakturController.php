@@ -45,7 +45,7 @@ class DetailRevisiFakturController extends Controller {
 	{
 		//validasi
 		if($request->input('kodebrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
-			|| $request->input('jumlahekor') == "" || $request->input('keterangan') == "")
+			|| $request->input('jumlahekor') == "" || $request->input('noofbox') == "" || $request->input('keterangan') == "")
 		{
 			return redirect('admin/sales/revisifaktur/' . $request->input('nojual') . '?validasi=true');
 		}
@@ -102,6 +102,14 @@ class DetailRevisiFakturController extends Controller {
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
 				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $request->input('noofbox'),
+				    'dataawal' => '',
+				    'dataakhir' => $request->input('noofbox'),
+				    'keterangan' => 'No Of Box'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
 				    'jualbeli' => $request->input('nojual'),
 				    'dataawal' => '',
 				    'dataakhir' => $request->input('keterangan'),
@@ -118,6 +126,7 @@ class DetailRevisiFakturController extends Controller {
 				    'hargasatuankg' => $request->input('hargasatuankg'),
 				    'jumlahkg' => $request->input('jumlahkg'),
 				    'jumlahekor' => $request->input('jumlahekor'),
+				    'noofbox' => $request->input('noofbox'),
 				    'keterangan' => $request->input('keterangan')
 		));
 		return redirect('admin/sales/revisifaktur/' . $request->input('nojual'));
@@ -201,6 +210,14 @@ class DetailRevisiFakturController extends Controller {
 				    'dataawal' => $detiljualNow->jumlahekor,
 				    'dataakhir' => '',
 				    'keterangan' => 'Total Tail'
+		));
+		Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $detiljualNow->nojual,
+				    'dataawal' => $detiljualNow->noofbox,
+				    'dataakhir' => '',
+				    'keterangan' => 'No Of Box'
 		));
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
