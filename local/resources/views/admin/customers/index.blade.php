@@ -18,6 +18,7 @@
          <th>Phone</th>
          <th>City</th>
          <th>Email</th>
+         <th>Company</th>
          <th>Limit</th>
          <th colspan="2">Actions</th>
      </tr>
@@ -30,6 +31,7 @@
              <td>{{ $customer->telpcust }}</td>
              <td>{{ $customer->kotacust }}</td>
              <td>{{ $customer->emailcust }}</td>
+             <td>{{ $customer->company }}</td>
              <td>{{ number_format($customer->limitcust, 2) }}</td>
              <td><a href="{{route('admin.customers.edit',$customer->id)}}" class="btn btn-warning">Update</a></td>
              <td>

@@ -60,7 +60,7 @@ table {
         <div class="d1">Invoice No</div>
         <div class="d1">: {{ $jual->nojual }}</div>
         <div class="d3">Sold To</div>
-        <div class="d4">: {{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</div>
+        <div class="d4">: </div>
     </div>
     <div class="tr">
         <div class="d1">Delivery Date</div>
@@ -72,7 +72,7 @@ table {
         <div class="d1">Terms of Sale</div>
         <div class="d1">: 1 Weeks</div>
         <div class="d3">Company</div>
-        <div class="d4">: </div>
+        <div class="d4">: {{ DB::table('customers')->where('id', $jual['nikcust'])->first()->company }}</div>
     </div>
     <div class="tr">
         <div class="d1">Payment Date</div>

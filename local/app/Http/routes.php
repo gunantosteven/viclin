@@ -216,6 +216,7 @@ Route::get('createdb',function(){
 		$table->string('telpcust',20);
 		$table->string('kotacust', 20);
 		$table->string('emailcust',30);
+		$table->string('company',30);
 		$table->float('limitcust');
 		$table->timestamps();
 	});
