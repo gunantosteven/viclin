@@ -33,7 +33,7 @@
          <th>Customer</th>
          <th>Date Order</th>
          <th>Due Date</th>
-         <th colspan="1">Actions</th>
+         <th colspan="2">Actions</th>
      </tr>
      </thead>
      <tbody>
@@ -44,7 +44,8 @@
                      <td>{{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</td>
                      <td>{{ date("d F Y",strtotime($jual['tglorderjual'])) }}</td>
                      <td>{{ date("d F Y",strtotime($jual['tgltempojual'])) }}</td>
-                     <td><a href="{{url('admin/sales/cetakfaktur',$jual->nojual)}}" class="btn" target="_blank">Print</a></td>
+                     <td><a href="{{url('admin/sales/cetakfaktur',$jual->nojual)}}" class="btn" target="_blank">Original</a></td>
+                     <td><a href="{{url('admin/sales/cetakfaktur',$jual->nojual)}}?copy=true" class="btn" target="_blank">Copy</a></td>
                 </tr>
             @endforeach
         @endif

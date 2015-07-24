@@ -50,7 +50,7 @@ class CetakFakturController extends Controller {
 	 *
 	 * @return Response
 	 */
-	public function cetak($nojual)
+	public function cetak(Request $request, $nojual)
 	{
 		//
 		$jual = Jual::where('nojual', '=', $nojual)->first();
@@ -60,7 +60,16 @@ class CetakFakturController extends Controller {
     	{
     		$totalprice += $detiljual->hargasatuankg * $detiljual->jumlahekor;
     	}
-		$pdf = PDF::loadView('admin.sales.pdf.reportfaktur', compact('jual', 'detiljuals', 'totalprice'));
+
+    	if($request->input('copy') == "true")
+    	{
+    		$pdf = PDF::loadView('admin.sales.pdf.reportfakturcopy', compact('jual', 'detiljuals', 'totalprice'));
+    	}
+    	else
+    	{
+    		$pdf = PDF::loadView('admin.sales.pdf.reportfakturoriginal', compact('jual', 'detiljuals', 'totalprice'));
+    	}
+
 		return $pdf->setPaper('a5')->setOrientation('landscape')->stream('suratjalan' . $nojual .'.pdf');
 	}
 
