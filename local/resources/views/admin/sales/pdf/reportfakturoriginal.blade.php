@@ -49,9 +49,9 @@ table {
 </style>
 </head>
 <body>
-<font size="20px"><b>CV VICLIN – TRADING LINES –</b></font><br>
-<font size="20px">Add : Jalan Raya Mastrip 22 Kedurus, Surabaya 60223</font><br>
-<font size="20px">Telpon : +62317667628, Fax : +62317662463</font>
+<font size="18px"><b>CV VICLIN – TRADING LINES –</b></font><br>
+<font size="18px">Add : Jalan Raya Mastrip 22 Kedurus, Surabaya 60223</font><br>
+<font size="18px">Telpon : +62317667628, Fax : +62317662463</font>
 <Br>
 <Br>
 <center><font size="18px"><b>INVOICE</b></font><br></center><Br><br>

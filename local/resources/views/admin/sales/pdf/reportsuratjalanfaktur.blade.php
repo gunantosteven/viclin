@@ -51,7 +51,7 @@ table {
 <body>
 <div class="tablefortext">
     <div class="tr">
-        <div class="d1"><font size="20px"><b>SURAT JALAN No. {{ $jual->nojual }}</b></font></div>
+        <div class="d1"><font size="18px"><b>SURAT JALAN No. {{ $jual->nojual }}</b></font></div>
         <div class="d3"><u>TUAN</u><br>TOKO<br></div>
         <div class="d4">.............................................................<br>
                         .............................................................<br>
