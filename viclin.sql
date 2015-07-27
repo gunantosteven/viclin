@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jul 15, 2015 at 10:50 
+-- Generation Time: Jul 27, 2015 at 03:37 
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -95,10 +95,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`id`, `kodekategori`, `namakategori`, `created_at`, `updated_at`) VALUES
-(1, '1', 'Kepiting', '2015-07-15 01:50:09', '2015-07-15 01:50:09'),
-(2, '2', 'Cumi', '2015-07-15 01:50:09', '2015-07-15 01:50:09'),
-(3, '3', 'Udang', '2015-07-15 01:50:09', '2015-07-15 01:50:09'),
-(4, '4', 'Gurami', '2015-07-15 01:50:09', '2015-07-15 01:50:09');
+(1, '1', 'Kepiting', '2015-07-26 18:37:23', '2015-07-26 18:37:23'),
+(2, '2', 'Cumi', '2015-07-26 18:37:23', '2015-07-26 18:37:23'),
+(3, '3', 'Udang', '2015-07-26 18:37:23', '2015-07-26 18:37:23'),
+(4, '4', 'Gurami', '2015-07-26 18:37:23', '2015-07-26 18:37:23');
 
 -- --------------------------------------------------------
 
@@ -113,6 +113,7 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `telpcust` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `kotacust` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `emailcust` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `company` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `limitcust` double(8,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
@@ -122,11 +123,11 @@ CREATE TABLE IF NOT EXISTS `customers` (
 -- Dumping data for table `customers`
 --
 
-INSERT INTO `customers` (`id`, `namacust`, `alamatcust`, `telpcust`, `kotacust`, `emailcust`, `limitcust`, `created_at`, `updated_at`) VALUES
-(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-15 01:50:09', '2015-07-15 01:50:09'),
-(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 0.00, '2015-07-15 01:50:09', '2015-07-15 01:50:09'),
-(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 0.00, '2015-07-15 01:50:09', '2015-07-15 01:50:09'),
-(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 0.00, '2015-07-15 01:50:09', '2015-07-15 01:50:09');
+INSERT INTO `customers` (`id`, `namacust`, `alamatcust`, `telpcust`, `kotacust`, `emailcust`, `company`, `limitcust`, `created_at`, `updated_at`) VALUES
+(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 'UWIKA', 0.00, '2015-07-26 18:37:23', '2015-07-26 18:37:23'),
+(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 'UNESA', 0.00, '2015-07-26 18:37:23', '2015-07-26 18:37:23'),
+(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 'UBAYA', 0.00, '2015-07-26 18:37:23', '2015-07-26 18:37:23'),
+(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 'WM', 0.00, '2015-07-26 18:37:23', '2015-07-26 18:37:23');
 
 -- --------------------------------------------------------
 
@@ -159,6 +160,7 @@ CREATE TABLE IF NOT EXISTS `detiljual` (
   `hargasatuankg` double(13,2) NOT NULL,
   `jumlahkg` double(13,2) NOT NULL,
   `jumlahekor` bigint(20) NOT NULL,
+  `noofbox` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `keterangan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
@@ -187,8 +189,8 @@ CREATE TABLE IF NOT EXISTS `employees` (
 --
 
 INSERT INTO `employees` (`id`, `namaemp`, `alamatemp`, `telpemp`, `kotaemp`, `tglmasuk`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-07-15 01:50:09', '2015-07-15 01:50:09'),
-(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-07-15 01:50:10', '2015-07-15 01:50:10');
+(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-07-26 18:37:24', '2015-07-26 18:37:24'),
+(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-07-26 18:37:24', '2015-07-26 18:37:24');
 
 -- --------------------------------------------------------
 
@@ -213,8 +215,8 @@ CREATE TABLE IF NOT EXISTS `items` (
 --
 
 INSERT INTO `items` (`id`, `kodebrg`, `id_category`, `namabrg`, `stokkg`, `status`, `stokbrg`, `created_at`, `updated_at`) VALUES
-(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10.00, '2015-07-15 01:50:09', '2015-07-15 01:50:09'),
-(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5.00, '2015-07-15 01:50:09', '2015-07-15 01:50:09');
+(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10.00, '2015-07-26 18:37:23', '2015-07-26 18:37:23'),
+(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5.00, '2015-07-26 18:37:24', '2015-07-26 18:37:24');
 
 -- --------------------------------------------------------
 
@@ -297,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `niksupp`, `namasupp`, `alamatsupp`, `telpsupp`, `kotasupp`, `emailsupp`, `created_at`, `updated_at`) VALUES
-(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-07-15 01:50:09', '2015-07-15 01:50:09');
+(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-07-26 18:37:24', '2015-07-26 18:37:24');
 
 -- --------------------------------------------------------
 
@@ -321,8 +323,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `namauser`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$Hw/lTK6pDTIHVyc31U3lXuSq9SFnqZP5iicwQhZjKKCQJy0VV83DW', 'steven', 'admin', '', '2015-07-15 01:50:09', '2015-07-15 01:50:09'),
-(2, 'owner', '$2y$10$PAObf16sRvIKQ4zwOvYtgeMt3CUBsgojw0xSUuoPeZxv.QyTSKXrK', 'yonathan', 'owner', '', '2015-07-15 01:50:09', '2015-07-15 01:50:09');
+(1, 'admin', '$2y$10$knQ55z3n4oFrODPAwULyweAYZzWgQ0igDDBQIt5WAxT38Q/BeDsc6', 'steven', 'admin', '', '2015-07-26 18:37:23', '2015-07-26 18:37:23'),
+(2, 'owner', '$2y$10$BuLWjicdY5lEpdMTiDr4FeH8YwiBUBs3ANWnjkT3RFG2NgQC/xrzC', 'yonathan', 'owner', '', '2015-07-26 18:37:23', '2015-07-26 18:37:23');
 
 --
 -- Indexes for dumped tables
