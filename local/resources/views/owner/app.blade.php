@@ -171,6 +171,11 @@
                         </a>                  
                     </li>   --> 
                     <li>
+                        <a href="{{ url('/owner/purchase/paymentconfirmation') }}">
+                            <span class="icon-chevron-right"></span><span class="text">Payment Confirmation</span>
+                        </a>                  
+                    </li> 
+                    <li>
                         <a href="{{ url('/owner/purchase/inputpenyusutan') }}">
                             <span class="icon-chevron-right"></span><span class="text">Input Depreciation Cost</span>
                         </a>                  

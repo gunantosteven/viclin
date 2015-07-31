@@ -73,6 +73,19 @@ Route::group(['middleware' => 'owner'], function()
 
     /*Route::resource('/owner/purchase/returperfaktur', 'Owner\ReturPerFakturController');*/
 
+    Route::get('/owner/purchase/paymentconfirmation', [
+	    'as' => 'owner.purchase.paymentconfirmation.index',
+	    'uses' => 'Owner\PaymentConfirmationController@index'
+	]);
+    Route::post('/owner/purchase/paymentconfirmation', [
+	    'as' => 'owner.purchase.paymentconfirmation.showfaktur',
+	    'uses' => 'Owner\PaymentConfirmationController@showfaktur'
+	]);
+	Route::patch('/owner/purchase/paymentconfirmation', [
+	    'as' => 'owner.purchase.paymentconfirmation.update',
+	    'uses' => 'Owner\PaymentConfirmationController@update'
+	]);
+
     Route::get('/owner/purchase/inputpenyusutan', [
 	    'as' => 'owner.purchase.inputpenyusutan.index',
 	    'uses' => 'Owner\InputPenyusutanController@index'
@@ -155,6 +168,19 @@ Route::group(['middleware' => 'admin'], function()
 
     /*Route::resource('/admin/sales/returperfaktur', 'Admin\ReturPerFakturController');
     Route::resource('/admin/sales/detailreturfaktur', 'Admin\DetailReturFakturController');*/
+
+    Route::get('/admin/sales/paymentconfirmation', [
+	    'as' => 'admin.sales.paymentconfirmation.index',
+	    'uses' => 'Admin\PaymentConfirmationController@index'
+	]);
+    Route::post('/admin/sales/paymentconfirmation', [
+	    'as' => 'admin.sales.paymentconfirmation.showfaktur',
+	    'uses' => 'Admin\PaymentConfirmationController@showfaktur'
+	]);
+	Route::patch('/admin/sales/paymentconfirmation', [
+	    'as' => 'admin.sales.paymentconfirmation.update',
+	    'uses' => 'Admin\PaymentConfirmationController@update'
+	]);
 
     Route::get('/admin/sales/inputpenyusutan', [
 	    'as' => 'admin.sales.inputpenyusutan.index',
@@ -265,6 +291,8 @@ Route::get('createdb',function(){
 		$table->foreign('idsupp')->references('id')->on('suppliers');
 		$table->unsignedInteger('user');
 		$table->foreign('user')->references('id')->on('users');
+		$table->string('payment',20)->default('UNPAID');
+		$table->string('ketpayment');
 		$table->date('tglorderbeli');
 		$table->date('tgltempobeli');
 		$table->float('biayasusutbeli', 13);
@@ -310,6 +338,8 @@ Route::get('createdb',function(){
 		$table->foreign('nikcust')->references('id')->on('customers');
 		$table->unsignedInteger('user');
 		$table->foreign('user')->references('id')->on('users');
+		$table->string('payment',20)->default('UNPAID');
+		$table->string('ketpayment');
 		$table->date('tglorderjual');
 		$table->date('tgltempojual');
 		$table->float('biayaekspjual', 13);
