@@ -15,8 +15,7 @@ class CustomersTableSeederTableSeeder extends Seeder {
 		'telpcust' => '031335667788',
 		'kotacust' => 'Surabaya',
 		'emailcust' => 'budibudi@gmail.com',
-		'company' => 'UWIKA',
-		'limitcust' => 0
+		'company' => 'UWIKA'
 		));
 
 		\App\Models\Customer::create(array(
@@ -25,8 +24,7 @@ class CustomersTableSeederTableSeeder extends Seeder {
 		'telpcust' => '031445667788',
 		'kotacust' => 'Surabaya',
 		'emailcust' => 'bunga@gmail.com',
-		'company' => 'UNESA',
-		'limitcust' => 0
+		'company' => 'UNESA'
 		));
 
 		\App\Models\Customer::create(array(
@@ -35,8 +33,7 @@ class CustomersTableSeederTableSeeder extends Seeder {
 		'telpcust' => '03161162788',
 		'kotacust' => 'Surabaya',
 		'emailcust' => 'ania@gmail.com',
-		'company' => 'UBAYA',
-		'limitcust' => 0
+		'company' => 'UBAYA'
 		));
 
 		\App\Models\Customer::create(array(
@@ -45,8 +42,7 @@ class CustomersTableSeederTableSeeder extends Seeder {
 		'telpcust' => '03185668888',
 		'kotacust' => 'Surabaya',
 		'emailcust' => 'budibudi@gmail.com',
-		'company' => 'WM',
-		'limitcust' => 0
+		'company' => 'WM'
 		));
 	}
 }
