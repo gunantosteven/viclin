@@ -12,6 +12,10 @@
         {!! Form::open(['url' => 'admin/customers']) !!}
         <div class="block-fluid"> 
             <div class="row-form clearfix">
+                <div class="span3">Company:</div>
+                <div class="span9">{!! Form::text('company',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
                 <div class="span3">Name:</div>
                 <div class="span9">{!! Form::text('namacust',null,['class'=>'']) !!}</div>
             </div>
@@ -30,10 +34,6 @@
             <div class="row-form clearfix">
                 <div class="span3">Email:</div>
                 <div class="span9">{!! Form::email('emailcust',null,['class'=>'']) !!}</div>
-            </div>
-            <div class="row-form clearfix">
-                <div class="span3">Company:</div>
-                <div class="span9">{!! Form::text('company',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Limit:</div>

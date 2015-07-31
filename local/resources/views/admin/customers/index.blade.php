@@ -13,12 +13,12 @@
  <table class="table table-striped table-bordered table-hover">
      <thead>
      <tr class="bg-info">
+         <th>Company</th>
          <th>Name</th>
          <th>Address</th>
          <th>Phone</th>
          <th>City</th>
          <th>Email</th>
-         <th>Company</th>
          <th>Limit</th>
          <th colspan="2">Actions</th>
      </tr>
@@ -26,12 +26,12 @@
      <tbody>
      @foreach ($customers as $customer)
          <tr>
+             <td>{{ $customer->company }}</td>
              <td>{{ $customer->namacust }}</td>
              <td>{{ $customer->alamatcust }}</td>
              <td>{{ $customer->telpcust }}</td>
              <td>{{ $customer->kotacust }}</td>
              <td>{{ $customer->emailcust }}</td>
-             <td>{{ $customer->company }}</td>
              <td>{{ number_format($customer->limitcust, 2) }}</td>
              <td><a href="{{route('admin.customers.edit',$customer->id)}}" class="btn btn-warning">Update</a></td>
              <td>
