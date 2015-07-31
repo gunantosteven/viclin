@@ -27,6 +27,7 @@ Route::group(['middleware' => 'owner'], function()
 
     Route::get('/owner/dashboard', 'Owner\DashboardController@index');
 
+    Route::resource('/owner/categories','Owner\CategoryController');
     Route::resource('/owner/items','Owner\ItemController');
     Route::resource('/owner/customers','Owner\CustomerController');
     Route::resource('/owner/suppliers','Owner\SupplierController');
@@ -243,6 +244,7 @@ Route::get('createdb',function(){
 		$table->increments('id');
 		$table->string('kodekategori',10)->unique();
 		$table->string('namakategori',60);
+		$table->string('statusdelete',10)->default('0');
 		$table->timestamps();
 	});
 	Schema::create('items',function($table){

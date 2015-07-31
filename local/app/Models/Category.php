@@ -19,7 +19,7 @@ class Category extends Model implements AuthenticatableContract, CanResetPasswor
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['kodekategori', 'namakategori'];
+	protected $fillable = ['kodekategori', 'namakategori', 'statusdelete'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

@@ -95,7 +95,8 @@
                 </a>
             </li>
             <li class="openable 
-                        @if(str_contains(Request::url(), 'owner/items') || 
+                        @if(str_contains(Request::url(), 'owner/categories') || 
+                            str_contains(Request::url(), 'owner/items') || 
                             str_contains(Request::url(), 'owner/customers') ||
                             str_contains(Request::url(), 'owner/suppliers') ||
                             str_contains(Request::url(), 'owner/stock')) {{ 'active' }}  @endif">
@@ -103,6 +104,11 @@
                     <span class="isw-list"></span><span class="text">Data</span>
                 </a>
                 <ul>
+                    <li>
+                        <a href="{{ url('/owner/categories') }}">
+                            <span class="icon-chevron-right"></span><span class="text">Category</span>
+                        </a>                  
+                    </li> 
                     <li>
                         <a href="{{ url('/owner/items') }}">
                             <span class="icon-chevron-right"></span><span class="text">Item</span>
