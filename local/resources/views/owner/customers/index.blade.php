@@ -13,6 +13,7 @@
 <table class="table table-striped table-bordered table-hover">
  <thead>
  <tr class="bg-info">
+     <th>Company</th>
      <th>Name</th>
      <th>Address</th>
      <th>Phone</th>
@@ -24,6 +25,7 @@
  <tbody>
  @foreach ($customers as $customer)
      <tr>
+         <td>{{ $customer->company }}</td>
          <td>{{ $customer->namacust }}</td>
          <td>{{ $customer->alamatcust }}</td>
          <td>{{ $customer->telpcust }}</td>

@@ -12,6 +12,10 @@
         {!! Form::model($customer,['method' => 'PATCH','route'=>['owner.customers.update',$customer->id]]) !!}
         <div class="block-fluid"> 
             <div class="row-form clearfix">
+                <div class="span3">Company:</div>
+                <div class="span9">{!! Form::text('company',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
                 <div class="span3">Name:</div>
                 <div class="span9">{!! Form::text('namacust',null,['class'=>'']) !!}</div>
             </div>

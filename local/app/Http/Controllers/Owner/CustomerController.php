@@ -28,7 +28,7 @@ class CustomerController extends Controller {
 		}
 		else
 		{
-			$customers = Customer::paginate(3);
+			$customers = Customer::paginate(10);
 		}
 		
 		return view('owner.customers.index', compact('customers'));

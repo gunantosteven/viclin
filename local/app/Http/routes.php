@@ -217,7 +217,6 @@ Route::get('createdb',function(){
 		$table->string('kotacust', 20);
 		$table->string('emailcust',30);
 		$table->string('company',30);
-		$table->float('limitcust', 13);
 		$table->timestamps();
 	});
 	Schema::create('suppliers',function($table){
