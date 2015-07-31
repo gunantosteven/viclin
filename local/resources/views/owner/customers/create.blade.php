@@ -32,10 +32,6 @@
                 <div class="span9">{!! Form::email('emailcust',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Limit:</div>
-                <div class="span9">{!! Form::text('limitcust',null,['class'=>'']) !!}</div>
-            </div>
-            <div class="row-form clearfix">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
             </div>
         </div>
