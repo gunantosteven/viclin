@@ -20,7 +20,7 @@ class Customer extends Model implements AuthenticatableContract, CanResetPasswor
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['nikcust', 'namacust', 'alamatcust', 'telpcust', 'kotacust', 'emailcust', 'company', 'limitcust'];
+	protected $fillable = ['nikcust', 'company', 'namacust', 'alamatcust', 'telpcust', 'kotacust', 'emailcust', 'limitcust'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
