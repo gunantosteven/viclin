@@ -217,7 +217,7 @@ Route::get('createdb',function(){
 		$table->string('kotacust', 20);
 		$table->string('emailcust',30);
 		$table->string('company',30);
-		$table->float('limitcust');
+		$table->float('limitcust', 13);
 		$table->timestamps();
 	});
 	Schema::create('suppliers',function($table){
@@ -254,7 +254,7 @@ Route::get('createdb',function(){
 		$table->string('namabrg',30);
 		$table->float('stokkg', 13);
 		$table->string('status',20);
-		$table->float('stokbrg', 13);
+		$table->bigInteger('stokbrg');
 		$table->timestamps();
 	});
 	Schema::create('beli',function($table){
