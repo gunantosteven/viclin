@@ -58,8 +58,6 @@ class ProfitAndLossPeriodController extends Controller {
             ->where('beli.tglfaktur', '>=', $tanggalawal)
     		->where('beli.tglfaktur', '<=', $tanggalakhir)
             ->sum(DB::raw('detilbeli.hargasatuankg * detilbeli.jumlahkg'));
-    	$biayaexspbeli = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayaexspbeli');
     	$biayasusutbeli = Beli::where('tglfaktur', '>=', $tanggalawal)
     				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayasusutbeli');
     	$biayakarantina = Beli::where('tglfaktur', '>=', $tanggalawal)
@@ -72,7 +70,7 @@ class ProfitAndLossPeriodController extends Controller {
     				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayalab');
     	$biayafreight = Beli::where('tglfaktur', '>=', $tanggalawal)
     				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayafreight');
-    	$totalAllPurchase = $totalpurchase + $biayaexspbeli + $biayasusutbeli + $biayakarantina + $biayaclearance
+    	$totalAllPurchase = $totalpurchase + $biayasusutbeli + $biayakarantina + $biayaclearance
     						+ $biayaimpor + $biayalab + $biayafreight;
 
     	$totalsales = DB::table('jual')
@@ -107,7 +105,7 @@ class ProfitAndLossPeriodController extends Controller {
     	$profitandloss = $totalAllSales - $totalAllPurchase - $totalAllBiaya;
 
     	$pdf = PDF::loadView('owner.report.pdf.reportprofitandlossperiod', 
-    		compact('totalpurchase', 'biayaexspbeli', 'biayasusutbeli', 'biayakarantina', 'biayaclearance', 'biayaimpor', 'biayalab', 'biayafreight', 'totalAllPurchase',    
+    		compact('totalpurchase', 'biayasusutbeli', 'biayakarantina', 'biayaclearance', 'biayaimpor', 'biayalab', 'biayafreight', 'totalAllPurchase',    
     			'totalsales', 'biayaekspjual', 'biayasusutjual', 'biayastereo', 'totalAllSales',  
     			'biayabensin', 'biayaekspedisi', 'tolparkir', 'lainlain', 'salary', 'totalAllBiaya',
     			'profitandloss', 

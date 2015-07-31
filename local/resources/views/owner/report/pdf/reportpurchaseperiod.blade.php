@@ -46,11 +46,8 @@ th, td {
             <div class="d3"><b>Order Date : {{ date("d F Y",strtotime($beli->tglorderbeli)) }}</b></div>
         </div>
         <div class="tr">
-            <div class="d1"><b>Expansion Cost : {{ number_format($beli->biayaexspbeli, 2) }}</b></div>
-            <div class="d3"><b>Due Date : {{ $beli->tgltempobeli }}</b></div>
-        </div>
-        <div class="tr">
             <div class="d1"><b>Quarantine Cost : {{ number_format($beli->biayakarantina, 2) }}</b></div>
+            <div class="d3"><b>Due Date : {{ $beli->tgltempobeli }}</b></div>
         </div>
         <div class="tr">
             <div class="d1"><b>Clearance Cost : {{ number_format($beli->biayaclearance, 2) }}</b></div>

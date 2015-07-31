@@ -70,10 +70,6 @@ Purchase : <br>
             <div class="d2"><b>{{ number_format($totalpurchase, 2) }}</b></div>
         </div>
         <div class="tr">
-            <div class="d1">Total Expansion</div>
-            <div class="d2"><b>{{ number_format($biayaexspbeli, 2) }}</b></div>
-        </div>
-        <div class="tr">
             <div class="d1">Total Depreciation Cost</div>
             <div class="d2"><b>{{ number_format($biayasusutbeli, 2) }}</b></div>
         </div>

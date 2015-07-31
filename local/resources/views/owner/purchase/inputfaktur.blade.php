@@ -126,10 +126,6 @@
                 <div class="span3">Due Date:</div>
                 <div class="span9">{!! Form::input('date','tgltempobeli',null,['class'=>'']) !!}</div>
             </div>
-            <div class="row-form clearfix">
-                <div class="span3">Expansion Cost:</div>
-                <div class="span9">{!! Form::text('biayaexspbeli',null,['class'=>'']) !!}</div>
-            </div>
            <div class="row-form clearfix">
                 <div class="span3">Quarantine Cost:</div>
                 <div class="span9">{!! Form::text('biayakarantina',null,['class'=>'']) !!}</div>

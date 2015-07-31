@@ -266,7 +266,6 @@ Route::get('createdb',function(){
 		$table->foreign('user')->references('id')->on('users');
 		$table->date('tglorderbeli');
 		$table->date('tgltempobeli');
-		$table->float('biayaexspbeli', 13);
 		$table->float('biayasusutbeli', 13);
 		$table->float('biayakarantina', 13);
 		$table->float('biayaclearance', 13);

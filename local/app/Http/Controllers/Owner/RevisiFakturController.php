@@ -118,7 +118,7 @@ class RevisiFakturController extends Controller {
 		//
 		// Validasi
 		if(Request::input('idsupp') == "" || Request::input('tglorderbeli') == "" || Request::input('tgltempobeli') == "" 
-			|| Request::input('biayaexspbeli') == ""  || Request::input('biayakarantina') == "" || Request::input('biayaclearance') == "" 
+		    || Request::input('biayakarantina') == "" || Request::input('biayaclearance') == "" 
 			||  Request::input('biayaimpor') == "" || Request::input('biayalab') == "" || Request::input('biayafreight') == "")
 		{
 			return redirect('owner/purchase/revisifaktur?validasi=true');
@@ -159,17 +159,6 @@ class RevisiFakturController extends Controller {
 				    'dataawal' => $beliNow->tgltempobeli,
 				    'dataakhir' => Request::input('tgltempobeli'),
 				    'keterangan' => 'Due Date'
-			));
-		}
-		if(Request::input('biayaexspbeli') != $beliNow->biayaexspbeli)
-		{
-			Revisi::create(array(
-				    'user' => Auth::user()->id,
-				    'tglrevisi' => $datetoday,
-				    'jualbeli' => $nobeli,
-				    'dataawal' => $beliNow->biayaexspbeli,
-				    'dataakhir' => Request::input('biayaexspbeli'),
-				    'keterangan' => 'Expansion Cost'
 			));
 		}
 		if(Request::input('biayakarantina') != $beliNow->biayakarantina)
