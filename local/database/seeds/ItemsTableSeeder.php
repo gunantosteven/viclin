@@ -27,5 +27,23 @@ class ItemsTableSeederTableSeeder extends Seeder {
 			'status' => 'Frozen Food',
 			'stokbrg' => 5
 		));
+
+		\App\Models\Item::create(array(
+			'kodebrg' => '3',
+			'id_category' => $category->id,
+			'namabrg' => 'Kepiting C Frozen Food',
+			'stokkg' => 5,
+			'status' => 'Frozen Food',
+			'stokbrg' => 5
+		));
+
+		\App\Models\Item::create(array(
+			'kodebrg' => '4',
+			'id_category' => $category->id,
+			'namabrg' => 'Kepiting D Frozen Food',
+			'stokkg' => 5,
+			'status' => 'Live Food',
+			'stokbrg' => 5
+		));
 	}
 }
