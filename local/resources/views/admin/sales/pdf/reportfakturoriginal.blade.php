@@ -20,41 +20,39 @@ th, td {
     display:table-cell;
     width:25%;
     font-family: "Times New Roman";
-    font-size: 14px;
+    font-size: 12px;
 }
 .d2 {
     display:table-cell;
     text-align:center;
     font-family: "Times New Roman";
-    font-size: 14px;
+    font-size: 12px;
     width:50%;
 }
 .d3 {
     display:table-cell;
     text-align:left;
     font-family: "Times New Roman";
-    font-size: 14px;
+    font-size: 12px;
     width:10%;
 }
 .d4 {
     display:table-cell;
     text-align:left;
     font-family: "Times New Roman";
-    font-size: 14px;
+    font-size: 12px;
     width:15%;
 }
 table {
-    font-size:12px;
+    font-size:10px;
 }
 </style>
 </head>
 <body>
-<font size="18px"><b>CV VICLIN – TRADING LINES –</b></font><br>
-<font size="18px">Add : Jalan Raya Mastrip 22 Kedurus, Surabaya 60223</font><br>
-<font size="18px">Telpon : +62317667628, Fax : +62317662463</font>
-<Br>
-<Br>
-<center><font size="18px"><b>INVOICE</b></font><br></center><Br><br>
+<font size="15px"><b>CV VICLIN – TRADING LINES –</b></font><br>
+<font size="15px">Add : Jalan Raya Mastrip 22 Kedurus, Surabaya 60223</font><br>
+<font size="15px">Telpon : +62317667628, Fax : +62317662463</font>
+<center><font size="15px"><b>INVOICE</b></font><br></center>
 <div class="tablefortext">
 	<div class="tr">
         <div class="d1">Invoice No</div>
@@ -70,7 +68,14 @@ table {
     </div>
     <div class="tr">
         <div class="d1">Terms of Sale</div>
-        <div class="d1">: 1 Weeks</div>
+        <div class="d1">: 
+        <?php 
+            $datetime1 = new DateTime(($jual->tglorderjual));
+            $datetime2 = new DateTime(($jual->tgltempojual));
+            $interval = $datetime1->diff($datetime2);
+            echo $interval->format(' %R%a Days');
+        ?> 
+        </div>
         <div class="d3">Company</div>
         <div class="d4">: {{ DB::table('customers')->where('id', $jual['nikcust'])->first()->company }}</div>
     </div>
@@ -90,8 +95,6 @@ table {
     </div>
 
 </div>
-
-<br>
 <table style="width:100%">
   <tr>
      <th>Commodity Description</th>
@@ -120,16 +123,12 @@ table {
     </tr>
 </table>
 <br>
-@if($detiljuals->count() <= 4)
-<div style="page-break-after: always;">  
-</div>
-@endif
 <div class="tablefortext">
 	<div class="tr">
         <div class="d1"></div>
         <div class="d1"></div>
         <div class="d3"></div>
-        <div class="d4">Counter Sign By</div>
+        <div class="d4">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Counter Sign By</div>
     </div>
     <div class="tr">
         <div class="d1"></div>
@@ -153,23 +152,10 @@ table {
         <div class="d1"></div>
         <div class="d1"></div>
         <div class="d3"></div>
-        <div class="d4">&nbsp;</div>
-    </div>
-    <div class="tr">
-        <div class="d1"></div>
-        <div class="d1"></div>
-        <div class="d3"></div>
-        <div class="d4">&nbsp;</div>
-    </div>
-    <div class="tr">
-        <div class="d1"></div>
-        <div class="d1"></div>
-        <div class="d3"><hr></div>
         <div class="d4"><hr></div>
     </div>
 </div>
-
-<font size="12px"><b>No Claims For the Shortages Or Allowances Considered Made On Day Delevery</b></font><br><br>
+<font size="12px"><b>No Claims For the Shortages Or Allowances Considered Made On Day Delevery</b></font><br>
 <center><font size="12px"><b>* ORIGINAL *</b></font><br></center>
 
 </body>
