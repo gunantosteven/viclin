@@ -126,14 +126,6 @@
                 <div class="span9">{!! Form::text('biayakarantina',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Clearance Cost:</div>
-                <div class="span9">{!! Form::text('biayaclearance',null,['class'=>'']) !!}</div>
-            </div>
-            <div class="row-form clearfix">
-                <div class="span3">Import Cost:</div>
-                <div class="span9">{!! Form::text('biayaimpor',null,['class'=>'']) !!}</div>
-            </div>
-            <div class="row-form clearfix">
                 <div class="span3">Lab Cost:</div>
                 <div class="span9">{!! Form::text('biayalab',null,['class'=>'']) !!}</div>
             </div>

@@ -78,14 +78,6 @@ Purchase : <br>
             <div class="d2"><b>{{ number_format($biayakarantina, 2) }}</b></div>
         </div>
         <div class="tr">
-            <div class="d1">Total Clearance Cost</div>
-            <div class="d2"><b>{{ number_format($biayaclearance, 2) }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1">Total Import Cost</div>
-            <div class="d2"><b>{{ number_format($biayaimpor, 2) }}</b></div>
-        </div>
-        <div class="tr">
             <div class="d1">Total Lab Cost</div>
             <div class="d2"><b>{{ number_format($biayalab, 2) }}</b></div>
         </div>

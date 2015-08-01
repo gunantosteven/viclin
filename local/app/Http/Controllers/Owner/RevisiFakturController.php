@@ -118,8 +118,7 @@ class RevisiFakturController extends Controller {
 		//
 		// Validasi
 		if(Request::input('idsupp') == "" || Request::input('tglorderbeli') == "" || Request::input('tgltempobeli') == "" 
-		    || Request::input('biayakarantina') == "" || Request::input('biayaclearance') == "" 
-			||  Request::input('biayaimpor') == "" || Request::input('biayalab') == "" || Request::input('biayafreight') == "")
+		    || Request::input('biayakarantina') == ""  || Request::input('biayalab') == "" || Request::input('biayafreight') == "")
 		{
 			return redirect('owner/purchase/revisifaktur?validasi=true');
 		}
@@ -170,28 +169,6 @@ class RevisiFakturController extends Controller {
 				    'dataawal' => $beliNow->biayakarantina,
 				    'dataakhir' => Request::input('biayakarantina'),
 				    'keterangan' => 'Update Quarantine Cost'
-			));
-		}
-		if(Request::input('biayaclearance') != $beliNow->biayaclearance)
-		{
-			Revisi::create(array(
-				    'user' => Auth::user()->id,
-				    'tglrevisi' => $datetoday,
-				    'jualbeli' => $nobeli,
-				    'dataawal' => $beliNow->biayaclearance,
-				    'dataakhir' => Request::input('biayaclearance'),
-				    'keterangan' => 'Update Clearance Cost'
-			));
-		}
-		if(Request::input('biayaimpor') != $beliNow->biayaimpor)
-		{
-			Revisi::create(array(
-				    'user' => Auth::user()->id,
-				    'tglrevisi' => $datetoday,
-				    'jualbeli' => $nobeli,
-				    'dataawal' => $beliNow->biayaimpor,
-				    'dataakhir' => Request::input('biayaimpor'),
-				    'keterangan' => 'Update Import Cost'
 			));
 		}
 		if(Request::input('biayalab') != $beliNow->biayalab)

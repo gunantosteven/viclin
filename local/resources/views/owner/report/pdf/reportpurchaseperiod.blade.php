@@ -50,12 +50,6 @@ th, td {
             <div class="d3"><b>Due Date : {{ $beli->tgltempobeli }}</b></div>
         </div>
         <div class="tr">
-            <div class="d1"><b>Clearance Cost : {{ number_format($beli->biayaclearance, 2) }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Import Cost : {{ number_format($beli->biayaimpor, 2) }}</b></div>
-        </div>
-        <div class="tr">
             <div class="d1"><b>Lab Cost : {{ number_format($beli->biayalab, 2) }}</b></div>
         </div>
         <div class="tr">

@@ -297,8 +297,6 @@ Route::get('createdb',function(){
 		$table->date('tgltempobeli');
 		$table->float('biayasusutbeli', 13);
 		$table->float('biayakarantina', 13);
-		$table->float('biayaclearance', 13);
-		$table->float('biayaimpor', 13);
 		$table->float('biayalab', 13);
 		$table->float('biayafreight', 13);
 		$table->float('cif', 13);

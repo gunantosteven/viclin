@@ -66,8 +66,7 @@ class InputFakturController extends Controller {
 	{
 		// Validasi
 		if($request->input('idsupp') == "" || $request->input('tglorderbeli') == "" || $request->input('tgltempobeli') == "" 
-		    || $request->input('biayakarantina') == "" || $request->input('biayaclearance') == "" 
-			||  $request->input('biayaimpor') == "" || $request->input('biayalab') == "" || $request->input('biayafreight') == "")
+		    || $request->input('biayakarantina') == "" || $request->input('biayalab') == "" || $request->input('biayafreight') == "")
 		{
 			return redirect('owner/purchase/inputfaktur?validasi=true');
 		}
@@ -119,8 +118,6 @@ class InputFakturController extends Controller {
 		    'tglorderbeli' => $request->input('tglorderbeli'),
 		    'tgltempobeli' => $request->input('tgltempobeli'),
 		    'biayakarantina' => $request->input('biayakarantina'),
-		    'biayaclearance' => $request->input('biayaclearance'),
-		    'biayaimpor' => $request->input('biayaimpor'),
 		    'biayalab' => $request->input('biayalab'),
 		    'biayafreight' => $request->input('biayafreight'),
 		    'cif' => $cif,
