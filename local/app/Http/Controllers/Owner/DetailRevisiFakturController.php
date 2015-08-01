@@ -66,7 +66,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $request->input('nobeli'),
 				    'dataawal' => '',
 				    'dataakhir' => $request->input('kodebrg'),
-				    'keterangan' => 'Unit Price Kg'
+				    'keterangan' => 'Add Unit Price Kg'
 		));
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
@@ -74,7 +74,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $request->input('nobeli'),
 				    'dataawal' => '',
 				    'dataakhir' => $request->input('hargasatuankg'),
-				    'keterangan' => 'Item Code'
+				    'keterangan' => 'Add Item Code'
 		));
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
@@ -82,7 +82,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $request->input('nobeli'),
 				    'dataawal' => '',
 				    'dataakhir' => $request->input('jumlahkg'),
-				    'keterangan' => 'Total Kg'
+				    'keterangan' => 'Add Total Kg'
 		));
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
@@ -90,7 +90,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $request->input('nobeli'),
 				    'dataawal' => '',
 				    'dataakhir' => $request->input('jumlahekor'),
-				    'keterangan' => 'Total Tail'
+				    'keterangan' => 'Add Total Tail'
 		));
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
@@ -98,7 +98,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $request->input('nobeli'),
 				    'dataawal' => '',
 				    'dataakhir' => $request->input('keterangan'),
-				    'keterangan' => 'Information'
+				    'keterangan' => 'Add Information'
 		));
 		// end insert to revisi
 
@@ -213,7 +213,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $detilbeliNow->nobeli,
 				    'dataawal' => $detilbeliNow->hargasatuankg,
 				    'dataakhir' => '',
-				    'keterangan' => 'Unit Price Kg'
+				    'keterangan' => 'Delete Unit Price Kg'
 		));
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
@@ -221,7 +221,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $detilbeliNow->nobeli,
 				    'dataawal' => $detilbeliNow->kodebrg,
 				    'dataakhir' => '',
-				    'keterangan' => 'Item Code'
+				    'keterangan' => 'Delete Item Code'
 		));
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
@@ -229,7 +229,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $detilbeliNow->nobeli,
 				    'dataawal' => $detilbeliNow->jumlahkg,
 				    'dataakhir' => '',
-				    'keterangan' => 'Total Kg'
+				    'keterangan' => 'Delete Total Kg'
 		));
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
@@ -237,7 +237,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $detilbeliNow->nobeli,
 				    'dataawal' => $detilbeliNow->jumlahekor,
 				    'dataakhir' => '',
-				    'keterangan' => 'Total Tail'
+				    'keterangan' => 'Delete Total Tail'
 		));
 		Revisi::create(array(
 				    'user' => Auth::user()->id,
@@ -245,7 +245,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $detilbeliNow->nobeli,
 				    'dataawal' => $detilbeliNow->keterangan,
 				    'dataakhir' => '',
-				    'keterangan' => 'Information'
+				    'keterangan' => 'Delete Information'
 		));
 		// end insert to revisi
 

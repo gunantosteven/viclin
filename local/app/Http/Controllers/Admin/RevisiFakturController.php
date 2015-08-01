@@ -104,7 +104,7 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => DB::table('customers')->where('id', '=', $jualNow->nikcust)->first()->namacust,
 				    'dataakhir' => DB::table('customers')->where('id', '=', Request::input('nikcust'))->first()->namacust,
-				    'keterangan' => 'Customer'
+				    'keterangan' => 'Update Customer'
 			));
 		}
 		if(Request::input('tglorderjual') != $jualNow->tglorderjual)
@@ -115,7 +115,7 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->tglorderjual,
 				    'dataakhir' => Request::input('tglorderjual'),
-				    'keterangan' => 'Date Sales Order'
+				    'keterangan' => 'Update Date Sales Order'
 			));
 		}
 		if(Request::input('tgltempojual') != $jualNow->tgltempojual)
@@ -126,7 +126,7 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->tgltempojual,
 				    'dataakhir' => Request::input('tgltempojual'),
-				    'keterangan' => 'Due Date'
+				    'keterangan' => 'Update Due Date'
 			));
 		}
 		if(Request::input('biayaekspjual') != $jualNow->biayaekspjual)
@@ -137,7 +137,7 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->biayaekspjual,
 				    'dataakhir' => Request::input('biayaekspjual'),
-				    'keterangan' => 'Expedition Cost'
+				    'keterangan' => 'Update Expedition Cost'
 			));
 		}
 		if(Request::input('biayastereo') != $jualNow->biayastereo)
@@ -148,7 +148,7 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->biayastereo,
 				    'dataakhir' => Request::input('biayastereo'),
-				    'keterangan' => 'Styrofoam Cost'
+				    'keterangan' => 'Update Styrofoam Cost'
 			));
 		}
 		if(Request::input('kursbaru') != $jualNow->kursbaru)
@@ -159,7 +159,7 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->kursbaru,
 				    'dataakhir' => Request::input('kursbaru'),
-				    'keterangan' => 'Rupiah Newest'
+				    'keterangan' => 'Update Rupiah Newest'
 			));
 		}
 		// end to revisi
