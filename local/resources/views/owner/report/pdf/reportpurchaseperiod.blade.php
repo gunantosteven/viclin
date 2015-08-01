@@ -37,58 +37,40 @@ th, td {
 <h1>Start Date {{ date("d F Y",strtotime($tanggalawal)) }} to {{ date("d F Y",strtotime($tanggalakhir)) }}</h1>
 <h2>Supplier : @if($idsupp == "%") {{ "All Suppliers" }} @else {{ DB::table('suppliers')->where('id', $idsupp)->first()->namasupp }} @endif </h2>
 <hr>
-@foreach ($belis as $key => $beli)
-    <h3>Invoice Sales {{ $beli->nobeli }}</h3>
-
-    <div class="tablefortext">
-        <div class="tr">
-            <div class="d1"><b>Supplier : {{ DB::table('suppliers')->where('id', $beli['idsupp'])->first()->namasupp }}</b></div>
-            <div class="d3"><b>Order Date : {{ date("d F Y",strtotime($beli->tglorderbeli)) }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Quarantine Cost : {{ number_format($beli->biayakarantina, 2) }}</b></div>
-            <div class="d3"><b>Due Date : {{ $beli->tgltempobeli }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Lab Cost : {{ number_format($beli->biayalab, 2) }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Freight Cost : {{ number_format($beli->biayafreight,2) }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Depreciation Cost Purchase : {{ number_format($beli->biayasusutbeli, 2) }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Micellanous Cost : {{ number_format($beli->bm+$beli->pph+$beli->storage+$beli->trmc+$beli->spc+$beli->time+$beli->dokumen+$beli->ppn+$beli->stamp, 2) }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Handling Cost  : {{ number_format($beli->handling+$beli->over+$beli->adm+$beli->edi+$beli->rush, 2) }}</b></div>
-        </div>
-    </div>
-
-    <br>
-    <table style="width:100%">
+<table style="width:100%">
       <tr>
-        <th>Item Name</th>
-         <th>Unit Price Kg</th>
-         <th>Total Kg</th>
-         <th>Total Tail</th>
-         <th>Information</th>
+         <th>No</th>
+         <th>Supplier</th>
+         <th>Order Date</th>
+         <th>Due Date</th>
+         <th>Nominal</th>
+         <th>Status Payment</th>
       </tr>
-      {{--*/ $detilbelis = DB::table('detilbeli')->where('nobeli', $beli->nobeli)->get() /*--}} 
-      @foreach ($detilbelis as $key => $item)
-                <tr>
-                     <td>{{  DB::table('items')->where('kodebrg', $item->kodebrg)->first()->namabrg }}</td>
-                     <td>{{ number_format($item->hargasatuankg, 2) }}</td>
-                     <td>{{ $item->jumlahkg }}</td>
-                     <td>{{ $item->jumlahekor }}</td>
-                     <td>{{ $item->keterangan }}</td>
-                </tr>
-       @endforeach
-    </table>
-    <br>
-    {{ 'Total items : ' . DB::table('detilbeli')->where('nobeli', $beli->nobeli)->count() }}
-@endforeach
-
+      {{--*/ $count = 1; $total = 0; /*--}} 
+      @foreach ($belis as $key => $beli)
+        {{--*/ $subtotal = DB::table('detilbeli')
+                     ->select(DB::raw('SUM(hargasatuankg * jumlahekor) as subtotal'))
+                     ->where('nobeli', '=', $beli->nobeli)
+                     ->first()->subtotal /*--}} 
+        {{--*/ $micellanous = $beli->bm+$beli->pph+$beli->storage+$beli->trmc+$beli->spc+$beli->time+$beli->dokumen+$beli->ppn+$beli->stamp /*--}} 
+        {{--*/ $handling = $beli->handling+$beli->over+$beli->adm+$beli->edi+$beli->rush /*--}} 
+        {{--*/ $total += $subtotal + $beli->biayakarantina + $beli->biayalab + $beli->biayafreight + $micellanous + $handling - $beli->biayasusutbeli /*--}}
+        <tr>
+             <td>{{ $count++ }}</td>
+             <td>{{ DB::table('suppliers')->where('id', $beli->idsupp)->first()->namasupp }}</td>
+             <td>{{ date("d F Y",strtotime($beli->tglorderbeli)) }}</td>
+             <td>{{ date("d F Y",strtotime($beli->tgltempobeli)) }}</td>
+             <td align="right">{{ number_format($subtotal + $beli->biayakarantina + $beli->biayalab + $beli->biayafreight + $micellanous + $handling - $beli->biayasusutbeli, 2) }}</td>
+             <td >{{ $beli->payment }}</td>
+        </tr>  
+      @endforeach
+        <tr>
+             <td></td>
+             <td></td>
+             <td colspan="2">Total</td>
+             <td align="right">{{ number_format($total, 2) }}</td>
+             <td ></td>
+        </tr> 
+</table>
 </body>
 </html>

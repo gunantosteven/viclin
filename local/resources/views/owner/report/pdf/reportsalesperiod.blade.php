@@ -37,52 +37,38 @@ th, td {
 <h1>Start Date {{ date("d F Y",strtotime($tanggalawal)) }} to {{ date("d F Y",strtotime($tanggalakhir)) }}</h1>
 <h2>Customer : @if($nikcust == "%") {{ "All Customers" }} @else {{ DB::table('customers')->where('id', $nikcust)->first()->namacust }} @endif </h2>
 <hr>
-@foreach ($juals as $key => $jual)
-    <h3>Invoice Sales {{ $jual->nojual }}</h3>
-
-    <div class="tablefortext">
-        <div class="tr">
-            <div class="d1"><b>Customer : {{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</b></div>
-            <div class="d3"><b>Order Date : {{ date("d F Y",strtotime($jual['tglorderjual'])) }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Expedition Cost : {{ $jual->biayaekspjual }}</b></div>
-            <div class="d3"><b>Due Date : {{ date("d F Y",strtotime($jual['tgltempojual'])) }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Styrofoam Cost : {{ $jual->biayastereo }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Depreciation Cost Sales : {{ $jual->biayasusutjual }}</b></div>
-        </div>
-        <div class="tr">
-            <div class="d1"><b>Rupiah Newest : {{ $jual->kursbaru }}</b></div>
-        </div>
-    </div>
-
-    <br>
-    <table style="width:100%">
+<table style="width:100%">
       <tr>
-        <th>Item Name</th>
-         <th>Unit Price Kg</th>
-         <th>Total Kg</th>
-         <th>Total Tail</th>
-         <th>Information</th>
+         <th>No</th>
+         <th>Company-Customer</th>
+         <th>Order Date</th>
+         <th>Due Date</th>
+         <th>Nominal</th>
+         <th>Status Payment</th>
       </tr>
-      {{--*/ $detiljuals = DB::table('detiljual')->where('nojual', $jual->nojual)->get() /*--}} 
-      @foreach ($detiljuals as $key => $item)
-                <tr>
-                     <td>{{  DB::table('items')->where('kodebrg', $item->kodebrg)->first()->namabrg }}</td>
-                     <td>{{ number_format($item->hargasatuankg, 2) }}</td>
-                     <td>{{ $item->jumlahkg }}</td>
-                     <td>{{ $item->jumlahekor }}</td>
-                     <td>{{ $item->keterangan }}</td>
-                </tr>
-       @endforeach
-    </table>
-    <br>
-    {{ 'Total items : ' . DB::table('detiljual')->where('nojual', $jual->nojual)->count() }}
-@endforeach
-
+      {{--*/ $count = 1; $total = 0; /*--}} 
+      @foreach ($juals as $key => $jual)
+        {{--*/ $subtotal = DB::table('detiljual')
+                     ->select(DB::raw('SUM(hargasatuankg * jumlahekor) as subtotal'))
+                     ->where('nojual', '=', $jual->nojual)
+                     ->first()->subtotal /*--}} 
+        {{--*/ $total += $subtotal + $jual->biayaekspjual + $jual->biayastereo - $jual->biayasusutjual /*--}}
+        <tr>
+             <td>{{ $count++ }}</td>
+             <td>{{ DB::table('customers')->where('id', $jual->nikcust)->first()->company }}-{{ DB::table('customers')->where('id', $jual->nikcust)->first()->namacust }}</td>
+             <td>{{ date("d F Y",strtotime($jual->tglorderjual)) }}</td>
+             <td>{{ date("d F Y",strtotime($jual->tgltempojual)) }}</td>
+             <td align="right">{{ number_format($subtotal + $jual->biayaekspjual + $jual->biayastereo - $jual->biayasusutjual, 2) }}</td>
+             <td >{{ $jual->payment }}</td>
+        </tr>  
+      @endforeach
+        <tr>
+             <td></td>
+             <td></td>
+             <td colspan="2">Total</td>
+             <td align="right">{{ number_format($total, 2) }}</td>
+             <td ></td>
+        </tr> 
+</table>
 </body>
 </html>
