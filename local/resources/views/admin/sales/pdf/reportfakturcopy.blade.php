@@ -62,7 +62,7 @@ table {
     </div>
     <div class="tr">
         <div class="d1">Delivery Date</div>
-        <div class="d1">: {{ date("d F Y",strtotime($jual->tglorderjual)) }}</div>
+        <div class="d1">: {{ date("d F Y",strtotime($jual->deliverydate)) }}</div>
         <div class="d3">Name</div>
         <div class="d4">: {{ DB::table('customers')->where('id', $jual['nikcust'])->first()->namacust }}</div>
     </div>
@@ -81,7 +81,7 @@ table {
     </div>
     <div class="tr">
         <div class="d1">Payment Date</div>
-        <div class="d1">: {{ date("d F Y",strtotime($jual->tglorderjual)) }}</div>
+        <div class="d1">: {{ date("d F Y",strtotime($jual->paymentdate)) }}</div>
         <div class="d3">Add</div>
         <div class="d4">: Surabaya</div>
     </div>
@@ -156,7 +156,7 @@ table {
     </div>
 </div>
 <font size="12px"><b>No Claims For the Shortages Or Allowances Considered Made On Day Delevery</b></font><br>
-<center><font size="12px"><b>* Copy *</b></font><br></center>
+<center><font size="12px"><b>* COPY *</b></font><br></center>
 
 </body>
 </html>

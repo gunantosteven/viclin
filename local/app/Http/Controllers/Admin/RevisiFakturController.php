@@ -86,7 +86,7 @@ class RevisiFakturController extends Controller {
 	public function update($nojual)
 	{
 		// Validasi
-		if(Request::input('nikcust') == "" || Request::input('tglorderjual') == "" || Request::input('tgltempojual') == "" 
+		if(Request::input('nikcust') == "" || Request::input('tglorderjual') == "" || Request::input('tgltempojual') == "" || Request::input('deliverydate') == "" 
 			|| Request::input('biayaekspjual') == "" ||  Request::input('biayastereo') == "" || Request::input('kursbaru') == "")
 		{
 			return redirect('admin/sales/revisifaktur/' . $nojual . '?validasi=true');
@@ -127,6 +127,17 @@ class RevisiFakturController extends Controller {
 				    'dataawal' => $jualNow->tgltempojual,
 				    'dataakhir' => Request::input('tgltempojual'),
 				    'keterangan' => 'Update Due Date'
+			));
+		}
+		if(Request::input('deliverydate') != $jualNow->deliverydate)
+		{
+			Revisi::create(array(
+				    'user' => Auth::user()->id,
+				    'tglrevisi' => $datetoday,
+				    'jualbeli' => $nojual,
+				    'dataawal' => $jualNow->deliverydate,
+				    'dataakhir' => Request::input('deliverydate'),
+				    'keterangan' => 'Update Delivery Date'
 			));
 		}
 		if(Request::input('biayaekspjual') != $jualNow->biayaekspjual)

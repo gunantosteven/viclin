@@ -352,6 +352,7 @@ Route::get('createdb',function(){
 		$table->float('nominalpayment', 13);
 		$table->date('tglorderjual');
 		$table->date('tgltempojual');
+		$table->date('deliverydate');
 		$table->float('biayaekspjual', 13);
 		$table->float('biayasusutjual', 13);
 		$table->float('biayastereo', 13);

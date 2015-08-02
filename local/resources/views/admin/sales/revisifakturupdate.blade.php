@@ -128,6 +128,10 @@
                 <div class="span9">{!! Form::input('date','tgltempojual',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
+                <div class="span3">Delivery Date:</div>
+                <div class="span9">{!! Form::input('date','deliverydate',null,['class'=>'']) !!}</div>
+            </div>
+            <div class="row-form clearfix">
                 <div class="span3">Expedition Cost:</div>
                 <div class="span9">{!! Form::text('biayaekspjual',null,['class'=>'']) !!}</div>
             </div>
