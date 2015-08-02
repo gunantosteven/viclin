@@ -81,6 +81,23 @@ class PaymentConfirmationController extends Controller {
 	public function edit($id)
 	{
 		//
+		$beli = DB::table('beli')
+            ->where('nobeli', $id)->first();
+        $subtotal = DB::table('detilbeli')
+                     ->select(DB::raw('SUM(hargasatuankg * jumlahekor) as subtotal'))
+                     ->where('nobeli', '=', $beli->nobeli)
+                     ->first()->subtotal;
+        $micellanous = $beli->bm+$beli->pph+$beli->storage+$beli->trmc+$beli->spc+$beli->time+$beli->dokumen+$beli->ppn+$beli->stamp;
+        $handling = $beli->handling+$beli->over+$beli->adm+$beli->edi+$beli->rush;
+        $totalpayment = $subtotal + $beli->biayakarantina + $beli->biayalab + $beli->biayafreight + $micellanous + $handling - $beli->biayasusutbeli;
+
+        if(Request::input('over') != "")
+		{
+			$over = true;
+	   		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'totalpayment', 'over'));
+		}
+
+		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'totalpayment'));
 	}
 
 	/**
@@ -92,16 +109,24 @@ class PaymentConfirmationController extends Controller {
 	public function update()
 	{
 		//
-		DB::table('beli')
+        if(Request::input('nominalpayment') < Request::input('totalpayment'))
+        {
+        	DB::table('beli')
             ->where('nobeli', Request::input('nobeli'))
-            ->update(['payment' => 'PAID', 'ketpayment' => Request::input('ketpayment')]);
+            ->update(['payment' => 'UNPAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('nominalpayment')]);
+        }
+        else if(Request::input('nominalpayment') == Request::input('totalpayment'))
+        {
+        	DB::table('beli')
+            ->where('nobeli', Request::input('nobeli'))
+            ->update(['payment' => 'PAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('nominalpayment')]);
+        }
+        else
+        {
+        	return redirect('owner/purchase/paymentconfirmation/' . Request::input('nobeli') . '?over=true');
+        }
 
-        $tanggalawal = date('Y-m-d');
-    	$tanggalakhir = date('Y-m-d');
-		$belis = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)
-    				->where('payment', '=', 'UNPAID')->get();
-		return view('owner.purchase.paymentconfirmation', compact('belis', 'tanggalawal', 'tanggalakhir'));
+		return redirect('owner/purchase/paymentconfirmation');
 	}
 
 	/**

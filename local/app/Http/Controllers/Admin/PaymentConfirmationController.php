@@ -81,6 +81,21 @@ class PaymentConfirmationController extends Controller {
 	public function edit($id)
 	{
 		//
+		$jual = DB::table('jual')
+            ->where('nojual', $id)->first();
+        $subtotal = DB::table('detiljual')
+                     ->select(DB::raw('SUM(hargasatuankg * jumlahekor) as subtotal'))
+                     ->where('nojual', '=', $jual->nojual)
+                     ->first()->subtotal;
+        $totalpayment = $subtotal + $jual->biayaekspjual + $jual->biayastereo - $jual->biayasusutjual;
+
+        if(Request::input('over') != "")
+		{
+			$over = true;
+	   		return view('admin.sales.paymentconfirmationupdate', compact('jual', 'totalpayment', 'over'));
+		}
+
+		return view('admin.sales.paymentconfirmationupdate', compact('jual', 'totalpayment'));
 	}
 
 	/**
@@ -92,16 +107,24 @@ class PaymentConfirmationController extends Controller {
 	public function update()
 	{
 		//
-		DB::table('jual')
+        if(Request::input('nominalpayment') < Request::input('totalpayment'))
+        {
+        	DB::table('jual')
             ->where('nojual', Request::input('nojual'))
-            ->update(['payment' => 'PAID', 'ketpayment' => Request::input('ketpayment')]);
+            ->update(['payment' => 'UNPAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('nominalpayment')]);
+        }
+        else if(Request::input('nominalpayment') == Request::input('totalpayment'))
+        {
+        	DB::table('jual')
+            ->where('nojual', Request::input('nojual'))
+            ->update(['payment' => 'PAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('nominalpayment')]);
+        }
+        else
+        {
+        	return redirect('admin/sales/paymentconfirmation/' . Request::input('nojual') . '?over=true');
+        }
 
-        $tanggalawal = date('Y-m-d');
-    	$tanggalakhir = date('Y-m-d');
-		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)
-    				->where('payment', '=', 'UNPAID')->get();
-		return view('admin.sales.paymentconfirmation', compact('juals', 'tanggalawal', 'tanggalakhir'));
+		return redirect('admin/sales/paymentconfirmation');
 	}
 
 	/**

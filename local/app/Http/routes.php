@@ -81,6 +81,10 @@ Route::group(['middleware' => 'owner'], function()
 	    'as' => 'owner.purchase.paymentconfirmation.showfaktur',
 	    'uses' => 'Owner\PaymentConfirmationController@showfaktur'
 	]);
+	Route::get('/owner/purchase/paymentconfirmation/{nobeli}', [
+	    'as' => 'owner.purchase.paymentconfirmation.edit',
+	    'uses' => 'Owner\PaymentConfirmationController@edit'
+	]);
 	Route::patch('/owner/purchase/paymentconfirmation', [
 	    'as' => 'owner.purchase.paymentconfirmation.update',
 	    'uses' => 'Owner\PaymentConfirmationController@update'
@@ -176,6 +180,10 @@ Route::group(['middleware' => 'admin'], function()
     Route::post('/admin/sales/paymentconfirmation', [
 	    'as' => 'admin.sales.paymentconfirmation.showfaktur',
 	    'uses' => 'Admin\PaymentConfirmationController@showfaktur'
+	]);
+	Route::get('/admin/sales/paymentconfirmation/{nojual}', [
+	    'as' => 'admin.sales.paymentconfirmation.edit',
+	    'uses' => 'Admin\PaymentConfirmationController@edit'
 	]);
 	Route::patch('/admin/sales/paymentconfirmation', [
 	    'as' => 'admin.sales.paymentconfirmation.update',
@@ -293,6 +301,8 @@ Route::get('createdb',function(){
 		$table->foreign('user')->references('id')->on('users');
 		$table->string('payment',20)->default('UNPAID');
 		$table->string('ketpayment');
+		$table->date('paymentdate');
+		$table->float('nominalpayment', 13);
 		$table->date('tglorderbeli');
 		$table->date('tgltempobeli');
 		$table->float('biayasusutbeli', 13);
@@ -338,6 +348,8 @@ Route::get('createdb',function(){
 		$table->foreign('user')->references('id')->on('users');
 		$table->string('payment',20)->default('UNPAID');
 		$table->string('ketpayment');
+		$table->date('paymentdate');
+		$table->float('nominalpayment', 13);
 		$table->date('tglorderjual');
 		$table->date('tgltempojual');
 		$table->float('biayaekspjual', 13);
