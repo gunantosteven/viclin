@@ -57,7 +57,8 @@ Sales : <br>
         </div>
         <div class="tr">
             <div class="d1"><b>Total All</b></div>
-            <div class="d2"><b>{{ number_format($totalAllSales, 2) }}</b></div>
+            <div class="d2"><b></b></div>
+            <div class="d3"><b>{{ number_format($totalAllSales, 2) }}</b></div>
         </div>
 </div>
 
@@ -86,8 +87,17 @@ Purchase : <br>
             <div class="d2"><b>{{ number_format($biayafreight, 2) }}</b></div>
         </div>
         <div class="tr">
+            <div class="d1">Total Micellanous Cost</div>
+            <div class="d2"><b>{{ number_format($micellanous, 2) }}</b></div>
+        </div>
+        <div class="tr">
+            <div class="d1">Total Handling Cost</div>
+            <div class="d2"><b>{{ number_format($handling, 2) }}</b></div>
+        </div>
+        <div class="tr">
             <div class="d1"><b>Total All</b></div>
-            <div class="d2"><b>{{ number_format($totalAllPurchase, 2) }}</b></div>
+            <div class="d2"><b></b></div>
+            <div class="d3"><b>({{ number_format($totalAllPurchase, 2) }})</b></div>
         </div>
 </div>
 
@@ -117,11 +127,18 @@ Cost : <br>
         </div>
         <div class="tr">
             <div class="d1"><b>Total All</b></div>
-            <div class="d2"><b>{{ number_format($totalAllBiaya, 2) }}</b></div>
+            <div class="d2"><b></b></div>
+            <div class="d3"><b>({{ number_format($totalAllBiaya, 2) }})</b></div>
         </div>
 </div>
 
 <br>
-<b>Total Profit And Loss : {{ number_format($totalAllSales, 2) }} - {{ number_format($totalAllPurchase, 2) }} - {{ number_format($totalAllBiaya, 2) }} = {{ number_format($profitandloss, 2) }}</b>
+@if ($profitandloss > 0)
+<b>Total Profit : {{ number_format($totalAllSales, 2) }} - {{ number_format($totalAllPurchase, 2) }} - {{ number_format($totalAllBiaya, 2) }} = {{ number_format($profitandloss, 2) }}</b>
+@elseif ($profitandloss < 0)
+<b>Total Loss : {{ number_format($totalAllSales, 2) }} - {{ number_format($totalAllPurchase, 2) }} - {{ number_format($totalAllBiaya, 2) }} = {{ number_format($profitandloss, 2) }}</b>
+@elseif ($totalAllSales === 0)
+<b>Total Profit or Loss : {{ number_format($totalAllSales, 2) }} - {{ number_format($totalAllPurchase, 2) }} - {{ number_format($totalAllBiaya, 2) }} = {{ number_format($profitandloss, 2) }}</b>
+@endif
 </body>
 </html>

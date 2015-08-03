@@ -53,11 +53,21 @@ class ProfitAndLossPeriodController extends Controller {
 		$tanggalawal = Request::input('tanggalawal');
 		$tanggalakhir = Request::input('tanggalakhir');
 
+		$belis =  DB::table('beli')
+            ->where('tglorderbeli', '>=', $tanggalawal)
+    		->where('tglorderbeli', '<=', $tanggalakhir)->get();
 		$totalpurchase = DB::table('beli')
             ->join('detilbeli', 'beli.nobeli', '=', 'detilbeli.nobeli')
             ->where('beli.tglorderbeli', '>=', $tanggalawal)
     		->where('beli.tglorderbeli', '<=', $tanggalakhir)
             ->sum(DB::raw('detilbeli.hargasatuankg * detilbeli.jumlahkg'));
+        $micellanous = 0;
+        $handling = 0;
+        foreach ($belis as $key => $beli)
+        {
+        	$micellanous += $beli->bm+$beli->pph+$beli->storage+$beli->trmc+$beli->spc+$beli->time+$beli->dokumen+$beli->ppn+$beli->stamp;
+        	$handling += $beli->handling+$beli->over+$beli->adm+$beli->edi+$beli->rush;
+        }
     	$biayasusutbeli = Beli::where('tglorderbeli', '>=', $tanggalawal)
     				->where('tglorderbeli', '<=', $tanggalakhir)->sum('biayasusutbeli');
     	$biayakarantina = Beli::where('tglorderbeli', '>=', $tanggalawal)
@@ -66,7 +76,7 @@ class ProfitAndLossPeriodController extends Controller {
     				->where('tglorderbeli', '<=', $tanggalakhir)->sum('biayalab');
     	$biayafreight = Beli::where('tglorderbeli', '>=', $tanggalawal)
     				->where('tglorderbeli', '<=', $tanggalakhir)->sum('biayafreight');
-    	$totalAllPurchase = $totalpurchase + $biayakarantina + $biayalab + $biayafreight - $biayasusutbeli;
+    	$totalAllPurchase = $totalpurchase + $biayakarantina + $biayalab + $biayafreight + $micellanous + $handling - $biayasusutbeli;
 
     	$totalsales = DB::table('jual')
             ->join('detiljual', 'jual.nojual', '=', 'detiljual.nojual')
@@ -100,7 +110,7 @@ class ProfitAndLossPeriodController extends Controller {
     	$profitandloss = $totalAllSales - $totalAllPurchase - $totalAllBiaya;
 
     	$pdf = PDF::loadView('owner.report.pdf.reportprofitandlossperiod', 
-    		compact('totalpurchase', 'biayasusutbeli', 'biayakarantina', 'biayalab', 'biayafreight', 'totalAllPurchase',    
+    		compact('totalpurchase', 'biayasusutbeli', 'biayakarantina', 'biayalab', 'biayafreight', 'micellanous', 'handling', 'totalAllPurchase',    
     			'totalsales', 'biayaekspjual', 'biayasusutjual', 'biayastereo', 'totalAllSales',  
     			'biayabensin', 'biayaekspedisi', 'tolparkir', 'lainlain', 'salary', 'totalAllBiaya',
     			'profitandloss', 
