@@ -100,7 +100,8 @@ class RevisiPenyusutanController extends Controller {
     	$tanggalakhir = date('Y-m-d');
 		$juals = Jual::where('tglorderjual', '>=', $tanggalawal)
     				->where('tglorderjual', '<=', $tanggalakhir)->get();
-		return view('admin.sales.revisipenyusutan', compact('juals', 'tanggalawal', 'tanggalakhir'));
+    	$success = true;
+		return view('admin.sales.revisipenyusutan', compact('juals', 'tanggalawal', 'tanggalakhir', 'success'));
 	}
 
 	/**

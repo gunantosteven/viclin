@@ -98,7 +98,8 @@ class InputPenyusutanController extends Controller {
     	$tanggalakhir = date('Y-m-d');
 		$belis = Beli::where('tglorderbeli', '>=', $tanggalawal)
     				->where('tglorderbeli', '<=', $tanggalakhir)->get();
-		return view('owner.purchase.inputpenyusutan', compact('belis', 'tanggalawal', 'tanggalakhir'));
+    	$success = true;
+		return view('owner.purchase.inputpenyusutan', compact('belis', 'tanggalawal', 'tanggalakhir', 'success'));
 	}
 
 	/**

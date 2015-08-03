@@ -18,7 +18,11 @@ class ItemController extends Controller {
 	{
 		//
 		$items = Item::all();
-		return view('owner.items.index', compact('items'));
+		if(Request::input('success') == true)
+		{
+			$success = true;
+		}
+		return view('owner.items.index', compact('items', 'success'));
 	}
 
 	/**
@@ -43,7 +47,7 @@ class ItemController extends Controller {
 		//
 		$item=Request::all();
    		Item::create($item);
-   		return redirect('owner/items');
+   		return redirect('owner/items?success=true');
 	}
 
 	/**
@@ -85,7 +89,7 @@ class ItemController extends Controller {
 		$itemUpdate = Request::all();
    		$item=Item::find($id);
    		$item->update($itemUpdate);
-   		return redirect('owner/items');
+   		return redirect('owner/items?success=true');
 	}
 
 	/**

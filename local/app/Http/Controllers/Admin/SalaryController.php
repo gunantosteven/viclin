@@ -21,6 +21,11 @@ class SalaryController extends Controller {
 	{
 		//
 		$salaries = Salary::paginate(10);
+		if(Request::input('success') != "")
+		{
+			$success = true;
+			return view('admin.salaries.index', compact('salaries', 'success'));
+		}
 		return view('admin.salaries.index', compact('salaries'));
 	}
 
@@ -46,7 +51,7 @@ class SalaryController extends Controller {
 		//
 		$salary=Request::all();
    		Salary::create($salary);
-   		return redirect('admin/salaries');
+   		return redirect('admin/salaries?success=true');
 	}
 
 	/**
@@ -88,7 +93,7 @@ class SalaryController extends Controller {
 		$salaryUpdate=Request::all();
    		$salary=Salary::find($id);
    		$salary->update($salaryUpdate);
-   		return redirect('admin/salaries');
+   		return redirect('admin/salaries?success=true');
 	}
 
 	/**

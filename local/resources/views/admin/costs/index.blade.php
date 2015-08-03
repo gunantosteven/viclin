@@ -39,4 +39,9 @@
  <div class="pagination"> {!! str_replace('/?', '?', $costs->render()); $costs->render(); !!} </div>
     </div>
 </div>
+@if (isset($success) && $success === true)
+<script>
+  window.alert('Data successfully stored');
+</script>
+@endif
 @endsection

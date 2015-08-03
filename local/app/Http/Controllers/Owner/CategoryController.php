@@ -19,7 +19,11 @@ class CategoryController extends Controller {
 		//
 		$categories = DB::table('categories')
             ->where('statusdelete', '=', '0')->get();
-		return view('owner.categories.index', compact('categories'));
+        if(Request::input('success') == true)
+		{
+			$success = true;
+		}
+		return view('owner.categories.index', compact('categories', 'success'));
 	}
 
 	/**
@@ -43,7 +47,7 @@ class CategoryController extends Controller {
 		//
 		$category=Request::all();
    		Category::create($category);
-   		return redirect('owner/categories');
+   		return redirect('owner/categories?success=true');
 	}
 
 	/**
@@ -84,7 +88,7 @@ class CategoryController extends Controller {
 		$categoryUpdate = Request::all();
    		$category=Category::find($id);
    		$category->update($categoryUpdate);
-   		return redirect('owner/categories');
+   		return redirect('owner/categories?success=true');
 	}
 
 	/**

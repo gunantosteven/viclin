@@ -22,6 +22,11 @@ class PaymentConfirmationController extends Controller {
 		$juals = Jual::where('tglorderjual', '>=', $tanggalawal)
     				->where('tglorderjual', '<=', $tanggalakhir)
     				->where('payment', '=', 'UNPAID')->get();
+    	if(Request::input('success') != "")
+		{
+			$success = true;
+	   		return view('admin.sales.paymentconfirmation', compact('juals', 'tanggalawal', 'tanggalakhir', 'success'));
+		}
 		return view('admin.sales.paymentconfirmation', compact('juals', 'tanggalawal', 'tanggalakhir'));
 	}
 
@@ -124,7 +129,7 @@ class PaymentConfirmationController extends Controller {
         	return redirect('admin/sales/paymentconfirmation/' . Request::input('nojual') . '?over=true');
         }
 
-		return redirect('admin/sales/paymentconfirmation');
+		return redirect('admin/sales/paymentconfirmation?success=true');
 	}
 
 	/**

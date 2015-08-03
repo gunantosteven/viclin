@@ -31,6 +31,11 @@ class EmployeeController extends Controller {
 		{
 			$employees = Employee::paginate(10);
 		}
+		if(Request::input('success') == true)
+		{
+			$success = true;
+			return view('admin.employees.index', compact('employees', 'success'));
+		}
 		return view('admin.employees.index', compact('employees'));
 	}
 
@@ -55,7 +60,7 @@ class EmployeeController extends Controller {
 		//
 		$employee=Request::all();
    		Employee::create($employee);
-   		return redirect('admin/employees');
+   		return redirect('admin/employees?success=true');
 	}
 
 	/**
@@ -96,7 +101,7 @@ class EmployeeController extends Controller {
 		$employeeUpdate=Request::all();
    		$employee=Employee::find($id);
    		$employee->update($employeeUpdate);
-   		return redirect('admin/employees');
+   		return redirect('admin/employees?success=true');
 	}
 
 	/**

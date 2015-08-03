@@ -156,7 +156,8 @@ class InputFakturController extends Controller {
 
 		$suppliers = Supplier::all();
 		$items = Item::all();
-   		return view('/owner/purchase/inputfaktur', compact('suppliers', 'items', 'nobeli'));
+		$success = true;
+   		return view('/owner/purchase/inputfaktur', compact('suppliers', 'items', 'nobeli', 'success'));
 	}
 
 	/**

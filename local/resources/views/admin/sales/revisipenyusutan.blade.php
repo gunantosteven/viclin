@@ -90,4 +90,9 @@
     $('#biayasusutjual').focus();
   }
  </script>
+@if (isset($success) && $success === true)
+<script>
+  window.alert('Data successfully stored');
+</script>
+@endif
 @endsection

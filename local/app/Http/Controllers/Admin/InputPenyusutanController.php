@@ -101,7 +101,8 @@ class InputPenyusutanController extends Controller {
     	$tanggalakhir = date('Y-m-d');
 		$juals = Jual::where('tglorderjual', '>=', $tanggalawal)
     				->where('tglorderjual', '<=', $tanggalakhir)->get();
-		return view('admin.sales.inputpenyusutan', compact('juals', 'tanggalawal', 'tanggalakhir'));
+    	$success = true;
+		return view('admin.sales.inputpenyusutan', compact('juals', 'tanggalawal', 'tanggalakhir', 'success'));
 	}
 
 	/**

@@ -112,7 +112,8 @@ class InputFakturController extends Controller {
 
 		$customers = Customer::all();
 		$items = Item::all();
-   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'nojual'));
+		$success = true;
+   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'nojual', 'success'));
 	}
 
 	/**

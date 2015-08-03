@@ -20,6 +20,11 @@ class CostController extends Controller {
 	{
 		//
 		$costs = Cost::paginate(10);
+		if(Request::input('success') != "")
+		{
+			$success = true;
+			return view('admin.costs.index', compact('costs', 'success'));
+		}
 		return view('admin.costs.index', compact('costs'));
 	}
 
@@ -44,7 +49,7 @@ class CostController extends Controller {
 		//
 		$cost=Request::all();
    		Cost::create($cost);
-   		return redirect('admin/costs');
+   		return redirect('admin/costs?success=true');
 	}
 
 	/**
@@ -85,7 +90,7 @@ class CostController extends Controller {
 		$costUpdate=Request::all();
    		$cost=Cost::find($id);
    		$cost->update($costUpdate);
-   		return redirect('admin/costs');
+   		return redirect('admin/costs?success=true');
 	}
 
 	/**

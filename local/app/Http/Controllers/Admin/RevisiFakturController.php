@@ -73,6 +73,11 @@ class RevisiFakturController extends Controller {
 			$checkitem = true;
 	   		return view('/admin/sales/revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers', 'checkitem'));
 		}
+		else if(Request::input('success') != "")
+		{
+			$success = true;
+	   		return view('/admin/sales/revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers', 'success'));
+		}
 
 		return view('admin.sales.revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers'));
 	}
@@ -180,6 +185,6 @@ class RevisiFakturController extends Controller {
 		$jualUpdate=Request::all();
    		$jual=Jual::where('nojual', '=', $nojual)->get()->first();
    		$jual->update($jualUpdate);
-   		return redirect('admin/sales/revisifaktur/' . $nojual);
+   		return redirect('admin/sales/revisifaktur/' . $nojual . '?success=true');
 	}
 }

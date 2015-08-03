@@ -30,8 +30,11 @@ class CustomerController extends Controller {
 		{
 			$customers = Customer::paginate(10);
 		}
-		
-		return view('owner.customers.index', compact('customers'));
+		if(Request::input('success') == true)
+		{
+			$success = true;
+		}
+		return view('owner.customers.index', compact('customers', 'success'));
 	}
 
 	/**
@@ -55,7 +58,7 @@ class CustomerController extends Controller {
 		//
 		$customer=Request::all();
    		Customer::create($customer);
-   		return redirect('owner/customers');
+   		return redirect('owner/customers?success=true');
 	}
 
 	/**
@@ -96,7 +99,7 @@ class CustomerController extends Controller {
 		$customerUpdate=Request::all();
    		$customer=Customer::find($id);
    		$customer->update($customerUpdate);
-   		return redirect('owner/customers');
+   		return redirect('owner/customers?success=true');
 	}
 
 	/**

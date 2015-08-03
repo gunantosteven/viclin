@@ -17,7 +17,11 @@ class SupplierController extends Controller {
 	{
 		//
 		$suppliers = Supplier::all();
-		return view('owner.suppliers.index', compact('suppliers'));
+		if(Request::input('success') == true)
+		{
+			$success = true;
+		}
+		return view('owner.suppliers.index', compact('suppliers', 'success'));
 	}
 
 	/**
@@ -41,7 +45,7 @@ class SupplierController extends Controller {
 		//
 		$supplier=Request::all();
    		Supplier::create($supplier);
-   		return redirect('owner/suppliers');
+   		return redirect('owner/suppliers?success=true');
 	}
 
 	/**
@@ -82,7 +86,7 @@ class SupplierController extends Controller {
 		$supplierUpdate=Request::all();
    		$supplier=Supplier::find($id);
    		$supplier->update($supplierUpdate);
-   		return redirect('owner/suppliers');
+   		return redirect('owner/suppliers?success=true');
 	}
 
 	/**

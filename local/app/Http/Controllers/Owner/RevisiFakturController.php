@@ -103,6 +103,11 @@ class RevisiFakturController extends Controller {
 			$checkitem = true;
 	   		return view('/owner/purchase/revisifakturupdate', compact('beli', 'detilbelis', 'items', 'suppliers', 'checkitem'));
 		}
+		else if(Request::input('success') != "")
+		{
+			$success = true;
+	   		return view('/owner/purchase/revisifakturupdate', compact('beli', 'detilbelis', 'items', 'suppliers', 'success'));
+		}
 
 		return view('owner.purchase.revisifakturupdate', compact('beli', 'detilbelis', 'items', 'suppliers'));
 	}
@@ -214,7 +219,7 @@ class RevisiFakturController extends Controller {
 		
 
 
-   		return redirect('owner/purchase/revisifaktur/' . $nobeli);
+   		return redirect('owner/purchase/revisifaktur/' . $nobeli . '?success=true');
 	}
 
 	/**

@@ -22,6 +22,11 @@ class PaymentConfirmationController extends Controller {
 		$belis = Beli::where('tglorderbeli', '>=', $tanggalawal)
     				->where('tglorderbeli', '<=', $tanggalakhir)
     				->where('payment', '=', 'UNPAID')->get();
+    	if(Request::input('success') != "")
+		{
+			$success = true;
+	   		return view('owner.purchase.paymentconfirmation', compact('belis', 'tanggalawal', 'tanggalakhir', 'success'));
+		}
 		return view('owner.purchase.paymentconfirmation', compact('belis', 'tanggalawal', 'tanggalakhir'));
 	}
 
@@ -96,6 +101,7 @@ class PaymentConfirmationController extends Controller {
 			$over = true;
 	   		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'totalpayment', 'over'));
 		}
+		
 
 		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'totalpayment'));
 	}
@@ -126,7 +132,7 @@ class PaymentConfirmationController extends Controller {
         	return redirect('owner/purchase/paymentconfirmation/' . Request::input('nobeli') . '?over=true');
         }
 
-		return redirect('owner/purchase/paymentconfirmation');
+		return redirect('owner/purchase/paymentconfirmation?success=true');
 	}
 
 	/**
