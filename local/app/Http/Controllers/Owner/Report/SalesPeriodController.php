@@ -24,8 +24,8 @@ class SalesPeriodController extends Controller {
 		//
 		$tanggalawal = date('Y-m-d');
     	$tanggalakhir = date('Y-m-d');
-		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		$juals = Jual::where('tglorderjual', '>=', $tanggalawal)
+    				->where('tglorderjual', '<=', $tanggalakhir)->get();
     	$customers = Customer::all();
 		return view('/owner/report/salesperiod', compact('juals', 'customers', 'tanggalawal', 'tanggalakhir'));
 	}
@@ -51,8 +51,8 @@ class SalesPeriodController extends Controller {
 		$tanggalawal = Request::input('tanggalawal');
 		$tanggalakhir = Request::input('tanggalakhir');
 		$nikcust = Request::input('nikcust');
-		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)
+		$juals = Jual::where('tglorderjual', '>=', $tanggalawal)
+    				->where('tglorderjual', '<=', $tanggalakhir)
     				->where('nikcust', 'like', $nikcust)->get();
 		$pdf = PDF::loadView('owner.report.pdf.reportsalesperiod', compact('juals', 'tanggalawal', 'tanggalakhir', 'nikcust'));
 		return $pdf->setPaper('a4')->stream('reportsalesperiod' . '.pdf');

@@ -90,7 +90,6 @@ class InputFakturController extends Controller {
 		    'biayaekspjual' => $request->input('biayaekspjual'),
 		    'biayastereo' => $request->input('biayastereo'),
 		    'kursbaru' => $request->input('kursbaru'),
-		    'tglfaktur' => $datetoday,
         ));
 
    		$salesitems = Session::get('salesitems');

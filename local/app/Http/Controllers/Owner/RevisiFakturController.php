@@ -24,8 +24,8 @@ class RevisiFakturController extends Controller {
 		//
 		$tanggalawal = date('Y-m-d');
     	$tanggalakhir = date('Y-m-d');
-		$belis = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		$belis = Beli::where('tglorderbeli', '>=', $tanggalawal)
+    				->where('tglorderbeli', '<=', $tanggalakhir)->get();
 		return view('/owner/purchase/revisifaktur', compact('belis', 'tanggalawal', 'tanggalakhir'));
 	}
 
@@ -37,8 +37,8 @@ class RevisiFakturController extends Controller {
 	public function showfaktur()
 	{
 		//
-		$belis = Beli::where('tglfaktur', '>=', Request::input('tanggalawal'))
-    				->where('tglfaktur', '<=', Request::input('tanggalakhir'))->get();
+		$belis = Beli::where('tglorderbeli', '>=', Request::input('tanggalawal'))
+    				->where('tglorderbeli', '<=', Request::input('tanggalakhir'))->get();
     	$tanggalawal = Request::input('tanggalawal');
     	$tanggalakhir = Request::input('tanggalakhir');
     	return view('/owner/purchase/revisifaktur', compact('belis', 'tanggalawal', 'tanggalakhir'));

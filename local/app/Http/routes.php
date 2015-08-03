@@ -324,7 +324,6 @@ Route::get('createdb',function(){
 		$table->float('adm', 13);
 		$table->float('edi', 13);
 		$table->float('rush', 13);
-		$table->date('tglfaktur');
 		$table->timestamps();
 	});
 	Schema::create('detilbeli',function($table){
@@ -357,7 +356,6 @@ Route::get('createdb',function(){
 		$table->float('biayasusutjual', 13);
 		$table->float('biayastereo', 13);
 		$table->float('kursbaru', 13);
-		$table->date('tglfaktur');
 		$table->timestamps();
 	});
 	Schema::create('detiljual',function($table){

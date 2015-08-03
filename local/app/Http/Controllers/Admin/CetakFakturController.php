@@ -25,8 +25,8 @@ class CetakFakturController extends Controller {
 		//
 		$tanggalawal = date('Y-m-d');
     	$tanggalakhir = date('Y-m-d');
-		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		$juals = Jual::where('tglorderjual', '>=', $tanggalawal)
+    				->where('tglorderjual', '<=', $tanggalakhir)->get();
 		return view('/admin/sales/cetakfaktur', compact('juals', 'tanggalawal', 'tanggalakhir'));
 	}
 
@@ -38,8 +38,8 @@ class CetakFakturController extends Controller {
 	public function showfaktur(Request $request)
 	{
 		//
-		$juals = Jual::where('tglfaktur', '>=', $request->input('tanggalawal'))
-    				->where('tglfaktur', '<=', $request->input('tanggalakhir'))->get();
+		$juals = Jual::where('tglorderjual', '>=', $request->input('tanggalawal'))
+    				->where('tglorderjual', '<=', $request->input('tanggalakhir'))->get();
     	$tanggalawal = $request->input('tanggalawal');
     	$tanggalakhir = $request->input('tanggalakhir');
     	return view('/admin/sales/cetakfaktur', compact('juals', 'tanggalawal', 'tanggalakhir'));

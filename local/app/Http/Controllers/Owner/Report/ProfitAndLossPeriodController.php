@@ -55,30 +55,30 @@ class ProfitAndLossPeriodController extends Controller {
 
 		$totalpurchase = DB::table('beli')
             ->join('detilbeli', 'beli.nobeli', '=', 'detilbeli.nobeli')
-            ->where('beli.tglfaktur', '>=', $tanggalawal)
-    		->where('beli.tglfaktur', '<=', $tanggalakhir)
+            ->where('beli.tglorderbeli', '>=', $tanggalawal)
+    		->where('beli.tglorderbeli', '<=', $tanggalakhir)
             ->sum(DB::raw('detilbeli.hargasatuankg * detilbeli.jumlahkg'));
-    	$biayasusutbeli = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayasusutbeli');
-    	$biayakarantina = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayakarantina');
-    	$biayalab = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayalab');
-    	$biayafreight = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayafreight');
+    	$biayasusutbeli = Beli::where('tglorderbeli', '>=', $tanggalawal)
+    				->where('tglorderbeli', '<=', $tanggalakhir)->sum('biayasusutbeli');
+    	$biayakarantina = Beli::where('tglorderbeli', '>=', $tanggalawal)
+    				->where('tglorderbeli', '<=', $tanggalakhir)->sum('biayakarantina');
+    	$biayalab = Beli::where('tglorderbeli', '>=', $tanggalawal)
+    				->where('tglorderbeli', '<=', $tanggalakhir)->sum('biayalab');
+    	$biayafreight = Beli::where('tglorderbeli', '>=', $tanggalawal)
+    				->where('tglorderbeli', '<=', $tanggalakhir)->sum('biayafreight');
     	$totalAllPurchase = $totalpurchase + $biayakarantina + $biayalab + $biayafreight - $biayasusutbeli;
 
     	$totalsales = DB::table('jual')
             ->join('detiljual', 'jual.nojual', '=', 'detiljual.nojual')
-            ->where('jual.tglfaktur', '>=', $tanggalawal)
-    		->where('jual.tglfaktur', '<=', $tanggalakhir)
+            ->where('jual.tglorderjual', '>=', $tanggalawal)
+    		->where('jual.tglorderjual', '<=', $tanggalakhir)
             ->sum(DB::raw('detiljual.hargasatuankg * detiljual.jumlahkg'));
-    	$biayaekspjual = Jual::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayaekspjual');
-    	$biayasusutjual = Jual::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayasusutjual');
-    	$biayastereo = Jual::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->sum('biayastereo');
+    	$biayaekspjual = Jual::where('tglorderjual', '>=', $tanggalawal)
+    				->where('tglorderjual', '<=', $tanggalakhir)->sum('biayaekspjual');
+    	$biayasusutjual = Jual::where('tglorderjual', '>=', $tanggalawal)
+    				->where('tglorderjual', '<=', $tanggalakhir)->sum('biayasusutjual');
+    	$biayastereo = Jual::where('tglorderjual', '>=', $tanggalawal)
+    				->where('tglorderjual', '<=', $tanggalakhir)->sum('biayastereo');
     	$totalAllSales = $totalsales + $biayaekspjual + $biayastereo - $biayasusutjual;
 
     	$biayabensin = Cost::where('tgl', '>=', $tanggalawal)

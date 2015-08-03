@@ -19,8 +19,8 @@ class PaymentConfirmationController extends Controller {
 		//
 		$tanggalawal = date('Y-m-d');
     	$tanggalakhir = date('Y-m-d');
-		$juals = Jual::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)
+		$juals = Jual::where('tglorderjual', '>=', $tanggalawal)
+    				->where('tglorderjual', '<=', $tanggalakhir)
     				->where('payment', '=', 'UNPAID')->get();
 		return view('admin.sales.paymentconfirmation', compact('juals', 'tanggalawal', 'tanggalakhir'));
 	}
@@ -33,8 +33,8 @@ class PaymentConfirmationController extends Controller {
 	public function showfaktur()
 	{
 		//
-		$juals = Jual::where('tglfaktur', '>=', Request::input('tanggalawal'))
-    				->where('tglfaktur', '<=', Request::input('tanggalakhir'))
+		$juals = Jual::where('tglorderjual', '>=', Request::input('tanggalawal'))
+    				->where('tglorderjual', '<=', Request::input('tanggalakhir'))
     				->where('payment', '=', 'UNPAID')->get();
     	$tanggalawal = Request::input('tanggalawal');
     	$tanggalakhir = Request::input('tanggalakhir');

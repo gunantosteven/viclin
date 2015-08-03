@@ -19,8 +19,8 @@ class PaymentConfirmationController extends Controller {
 		//
 		$tanggalawal = date('Y-m-d');
     	$tanggalakhir = date('Y-m-d');
-		$belis = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)
+		$belis = Beli::where('tglorderbeli', '>=', $tanggalawal)
+    				->where('tglorderbeli', '<=', $tanggalakhir)
     				->where('payment', '=', 'UNPAID')->get();
 		return view('owner.purchase.paymentconfirmation', compact('belis', 'tanggalawal', 'tanggalakhir'));
 	}
@@ -33,8 +33,8 @@ class PaymentConfirmationController extends Controller {
 	public function showfaktur()
 	{
 		//
-		$belis = Beli::where('tglfaktur', '>=', Request::input('tanggalawal'))
-    				->where('tglfaktur', '<=', Request::input('tanggalakhir'))
+		$belis = Beli::where('tglorderbeli', '>=', Request::input('tanggalawal'))
+    				->where('tglorderbeli', '<=', Request::input('tanggalakhir'))
     				->where('payment', '=', 'UNPAID')->get();
     	$tanggalawal = Request::input('tanggalawal');
     	$tanggalakhir = Request::input('tanggalakhir');

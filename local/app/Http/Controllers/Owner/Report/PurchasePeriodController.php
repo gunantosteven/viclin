@@ -24,8 +24,8 @@ class PurchasePeriodController extends Controller {
 		//
 		$tanggalawal = date('Y-m-d');
     	$tanggalakhir = date('Y-m-d');
-		$belis = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)->get();
+		$belis = Beli::where('tglorderbeli', '>=', $tanggalawal)
+    				->where('tglorderbeli', '<=', $tanggalakhir)->get();
     	$suppliers = Supplier::all();
 		return view('/owner/report/purchaseperiod', compact('belis', 'suppliers', 'tanggalawal', 'tanggalakhir'));
 	}
@@ -51,8 +51,8 @@ class PurchasePeriodController extends Controller {
 		$tanggalawal = Request::input('tanggalawal');
 		$tanggalakhir = Request::input('tanggalakhir');
 		$idsupp = Request::input('idsupp');
-		$belis = Beli::where('tglfaktur', '>=', $tanggalawal)
-    				->where('tglfaktur', '<=', $tanggalakhir)
+		$belis = Beli::where('tglorderbeli', '>=', $tanggalawal)
+    				->where('tglorderbeli', '<=', $tanggalakhir)
     				->where('idsupp', 'like', $idsupp)->get();
 		$pdf = PDF::loadView('owner.report.pdf.reportpurchaseperiod', compact('belis', 'tanggalawal', 'tanggalakhir', 'idsupp'));
 		return $pdf->setPaper('a4')->stream('reportpurchaseperiod' . '.pdf');

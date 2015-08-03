@@ -135,7 +135,6 @@ class InputFakturController extends Controller {
 		    'adm' => $adm,
 		    'edi' => $edi,
 		    'rush' => $rush,
-		    'tglfaktur' => $datetoday,
         ));
 
    		
