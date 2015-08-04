@@ -287,7 +287,7 @@ Route::get('createdb',function(){
 		$table->unsignedInteger('id_category');
 		$table->foreign('id_category')->references('id')->on('categories');
 		$table->string('namabrg',30);
-		$table->float('stokkg', 13);
+		$table->float('stokkg', 16);
 		$table->string('status',20);
 		$table->bigInteger('stokbrg');
 		$table->timestamps();
@@ -302,28 +302,28 @@ Route::get('createdb',function(){
 		$table->string('payment',20)->default('UNPAID');
 		$table->string('ketpayment');
 		$table->date('paymentdate');
-		$table->float('nominalpayment', 13);
+		$table->float('nominalpayment', 16);
 		$table->date('tglorderbeli');
 		$table->date('tgltempobeli');
-		$table->float('biayasusutbeli', 13);
-		$table->float('biayakarantina', 13);
-		$table->float('biayalab', 13);
-		$table->float('biayafreight', 13);
-		$table->float('cif', 13);
-		$table->float('bm', 13);
-		$table->float('pph', 13);
-		$table->float('storage', 13);
-		$table->float('trmc', 13);
-		$table->float('spc', 13);
-		$table->float('time', 13);
-		$table->float('dokumen', 13);
-		$table->float('ppn', 13);
-		$table->float('stamp', 13);
-		$table->float('handling', 13);
-		$table->float('over', 13);
-		$table->float('adm', 13);
-		$table->float('edi', 13);
-		$table->float('rush', 13);
+		$table->float('biayasusutbeli', 16);
+		$table->float('biayakarantina', 16);
+		$table->float('biayalab', 16);
+		$table->float('biayafreight', 16);
+		$table->float('cif', 16);
+		$table->float('bm', 16);
+		$table->float('pph', 16);
+		$table->float('storage', 16);
+		$table->float('trmc', 16);
+		$table->float('spc', 16);
+		$table->float('time', 16);
+		$table->float('dokumen', 16);
+		$table->float('ppn', 16);
+		$table->float('stamp', 16);
+		$table->float('handling', 16);
+		$table->float('over', 16);
+		$table->float('adm', 16);
+		$table->float('edi', 16);
+		$table->float('rush', 16);
 		$table->timestamps();
 	});
 	Schema::create('detilbeli',function($table){
@@ -332,8 +332,8 @@ Route::get('createdb',function(){
 		$table->foreign('nobeli')->references('nobeli')->on('beli');
 		$table->string('kodebrg');
 		$table->foreign('kodebrg')->references('kodebrg')->on('items');
-		$table->float('hargasatuankg', 13);
-		$table->float('jumlahkg', 13);
+		$table->float('hargasatuankg', 16);
+		$table->float('jumlahkg', 16);
 		$table->bigInteger('jumlahekor');
 		$table->string('keterangan');
 		$table->timestamps();
@@ -348,14 +348,14 @@ Route::get('createdb',function(){
 		$table->string('payment',20)->default('UNPAID');
 		$table->string('ketpayment');
 		$table->date('paymentdate');
-		$table->float('nominalpayment', 13);
+		$table->float('nominalpayment', 16);
 		$table->date('tglorderjual');
 		$table->date('tgltempojual');
 		$table->date('deliverydate');
-		$table->float('biayaekspjual', 13);
-		$table->float('biayasusutjual', 13);
-		$table->float('biayastereo', 13);
-		$table->float('kursbaru', 13);
+		$table->float('biayaekspjual', 16);
+		$table->float('biayasusutjual', 16);
+		$table->float('biayastereo', 16);
+		$table->float('kursbaru', 16);
 		$table->timestamps();
 	});
 	Schema::create('detiljual',function($table){
@@ -364,8 +364,8 @@ Route::get('createdb',function(){
 		$table->foreign('nojual')->references('nojual')->on('jual');
 		$table->string('kodebrg');
 		$table->foreign('kodebrg')->references('kodebrg')->on('items');
-		$table->float('hargasatuankg', 13);
-		$table->float('jumlahkg', 13);
+		$table->float('hargasatuankg', 16);
+		$table->float('jumlahkg', 16);
 		$table->bigInteger('jumlahekor');
 		$table->string('noofbox');
 		$table->string('keterangan');
@@ -398,7 +398,7 @@ Route::get('createdb',function(){
 		$table->string('biaya');
 		$table->date('tgl');
 		$table->string('keterangan');
-		$table->float('nominal', 13);
+		$table->float('nominal', 16);
 		$table->timestamps();
 	});
 	Schema::create('salaries',function($table){
@@ -409,7 +409,7 @@ Route::get('createdb',function(){
 		$table->string('bulan');
 		$table->string('tahun');
 		$table->string('keterangan');
-		$table->float('nominal', 13);
+		$table->float('nominal', 16);
 		$table->timestamps();
 	});
 	Schema::create('revisi',function($table){

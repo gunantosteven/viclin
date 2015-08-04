@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 03, 2015 at 03:42 
+-- Generation Time: Aug 04, 2015 at 04:33 
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -34,28 +34,28 @@ CREATE TABLE IF NOT EXISTS `beli` (
   `payment` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'UNPAID',
   `ketpayment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `paymentdate` date NOT NULL,
-  `nominalpayment` double(13,2) NOT NULL,
+  `nominalpayment` double(16,2) NOT NULL,
   `tglorderbeli` date NOT NULL,
   `tgltempobeli` date NOT NULL,
-  `biayasusutbeli` double(13,2) NOT NULL,
-  `biayakarantina` double(13,2) NOT NULL,
-  `biayalab` double(13,2) NOT NULL,
-  `biayafreight` double(13,2) NOT NULL,
-  `cif` double(13,2) NOT NULL,
-  `bm` double(13,2) NOT NULL,
-  `pph` double(13,2) NOT NULL,
-  `storage` double(13,2) NOT NULL,
-  `trmc` double(13,2) NOT NULL,
-  `spc` double(13,2) NOT NULL,
-  `time` double(13,2) NOT NULL,
-  `dokumen` double(13,2) NOT NULL,
-  `ppn` double(13,2) NOT NULL,
-  `stamp` double(13,2) NOT NULL,
-  `handling` double(13,2) NOT NULL,
-  `over` double(13,2) NOT NULL,
-  `adm` double(13,2) NOT NULL,
-  `edi` double(13,2) NOT NULL,
-  `rush` double(13,2) NOT NULL,
+  `biayasusutbeli` double(16,2) NOT NULL,
+  `biayakarantina` double(16,2) NOT NULL,
+  `biayalab` double(16,2) NOT NULL,
+  `biayafreight` double(16,2) NOT NULL,
+  `cif` double(16,2) NOT NULL,
+  `bm` double(16,2) NOT NULL,
+  `pph` double(16,2) NOT NULL,
+  `storage` double(16,2) NOT NULL,
+  `trmc` double(16,2) NOT NULL,
+  `spc` double(16,2) NOT NULL,
+  `time` double(16,2) NOT NULL,
+  `dokumen` double(16,2) NOT NULL,
+  `ppn` double(16,2) NOT NULL,
+  `stamp` double(16,2) NOT NULL,
+  `handling` double(16,2) NOT NULL,
+  `over` double(16,2) NOT NULL,
+  `adm` double(16,2) NOT NULL,
+  `edi` double(16,2) NOT NULL,
+  `rush` double(16,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -71,7 +71,7 @@ CREATE TABLE IF NOT EXISTS `biayas` (
   `biaya` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `tgl` date NOT NULL,
   `keterangan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nominal` double(13,2) NOT NULL,
+  `nominal` double(16,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -96,10 +96,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`id`, `kodekategori`, `namakategori`, `statusdelete`, `created_at`, `updated_at`) VALUES
-(1, '1', 'Kepiting', '0', '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(2, '2', 'Cumi', '0', '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(3, '3', 'Udang', '0', '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(4, '4', 'Gurami', '0', '2015-08-02 18:42:28', '2015-08-02 18:42:28');
+(1, '1', 'Kepiting', '0', '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(2, '2', 'Cumi', '0', '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(3, '3', 'Udang', '0', '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(4, '4', 'Gurami', '0', '2015-08-04 07:33:38', '2015-08-04 07:33:38');
 
 -- --------------------------------------------------------
 
@@ -124,10 +124,10 @@ CREATE TABLE IF NOT EXISTS `customers` (
 --
 
 INSERT INTO `customers` (`id`, `namacust`, `alamatcust`, `telpcust`, `kotacust`, `emailcust`, `company`, `created_at`, `updated_at`) VALUES
-(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 'UWIKA', '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 'UNESA', '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 'UBAYA', '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 'WM', '2015-08-02 18:42:28', '2015-08-02 18:42:28');
+(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 'UWIKA', '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 'UNESA', '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 'UBAYA', '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 'WM', '2015-08-04 07:33:38', '2015-08-04 07:33:38');
 
 -- --------------------------------------------------------
 
@@ -139,8 +139,8 @@ CREATE TABLE IF NOT EXISTS `detilbeli` (
   `id` bigint(20) unsigned NOT NULL,
   `nobeli` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `kodebrg` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `hargasatuankg` double(13,2) NOT NULL,
-  `jumlahkg` double(13,2) NOT NULL,
+  `hargasatuankg` double(16,2) NOT NULL,
+  `jumlahkg` double(16,2) NOT NULL,
   `jumlahekor` bigint(20) NOT NULL,
   `keterangan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -157,8 +157,8 @@ CREATE TABLE IF NOT EXISTS `detiljual` (
   `id` bigint(20) unsigned NOT NULL,
   `nojual` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `kodebrg` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `hargasatuankg` double(13,2) NOT NULL,
-  `jumlahkg` double(13,2) NOT NULL,
+  `hargasatuankg` double(16,2) NOT NULL,
+  `jumlahkg` double(16,2) NOT NULL,
   `jumlahekor` bigint(20) NOT NULL,
   `noofbox` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `keterangan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
@@ -189,8 +189,8 @@ CREATE TABLE IF NOT EXISTS `employees` (
 --
 
 INSERT INTO `employees` (`id`, `namaemp`, `alamatemp`, `telpemp`, `kotaemp`, `tglmasuk`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-08-02 18:42:28', '2015-08-02 18:42:28');
+(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-08-04 07:33:38', '2015-08-04 07:33:38');
 
 -- --------------------------------------------------------
 
@@ -203,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `items` (
   `kodebrg` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `id_category` int(10) unsigned NOT NULL,
   `namabrg` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `stokkg` double(13,2) NOT NULL,
+  `stokkg` double(16,2) NOT NULL,
   `status` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
   `stokbrg` bigint(20) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
@@ -215,10 +215,10 @@ CREATE TABLE IF NOT EXISTS `items` (
 --
 
 INSERT INTO `items` (`id`, `kodebrg`, `id_category`, `namabrg`, `stokkg`, `status`, `stokbrg`, `created_at`, `updated_at`) VALUES
-(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10, '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5, '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(3, '3', 1, 'Kepiting C Frozen Food', 5.00, 'Frozen Food', 5, '2015-08-02 18:42:28', '2015-08-02 18:42:28'),
-(4, '4', 1, 'Kepiting D Frozen Food', 5.00, 'Live Food', 5, '2015-08-02 18:42:28', '2015-08-02 18:42:28');
+(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10, '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5, '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(3, '3', 1, 'Kepiting C Frozen Food', 5.00, 'Frozen Food', 5, '2015-08-04 07:33:38', '2015-08-04 07:33:38'),
+(4, '4', 1, 'Kepiting D Frozen Food', 5.00, 'Live Food', 5, '2015-08-04 07:33:38', '2015-08-04 07:33:38');
 
 -- --------------------------------------------------------
 
@@ -234,14 +234,14 @@ CREATE TABLE IF NOT EXISTS `jual` (
   `payment` varchar(20) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'UNPAID',
   `ketpayment` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `paymentdate` date NOT NULL,
-  `nominalpayment` double(13,2) NOT NULL,
+  `nominalpayment` double(16,2) NOT NULL,
   `tglorderjual` date NOT NULL,
   `tgltempojual` date NOT NULL,
   `deliverydate` date NOT NULL,
-  `biayaekspjual` double(13,2) NOT NULL,
-  `biayasusutjual` double(13,2) NOT NULL,
-  `biayastereo` double(13,2) NOT NULL,
-  `kursbaru` double(13,2) NOT NULL,
+  `biayaekspjual` double(16,2) NOT NULL,
+  `biayasusutjual` double(16,2) NOT NULL,
+  `biayastereo` double(16,2) NOT NULL,
+  `kursbaru` double(16,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -277,7 +277,7 @@ CREATE TABLE IF NOT EXISTS `salaries` (
   `bulan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `tahun` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `keterangan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `nominal` double(13,2) NOT NULL,
+  `nominal` double(16,2) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -305,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `niksupp`, `namasupp`, `alamatsupp`, `telpsupp`, `kotasupp`, `emailsupp`, `created_at`, `updated_at`) VALUES
-(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-08-02 18:42:28', '2015-08-02 18:42:28');
+(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-08-04 07:33:38', '2015-08-04 07:33:38');
 
 -- --------------------------------------------------------
 
@@ -329,8 +329,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `namauser`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$KRmDCrpu2zbGikXGPboiouRMaVfyKQmkr1Hu/GtOMWql1FDWgruHK', 'steven', 'admin', '', '2015-08-02 18:42:27', '2015-08-02 18:42:27'),
-(2, 'owner', '$2y$10$54aMmEHRJ2V3LgV9n9xACu1ZNDvwr.NRffD7LzH2qWNNfTmdXflqq', 'yonathan', 'owner', '', '2015-08-02 18:42:28', '2015-08-02 18:42:28');
+(1, 'admin', '$2y$10$N7ZsCT4SDdzcU0ZWZcGY8uNouuS55z12Cp4.bmawAMmZaVAz8GPt6', 'steven', 'admin', '', '2015-08-04 07:33:37', '2015-08-04 07:33:37'),
+(2, 'owner', '$2y$10$WA7AX1/33tXdUwUSlIdonuAZdZSID2HuwPmPUxoobzp.zXnYHT3Nu', 'yonathan', 'owner', '', '2015-08-04 07:33:37', '2015-08-04 07:33:37');
 
 --
 -- Indexes for dumped tables
