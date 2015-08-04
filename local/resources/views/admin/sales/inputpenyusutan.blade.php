@@ -72,7 +72,7 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Depreciation Cost Sales:</div>
-                <div class="span9"><input type="text" id="biayasusutjual" name="biayasusutjual"></div>
+                <div class="span9"><input type="text" id="biayasusutjual" maxlength="14" name="biayasusutjual"></div>
             </div>
             <div class="row-form clearfix">
                     {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}

@@ -24,11 +24,11 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Unit Price Kg:</div>
-                <div class="span9">{!! Form::text('hargasatuankg',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('hargasatuankg',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Total Kg:</div>
-                <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Total Tail:</div>
@@ -133,15 +133,15 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Expedition Cost:</div>
-                <div class="span9">{!! Form::text('biayaekspjual',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('biayaekspjual',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
            <div class="row-form clearfix">
                 <div class="span3">Styrofoam Cost:</div>
-                <div class="span9">{!! Form::text('biayastereo',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('biayastereo',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Rupiah Newest:</div>
-                <div class="span9">{!! Form::text('kursbaru',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('kursbaru',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}

@@ -32,7 +32,7 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Nominal:</div>
-                <div class="span9">{!! Form::text('nominal',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('nominal',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}

@@ -72,7 +72,7 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Depreciation Cost Purchase:</div>
-                <div class="span9"><input type="text" id="biayasusutbeli" name="biayasusutbeli"></div>
+                <div class="span9"><input type="text" id="biayasusutbeli" maxlength = "14" name="biayasusutbeli"></div>
             </div>
             <div class="row-form clearfix">
                     {!! Form::submit('Save', ['class' => 'btn btn-success']) !!}

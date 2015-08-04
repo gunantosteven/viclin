@@ -25,11 +25,11 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Unit Price Kg:</div>
-                <div class="span9">{!! Form::text('hargasatuankg',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('hargasatuankg',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Total Kg:</div>
-                <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Total Tail:</div>
@@ -128,19 +128,19 @@
             </div>
            <div class="row-form clearfix">
                 <div class="span3">Quarantine Cost:</div>
-                <div class="span9">{!! Form::text('biayakarantina',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('biayakarantina',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Lab Cost:</div>
-                <div class="span9">{!! Form::text('biayalab',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('biayalab',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Freight Cost:</div>
-                <div class="span9">{!! Form::text('biayafreight',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('biayafreight',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">CIF:</div>
-                <div class="span9">{!! Form::text('cif',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::text('cif',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
