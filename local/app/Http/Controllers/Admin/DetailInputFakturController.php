@@ -45,7 +45,7 @@ class DetailInputFakturController extends Controller {
 
 		//validasi
 		if($request->input('kodebrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
-			|| $request->input('jumlahekor') == "" || $request->input('noofbox') == "" || $request->input('keterangan') == "")
+			|| $request->input('jumlahekor') == "" || $request->input('noofbox') == "")
 		{
 			return redirect('admin/sales/inputfaktur?validasi=true');
 		}

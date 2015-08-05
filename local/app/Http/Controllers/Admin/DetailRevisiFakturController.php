@@ -45,7 +45,7 @@ class DetailRevisiFakturController extends Controller {
 	{
 		//validasi
 		if($request->input('kodebrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
-			|| $request->input('jumlahekor') == "" || $request->input('noofbox') == "" || $request->input('keterangan') == "")
+			|| $request->input('jumlahekor') == "" || $request->input('noofbox') == "")
 		{
 			return redirect('admin/sales/revisifaktur/' . $request->input('nojual') . '?validasi=true');
 		}
