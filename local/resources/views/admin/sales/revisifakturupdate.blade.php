@@ -140,10 +140,6 @@
                 <div class="span9">{!! Form::text('biayastereo',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Rupiah Newest:</div>
-                <div class="span9">{!! Form::text('kursbaru',null,['class'=>'','maxlength' => "14"]) !!}</div>
-            </div>
-            <div class="row-form clearfix">
                 {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
             </div>
         </div>

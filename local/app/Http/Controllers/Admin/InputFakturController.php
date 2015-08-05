@@ -66,7 +66,7 @@ class InputFakturController extends Controller {
 	{
 		// Validasi
 		if($request->input('idcust') == ""  || $request->input('tglorderjual') == "" || $request->input('tgltempojual') == "" || $request->input('deliverydate') == ""
-			|| $request->input('biayaekspjual') == "" ||  $request->input('biayastereo') == "" || $request->input('kursbaru') == "")
+			|| $request->input('biayaekspjual') == "" ||  $request->input('biayastereo') == "")
 		{
 			return redirect('admin/sales/inputfaktur?validasi=true');
 		}
@@ -89,7 +89,6 @@ class InputFakturController extends Controller {
 		    'deliverydate' => $request->input('deliverydate'),
 		    'biayaekspjual' => $request->input('biayaekspjual'),
 		    'biayastereo' => $request->input('biayastereo'),
-		    'kursbaru' => $request->input('kursbaru'),
         ));
 
    		$salesitems = Session::get('salesitems');

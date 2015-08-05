@@ -92,7 +92,7 @@ class RevisiFakturController extends Controller {
 	{
 		// Validasi
 		if(Request::input('nikcust') == "" || Request::input('tglorderjual') == "" || Request::input('tgltempojual') == "" || Request::input('deliverydate') == "" 
-			|| Request::input('biayaekspjual') == "" ||  Request::input('biayastereo') == "" || Request::input('kursbaru') == "")
+			|| Request::input('biayaekspjual') == "" ||  Request::input('biayastereo') == "")
 		{
 			return redirect('admin/sales/revisifaktur/' . $nojual . '?validasi=true');
 		}
@@ -165,17 +165,6 @@ class RevisiFakturController extends Controller {
 				    'dataawal' => $jualNow->biayastereo,
 				    'dataakhir' => Request::input('biayastereo'),
 				    'keterangan' => 'Update Styrofoam Cost'
-			));
-		}
-		if(Request::input('kursbaru') != $jualNow->kursbaru)
-		{
-			Revisi::create(array(
-				    'user' => Auth::user()->id,
-				    'tglrevisi' => $datetoday,
-				    'jualbeli' => $nojual,
-				    'dataawal' => $jualNow->kursbaru,
-				    'dataakhir' => Request::input('kursbaru'),
-				    'keterangan' => 'Update Rupiah Newest'
 			));
 		}
 		// end to revisi

@@ -355,7 +355,6 @@ Route::get('createdb',function(){
 		$table->float('biayaekspjual', 16);
 		$table->float('biayasusutjual', 16);
 		$table->float('biayastereo', 16);
-		$table->float('kursbaru', 16);
 		$table->timestamps();
 	});
 	Schema::create('detiljual',function($table){
