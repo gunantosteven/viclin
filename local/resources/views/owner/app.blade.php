@@ -210,6 +210,19 @@
                     </li>               
                 </ul>                
             </li>    
+            <li class="openable
+                        @if(str_contains(Request::url(), 'owner/setting')) {{ 'active' }}  @endif">
+                <a href="#">
+                    <span class="isw-list"></span><span class="text">Setting</span>
+                </a>
+                <ul>
+                    <li>
+                        <a href="{{ url('/owner/setting/changepassword') }}">
+                            <span class="icon-chevron-right"></span><span class="text">Change Password</span>
+                        </a>                  
+                    </li>                      
+                </ul>                
+            </li>  
               
         </ul>
         

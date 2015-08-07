@@ -119,6 +119,7 @@ Route::group(['middleware' => 'owner'], function()
     Route::resource('/owner/report/salesperiod','Owner\Report\SalesPeriodController');
     Route::resource('/owner/report/purchaseperiod','Owner\Report\PurchasePeriodController');
     Route::resource('/owner/report/profitandlossperiod','Owner\Report\ProfitAndLossPeriodController');
+    Route::resource('/owner/setting/changepassword', 'Owner\Setting\ChangePasswordController');
 });
 
 Route::group(['middleware' => 'admin'], function()
@@ -231,6 +232,7 @@ Route::group(['middleware' => 'admin'], function()
 
 	Route::resource('/admin/costs', 'Admin\CostController');
 	Route::resource('/admin/salaries', 'Admin\SalaryController');
+	Route::resource('/admin/setting/changepassword', 'Admin\Setting\ChangePasswordController');
 });
 
 
