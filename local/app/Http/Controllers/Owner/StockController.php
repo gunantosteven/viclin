@@ -5,6 +5,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Request;
+use Input;
+use DB;
 
 class StockController extends Controller {
 
@@ -16,7 +18,19 @@ class StockController extends Controller {
 	public function index()
 	{
 		//
-		$items = Item::all();
+		if(Input::has('search'))
+		{
+			$search = Input::get('search'); 
+			$items = DB::table('items')
+			->join('categories', 'items.id_category', '=', 'categories.id')
+	        ->where('namakategori', 'LIKE', "%$search%")
+	        ->orWhere('namabrg', 'LIKE', "%$search%")
+	        ->paginate(30);
+		}
+		else
+		{
+			$items = Item::paginate(10);
+		}
 		return view('owner.stock.index', compact('items'));
 	}
 

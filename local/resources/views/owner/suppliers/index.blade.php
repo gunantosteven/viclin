@@ -4,6 +4,12 @@
 <h1>Viclin Suppliers</h1>
 <a href="{{url('owner/suppliers/create')}}" class="btn btn-success">Create Suppliers</a>
 <hr>
+{!! Form::open(['method' => 'GET', 'route'=>['owner.suppliers.index']]) !!}
+{!! Form::text('search',null,['class'=>'pull-right']) !!}
+{!! Form::label('search', 'Search Name or Address :&nbsp;',['class'=>'pull-right']) !!}
+{!! Form::close() !!}
+</br>
+</br>
 <table class="table table-striped table-bordered table-hover">
  <thead>
  <tr class="bg-info">
@@ -36,6 +42,7 @@
  </tbody>
 
 </table>
+<div class="pagination"> {!! str_replace('/?', '?', $suppliers->render()); $suppliers->render(); !!} </div>
 
 @if (isset($success) && $success === true)
 <script>

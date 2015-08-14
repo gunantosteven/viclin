@@ -5,6 +5,8 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Request;
+use Input;
+use DB;
 
 class SupplierController extends Controller {
 
@@ -16,7 +18,18 @@ class SupplierController extends Controller {
 	public function index()
 	{
 		//
-		$suppliers = Supplier::all();
+		if(Input::has('search'))
+		{
+			$search = Input::get('search'); 
+			$suppliers = DB::table('suppliers')
+	        ->where('namasupp', 'LIKE', "%$search%")
+	        ->orWhere('alamatsupp', 'LIKE', "%$search%")
+	        ->paginate(30);
+		}
+		else
+		{
+			$suppliers = Supplier::paginate(10);
+		}
 		if(Request::input('success') == true)
 		{
 			$success = true;

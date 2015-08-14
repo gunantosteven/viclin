@@ -4,6 +4,12 @@
 <h1>Viclin Items</h1>
 <a href="{{url('owner/items/create')}}" class="btn btn-success">Create Item</a>
 <hr>
+{!! Form::open(['method' => 'GET', 'route'=>['owner.items.index']]) !!}
+{!! Form::text('search',null,['class'=>'pull-right']) !!}
+{!! Form::label('search', 'Search Category or Name :&nbsp;',['class'=>'pull-right']) !!}
+{!! Form::close() !!}
+</br>
+</br>
 <table class="table table-striped table-bordered table-hover">
  <thead>
  <tr class="bg-info">
@@ -37,6 +43,7 @@
  </tbody>
 
 </table>
+<div class="pagination"> {!! str_replace('/?', '?', $items->render()); $items->render(); !!} </div>
 
 @if (isset($success) && $success === true)
 <script>

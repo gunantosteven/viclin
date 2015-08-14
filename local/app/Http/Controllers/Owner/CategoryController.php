@@ -5,6 +5,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Request;
+use Input;
 use DB;
 
 class CategoryController extends Controller {
@@ -17,12 +18,26 @@ class CategoryController extends Controller {
 	public function index()
 	{
 		//
-		$categories = DB::table('categories')
-            ->where('statusdelete', '=', '0')->get();
-        if(Request::input('success') == true)
+		if(Input::has('search'))
+		{
+			$search = Input::get('search'); 
+			$categories = DB::table('categories')
+	        ->where('kodekategori', 'LIKE', "%$search%")
+	        ->orWhere('namakategori', 'LIKE', "%$search%")
+	        ->where('statusdelete', '=', '0')
+	        ->paginate(30);
+		}
+		else
+		{
+			$categories = DB::table('categories')
+            ->where('statusdelete', '=', '0')
+            ->paginate(10);
+		}
+		if(Request::input('success') == true)
 		{
 			$success = true;
 		}
+
 		return view('owner.categories.index', compact('categories', 'success'));
 	}
 
