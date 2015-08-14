@@ -24,7 +24,7 @@
 	                <div class="span3">Supplier:</div>
 	                <div class="span9">
 	                    <select name="idsupp" id="s2_1supplier" style="width: 100%;">
-	                    	<option value="%">Semua</option>
+	                    	<option value="%">All</option>
 	                        @foreach ($suppliers as $key => $item)
 	                            <option value={{ $item['id'] }}>{{ $item['namasupp'] }}</option>
 	                        @endforeach

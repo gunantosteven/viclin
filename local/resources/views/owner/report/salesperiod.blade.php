@@ -24,7 +24,7 @@
 	                <div class="span3">Customer:</div>
 	                <div class="span9">
 	                    <select name="nikcust" id="s2_1customer" style="width: 100%;">
-	                    	<option value="%">Semua</option>
+	                    	<option value="%">All</option>
 	                        @foreach ($customers as $key => $item)
 	                            <option value={{ $item['id'] }}>{{ $item['namacust'] }}</option>
 	                        @endforeach
