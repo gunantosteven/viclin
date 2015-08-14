@@ -32,7 +32,7 @@
 	                </div>
 	            </div>
                 <div class="row-form clearfix">
-                    <input class="btn btn-primary" type="submit" value="Cetak" onclick="$('form').attr('target', '_blank');">
+                    <input class="btn btn-primary" type="submit" value="Print" onclick="$('form').attr('target', '_blank');">
                 </div>
             </div>
             {!! Form::close() !!}
