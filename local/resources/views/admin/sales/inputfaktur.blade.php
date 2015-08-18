@@ -24,7 +24,7 @@
                 </div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Unit Price Kg:</div>
+                <div class="span3">Unit Price Per Kg:</div>
                 <div class="span9">{!! Form::text('hargasatuankg',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
@@ -70,7 +70,7 @@
                          <thead>
                          <tr class="bg-info">
                              <th>Item Name</th>
-                             <th>Unit Price Kg</th>
+                             <th>Unit Price Per Kg</th>
                              <th>Total Kg</th>
                              <th>Total Tail</th>
                              <th>No Of Box</th>
