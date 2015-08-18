@@ -41,6 +41,10 @@ Route::group(['middleware' => 'owner'], function()
 	    'as' => 'owner.history.revisisales.showfaktur',
 	    'uses' => 'Owner\HistoryRevisiSalesController@showfaktur'
 	]);
+	Route::get('/owner/history/revisisales/read/{id}', [
+	    'as' => 'owner.history.revisisales.read',
+	    'uses' => 'Owner\HistoryRevisiSalesController@read'
+	]);
     Route::get('/owner/history/revisipurchase', [
 	    'as' => 'owner.history.revisipurchase.index',
 	    'uses' => 'Owner\HistoryRevisiPurchaseController@index'
@@ -48,6 +52,10 @@ Route::group(['middleware' => 'owner'], function()
     Route::post('/owner/history/revisipurchase', [
 	    'as' => 'owner.history.revisipurchase.showfaktur',
 	    'uses' => 'Owner\HistoryRevisiPurchaseController@showfaktur'
+	]);
+	 Route::get('/owner/history/revisipurchase/read/{id}', [
+	    'as' => 'owner.history.revisipurchase.read',
+	    'uses' => 'Owner\HistoryRevisiPurchaseController@read'
 	]);
 
     Route::resource('/owner/purchase/inputfaktur', 'Owner\InputFakturController');
@@ -422,6 +430,7 @@ Route::get('createdb',function(){
 		$table->string('dataawal');
 		$table->string('dataakhir');
 		$table->string('keterangan');
+		$table->string('status');
 		$table->timestamps();
 	});
 	return "tables has been created";

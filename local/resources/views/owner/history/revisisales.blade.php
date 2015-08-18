@@ -36,6 +36,7 @@
          <th>First Data</th>
          <th>Last Data</th>
          <th>Information</th>
+         <th></th>
      </tr>
      </thead>
      <tbody>
@@ -48,6 +49,7 @@
                      <td>{{ $revisi['dataawal'] }}</td>
                      <td>{{ $revisi['dataakhir'] }}</td>
                      <td>{{ $revisi['keterangan'] }}</td>
+                     <td><a href="{{route('owner.history.revisisales.read',$revisi['id'])}}" class="btn btn-warning">OK</a></td>
                 </tr>
             @endforeach
         @endif

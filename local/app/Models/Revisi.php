@@ -20,7 +20,7 @@ class Revisi extends Model implements AuthenticatableContract, CanResetPasswordC
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['user', 'tglrevisi', 'jualbeli', 'dataawal','dataakhir','keterangan'];
+	protected $fillable = ['user', 'tglrevisi', 'jualbeli', 'dataawal','dataakhir','keterangan', 'status'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

@@ -140,7 +140,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nobeli,
 				    'dataawal' => DB::table('suppliers')->where('id', '=', $beliNow->idsupp)->first()->namasupp,
 				    'dataakhir' => DB::table('suppliers')->where('id', '=', Request::input('idsupp'))->first()->namasupp,
-				    'keterangan' => 'Update Customer'
+				    'keterangan' => 'Update Customer',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('tglorderbeli') != $beliNow->tglorderbeli)
@@ -151,7 +152,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nobeli,
 				    'dataawal' => $beliNow->tglorderbeli,
 				    'dataakhir' => Request::input('tglorderbeli'),
-				    'keterangan' => 'Update Date Purchase Order'
+				    'keterangan' => 'Update Date Purchase Order',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('tgltempobeli') != $beliNow->tgltempobeli)
@@ -162,7 +164,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nobeli,
 				    'dataawal' => $beliNow->tgltempobeli,
 				    'dataakhir' => Request::input('tgltempobeli'),
-				    'keterangan' => 'Update Due Date'
+				    'keterangan' => 'Update Due Date',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('biayakarantina') != $beliNow->biayakarantina)
@@ -173,7 +176,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nobeli,
 				    'dataawal' => $beliNow->biayakarantina,
 				    'dataakhir' => Request::input('biayakarantina'),
-				    'keterangan' => 'Update Quarantine Cost'
+				    'keterangan' => 'Update Quarantine Cost',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('biayalab') != $beliNow->biayalab)
@@ -184,7 +188,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nobeli,
 				    'dataawal' => $beliNow->biayalab,
 				    'dataakhir' => Request::input('biayalab'),
-				    'keterangan' => 'Update Lab Cost'
+				    'keterangan' => 'Update Lab Cost',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('biayafreight') != $beliNow->biayafreight)
@@ -195,7 +200,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nobeli,
 				    'dataawal' => $beliNow->biayafreight,
 				    'dataakhir' => Request::input('biayafreight'),
-				    'keterangan' => 'Update Freight Cost'
+				    'keterangan' => 'Update Freight Cost',
+				    'status' => 'UNREAD'
 			));
 		}
 		// end to revisi

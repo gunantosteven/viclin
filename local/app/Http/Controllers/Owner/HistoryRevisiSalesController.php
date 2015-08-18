@@ -22,7 +22,8 @@ class HistoryRevisiSalesController extends Controller {
     	$tanggalakhir = date('Y-m-d');
 		$revisis = Revisi::where('tglrevisi', '>=', $tanggalawal)
     				->where('tglrevisi', '<=', $tanggalakhir)
-    				->where('jualbeli', 'like',  'J-%')->get();
+    				->where('jualbeli', 'like',  'J-%')
+    				->where('status', 'UNREAD')->get();
 		return view('/owner/history/revisisales', compact('revisis', 'tanggalawal', 'tanggalakhir'));
 	}
 
@@ -36,10 +37,24 @@ class HistoryRevisiSalesController extends Controller {
 		//
 		$revisis = Revisi::where('tglrevisi', '>=', Request::input('tanggalawal'))
     				->where('tglrevisi', '<=', Request::input('tanggalakhir'))
-    				->where('jualbeli', 'like',  'J-%')->get();
+    				->where('jualbeli', 'like',  'J-%')
+    				->where('status', 'UNREAD')->get();
     	$tanggalawal = Request::input('tanggalawal');
     	$tanggalakhir = Request::input('tanggalakhir');
     	return view('/owner/history/revisisales', compact('revisis', 'tanggalawal', 'tanggalakhir'));
+	}
+
+	/**
+	 * Display a listing of the resource.
+	 *
+	 * @return Response
+	 */
+	public function read($id)
+	{
+		//
+		Revisi::where('id', $id)->update(['status' => 'READ']);
+
+		return redirect('owner/history/revisisales');
 	}
 
 

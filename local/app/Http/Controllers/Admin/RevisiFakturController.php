@@ -109,7 +109,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => DB::table('customers')->where('id', '=', $jualNow->nikcust)->first()->namacust,
 				    'dataakhir' => DB::table('customers')->where('id', '=', Request::input('nikcust'))->first()->namacust,
-				    'keterangan' => 'Update Customer'
+				    'keterangan' => 'Update Customer',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('tglorderjual') != $jualNow->tglorderjual)
@@ -120,7 +121,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->tglorderjual,
 				    'dataakhir' => Request::input('tglorderjual'),
-				    'keterangan' => 'Update Date Sales Order'
+				    'keterangan' => 'Update Date Sales Order',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('tgltempojual') != $jualNow->tgltempojual)
@@ -131,7 +133,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->tgltempojual,
 				    'dataakhir' => Request::input('tgltempojual'),
-				    'keterangan' => 'Update Due Date'
+				    'keterangan' => 'Update Due Date',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('deliverydate') != $jualNow->deliverydate)
@@ -142,7 +145,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->deliverydate,
 				    'dataakhir' => Request::input('deliverydate'),
-				    'keterangan' => 'Update Delivery Date'
+				    'keterangan' => 'Update Delivery Date',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('biayaekspjual') != $jualNow->biayaekspjual)
@@ -153,7 +157,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->biayaekspjual,
 				    'dataakhir' => Request::input('biayaekspjual'),
-				    'keterangan' => 'Update Expedition Cost'
+				    'keterangan' => 'Update Expedition Cost',
+				    'status' => 'UNREAD'
 			));
 		}
 		if(Request::input('biayastereo') != $jualNow->biayastereo)
@@ -164,7 +169,8 @@ class RevisiFakturController extends Controller {
 				    'jualbeli' => $nojual,
 				    'dataawal' => $jualNow->biayastereo,
 				    'dataakhir' => Request::input('biayastereo'),
-				    'keterangan' => 'Update Styrofoam Cost'
+				    'keterangan' => 'Update Styrofoam Cost',
+				    'status' => 'UNREAD'
 			));
 		}
 		// end to revisi
