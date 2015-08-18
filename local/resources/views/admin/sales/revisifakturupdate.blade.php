@@ -171,6 +171,7 @@
 @if (isset($success) && $success === true)
 <script>
   window.alert('Data successfully stored');
+  location.href = "{{ URL::to('/') }}" + "/admin/sales/revisifaktur";
 </script>
 @endif
 @endsection
