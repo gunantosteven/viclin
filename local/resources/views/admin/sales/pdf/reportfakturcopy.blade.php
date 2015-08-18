@@ -81,7 +81,9 @@ table {
     </div>
     <div class="tr">
         <div class="d1">Payment Date</div>
-        <div class="d1">: {{ date("d F Y",strtotime($jual->paymentdate)) }}</div>
+        <div class="d1">@if($jual->paymentdate != '0000-00-00') 
+                        : {{  date("d F Y",strtotime($jual->paymentdate)) }}
+                        @endif</div>
         <div class="d3">Add</div>
         <div class="d4">: Surabaya</div>
     </div>
