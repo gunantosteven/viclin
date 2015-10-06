@@ -100,7 +100,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $request->input('nojual'),
 				    'dataawal' => '',
 				    'dataakhir' => $request->input('jumlahekor'),
-				    'keterangan' => 'Add Total Tail',
+				    'keterangan' => 'Add Total Pcs',
 				    'status' => 'UNREAD'
 		));
 		Revisi::create(array(
@@ -218,7 +218,7 @@ class DetailRevisiFakturController extends Controller {
 				    'jualbeli' => $detiljualNow->nojual,
 				    'dataawal' => $detiljualNow->jumlahekor,
 				    'dataakhir' => '',
-				    'keterangan' => 'Delete Total Tail',
+				    'keterangan' => 'Delete Total Pcs',
 				    'status' => 'UNREAD'
 		));
 		Revisi::create(array(

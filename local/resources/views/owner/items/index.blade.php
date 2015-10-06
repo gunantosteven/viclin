@@ -18,7 +18,7 @@
      <th>Name</th>
      <th>StockKG</th>
      <th>Status</th>
-     <th>StockTail</th>
+     <th>StockPcs</th>
      <th colspan="2">Actions</th>
  </tr>
  </thead>

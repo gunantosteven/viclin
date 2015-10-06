@@ -31,7 +31,7 @@
                 <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'','maxlength' => "14"]) !!}</div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Total Tail:</div>
+                <div class="span3">Total Pcs:</div>
                 <div class="span9">{!! Form::text('jumlahekor',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
@@ -66,7 +66,7 @@
                              <th>Item Name</th>
                              <th>Unit Price Per Kg</th>
                              <th>Total Kg</th>
-                             <th>Total Tail</th>
+                             <th>Total Pcs</th>
                              <th>Information</th>
                              <th colspan="1">Actions</th>
                          </tr>
@@ -158,7 +158,7 @@
 @endif
 @if (isset($checkstock) && $checkstock === true)
 <script>
-  window.alert('Stock Kg or Stock Tail cannot be minus');
+  window.alert('Stock Kg or Stock Pcs cannot be minus');
 </script>
 @endif
 @if (isset($checkitem) && $checkitem === true)
