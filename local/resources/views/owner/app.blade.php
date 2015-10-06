@@ -7,10 +7,6 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <![endif]-->
 	<title>Viclin Owner</title>
-
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-
-	<link rel="icon" type="{{ asset('image/ico') }}" href="favicon.ico"/>
     
     <link href="{{ asset('css/stylesheets.css') }}" rel="stylesheet" type="text/css" />  
     <!--[if lt IE 8]>
@@ -40,9 +36,9 @@
     
     <script type='text/javascript' src={{ asset('js/plugins/uniform/uniform.js') }}></script>
     
-    <script type='text/javascript' src={{ asset('{{ asset(plugins/maskedinput/jquery.maskedinput-1.3.min.js') }}></script>
+    <script type='text/javascript' src={{ asset('js/plugins/maskedinput/jquery.maskedinput-1.3.min.js') }}></script>
     
-    <script type='text/javascript' src={{ asset('js/plugins/validation/languages/jquery.validationEngine-en.js') }} charset='utf-8'></script>
+    <script type='text/javascript' src="{{ asset('js/plugins/validation/languages/jquery.validationEngine-en.js') }}" charset='utf-8'></script>
     <script type='text/javascript' src={{ asset('js/plugins/validation/jquery.validationEngine.js') }} charset='utf-8'></script>
     
     <script type='text/javascript' src={{ asset('js/plugins/mcustomscrollbar/jquery.mCustomScrollbar.min.js') }}></script>

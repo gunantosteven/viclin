@@ -150,10 +150,6 @@
         </div>
     </div>
 </div>
-
-<script type="text/javascript">
-    $('.selectpicker').selectpicker();
-</script>
 <!-- there has been purchase invoice from Supplier  -->
 <!-- @if (isset($nobeli) && $nobeli != "")
 <script>
