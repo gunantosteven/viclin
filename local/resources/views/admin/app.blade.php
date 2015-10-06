@@ -91,7 +91,8 @@
             </li>
             <li class="openable 
                         @if(str_contains(Request::url(), 'admin/customers') ||
-                            str_contains(Request::url(), 'admin/items')) {{ 'active' }}  @endif">
+                            str_contains(Request::url(), 'admin/items') ||
+                            str_contains(Request::url(), 'admin/employees')) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">Data</span>
                 </a>
@@ -165,7 +166,8 @@
                     </li>  
                 </ul>     
             </li>        
-            <li class="openable @if(str_contains(Request::url(), 'admin/cost')) {{ 'active' }}  @endif">
+            <li class="openable @if(str_contains(Request::url(), 'admin/cost') || 
+                                    str_contains(Request::url(), 'admin/salaries') ) {{ 'active' }}  @endif">
                 <a href="#">
                     <span class="isw-list"></span><span class="text">Operating Costs</span>
                 </a>

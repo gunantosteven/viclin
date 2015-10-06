@@ -60,7 +60,7 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Nominal:</div>
-                <div class="span9">{!! Form::text('nominal',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'nominal',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}

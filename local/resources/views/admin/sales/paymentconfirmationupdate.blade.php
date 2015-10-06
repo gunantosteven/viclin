@@ -23,7 +23,7 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Nominal Payment:</div>
-                <div class="span9"><input type="text" id="nominalpayment" name="nominalpayment" maxlength="14" value={{ $jual->nominalpayment }}></div>
+                <div class="span9"><input type="number" id="nominalpayment" name="nominalpayment" maxlength="14" step="0.01" value={{ $jual->nominalpayment }}></div>
             </div>
             <div class="row-form clearfix">
                     <div class="span3">Payment Date:</div>

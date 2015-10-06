@@ -25,15 +25,15 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Unit Price Per Kg:</div>
-                <div class="span9">{!! Form::text('hargasatuankg',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number','hargasatuankg',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Total Kg:</div>
-                <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'jumlahkg',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Total Pcs:</div>
-                <div class="span9">{!! Form::text('jumlahekor',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::input('number','jumlahekor',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Information:</div>
@@ -128,19 +128,19 @@
             </div>
            <div class="row-form clearfix">
                 <div class="span3">Quarantine Cost:</div>
-                <div class="span9">{!! Form::text('biayakarantina',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'biayakarantina',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Lab Cost:</div>
-                <div class="span9">{!! Form::text('biayalab',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'biayalab',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Freight Cost:</div>
-                <div class="span9">{!! Form::text('biayafreight',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'biayafreight',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">CIF:</div>
-                <div class="span9">{!! Form::text('cif',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'cif',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                     {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}

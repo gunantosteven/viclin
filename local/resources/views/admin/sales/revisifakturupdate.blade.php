@@ -24,15 +24,15 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Unit Price Per Kg:</div>
-                <div class="span9">{!! Form::text('hargasatuankg',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'hargasatuankg',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Total Kg:</div>
-                <div class="span9">{!! Form::text('jumlahkg',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'jumlahkg',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Total Pcs:</div>
-                <div class="span9">{!! Form::text('jumlahekor',null,['class'=>'']) !!}</div>
+                <div class="span9">{!! Form::input('number', 'jumlahekor',null,['class'=>'']) !!}</div>
             </div>
             <div class="row-form clearfix">
                 <div class="span3">No Of Box:</div>
@@ -133,11 +133,11 @@
             </div>
             <div class="row-form clearfix">
                 <div class="span3">Expedition Cost:</div>
-                <div class="span9">{!! Form::text('biayaekspjual',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'biayaekspjual',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
            <div class="row-form clearfix">
                 <div class="span3">Styrofoam Cost:</div>
-                <div class="span9">{!! Form::text('biayastereo',null,['class'=>'','maxlength' => "14"]) !!}</div>
+                <div class="span9">{!! Form::input('number', 'biayastereo',null,['class'=>'','maxlength' => "14", 'step' => "0.01"]) !!}</div>
             </div>
             <div class="row-form clearfix">
                 {!! Form::submit('Update', ['class' => 'btn btn-primary']) !!}
