@@ -127,6 +127,7 @@ Route::group(['middleware' => 'owner'], function()
     Route::resource('/owner/report/salesperiod','Owner\Report\SalesPeriodController');
     Route::resource('/owner/report/purchaseperiod','Owner\Report\PurchasePeriodController');
     Route::resource('/owner/report/profitandlossperiod','Owner\Report\ProfitAndLossPeriodController');
+    Route::resource('/owner/report/salaryperiod','Owner\Report\SalaryPeriodController');
     Route::resource('/owner/setting/changepassword', 'Owner\Setting\ChangePasswordController');
 });
 

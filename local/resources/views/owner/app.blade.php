@@ -203,7 +203,12 @@
                         <a href="{{ url('/owner/report/profitandlossperiod') }}">
                             <span class="icon-chevron-right"></span><span class="text">Profit And Loss Report Per Periode</span>
                         </a>                  
-                    </li>               
+                    </li>    
+                    <li>
+                        <a href="{{ url('/owner/report/salaryperiod') }}">
+                            <span class="icon-chevron-right"></span><span class="text">Salary Per Periode</span>
+                        </a>                  
+                    </li>            
                 </ul>                
             </li>    
             <li class="openable
