@@ -73,6 +73,11 @@ class RevisiFakturController extends Controller {
 			$checkitem = true;
 	   		return view('/admin/sales/revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers', 'checkitem'));
 		}
+		else if(Request::input('validasidate') != "")
+		{
+			$validasidate = true;
+			return view('/admin/sales/revisifakturupdate', compact('jual', 'detiljuals', 'items', 'customers', 'validasidate'));
+		}
 		else if(Request::input('success') != "")
 		{
 			$success = true;
@@ -95,6 +100,10 @@ class RevisiFakturController extends Controller {
 			|| Request::input('biayaekspjual') == "" ||  Request::input('biayastereo') == "")
 		{
 			return redirect('admin/sales/revisifaktur/' . $nojual . '?validasi=true');
+		}
+		else if(Request::input('tglorderjual') >  Request::input('tgltempojual'))
+		{
+			return redirect('admin/sales/revisifaktur/' . $nojual . '?validasidate=true');
 		}
 
 

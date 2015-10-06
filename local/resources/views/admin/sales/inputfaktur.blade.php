@@ -179,6 +179,11 @@
   window.alert('There is no item inserted');
 </script>
 @endif
+@if (isset($validasidate) && $validasidate === true)
+<script>
+  window.alert('Order Date cannot be more than Due Date');
+</script>
+@endif
 @if (isset($success) && $success === true)
 <script>
   window.alert('Data successfully stored');

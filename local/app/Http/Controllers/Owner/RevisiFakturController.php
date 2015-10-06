@@ -103,6 +103,11 @@ class RevisiFakturController extends Controller {
 			$checkitem = true;
 	   		return view('/owner/purchase/revisifakturupdate', compact('beli', 'detilbelis', 'items', 'suppliers', 'checkitem'));
 		}
+		else if(Request::input('validasidate') != "")
+		{
+			$validasidate = true;
+			return view('/owner/purchase/revisifakturupdate', compact('beli', 'detilbelis', 'items', 'suppliers', 'validasidate'));
+		}
 		else if(Request::input('success') != "")
 		{
 			$success = true;
@@ -125,7 +130,11 @@ class RevisiFakturController extends Controller {
 		if(Request::input('idsupp') == "" || Request::input('tglorderbeli') == "" || Request::input('tgltempobeli') == "" 
 		    || Request::input('biayakarantina') == ""  || Request::input('biayalab') == "" || Request::input('biayafreight') == "")
 		{
-			return redirect('owner/purchase/revisifaktur?validasi=true');
+			return redirect('owner/purchase/revisifaktur/' . $nobeli . '?validasi=true');
+		}
+		else if(Request::input('tglorderbeli') >  Request::input('tgltempobeli'))
+		{
+			return redirect('owner/purchase/revisifaktur/' . $nobeli . '?validasidate=true');
 		}
 
 

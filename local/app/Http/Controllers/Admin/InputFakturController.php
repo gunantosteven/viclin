@@ -44,6 +44,11 @@ class InputFakturController extends Controller {
 			$checkdetail = true;
 	   		return view('/admin/sales/inputfaktur', compact('customers', 'items', 'checkdetail'));
 		}
+		else if($request->input('validasidate') != "")
+		{
+			$validasidate = true;
+			return view('/admin/sales/inputfaktur', compact('customers', 'items', 'validasidate'));
+		}
 		return view('/admin/sales/inputfaktur', compact('customers', 'items'));
 	}
 
@@ -73,6 +78,10 @@ class InputFakturController extends Controller {
 		else if(Session::get('salesitems') == null)
 		{
 			return redirect('admin/sales/inputfaktur?checkdetail=true');
+		}
+		else if($request->input('tglorderjual') >  $request->input('tgltempojual'))
+		{
+			return redirect('admin/sales/inputfaktur?validasidate=true');
 		}
 
 		//
