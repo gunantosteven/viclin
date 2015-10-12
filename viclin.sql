@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Aug 05, 2015 at 03:55 
+-- Generation Time: Oct 12, 2015 at 06:00 
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -96,10 +96,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`id`, `kodekategori`, `namakategori`, `statusdelete`, `created_at`, `updated_at`) VALUES
-(1, '1', 'Kepiting', '0', '2015-08-04 18:55:41', '2015-08-04 18:55:41'),
-(2, '2', 'Cumi', '0', '2015-08-04 18:55:41', '2015-08-04 18:55:41'),
-(3, '3', 'Udang', '0', '2015-08-04 18:55:41', '2015-08-04 18:55:41'),
-(4, '4', 'Gurami', '0', '2015-08-04 18:55:41', '2015-08-04 18:55:41');
+(1, '1', 'Kepiting', '0', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(2, '2', 'Cumi', '0', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(3, '3', 'Udang', '0', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(4, '4', 'Gurami', '0', '2015-10-11 20:57:58', '2015-10-11 20:57:58');
 
 -- --------------------------------------------------------
 
@@ -124,10 +124,10 @@ CREATE TABLE IF NOT EXISTS `customers` (
 --
 
 INSERT INTO `customers` (`id`, `namacust`, `alamatcust`, `telpcust`, `kotacust`, `emailcust`, `company`, `created_at`, `updated_at`) VALUES
-(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 'UWIKA', '2015-08-04 18:55:40', '2015-08-04 18:55:40'),
-(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 'UNESA', '2015-08-04 18:55:40', '2015-08-04 18:55:40'),
-(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 'UBAYA', '2015-08-04 18:55:40', '2015-08-04 18:55:40'),
-(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 'WM', '2015-08-04 18:55:41', '2015-08-04 18:55:41');
+(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 'UWIKA', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 'UNESA', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 'UBAYA', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 'WM', '2015-10-11 20:57:58', '2015-10-11 20:57:58');
 
 -- --------------------------------------------------------
 
@@ -189,8 +189,8 @@ CREATE TABLE IF NOT EXISTS `employees` (
 --
 
 INSERT INTO `employees` (`id`, `namaemp`, `alamatemp`, `telpemp`, `kotaemp`, `tglmasuk`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-08-04 18:55:42', '2015-08-04 18:55:42'),
-(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-08-04 18:55:42', '2015-08-04 18:55:42');
+(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-10-11 20:57:58', '2015-10-11 20:57:58');
 
 -- --------------------------------------------------------
 
@@ -215,10 +215,10 @@ CREATE TABLE IF NOT EXISTS `items` (
 --
 
 INSERT INTO `items` (`id`, `kodebrg`, `id_category`, `namabrg`, `stokkg`, `status`, `stokbrg`, `created_at`, `updated_at`) VALUES
-(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10, '2015-08-04 18:55:41', '2015-08-04 18:55:41'),
-(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5, '2015-08-04 18:55:42', '2015-08-04 18:55:42'),
-(3, '3', 1, 'Kepiting C Frozen Food', 5.00, 'Frozen Food', 5, '2015-08-04 18:55:42', '2015-08-04 18:55:42'),
-(4, '4', 1, 'Kepiting D Frozen Food', 5.00, 'Live Food', 5, '2015-08-04 18:55:42', '2015-08-04 18:55:42');
+(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10, '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5, '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(3, '3', 1, 'Kepiting C Frozen Food', 5.00, 'Frozen Food', 5, '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
+(4, '4', 1, 'Kepiting D Frozen Food', 5.00, 'Live Food', 5, '2015-10-11 20:57:58', '2015-10-11 20:57:58');
 
 -- --------------------------------------------------------
 
@@ -259,6 +259,7 @@ CREATE TABLE IF NOT EXISTS `revisi` (
   `dataawal` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `dataakhir` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `keterangan` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `status` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -304,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `niksupp`, `namasupp`, `alamatsupp`, `telpsupp`, `kotasupp`, `emailsupp`, `created_at`, `updated_at`) VALUES
-(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-08-04 18:55:42', '2015-08-04 18:55:42');
+(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-10-11 20:57:58', '2015-10-11 20:57:58');
 
 -- --------------------------------------------------------
 
@@ -328,8 +329,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `namauser`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$Nhmp3UZdR1fBf.Rnd2tn/O3eiuMdSk54dQ6BI9d70rLn8sXRQpWHi', 'steven', 'admin', '', '2015-08-04 18:55:39', '2015-08-04 18:55:39'),
-(2, 'owner', '$2y$10$S7vOcO/u8xzZN7jRK5Rz7OCChnYnlj9wNmV99CebyQvC.B9dzVNQC', 'yonathan', 'owner', '', '2015-08-04 18:55:40', '2015-08-04 18:55:40');
+(1, 'admin', '$2y$10$1f0tofQlxxMzPJGGCC6DMeqKdoMn1Mb4fDrZvbqGy9c/IosQoKlye', 'steven', 'admin', '', '2015-10-11 20:57:57', '2015-10-11 20:57:57'),
+(2, 'owner', '$2y$10$K5q13YXM7gmceVFsSlHVjOwVQDf8Y.FIYTtgt/DwGYwMWN.vFRaEW', 'yonathan', 'owner', '', '2015-10-11 20:57:57', '2015-10-11 20:57:57');
 
 --
 -- Indexes for dumped tables
