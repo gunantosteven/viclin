@@ -155,7 +155,12 @@
                         <a href="{{ url('/owner/purchase/inputfaktur') }}">
                             <span class="icon-chevron-right"></span><span class="text">Input Invoice</span>
                         </a>                  
-                    </li>          
+                    </li>    
+                    <li>
+                        <a href="{{ url('/owner/purchase/viewfaktur') }}">
+                            <span class="icon-chevron-right"></span><span class="text">View Invoice</span>
+                        </a>                  
+                    </li>         
                     <li>
                         <a href="{{ url('/owner/purchase/revisifaktur') }}">
                             <span class="icon-chevron-right"></span><span class="text">Revision Invoice</span>

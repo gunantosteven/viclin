@@ -79,6 +79,23 @@ Route::group(['middleware' => 'owner'], function()
 	]);
 	Route::resource('/owner/purchase/detailrevisifaktur', 'Owner\DetailRevisiFakturController');
 
+	Route::get('/owner/purchase/viewfaktur', [
+	    'as' => 'owner.purchase.viewfaktur.index',
+	    'uses' => 'Owner\ViewFakturController@index'
+	]);
+    Route::post('/owner/purchase/viewfaktur', [
+	    'as' => 'owner.purchase.viewfaktur.showfaktur',
+	    'uses' => 'Owner\ViewFakturController@showfaktur'
+	]);
+	Route::get('/owner/purchase/viewfaktur/{nojual}', [
+	    'as' => 'owner.purchase.viewfaktur.edit',
+	    'uses' => 'Owner\ViewFakturController@edit'
+	]);
+	Route::patch('/owner/purchase/viewfaktur/{nojual}', [
+	    'as' => 'owner.purchase.viewfaktur.update',
+	    'uses' => 'Owner\ViewFakturController@update'
+	]);
+
     /*Route::resource('/owner/purchase/returperfaktur', 'Owner\ReturPerFakturController');*/
 
     Route::get('/owner/purchase/paymentconfirmation', [
