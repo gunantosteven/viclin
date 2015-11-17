@@ -18,7 +18,15 @@
                 <div class="span9"><input type="text" id="nobeli" name="nobeli" value={{ $beli->nobeli }} readonly></div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Total Payment:</div>
+                <div class="span3">Purchase:</div>
+                <div class="span9"><input type="text" id="purchase" name="purchase" value={{ $purchase }} readonly></div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Depreciation Cost:</div>
+                <div class="span9"><input type="text" id="depreciationCost" name="depreciationCost" value={{ $depreciationCost }} readonly></div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Total Payment (Purchase - Depreciation):</div>
                 <div class="span9"><input type="text" id="totalpayment" name="totalpayment" value={{ $totalpayment }} readonly></div>
             </div>
             <div class="row-form clearfix">

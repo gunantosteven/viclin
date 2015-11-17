@@ -94,16 +94,18 @@ class PaymentConfirmationController extends Controller {
                      ->first()->subtotal;
         $micellanous = $beli->bm+$beli->pph+$beli->storage+$beli->trmc+$beli->spc+$beli->time+$beli->dokumen+$beli->ppn+$beli->stamp;
         $handling = $beli->handling+$beli->over+$beli->adm+$beli->edi+$beli->rush;
+        $purchase = $subtotal + $beli->biayakarantina + $beli->biayalab + $beli->biayafreight + $micellanous + $handling;
+        $depreciationCost = $beli->biayasusutbeli;
         $totalpayment = $subtotal + $beli->biayakarantina + $beli->biayalab + $beli->biayafreight + $micellanous + $handling - $beli->biayasusutbeli;
 
         if(Request::input('over') != "")
 		{
 			$over = true;
-	   		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'totalpayment', 'over'));
+	   		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'purchase', 'depreciationCost', 'totalpayment', 'over'));
 		}
 		
 
-		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'totalpayment'));
+		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'purchase', 'depreciationCost', 'totalpayment'));
 	}
 
 	/**
