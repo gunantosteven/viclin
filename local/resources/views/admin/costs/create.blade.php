@@ -16,7 +16,6 @@
                 <div class="span9">
                     <select name="biaya" id="s2_1item" style="width: 100%;">
                         <option value="BENSIN">Bensin</option>
-                        <option value="BIAYAEKSPEDISI">Biaya Ekspedisi</option>
                         <option value="TOLPARKIR">Tol Parkir</option>
                         <option value="LAINLAIN">Lain-Lain</option>
                     </select>

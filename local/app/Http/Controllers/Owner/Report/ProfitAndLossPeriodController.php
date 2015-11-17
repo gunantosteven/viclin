@@ -92,9 +92,6 @@ class ProfitAndLossPeriodController extends Controller {
     	$biayabensin = Cost::where('tgl', '>=', $tanggalawal)
     				->where('tgl', '<=', $tanggalakhir)
     				->where('biaya', '=', 'BENSIN')->sum('nominal');
-    	$biayaekspedisi = Cost::where('tgl', '>=', $tanggalawal)
-    				->where('tgl', '<=', $tanggalakhir)
-    				->where('biaya', '=', 'BIAYAEKSPEDISI')->sum('nominal');
     	$tolparkir = Cost::where('tgl', '>=', $tanggalawal)
     				->where('tgl', '<=', $tanggalakhir)
     				->where('biaya', '=', 'TOLPARKIR')->sum('nominal');
@@ -107,14 +104,14 @@ class ProfitAndLossPeriodController extends Controller {
 
     	$income = $totalsales + $biayasusutbeli;
     	$expenses = $totalpurchase + $biayakarantina + $biayalab + $biayafreight + $micellanous + $handling + $biayaekspjual + $biayasusutjual + $biayastereo;
-    	$costs = $biayabensin + $biayaekspedisi + $tolparkir + $lainlain + $salary;
+    	$costs = $biayabensin + $tolparkir + $lainlain + $salary;
 
     	$profitandloss = $income - $expenses - $costs;
 
     	$pdf = PDF::loadView('owner.report.pdf.reportprofitandlossperiod', 
     		compact('totalpurchase', 'biayasusutbeli', 'biayakarantina', 'biayalab', 'biayafreight', 'micellanous', 'handling', 'totalAllPurchase',    
     			'totalsales', 'biayaekspjual', 'biayasusutjual', 'biayastereo',   
-    			'biayabensin', 'biayaekspedisi', 'tolparkir', 'lainlain', 'salary', 
+    			'biayabensin', 'tolparkir', 'lainlain', 'salary', 
     			'income', 'expenses', 'costs', 'profitandloss',
     			'tanggalawal', 'tanggalakhir'));
 		return $pdf->setPaper('a4')->stream('reportprofitandlossperiod' . '.pdf');

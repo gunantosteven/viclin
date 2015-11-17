@@ -110,10 +110,6 @@ th, td {
             <div class="d2"><b>{{ number_format($biayabensin, 2) }}</b></div>
         </div>
         <div class="tr">
-            <div class="d1">Total Expedition Cost</div>
-            <div class="d2"><b>{{ number_format($biayaekspedisi, 2) }}</b></div>
-        </div>
-        <div class="tr">
             <div class="d1">Total Toll Parking</div>
             <div class="d2"><b>{{ number_format($tolparkir, 2) }}</b></div>
         </div>

@@ -16,7 +16,6 @@
                 <div class="span9">
                     <select name="biaya" id="s2_1item" style="width: 100%;">
                         <option value="BENSIN" @if($cost->biaya == "BENSIN") {{ "selected" }} @endif>Bensin</option>
-                        <option value="BIAYAEKSPEDISI" @if($cost->biaya == "BIAYAEKSPEDISI") {{ "selected" }} @endif>Biaya Ekspedisi</option>
                         <option value="TOLPARKIR" @if($cost->biaya == "TOLPARKIR") {{ "selected" }} @endif>Tol Parkir</option>
                         <option value="LAINLAIN" @if($cost->biaya == "LAINLAIN") {{ "selected" }} @endif>Lain-Lain</option>
                     </select>
