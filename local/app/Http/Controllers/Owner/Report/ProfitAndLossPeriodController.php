@@ -76,8 +76,7 @@ class ProfitAndLossPeriodController extends Controller {
     				->where('tglorderbeli', '<=', $tanggalakhir)->sum('biayalab');
     	$biayafreight = Beli::where('tglorderbeli', '>=', $tanggalawal)
     				->where('tglorderbeli', '<=', $tanggalakhir)->sum('biayafreight');
-    	$totalAllPurchase = $totalpurchase + $biayakarantina + $biayalab + $biayafreight + $micellanous + $handling - $biayasusutbeli;
-
+    	
     	$totalsales = DB::table('jual')
             ->join('detiljual', 'jual.nojual', '=', 'detiljual.nojual')
             ->where('jual.tglorderjual', '>=', $tanggalawal)
@@ -89,7 +88,6 @@ class ProfitAndLossPeriodController extends Controller {
     				->where('tglorderjual', '<=', $tanggalakhir)->sum('biayasusutjual');
     	$biayastereo = Jual::where('tglorderjual', '>=', $tanggalawal)
     				->where('tglorderjual', '<=', $tanggalakhir)->sum('biayastereo');
-    	$totalAllSales = $totalsales + $biayaekspjual + $biayastereo - $biayasusutjual;
 
     	$biayabensin = Cost::where('tgl', '>=', $tanggalawal)
     				->where('tgl', '<=', $tanggalakhir)
@@ -105,15 +103,19 @@ class ProfitAndLossPeriodController extends Controller {
     				->where('biaya', '=', 'LAINLAIN')->sum('nominal');
     	$salary = Salary::where('tgltransaksi', '>=', $tanggalawal)
     				->where('tgltransaksi', '<=', $tanggalakhir)->sum('nominal');
-    	$totalAllBiaya = $biayabensin + $biayaekspedisi + $tolparkir + $lainlain + $salary;
+    	
 
-    	$profitandloss = $totalAllSales - $totalAllPurchase - $totalAllBiaya;
+    	$income = $totalsales + $biayasusutbeli;
+    	$expenses = $totalpurchase + $biayakarantina + $biayalab + $biayafreight + $micellanous + $handling + $biayaekspjual + $biayasusutjual + $biayastereo;
+    	$costs = $biayabensin + $biayaekspedisi + $tolparkir + $lainlain + $salary;
+
+    	$profitandloss = $income - $expenses - $costs;
 
     	$pdf = PDF::loadView('owner.report.pdf.reportprofitandlossperiod', 
     		compact('totalpurchase', 'biayasusutbeli', 'biayakarantina', 'biayalab', 'biayafreight', 'micellanous', 'handling', 'totalAllPurchase',    
-    			'totalsales', 'biayaekspjual', 'biayasusutjual', 'biayastereo', 'totalAllSales',  
-    			'biayabensin', 'biayaekspedisi', 'tolparkir', 'lainlain', 'salary', 'totalAllBiaya',
-    			'profitandloss', 
+    			'totalsales', 'biayaekspjual', 'biayasusutjual', 'biayastereo',   
+    			'biayabensin', 'biayaekspedisi', 'tolparkir', 'lainlain', 'salary', 
+    			'income', 'expenses', 'costs', 'profitandloss',
     			'tanggalawal', 'tanggalakhir'));
 		return $pdf->setPaper('a4')->stream('reportprofitandlossperiod' . '.pdf');
 	}
