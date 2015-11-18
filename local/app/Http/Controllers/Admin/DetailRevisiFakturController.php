@@ -44,13 +44,13 @@ class DetailRevisiFakturController extends Controller {
 	public function store(Request $request)
 	{
 		//validasi
-		if($request->input('kodebrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
+		if($request->input('idbrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
 			|| $request->input('jumlahekor') == "" || $request->input('noofbox') == "")
 		{
 			return redirect('admin/sales/revisifaktur/' . $request->input('nojual') . '?validasi=true');
 		}
 		//validasi stock
-		$itemNow = DB::table('items')->where('kodebrg', $request->input('kodebrg'))->first();
+		$itemNow = DB::table('items')->where('id', $request->input('idbrg'))->first();
 		$jumlahKg = $request->input('jumlahkg');
 		$jumlahEkor = $request->input('jumlahekor');
 		if($itemNow->stokkg - $jumlahKg < 0 || $itemNow->stokbrg - $jumlahEkor < 0)
@@ -58,8 +58,8 @@ class DetailRevisiFakturController extends Controller {
 			return redirect('admin/sales/revisifaktur/' . $request->input('nojual') . '?checkstock=true');
 		}
 		//validasi the same item
-		$detiljual = DB::table('detiljual')->where('nojual', '=', $request->input('nojual'))->where('kodebrg', '=', $request->input('kodebrg'))->first();
-		if($detiljual != null && $detiljual->kodebrg == $request->input('kodebrg'))
+		$detiljual = DB::table('detiljual')->where('nojual', '=', $request->input('nojual'))->where('idbrg', '=', $request->input('idbrg'))->first();
+		if($detiljual != null && $detiljual->idbrg == $request->input('idbrg'))
 		{
 			return redirect('admin/sales/revisifaktur/' . $request->input('nojual') . '?checkitem=true');
 		}
@@ -81,7 +81,7 @@ class DetailRevisiFakturController extends Controller {
 				    'tglrevisi' => $datetoday,
 				    'jualbeli' => $request->input('nojual'),
 				    'dataawal' => '',
-				    'dataakhir' => $request->input('kodebrg'),
+				    'dataakhir' => DB::table('items')->where('id', $request->input('idbrg'))->first()->kodebrg,
 				    'keterangan' => 'Add Item Code',
 				    'status' => 'UNREAD'
 		));
@@ -124,11 +124,11 @@ class DetailRevisiFakturController extends Controller {
 		// end insert to revisi
 
 		//
-		DB::table('items')->where('kodebrg', '=', $request->input('kodebrg'))->decrement('stokkg', $request->input('jumlahkg'));
-        DB::table('items')->where('kodebrg', '=', $request->input('kodebrg'))->decrement('stokbrg', $request->input('jumlahekor'));
+		DB::table('items')->where('id', '=', $request->input('idbrg'))->decrement('stokkg', $request->input('jumlahkg'));
+        DB::table('items')->where('id', '=', $request->input('idbrg'))->decrement('stokbrg', $request->input('jumlahekor'));
 		DetilJual::create(array(
 				    'nojual' => $request->input('nojual'),
-				    'kodebrg' => $request->input('kodebrg'),
+				    'idbrg' => $request->input('idbrg'),
 				    'hargasatuankg' => $request->input('hargasatuankg'),
 				    'jumlahkg' => $request->input('jumlahkg'),
 				    'jumlahekor' => $request->input('jumlahekor'),
@@ -198,7 +198,7 @@ class DetailRevisiFakturController extends Controller {
 				    'user' => Auth::user()->id,
 				    'tglrevisi' => $datetoday,
 				    'jualbeli' => $detiljualNow->nojual,
-				    'dataawal' => $detiljualNow->kodebrg,
+				    'dataawal' => DB::table('items')->where('id', $detiljualNow->idbrg)->kodebrg,
 				    'dataakhir' => '',
 				    'keterangan' => 'Delete Item Code',
 				    'status' => 'UNREAD'
@@ -241,8 +241,8 @@ class DetailRevisiFakturController extends Controller {
 		));
 		// end insert to revisi
 
-		DB::table('items')->where('kodebrg', '=', $detiljualNow->kodebrg)->increment('stokkg', $detiljualNow->jumlahkg);
-        DB::table('items')->where('kodebrg', '=', $detiljualNow->kodebrg)->increment('stokbrg', $detiljualNow->jumlahekor);
+		DB::table('items')->where('id', '=', $detiljualNow->idbrg)->increment('stokkg', $detiljualNow->jumlahkg);
+        DB::table('items')->where('id', '=', $detiljualNow->idbrg)->increment('stokbrg', $detiljualNow->jumlahekor);
 		DetilJual::find($id)->delete();
    		return redirect('admin/sales/revisifaktur/' . $request->input('nojual'));
 	}

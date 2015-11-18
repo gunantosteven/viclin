@@ -15,9 +15,9 @@
             <div class="row-form clearfix">
                 <div class="span3">Item Name:</div>
                 <div class="span9">
-                    <select name="kodebrg" id="s2_1item" style="width: 100%;">
+                    <select name="idbrg" id="s2_1item" style="width: 100%;">
                         @foreach ($items as $key => $item)
-                            <option value={{ $item['kodebrg'] }}>{{ $item['namabrg'] }}</option>
+                            <option value={{ $item['id'] }}>{{ $item['namabrg'] }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -74,7 +74,7 @@
                          <tbody>
                             @foreach ($detilbelis as $key => $item)
                                 <tr>
-                                     <td>{{  DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
+                                     <td>{{  DB::table('items')->where('id', $item['idbrg'])->first()->namabrg }}</td>
                                      <td>{{ number_format($item['hargasatuankg'], 2) }}</td>
                                      <td>{{ $item['jumlahkg'] }}</td>
                                      <td>{{ $item['jumlahekor'] }}</td>
