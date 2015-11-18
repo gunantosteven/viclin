@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Oct 12, 2015 at 06:00 
+-- Generation Time: Nov 18, 2015 at 04:48 
 -- Server version: 5.6.24
 -- PHP Version: 5.5.24
 
@@ -96,10 +96,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`id`, `kodekategori`, `namakategori`, `statusdelete`, `created_at`, `updated_at`) VALUES
-(1, '1', 'Kepiting', '0', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(2, '2', 'Cumi', '0', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(3, '3', 'Udang', '0', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(4, '4', 'Gurami', '0', '2015-10-11 20:57:58', '2015-10-11 20:57:58');
+(1, '1', 'Kepiting', '0', '2015-11-17 20:47:53', '2015-11-17 20:47:53'),
+(2, '2', 'Cumi', '0', '2015-11-17 20:47:53', '2015-11-17 20:47:53'),
+(3, '3', 'Udang', '0', '2015-11-17 20:47:53', '2015-11-17 20:47:53'),
+(4, '4', 'Gurami', '0', '2015-11-17 20:47:53', '2015-11-17 20:47:53');
 
 -- --------------------------------------------------------
 
@@ -124,10 +124,10 @@ CREATE TABLE IF NOT EXISTS `customers` (
 --
 
 INSERT INTO `customers` (`id`, `namacust`, `alamatcust`, `telpcust`, `kotacust`, `emailcust`, `company`, `created_at`, `updated_at`) VALUES
-(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 'UWIKA', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 'UNESA', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 'UBAYA', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 'WM', '2015-10-11 20:57:58', '2015-10-11 20:57:58');
+(1, 'Budi', 'Kenjeran no. 48', '031335667788', 'Surabaya', 'budibudi@gmail.com', 'UWIKA', '2015-11-17 20:47:53', '2015-11-17 20:47:53'),
+(2, 'Bunga', 'Jatim Park no. 48', '031445667788', 'Surabaya', 'bunga@gmail.com', 'UNESA', '2015-11-17 20:47:53', '2015-11-17 20:47:53'),
+(3, 'Ania', 'Jember no. 48', '03161162788', 'Surabaya', 'ania@gmail.com', 'UBAYA', '2015-11-17 20:47:53', '2015-11-17 20:47:53'),
+(4, 'amsyong', 'Kediri no. 48', '03185668888', 'Surabaya', 'budibudi@gmail.com', 'WM', '2015-11-17 20:47:53', '2015-11-17 20:47:53');
 
 -- --------------------------------------------------------
 
@@ -138,7 +138,7 @@ INSERT INTO `customers` (`id`, `namacust`, `alamatcust`, `telpcust`, `kotacust`,
 CREATE TABLE IF NOT EXISTS `detilbeli` (
   `id` bigint(20) unsigned NOT NULL,
   `nobeli` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `kodebrg` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `idbrg` bigint(20) unsigned NOT NULL,
   `hargasatuankg` double(16,2) NOT NULL,
   `jumlahkg` double(16,2) NOT NULL,
   `jumlahekor` bigint(20) NOT NULL,
@@ -156,7 +156,7 @@ CREATE TABLE IF NOT EXISTS `detilbeli` (
 CREATE TABLE IF NOT EXISTS `detiljual` (
   `id` bigint(20) unsigned NOT NULL,
   `nojual` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `kodebrg` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `idbrg` bigint(20) unsigned NOT NULL,
   `hargasatuankg` double(16,2) NOT NULL,
   `jumlahkg` double(16,2) NOT NULL,
   `jumlahekor` bigint(20) NOT NULL,
@@ -189,8 +189,8 @@ CREATE TABLE IF NOT EXISTS `employees` (
 --
 
 INSERT INTO `employees` (`id`, `namaemp`, `alamatemp`, `telpemp`, `kotaemp`, `tglmasuk`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-10-11 20:57:58', '2015-10-11 20:57:58');
+(1, 'Bejo', 'Kenjeran no. 111111', '031335447788', 'Surabaya', '2015-07-07', 'ACTIVE', '2015-11-17 20:47:54', '2015-11-17 20:47:54'),
+(2, 'Titin', 'Ken Park no. 111111', '031335447788', 'Surabaya', '2015-06-13', 'QUIT', '2015-11-17 20:47:54', '2015-11-17 20:47:54');
 
 -- --------------------------------------------------------
 
@@ -215,10 +215,10 @@ CREATE TABLE IF NOT EXISTS `items` (
 --
 
 INSERT INTO `items` (`id`, `kodebrg`, `id_category`, `namabrg`, `stokkg`, `status`, `stokbrg`, `created_at`, `updated_at`) VALUES
-(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10, '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5, '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(3, '3', 1, 'Kepiting C Frozen Food', 5.00, 'Frozen Food', 5, '2015-10-11 20:57:58', '2015-10-11 20:57:58'),
-(4, '4', 1, 'Kepiting D Frozen Food', 5.00, 'Live Food', 5, '2015-10-11 20:57:58', '2015-10-11 20:57:58');
+(1, '1', 1, 'Kepiting A Live Food', 2.00, 'Live Food', 10, '2015-11-17 20:47:54', '2015-11-17 20:47:54'),
+(2, '2', 1, 'Kepiting B Frozen Food', 1.00, 'Frozen Food', 5, '2015-11-17 20:47:54', '2015-11-17 20:47:54'),
+(3, '3', 1, 'Kepiting C Frozen Food', 5.00, 'Frozen Food', 5, '2015-11-17 20:47:54', '2015-11-17 20:47:54'),
+(4, '4', 1, 'Kepiting D Frozen Food', 5.00, 'Live Food', 5, '2015-11-17 20:47:54', '2015-11-17 20:47:54');
 
 -- --------------------------------------------------------
 
@@ -305,7 +305,7 @@ CREATE TABLE IF NOT EXISTS `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `niksupp`, `namasupp`, `alamatsupp`, `telpsupp`, `kotasupp`, `emailsupp`, `created_at`, `updated_at`) VALUES
-(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-10-11 20:57:58', '2015-10-11 20:57:58');
+(1, 's1', 'Andre', 'Jagalan no. 48', '03111223344', 'Surabaya', 'andre@gmail.com', '2015-11-17 20:47:54', '2015-11-17 20:47:54');
 
 -- --------------------------------------------------------
 
@@ -329,8 +329,8 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `password`, `namauser`, `role`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'admin', '$2y$10$1f0tofQlxxMzPJGGCC6DMeqKdoMn1Mb4fDrZvbqGy9c/IosQoKlye', 'steven', 'admin', '', '2015-10-11 20:57:57', '2015-10-11 20:57:57'),
-(2, 'owner', '$2y$10$K5q13YXM7gmceVFsSlHVjOwVQDf8Y.FIYTtgt/DwGYwMWN.vFRaEW', 'yonathan', 'owner', '', '2015-10-11 20:57:57', '2015-10-11 20:57:57');
+(1, 'admin', '$2y$10$1cJzxOcGnGcbp01OOlXVfOGOJGbRy5qpCwBzXkFM0PtsaY0viUB1O', 'steven', 'admin', '', '2015-11-17 20:47:53', '2015-11-17 20:47:53'),
+(2, 'owner', '$2y$10$9gEx421Slfi6/CCq7KnCjOqV1zbLA/KEyMnI3iytghT4cyKIh7vOG', 'yonathan', 'owner', '', '2015-11-17 20:47:53', '2015-11-17 20:47:53');
 
 --
 -- Indexes for dumped tables
@@ -370,7 +370,7 @@ ALTER TABLE `customers`
 ALTER TABLE `detilbeli`
   ADD PRIMARY KEY (`id`),
   ADD KEY `detilbeli_nobeli_foreign` (`nobeli`),
-  ADD KEY `detilbeli_kodebrg_foreign` (`kodebrg`);
+  ADD KEY `detilbeli_idbrg_foreign` (`idbrg`);
 
 --
 -- Indexes for table `detiljual`
@@ -378,7 +378,7 @@ ALTER TABLE `detilbeli`
 ALTER TABLE `detiljual`
   ADD PRIMARY KEY (`id`),
   ADD KEY `detiljual_nojual_foreign` (`nojual`),
-  ADD KEY `detiljual_kodebrg_foreign` (`kodebrg`);
+  ADD KEY `detiljual_idbrg_foreign` (`idbrg`);
 
 --
 -- Indexes for table `employees`
@@ -514,14 +514,14 @@ ALTER TABLE `beli`
 -- Constraints for table `detilbeli`
 --
 ALTER TABLE `detilbeli`
-  ADD CONSTRAINT `detilbeli_kodebrg_foreign` FOREIGN KEY (`kodebrg`) REFERENCES `items` (`kodebrg`),
+  ADD CONSTRAINT `detilbeli_idbrg_foreign` FOREIGN KEY (`idbrg`) REFERENCES `items` (`id`),
   ADD CONSTRAINT `detilbeli_nobeli_foreign` FOREIGN KEY (`nobeli`) REFERENCES `beli` (`nobeli`);
 
 --
 -- Constraints for table `detiljual`
 --
 ALTER TABLE `detiljual`
-  ADD CONSTRAINT `detiljual_kodebrg_foreign` FOREIGN KEY (`kodebrg`) REFERENCES `items` (`kodebrg`),
+  ADD CONSTRAINT `detiljual_idbrg_foreign` FOREIGN KEY (`idbrg`) REFERENCES `items` (`id`),
   ADD CONSTRAINT `detiljual_nojual_foreign` FOREIGN KEY (`nojual`) REFERENCES `jual` (`nojual`);
 
 --
