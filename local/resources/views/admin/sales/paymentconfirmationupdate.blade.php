@@ -18,12 +18,16 @@
                 <div class="span9"><input type="text" id="nojual" name="nojual" value={{ $jual->nojual }} readonly></div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Total Payment:</div>
-                <div class="span9"><input type="text" id="totalpayment" name="totalpayment" value={{ $totalpayment }} readonly></div>
+                <div class="span3">Sales:</div>
+                <div class="span9"><input type="text" id="sales" name="sales" value={{ $sales }} readonly></div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Nominal Payment:</div>
-                <div class="span9"><input type="number" id="nominalpayment" name="nominalpayment" maxlength="14" step="0.01" value={{ $jual->nominalpayment }}></div>
+                <div class="span3">Depreciation Cost:</div>
+                <div class="span9"><input type="text" id="depreciationCost" name="depreciationCost" value={{ $depreciationCost }} readonly></div>
+            </div>
+            <div class="row-form clearfix">
+                <div class="span3">Total Payment (Sales - Depreciation):</div>
+                <div class="span9"><input type="text" id="totalpayment" name="totalpayment" value={{ $totalpayment }} readonly></div>
             </div>
             <div class="row-form clearfix">
                     <div class="span3">Payment Date:</div>

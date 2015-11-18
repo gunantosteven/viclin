@@ -98,13 +98,6 @@ class PaymentConfirmationController extends Controller {
         $depreciationCost = $beli->biayasusutbeli;
         $totalpayment = $subtotal + $beli->biayakarantina + $beli->biayalab + $beli->biayafreight + $micellanous + $handling - $beli->biayasusutbeli;
 
-        if(Request::input('over') != "")
-		{
-			$over = true;
-	   		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'purchase', 'depreciationCost', 'totalpayment', 'over'));
-		}
-		
-
 		return view('owner.purchase.paymentconfirmationupdate', compact('beli', 'purchase', 'depreciationCost', 'totalpayment'));
 	}
 
@@ -117,22 +110,9 @@ class PaymentConfirmationController extends Controller {
 	public function update()
 	{
 		//
-        if(Request::input('nominalpayment') < Request::input('totalpayment'))
-        {
-        	DB::table('beli')
+        DB::table('beli')
             ->where('nobeli', Request::input('nobeli'))
-            ->update(['payment' => 'UNPAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('nominalpayment')]);
-        }
-        else if(Request::input('nominalpayment') == Request::input('totalpayment'))
-        {
-        	DB::table('beli')
-            ->where('nobeli', Request::input('nobeli'))
-            ->update(['payment' => 'PAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('nominalpayment')]);
-        }
-        else
-        {
-        	return redirect('owner/purchase/paymentconfirmation/' . Request::input('nobeli') . '?over=true');
-        }
+            ->update(['payment' => 'PAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('totalpayment')]);
 
 		return redirect('owner/purchase/paymentconfirmation?success=true');
 	}

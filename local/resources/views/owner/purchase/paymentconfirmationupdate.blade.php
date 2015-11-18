@@ -30,10 +30,6 @@
                 <div class="span9"><input type="text" id="totalpayment" name="totalpayment" value={{ $totalpayment }} readonly></div>
             </div>
             <div class="row-form clearfix">
-                <div class="span3">Nominal Payment:</div>
-                <div class="span9"><input type="number" id="nominalpayment" name="nominalpayment" maxlength = "14" step="0.01" value={{ $beli->nominalpayment }}></div>
-            </div>
-            <div class="row-form clearfix">
                     <div class="span3">Payment Date:</div>
                     <div class="span9">{!! Form::input('date','paymentdate', $beli->paymentdate,['class'=>'form-control']) !!}</div>
                 </div>
@@ -49,9 +45,4 @@
         
     </div>
 </div>
-@if (isset($over) && $over === true)
-<script>
-  window.alert('Nominal Payment cannot be over Total Payment');
-</script>
-@endif
 @endsection

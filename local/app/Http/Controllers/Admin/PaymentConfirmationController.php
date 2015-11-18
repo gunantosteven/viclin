@@ -92,15 +92,11 @@ class PaymentConfirmationController extends Controller {
                      ->select(DB::raw('SUM(hargasatuankg * jumlahekor) as subtotal'))
                      ->where('nojual', '=', $jual->nojual)
                      ->first()->subtotal;
-        $totalpayment = $subtotal + $jual->biayaekspjual + $jual->biayastereo - $jual->biayasusutjual;
+        $sales = $subtotal - $jual->biayaekspjual - $jual->biayastereo;
+        $depreciationCost = $jual->biayasusutjual;
+        $totalpayment = $subtotal - $jual->biayaekspjual - $jual->biayastereo - $jual->biayasusutjual;
 
-        if(Request::input('over') != "")
-		{
-			$over = true;
-	   		return view('admin.sales.paymentconfirmationupdate', compact('jual', 'totalpayment', 'over'));
-		}
-
-		return view('admin.sales.paymentconfirmationupdate', compact('jual', 'totalpayment'));
+		return view('admin.sales.paymentconfirmationupdate', compact('jual', 'sales', 'depreciationCost', 'totalpayment'));
 	}
 
 	/**
@@ -112,22 +108,9 @@ class PaymentConfirmationController extends Controller {
 	public function update()
 	{
 		//
-        if(Request::input('nominalpayment') < Request::input('totalpayment'))
-        {
-        	DB::table('jual')
+        DB::table('jual')
             ->where('nojual', Request::input('nojual'))
-            ->update(['payment' => 'UNPAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('nominalpayment')]);
-        }
-        else if(Request::input('nominalpayment') == Request::input('totalpayment'))
-        {
-        	DB::table('jual')
-            ->where('nojual', Request::input('nojual'))
-            ->update(['payment' => 'PAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('nominalpayment')]);
-        }
-        else
-        {
-        	return redirect('admin/sales/paymentconfirmation/' . Request::input('nojual') . '?over=true');
-        }
+            ->update(['payment' => 'PAID', 'ketpayment' => Request::input('ketpayment'), 'paymentdate' => Request::input('paymentdate'), 'nominalpayment' => Request::input('totalpayment')]);
 
 		return redirect('admin/sales/paymentconfirmation?success=true');
 	}
