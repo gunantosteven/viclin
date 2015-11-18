@@ -45,9 +45,4 @@
         
     </div>
 </div>
-@if (isset($over) && $over === true)
-<script>
-  window.alert('Nominal Payment cannot be over Total Payment');
-</script>
-@endif
 @endsection
