@@ -148,11 +148,11 @@ class InputFakturController extends Controller {
 
    		
         foreach ($purchaseitems as $index => $item) {
-        		DB::table('items')->where('kodebrg', '=', $item['kodebrg'])->increment('stokkg', $item['jumlahkg']);
-        		DB::table('items')->where('kodebrg', '=', $item['kodebrg'])->increment('stokbrg', $item['jumlahekor']);
+        		DB::table('items')->where('id', '=', $item['idbrg'])->increment('stokkg', $item['jumlahkg']);
+        		DB::table('items')->where('id', '=', $item['idbrg'])->increment('stokbrg', $item['jumlahekor']);
 				DetilBeli::create(array(
 			    'nobeli' => $nobeli,
-			    'kodebrg' => $item['kodebrg'],
+			    'idbrg' => $item['idbrg'],
 			    'hargasatuankg' => $item['hargasatuankg'],
 			    'jumlahkg' => $item['jumlahkg'],
 			    'jumlahekor' => $item['jumlahekor'],

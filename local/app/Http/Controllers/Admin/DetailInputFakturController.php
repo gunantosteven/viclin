@@ -44,13 +44,13 @@ class DetailInputFakturController extends Controller {
 	{
 
 		//validasi
-		if($request->input('kodebrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
+		if($request->input('idbrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
 			|| $request->input('jumlahekor') == "" || $request->input('noofbox') == "")
 		{
 			return redirect('admin/sales/inputfaktur?validasi=true');
 		}
 		//validasi stock
-		$itemNow = DB::table('items')->where('kodebrg', $request->input('kodebrg'))->first();
+		$itemNow = DB::table('items')->where('id', $request->input('idbrg'))->first();
 		$jumlahKg = $request->input('jumlahkg');
 		$jumlahEkor = $request->input('jumlahekor');
 		if($itemNow->stokkg - $jumlahKg < 0 || $itemNow->stokbrg - $jumlahEkor < 0)
@@ -63,7 +63,7 @@ class DetailInputFakturController extends Controller {
 		{
 			$salesitems = Session::get('salesitems');
 			foreach ($salesitems as $index => $item) {
-				if ($item['kodebrg'] == $request->input('kodebrg')) {
+				if ($item['idbrg'] == $request->input('idbrg')) {
 			    	return redirect('admin/sales/inputfaktur?checkitem=true');
 			    }
 			}
@@ -74,7 +74,7 @@ class DetailInputFakturController extends Controller {
 		date_default_timezone_set('Asia/Bangkok');
 		$id = 'DJ-' . date('Ymd-H.i.s');
 		Session::push('salesitems', [
-          'kodebrg' => $request->input('kodebrg'),
+          'idbrg' => $request->input('idbrg'),
           'hargasatuankg' => $request->input('hargasatuankg'),
           'jumlahkg' => $request->input('jumlahkg'),
           'jumlahekor' => $request->input('jumlahekor'),

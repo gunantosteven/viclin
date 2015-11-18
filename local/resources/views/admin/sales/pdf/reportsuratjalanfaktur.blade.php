@@ -71,7 +71,7 @@ table {
   @foreach ($detiljuals as $key => $item)
             <tr>
                  <td>{{ $item['jumlahekor'] }}</td>
-                 <td>{{ DB::table('items')->where('kodebrg', $item['kodebrg'])->first()->namabrg }}</td>
+                 <td>{{ DB::table('items')->where('id', $item['idbrg'])->first()->namabrg }}</td>
             </tr>
    @endforeach
 </table>

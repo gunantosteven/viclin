@@ -102,11 +102,11 @@ class InputFakturController extends Controller {
 
    		$salesitems = Session::get('salesitems');
         foreach ($salesitems as $index => $item) {
-        		DB::table('items')->where('kodebrg', '=', $item['kodebrg'])->decrement('stokkg', $item['jumlahkg']);
-        		DB::table('items')->where('kodebrg', '=', $item['kodebrg'])->decrement('stokbrg', $item['jumlahekor']);
+        		DB::table('items')->where('id', '=', $item['idbrg'])->decrement('stokkg', $item['jumlahkg']);
+        		DB::table('items')->where('id', '=', $item['idbrg'])->decrement('stokbrg', $item['jumlahekor']);
 				DetilJual::create(array(
 			    'nojual' => $nojual,
-			    'kodebrg' => $item['kodebrg'],
+			    'idbrg' => $item['idbrg'],
 			    'hargasatuankg' => $item['hargasatuankg'],
 			    'jumlahkg' => $item['jumlahkg'],
 			    'jumlahekor' => $item['jumlahekor'],

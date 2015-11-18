@@ -20,7 +20,7 @@ class DetilJual extends Model implements AuthenticatableContract, CanResetPasswo
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['nojual', 'kodebrg', 'hargasatuankg', 'jumlahkg', 'jumlahekor', 'noofbox', 'keterangan'];
+	protected $fillable = ['nojual', 'idbrg', 'hargasatuankg', 'jumlahkg', 'jumlahekor', 'noofbox', 'keterangan'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

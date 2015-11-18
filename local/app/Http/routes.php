@@ -358,8 +358,8 @@ Route::get('createdb',function(){
 		$table->bigIncrements('id');
 		$table->string('nobeli');
 		$table->foreign('nobeli')->references('nobeli')->on('beli');
-		$table->string('kodebrg');
-		$table->foreign('kodebrg')->references('kodebrg')->on('items');
+		$table->bigInteger('idbrg')->unsigned();
+		$table->foreign('idbrg')->references('id')->on('items');
 		$table->float('hargasatuankg', 16);
 		$table->float('jumlahkg', 16);
 		$table->bigInteger('jumlahekor');
@@ -389,8 +389,8 @@ Route::get('createdb',function(){
 		$table->bigIncrements('id');
 		$table->string('nojual');
 		$table->foreign('nojual')->references('nojual')->on('jual');
-		$table->string('kodebrg');
-		$table->foreign('kodebrg')->references('kodebrg')->on('items');
+		$table->bigInteger('idbrg')->unsigned();
+		$table->foreign('idbrg')->references('id')->on('items');
 		$table->float('hargasatuankg', 16);
 		$table->float('jumlahkg', 16);
 		$table->bigInteger('jumlahekor');

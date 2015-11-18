@@ -20,7 +20,7 @@ class DetilBeli extends Model implements AuthenticatableContract, CanResetPasswo
 	 *
 	 * @var array
 	 */
-	protected $fillable = ['nobeli', 'kodebrg', 'hargasatuankg', 'jumlahkg', 'jumlahekor', 'keterangan'];
+	protected $fillable = ['nobeli', 'idbrg', 'hargasatuankg', 'jumlahkg', 'jumlahekor', 'keterangan'];
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

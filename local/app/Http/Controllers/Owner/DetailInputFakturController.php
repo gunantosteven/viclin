@@ -44,7 +44,7 @@ class DetailInputFakturController extends Controller {
 	{
 		//
 		//validasi
-		if($request->input('kodebrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
+		if($request->input('idbrg') == "" || $request->input('hargasatuankg') == "" || $request->input('jumlahkg') == "" 
 			|| $request->input('jumlahekor') == "")
 		{
 			return redirect('owner/purchase/inputfaktur?validasi=true');
@@ -55,7 +55,7 @@ class DetailInputFakturController extends Controller {
 		{
 			$purchaseitems = Session::get('purchaseitems');
 			foreach ($purchaseitems as $index => $item) {
-				if ($item['kodebrg'] == $request->input('kodebrg')) {
+				if ($item['idbrg'] == $request->input('idbrg')) {
 			    	return redirect('owner/purchase/inputfaktur?checkitem=true');
 			    }
 			}
@@ -66,7 +66,7 @@ class DetailInputFakturController extends Controller {
 		date_default_timezone_set('Asia/Bangkok');
 		$id = 'DB-' . date('Ymd-H.i.s');
 		Session::push('purchaseitems', [
-          'kodebrg' => $request->input('kodebrg'),
+          'idbrg' => $request->input('idbrg'),
           'hargasatuankg' => $request->input('hargasatuankg'),
           'jumlahkg' => $request->input('jumlahkg'),
           'jumlahekor' => $request->input('jumlahekor'),

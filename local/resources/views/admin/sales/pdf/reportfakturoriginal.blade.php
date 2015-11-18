@@ -108,7 +108,7 @@ table {
   </tr>
   @foreach ($detiljuals as $key => $item)
             <tr>
-            	 <td>{{ DB::table('items')->where('id', $item['kodebrg'])->first()->namabrg }}</td>
+            	 <td>{{ DB::table('items')->where('id', $item['idbrg'])->first()->namabrg }}</td>
             	 <td>{{ $item['noofbox'] }}</td>
             	 <td>{{ $item['jumlahekor'] }}</td>
             	 <td>{{ $item['jumlahkg'] }}</td>
