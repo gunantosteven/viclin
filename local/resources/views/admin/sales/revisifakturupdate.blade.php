@@ -160,7 +160,7 @@
 @endif
 @if (isset($checkstock) && $checkstock === true)
 <script>
-  window.alert('Stock Kg or Stock Pcs cannot be minus');
+  window.alert('Stock Kg or Stock Pcs is not enough');
 </script>
 @endif
 @if (isset($checkitem) && $checkitem === true)
