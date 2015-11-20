@@ -166,7 +166,7 @@
 @endif
 @if (isset($checkstock) && $checkstock === true)
 <script>
-  window.alert('Stock Kg or Stock Tail is not enough');
+  window.alert('Stock is not enough');
 </script>
 @endif
 @if (isset($checkitem) && $checkitem === true)
