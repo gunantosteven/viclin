@@ -198,7 +198,7 @@ class DetailRevisiFakturController extends Controller {
 				    'user' => Auth::user()->id,
 				    'tglrevisi' => $datetoday,
 				    'jualbeli' => $detiljualNow->nojual,
-				    'dataawal' => DB::table('items')->where('id', $detiljualNow->idbrg)->kodebrg,
+				    'dataawal' => DB::table('items')->where('id', $detiljualNow->idbrg)->first()->kodebrg,
 				    'dataakhir' => '',
 				    'keterangan' => 'Delete Item Code',
 				    'status' => 'UNREAD'
